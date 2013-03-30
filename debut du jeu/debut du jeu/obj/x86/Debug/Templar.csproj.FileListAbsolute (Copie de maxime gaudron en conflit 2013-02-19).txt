@@ -1,0 +1,461 @@
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritedbzfinal.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\pixel.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\sprite_cochon.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\2012-07-24 08.10.02.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritefinale1habit.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\th.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\templar-style-cross-logo.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\option.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Zomtemplate.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ARBRE.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SOL.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\STATUT.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_test.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu_2.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\game_o10.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\particule.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\boite_selection.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\glaces.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_1.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\EDITOR.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\selection.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\lowHP.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Mana.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Vie.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritedbzfinal.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\pixel.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\sprite_cochon.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\2012-07-24 08.10.02.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritefinale1habit.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\th.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\templar-style-cross-logo.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\option.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Zomtemplate.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ARBRE.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SOL.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\STATUT.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_test.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu_2.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\game_o10.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\particule.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\boite_selection.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\glaces.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_1.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\EDITOR.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Mana.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Vie.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\selection.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\lowHP.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.wma
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.csprojResolveAssemblyReference.cache
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre_xp.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritedbzfinal.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\pixel.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\sprite_cochon.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\2012-07-24 08.10.02.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritefinale1habit.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\th.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\templar-style-cross-logo.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\option.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Zomtemplate.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ARBRE.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SOL.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\STATUT.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_test.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu_2.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\game_o10.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\particule.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\boite_selection.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\glaces.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_1.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\EDITOR.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Mana.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Vie.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre_xp.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\selection.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\lowHP.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.wma
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritedbzfinal.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\pixel.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\sprite_cochon.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\2012-07-24 08.10.02.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritefinale1habit.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\th.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\templar-style-cross-logo.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\option.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Zomtemplate.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ARBRE.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SOL.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\STATUT.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_test.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu_2.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\game_o10.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\particule.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\boite_selection.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\glaces.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_1.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\EDITOR.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Mana.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Vie.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre_xp.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\selection.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\lowHP.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.wma
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre_xp.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile_map.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tileset.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile_map.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tileset.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile_map.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tileset.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritedbzfinal.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\pixel.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\sprite_cochon.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\2012-07-24 08.10.02.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritefinale1habit.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\th.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\templar-style-cross-logo.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\option.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Zomtemplate.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ARBRE.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SOL.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\STATUT.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_test.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu_2.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\game_o10.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\particule.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\boite_selection.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\glaces.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_1.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\EDITOR.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Mana.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Vie.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre_xp.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile_map.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tileset.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\selection.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\lowHP.xnb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.wma
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+C:\Users\William F\Desktop\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritedbzfinal.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\pixel.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\sprite_cochon.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\2012-07-24 08.10.02.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\spritefinale1habit.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\th.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\templar-style-cross-logo.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\option.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Zomtemplate.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ARBRE.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SOL.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\STATUT.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_test.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Boule_de_feu_2.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\game_o10.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\particule.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\boite_selection.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\glaces.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\map_1.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\EDITOR.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Mana.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Potion_de_Vie.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\barre_xp.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile_map.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tileset.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\selection.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\lowHP.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\charge of the rohirrim soundtrack.wma
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile_map.xnb
+E:\DropBOX\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\tileset.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.wma
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.wma
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\plus.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\moin.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Mémo.xnb
+C:\Users\Sagot_A\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.wma
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\plus.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\moin.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Mémo.xnb
+F:\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\plus.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\moin.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Mémo.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.wma
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\plus.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\moin.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Mémo.xnb
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\01 - niNzo` - Epic feel.wma
+C:\Users\William F\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\PSICODREAMICS_-_Into_the_Darkness.wma
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tile_map.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tileset.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
+C:\Users\kylox\Dropbox\project 2.0\debut du jeu\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Templar.csprojResolveAssemblyReference.cache
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tile_map.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tileset.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tile_map.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tileset.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tile_map.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tileset.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
+C:\Users\gaudro_m\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+F:\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
+C:\Users\kylox\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
