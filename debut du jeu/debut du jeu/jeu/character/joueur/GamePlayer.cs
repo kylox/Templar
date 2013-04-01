@@ -120,6 +120,13 @@ namespace Templar
                 position.Y = 0;
         }
 
+        public bool vision(int x ,int y)
+        {
+
+            return Math.Pow((x-position.X),2)+ Math.Pow((y-position.Y),2) < Math.Pow(50,2);
+
+        }
+
         public void attaque_mana(KeyboardState keyboard)
         {
             if (keyboard.IsKeyDown(Keys.Space) && Mana >= 0 && click_down == false)

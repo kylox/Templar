@@ -23,7 +23,7 @@ namespace Templar
         BasicEffect effect;
 
         #region get set
-        
+
 
 
         public GamePlayer player
@@ -63,7 +63,7 @@ namespace Templar
         }
 
         #endregion
-        
+
 
         #region field du jeu
 
@@ -103,7 +103,7 @@ namespace Templar
 
             position_joueur = new Vector2(100, 100);
 
-            localPlayer = new GamePlayer(62, 121, 4, 8, 2,10, position_joueur, 100, ressource.sprite_player, this);
+            localPlayer = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this);
             localPlayer.Niveau = 1;
 
             pop_time = 0;
@@ -136,7 +136,7 @@ namespace Templar
         public override void Update(GameTime gameTime)
         {
             map.update();
-            
+
             HUD.update();
 
             int pop_item = x.Next(0, 5);
@@ -145,8 +145,8 @@ namespace Templar
 
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-
-            #region ZOMBIE
+       /*
+          #region ZOMBIE
 
             int a = x.Next(0, 1200);
             int b = x.Next(0, 800);
@@ -191,7 +191,7 @@ namespace Templar
 
 
             #endregion ZOMBIE
-
+            */
             #region PLAYER
 
             localPlayer.update(mouse, keyboard, Walls, personnage); //fait l'update du player
@@ -345,13 +345,23 @@ namespace Templar
                 spriteBatch.DrawString(ressource.ecriture, "LEVEL UP !", new Vector2(localPlayer.position_player.X, localPlayer.position_player.Y - 10), Color.Yellow);
 
             }
-            spriteBatch.End();
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.Additive);
-            spriteBatch.Draw(ressource.pixel, fenetre, noir);
-            spriteBatch.Draw(ressource.pixel, new Vector2(100, 100), white);
-            spriteBatch.End();
+
             #endregion draw du jeu
-            spriteBatch.Begin();
+
+            /*
+            for (int i = 0; i < game.Window.ClientBounds.Width; i++)
+            {
+                for (int j = 0; j < game.Window.ClientBounds.Height; j++)
+                {
+                    if (!player.vision(i, j))
+                        spriteBatch.Draw(ressource.pixel, new Vector2(i, j), Color.Black);
+
+                }
+            }
+
+            */
+
+
             HUD.draw(spriteBatch);
 
             base.Draw(gameTime);

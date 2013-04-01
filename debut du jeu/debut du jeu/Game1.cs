@@ -91,9 +91,10 @@ namespace Templar
 
             activeScreen = menu;
             activeScreen.Show();
-            MediaPlayer.Play(ressource.menu);
+                MediaPlayer.Play(ressource.menu);
             MediaPlayer.IsRepeating = true;
-            SoundEffect.MasterVolume = 0.5f;
+            MediaPlayer.IsMuted = true;
+            SoundEffect.MasterVolume = 0f;
 
             ecran = false;
         }
