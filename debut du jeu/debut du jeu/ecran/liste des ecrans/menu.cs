@@ -35,7 +35,7 @@ namespace Templar
             menugeneral = new menugenerale(game, spriteBatch, spriteFont, menuItems);
             compenents.Add(menugeneral);
             this.image = image;
-            imageRectangle = new Rectangle(0, 0, Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
+            imageRectangle = new Rectangle(0, 0,Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
             MediaPlayer.IsMuted = false;
         }
 

@@ -24,13 +24,11 @@ namespace Templar
         int timer_endurance;
         int Mana;
         string active;
-
         public int tete
         {
             get;
             set;
         }
-
         public string Active
         {
             get { return active; }
@@ -41,50 +39,42 @@ namespace Templar
             get;
             set;
         }
-
         public int Niveau
         {
             get;
             set;
         }
-
         public int Sort_selec
         {
             get { return sort_selec; }
             set { sort_selec = value; }
         }
-
         public sort Active_Sort
         {
             get { return active_sort; }
             set { active_sort = value; }
         }
-
         public int pv_player
         {
             get { return Pv; }
             set { Pv = value; }
         }
-
         public int end_player
         {
             get { return Endurance; }
             set { Endurance = value; }
         }
-
         public int mana_player
         {
             get { return Mana; }
             set { Mana = value; }
         }
-
         public Vector2 position_player
         {
             get { return position; }
             set { position = value; }
 
         }
-
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, Vector2 position, int pv, Texture2D image, gamemain main)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, position, image, main)
         {
@@ -122,9 +112,7 @@ namespace Templar
 
         public bool vision(int x ,int y)
         {
-
             return Math.Pow((x-position.X),2)+ Math.Pow((y-position.Y),2) < Math.Pow(50,2);
-
         }
 
         public void attaque_mana(KeyboardState keyboard)
@@ -135,8 +123,6 @@ namespace Templar
                 click_down = true;
             }
         }
-
-
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages)
         {
             collision_bord();
@@ -167,7 +153,6 @@ namespace Templar
 
             attaque_mana(keyboard);
             #endregion
-
             #region endurance
 
 
@@ -202,7 +187,6 @@ namespace Templar
 
 
             #endregion
-
             #region mouvement
             if (keyboard.IsKeyDown(Keys.Z))
                 direction = Direction.Up;
@@ -220,7 +204,6 @@ namespace Templar
               keyboard.IsKeyUp(Keys.Q) && keyboard.IsKeyUp(Keys.D))
                 direction = Direction.None;
             #endregion
-
             #region attaque
             if (keyboard.IsKeyDown(Keys.A))
                 frameline = 5;
@@ -232,7 +215,6 @@ namespace Templar
             dessin_tete.update();
             base.update(mouse, keyboard, walls, personnages);
         }
-
         public override void Draw(SpriteBatch spritebatch)
         {
           

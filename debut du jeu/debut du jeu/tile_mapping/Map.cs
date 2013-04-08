@@ -20,8 +20,8 @@ namespace Templar
         KeyboardState lastKeyboardState;
         Vector2[,] tiles;
         Tile[,] tilelist;
-        # endregion
 
+        # endregion
         #region fields
         //retourne la matrice de tile
         public Tile[,] Tilelist
@@ -35,13 +35,11 @@ namespace Templar
             get { return tiles; }
         }
         #endregion
-
         public Map(string path)
         {
-            tiles = new Vector2[25, 19];
-            tilelist = new Tile[25, 19];
+            tiles = new Vector2[32, 32];
+            tilelist = new Tile[32, 32];
         }
-
         #region methods
         //initialise la map
         public void init(string path)
@@ -52,7 +50,7 @@ namespace Templar
             {
                 for (int i = 0; i < tiles.GetLength(0); i++)
                 {
-                    tiles[i, j] = new Vector2(1,0);
+                    tiles[i, j] = new Vector2(1, 0);
                     tilelist[i, j] = new Tile(i, j, 1);
                     sw.Write(cursor.vec_to_id(tiles[i, j]));
                 }
@@ -108,10 +106,7 @@ namespace Templar
                 Console.WriteLine("erreur : " + e.Message);
             }
         }
-       
-
         #endregion
-
         #region update & draw
         public void Update(GameTime gametime, string path, textbox text)
         {
@@ -126,19 +121,13 @@ namespace Templar
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch,int x)
         {
             for (int j = 0; j < tiles.GetLength(1); j++)
-            {
                 for (int i = 0; i < tiles.GetLength(0); i++)
-                {
-                    spriteBatch.Draw(ressource.tile, new Vector2(i * 32, j * 32), Tile.tile(tiles[i, j]),
-                       Color.White);
-                }
-            }
+                    spriteBatch.Draw(ressource.tile, new Vector2(i * x, j * x) , Tile.tile(tiles[i, j]), Color.White);
         }
         #endregion
-
         public bool ValidCoordinate(int x, int y)
         {
             if (x < 0 || y < 0 || x >= tilelist.GetLength(0) || y >= tilelist.GetLength(1))

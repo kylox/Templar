@@ -27,7 +27,6 @@ namespace Templar
         //l'id qu'il represente sur le tileset 
         static Vector2 ID = new Vector2(0, 0);
         #endregion
-
         #region field
         //retourne l'id
         static public Vector2 iD
@@ -48,9 +47,6 @@ namespace Templar
             set { position = value; }
         }
         #endregion
-
-       
-
         #region method
         //change l'id du tile en fonction des touches zqsd
         public static void change_ID(KeyboardState KeyboardState)
@@ -120,7 +116,6 @@ namespace Templar
                     deplacement.Y++;
         }
         #endregion
-
         #region upadte & draw
         public static void Update(GameTime gameTime, Vector2 mapSize)
         {
@@ -136,7 +131,7 @@ namespace Templar
         public static void Draw(SpriteBatch spriteBatch)
         {
             //dessine le curseur avec sa bonne texture
-            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), Tile.tile(ID), Color.White);
+            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, 32*2/3, 32*2/3), Tile.tile(ID), Color.White);
 
             spriteBatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y, 32, 2), Color.Red);
             spriteBatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y, 2, 32), Color.Red);

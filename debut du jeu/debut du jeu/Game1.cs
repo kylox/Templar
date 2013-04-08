@@ -42,7 +42,7 @@ namespace Templar
             Content.RootDirectory = "Content";
             graphics.IsFullScreen = false;
             this.IsMouseVisible = true;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferHeight = 640;
             graphics.PreferredBackBufferWidth = 800;
 
             click_down = false;
@@ -367,7 +367,7 @@ namespace Templar
                 }
 
                 if (checkKey(Keys.Enter))
-                {
+                {/*
                     if (option.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
@@ -395,7 +395,7 @@ namespace Templar
                             ecran = false;
                         }
                     }
-
+                */
                     if (option.SelectedIndex == 2)
                     {
                         ressource.selection.Play();

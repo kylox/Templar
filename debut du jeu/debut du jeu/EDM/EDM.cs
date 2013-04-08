@@ -37,7 +37,6 @@ namespace Templar
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));
         }
-       
         #region update & draw
         public override void Update(GameTime gameTime)
         {
@@ -46,12 +45,15 @@ namespace Templar
 
             if (text.Is_shown == false)
                 cursor.Update(gameTime, mapSize);
-            
+
+            //update de la texte box
             text.update();
-          
-                if (map == null)
-                    text.Is_shown = true;
-                      
+
+            //initialise la textbox
+            if (map == null)
+                text.Is_shown = true;
+
+            //charge une map
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
             {
                 map = new Map(text.Saisie + ".txt");
@@ -59,11 +61,11 @@ namespace Templar
                 text.Is_shown = false;
             }
 
+            //refait apparaitre la texte boxe
             if (text.Is_shown == false && keyboardState.IsKeyDown(Keys.A))
-            {
                 text.Is_shown = true;
-            }
 
+            //creer une nouvelle map
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.Enter))
             {
                 Stream sr = new FileStream(text.Saisie + ".txt", FileMode.Create, FileAccess.ReadWrite);
@@ -73,24 +75,28 @@ namespace Templar
                 text.Is_shown = false;
             }
 
+            //fait l'update de la map
             if (map != null)
                 map.Update(gameTime, text.Saisie + ".txt", text);
-           
-            
+
             mouse = Mouse.GetState();
         }
 
         public override void Draw(GameTime gameTime)
         {
             if (map != null)
-                map.Draw(spriteBatch);
+                map.Draw(spriteBatch,32*2/3);
 
-            
-
-            if (mouse.X <= 10)
+            spriteBatch.Draw(ressource.tile, new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height), Color.White);
+            for (int i = 0; i < fenetre.Width; i += 32)
             {
-                spriteBatch.Draw(ressource.pixel, new Rectangle(0, 0, 10, fenetre.Height), Color.Red);
+
+                spriteBatch.Draw(ressource.tile, new Rectangle(i, i, 1, fenetre.Height), Color.FromNonPremultiplied(200, 200, 200, 50));
+
+
+                spriteBatch.Draw(ressource.tile, new Rectangle(i, i, fenetre.Width, 1), Color.FromNonPremultiplied(200, 200, 200, 50));
             }
+
             cursor.Draw(spriteBatch);
             text.Draw(spriteBatch);
         }
