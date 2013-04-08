@@ -85,19 +85,31 @@ namespace Templar
         public override void Draw(GameTime gameTime)
         {
             if (map != null)
-                map.Draw(spriteBatch,32*2/3);
+                map.Draw(spriteBatch, 16);
 
             spriteBatch.Draw(ressource.tile, new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height), Color.White);
-            for (int i = 0; i < fenetre.Width; i += 32)
+            for (int i = 0; i <= 32 * 16; i += 16)
             {
-
-                spriteBatch.Draw(ressource.tile, new Rectangle(i, i, 1, fenetre.Height), Color.FromNonPremultiplied(200, 200, 200, 50));
-
-
-                spriteBatch.Draw(ressource.tile, new Rectangle(i, i, fenetre.Width, 1), Color.FromNonPremultiplied(200, 200, 200, 50));
+                spriteBatch.Draw(ressource.tile, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
+            }
+            for (int i = 0; i <= 32 * 16; i += 16)
+            {
+                spriteBatch.Draw(ressource.tile, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
             }
 
-            cursor.Draw(spriteBatch);
+            for (int i = 0; i < 32 * 16; i += 16)
+                for (int j = 0; j < 32 * 16; j += 16)
+                {
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))
+                    {
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 16, 2), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 2, 16), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
+                    }
+                }
+
+            //cursor.Draw(spriteBatch);
             text.Draw(spriteBatch);
         }
         #endregion

@@ -128,6 +128,7 @@ namespace Templar
         {
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
+            Data.Update();
 
             # region gameover
             if (activeScreen == gameover)

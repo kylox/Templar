@@ -116,6 +116,7 @@
     <Compile Include="ecran\liste des ecrans\menudepause.cs" />
     <Compile Include="EDM\Cursor.cs" />
     <Compile Include="EDM\EDM.cs" />
+    <Compile Include="misc\Data.cs" />
     <Compile Include="Pathfinding\Node.cs" />
     <Compile Include="Pathfinding\Nodelist.cs" />
     <Compile Include="Pathfinding\Pathfinding.cs" />
