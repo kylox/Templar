@@ -82,6 +82,7 @@ namespace Templar
 
         }
 
+
         public static char vec_to_id(Vector2 vec)
         {
             int symb = (int)vec.X * 10 + (int)vec.Y;
@@ -100,6 +101,7 @@ namespace Templar
 
             return vec;
         }
+
 
         public static void mouve(KeyboardState keyboardState, Vector2 mapSize)
         {
@@ -131,9 +133,7 @@ namespace Templar
         public static void Draw(SpriteBatch spriteBatch)
         {
             //dessine le curseur avec sa bonne texture
-            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, 32 * 2 / 3, 32 * 2 / 3), Tile.tile(ID), Color.White);
-
-          
+         
         }
 
         #endregion

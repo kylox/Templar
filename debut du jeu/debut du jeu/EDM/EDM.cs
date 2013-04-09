@@ -22,6 +22,9 @@ namespace Templar
         MouseState mouse;
         Vector2 mapSize = new Vector2(800, 1200);
         Map map;
+        Tile current_tile;
+
+        Vector2 tile;
         #endregion
 
         public Rectangle Fenetre
@@ -36,6 +39,7 @@ namespace Templar
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));
+            current_tile = new Tile(0, 0,0);
         }
         #region update & draw
         public override void Update(GameTime gameTime)
@@ -52,7 +56,9 @@ namespace Templar
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             for (int i = 0; i <= ressource.tile.Height; i += 32)
                 for (int j = fenetre.Width - ressource.tile.Width; j <= fenetre.Width; j += 32)
-                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 32, 32))) ;
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 32, 32)))
+                        tile = new Vector2(i / 32, (ressource.tile.Width - j) / 32);
+
 
 
             //initialise la textbox
@@ -111,7 +117,22 @@ namespace Templar
                         spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 2, 16), Color.Red);
                         spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Red);
                         spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
+
+                        if (Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
+                            spriteBatch.Draw(ressource.tile, new Rectangle(j, i, 16, 16), new Rectangle((int)tile.X, (int)tile.Y, 16, 16), Color.White);
                     }
+
+            for (int i = 0; i <= ressource.tile.Height; i += 32)
+                for (int j = fenetre.Width - ressource.tile.Width; j <= fenetre.Width; j += 32)
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 32, 32))
+                        && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
+                    {
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X, (int)tile.Y, 2, 32), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X, (int)tile.Y, 32, 2), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X+32, (int)tile.Y, 2, 32), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X, (int)tile.Y+32,32, 2), Color.Red);
+                    }
+
 
             //cursor.Draw(spriteBatch);
             text.Draw(spriteBatch);

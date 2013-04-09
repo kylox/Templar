@@ -43,7 +43,7 @@ namespace Templar
         }
 
         //constructeur de la classe
-        public Tile(int x, int y, int type)
+        public Tile(int x, int y,int type)
         {
 
             this.x = x;
@@ -59,11 +59,13 @@ namespace Templar
             }
 
         }
+
         //retourne le tile en fonction de sa position x,y dans la fiche de tile et de 32 par 32
         static public Rectangle tile(Vector2 vect)
         {
             return new Rectangle(32 * (int)vect.X,32 * (int)vect.Y, 32, 32);
         }
+
 
     }
 }
