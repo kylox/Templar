@@ -49,6 +49,12 @@ namespace Templar
             //update de la texte box
             text.update();
 
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            for (int i = 0; i <= ressource.tile.Height; i += 32)
+                for (int j = fenetre.Width - ressource.tile.Width; j <= fenetre.Width; j += 32)
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 32, 32))) ;
+
+
             //initialise la textbox
             if (map == null)
                 text.Is_shown = true;
@@ -88,18 +94,17 @@ namespace Templar
                 map.Draw(spriteBatch, 16);
 
             spriteBatch.Draw(ressource.tile, new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height), Color.White);
+
+            //dessine les ligne de l'editeur de map
             for (int i = 0; i <= 32 * 16; i += 16)
             {
-                spriteBatch.Draw(ressource.tile, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
-            }
-            for (int i = 0; i <= 32 * 16; i += 16)
-            {
-                spriteBatch.Draw(ressource.tile, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
+                spriteBatch.Draw(ressource.pixel, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
+                spriteBatch.Draw(ressource.pixel, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
             }
 
+            //dessine le rectangle de selection
             for (int i = 0; i < 32 * 16; i += 16)
                 for (int j = 0; j < 32 * 16; j += 16)
-                {
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))
                     {
                         spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 16, 2), Color.Red);
@@ -107,7 +112,6 @@ namespace Templar
                         spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Red);
                         spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
                     }
-                }
 
             //cursor.Draw(spriteBatch);
             text.Draw(spriteBatch);
