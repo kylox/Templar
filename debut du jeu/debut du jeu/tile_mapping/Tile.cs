@@ -62,7 +62,7 @@ namespace Templar
         //retourne le tile en fonction de sa position x,y dans la fiche de tile et de 32 par 32
         static public Rectangle tile(Vector2 vect)
         {
-            return new Rectangle(32 * (int)vect.X, 32 * (int)vect.Y, 32, 32);
+            return new Rectangle(32 * (int)vect.X,32 * (int)vect.Y, 32, 32);
         }
 
     }

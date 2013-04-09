@@ -121,11 +121,11 @@ namespace Templar
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch,int x)
+        public void Draw(SpriteBatch spriteBatch, int x)
         {
             for (int j = 0; j < tiles.GetLength(1); j++)
                 for (int i = 0; i < tiles.GetLength(0); i++)
-                    spriteBatch.Draw(ressource.tile, new Vector2(i * x, j * x) , Tile.tile(tiles[i, j]), Color.White);
+                    spriteBatch.Draw(ressource.tile, new Rectangle(i * x, j * x, 16, 16), Tile.tile(tiles[i, j]), Color.White);
         }
         #endregion
         public bool ValidCoordinate(int x, int y)
