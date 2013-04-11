@@ -11,77 +11,21 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-    //La dernière classe à préparer est celle du curseur. Il s’agit d’un simple sprite qui devra se
-    //déplacer selon les entrées clavier de l’utilisateur.
     public static class cursor
     {
-        #region variable
-        static KeyboardState keyboardState;
-        static KeyboardState lastKeyboardState;
-        //texture du curseur
         static Texture2D Texture = ressource.tile;
-        //sa position
-        static Vector2 position = new Vector2(0, 0);
-        //son deplacement ?
-        static Vector2 deplacement = new Vector2(0, 0);
-        //l'id qu'il represente sur le tileset 
         static Vector2 ID = new Vector2(0, 0);
-        #endregion
-        #region field
-        //retourne l'id
         static public Vector2 iD
         {
             get { return ID; }
             set { ID = value; }
         }
-        //retourne la texture 
         public static Texture2D _texture
         {
             get { return Texture; }
             set { Texture = value; }
         }
-
-        public static Vector2 Position
-        {
-            get { return position; }
-            set { position = value; }
-        }
-        #endregion
-        #region method
-        //change l'id du tile en fonction des touches zqsd
-        public static void change_ID(KeyboardState KeyboardState)
-        {
-
-            if (keyboardState.IsKeyDown(Keys.D) && lastKeyboardState.IsKeyUp(Keys.D))
-            {
-                ID.X++;
-                if (ID.X > 2)
-                    ID.X = 0;
-            }
-
-            if (keyboardState.IsKeyDown(Keys.Q) && lastKeyboardState.IsKeyUp(Keys.Q))
-            {
-                ID.X--;
-                if (ID.X < 0)
-                    ID.X = 2;
-            }
-
-            if (keyboardState.IsKeyDown(Keys.S) && lastKeyboardState.IsKeyUp(Keys.S))
-            {
-                ID.Y++;
-                if (ID.Y > 4)
-                    ID.Y = 0;
-            }
-
-            if (keyboardState.IsKeyDown(Keys.Z) && lastKeyboardState.IsKeyUp(Keys.Z))
-            {
-                ID.Y--;
-                if (ID.Y < 0)
-                    ID.Y = 4;
-            }
-
-        }
-
+        static bool selected;
 
         public static char vec_to_id(Vector2 vec)
         {
@@ -90,52 +34,52 @@ namespace Templar
 
             return C;
         }
-
+        
         public static Vector2 id_to_vec(char C)
         {
             Vector2 vec;
             int nb = Convert.ToInt32(C) - 33;
-
+            selected = false;
             vec.X = nb / 10;
             vec.Y = nb % 10;
 
             return vec;
         }
 
-
-        public static void mouve(KeyboardState keyboardState, Vector2 mapSize)
+        public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre)
         {
-            if (keyboardState.IsKeyDown(Keys.J) && lastKeyboardState.IsKeyUp(Keys.J) && position.X > 0)
-                deplacement.X--;
 
-            if (keyboardState.IsKeyDown(Keys.L) && lastKeyboardState.IsKeyUp(Keys.L) && position.X < mapSize.X - 1)
-                deplacement.X++;
-
-            if (keyboardState.IsKeyDown(Keys.I) && lastKeyboardState.IsKeyUp(Keys.I) && position.Y > 0)
-                deplacement.Y--;
-
-            if (keyboardState.IsKeyDown(Keys.K) && lastKeyboardState.IsKeyUp(Keys.K) && position.Y < mapSize.Y - 1)
-                deplacement.Y++;
-        }
-        #endregion
-
-        #region upadte & draw
-        public static void Update(GameTime gameTime, Vector2 mapSize )
-        {
-            lastKeyboardState = keyboardState;
-            keyboardState = Keyboard.GetState();
-            position = new Vector2((int)deplacement.X * 32, (int)deplacement.Y * 32);
-            mouve(keyboardState, mapSize);
-            change_ID(keyboardState);
-      
+            if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(tileset) &&
+                Data.mouseState.LeftButton == ButtonState.Pressed &&
+                Data.prevMouseState.LeftButton == ButtonState.Released)
+            {
+                ID.X = Math.Abs(((fenetre.Width - Data.mouseState.X) / 32) - 2);
+                ID.Y = Data.mouseState.Y / 32;
+                selected = true;
+            }
         }
 
-        public static void Draw(SpriteBatch spriteBatch)
+        public static void Draw(SpriteBatch spriteBatch, Rectangle fenetre)
         {
-            //dessine le curseur avec sa bonne texture
-         
+            if (selected)
+            {
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32, (int)ID.Y * 32, 32, 2), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32, (int)ID.Y * 32, 2, 32), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32, (int)ID.Y * 32 + 32,34, 2), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32 + 32, (int)ID.Y * 32, 2, 34), Color.Red);
+            }
+
+            for (int i = 0; i < 32 * 16; i += 16)
+                for (int j = 0; j < 32 * 16; j += 16)
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))
+                    {
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 16, 2), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 2, 16), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Red);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
+
+                    }
         }
 
-        #endregion
     }
 }

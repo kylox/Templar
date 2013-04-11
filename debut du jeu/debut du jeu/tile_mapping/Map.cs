@@ -83,9 +83,7 @@ namespace Templar
                 int j = 0;
                 //instanci un nouveau lecteur
                 StreamReader sr = new StreamReader(path);
-
                 string ligne;
-
                 //lis les lignes et stocke chaque caractere de la ligne dans la matrice 
                 while ((ligne = sr.ReadLine()) != null)
                 {
@@ -94,15 +92,12 @@ namespace Templar
                         tiles[i, j] = (cursor.id_to_vec(ligne[i]));
                         tilelist[i, j] = new Tile(i, j, 1);
                     }
-
                     j += 1;
                 }
                 sr.Close();
             }
-
             catch (IOException e)
             {
-
                 Console.WriteLine("erreur : " + e.Message);
             }
         }
@@ -113,10 +108,11 @@ namespace Templar
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
 
-
-            if (keyboardState.IsKeyDown(Keys.Enter) && text.Is_shown == false)
+            if (Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released &&
+                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 32, 16 * 32))
+                && text.Is_shown == false)
             {
-                tiles[(int)cursor.Position.X / 32, (int)cursor.Position.Y / 32] = cursor.iD;
+                tiles[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
                 ecrire(path);
             }
         }

@@ -19,12 +19,9 @@ namespace Templar
         Rectangle fenetre;
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
-        MouseState mouse;
-        Vector2 mapSize = new Vector2(800, 1200);
         Map map;
         Tile current_tile;
-
-        Vector2 tile;
+        Rectangle tileset;
         #endregion
 
         public Rectangle Fenetre
@@ -39,7 +36,8 @@ namespace Templar
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));
-            current_tile = new Tile(0, 0,0);
+            current_tile = new Tile(0, 0, 0);
+            tileset = new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height);
         }
         #region update & draw
         public override void Update(GameTime gameTime)
@@ -47,19 +45,8 @@ namespace Templar
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
 
-            if (text.Is_shown == false)
-                cursor.Update(gameTime, mapSize);
-
-            //update de la texte box
+            cursor.Update(gameTime, tileset, fenetre);
             text.update();
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            for (int i = 0; i <= ressource.tile.Height; i += 32)
-                for (int j = fenetre.Width - ressource.tile.Width; j <= fenetre.Width; j += 32)
-                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 32, 32)))
-                        tile = new Vector2(i / 32, (ressource.tile.Width - j) / 32);
-
-
 
             //initialise la textbox
             if (map == null)
@@ -87,11 +74,8 @@ namespace Templar
                 text.Is_shown = false;
             }
 
-            //fait l'update de la map
             if (map != null)
                 map.Update(gameTime, text.Saisie + ".txt", text);
-
-            mouse = Mouse.GetState();
         }
 
         public override void Draw(GameTime gameTime)
@@ -108,33 +92,7 @@ namespace Templar
                 spriteBatch.Draw(ressource.pixel, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
             }
 
-            //dessine le rectangle de selection
-            for (int i = 0; i < 32 * 16; i += 16)
-                for (int j = 0; j < 32 * 16; j += 16)
-                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))
-                    {
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 16, 2), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 2, 16), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
-
-                        if (Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
-                            spriteBatch.Draw(ressource.tile, new Rectangle(j, i, 16, 16), new Rectangle((int)tile.X, (int)tile.Y, 16, 16), Color.White);
-                    }
-
-            for (int i = 0; i <= ressource.tile.Height; i += 32)
-                for (int j = fenetre.Width - ressource.tile.Width; j <= fenetre.Width; j += 32)
-                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 32, 32))
-                        && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
-                    {
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X, (int)tile.Y, 2, 32), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X, (int)tile.Y, 32, 2), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X+32, (int)tile.Y, 2, 32), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)tile.X, (int)tile.Y+32,32, 2), Color.Red);
-                    }
-
-
-            //cursor.Draw(spriteBatch);
+            cursor.Draw(spriteBatch,fenetre);
             text.Draw(spriteBatch);
         }
         #endregion
