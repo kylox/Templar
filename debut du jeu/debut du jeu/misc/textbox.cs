@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Templar
 {
-    class textbox
+    public class textbox
     {
         Rectangle Fenetre;
         string saisie = "";

@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-    class Map
+   public class Map
     {
         #region variable
         KeyboardState keyboardState;
@@ -40,8 +40,7 @@ namespace Templar
             tiles = new Vector2[32, 32];
             tilelist = new Tile[32, 32];
         }
-        #region methods
-        //initialise la map
+
         public void init(string path)
         {
             StreamWriter sw = new StreamWriter(path);
@@ -58,12 +57,9 @@ namespace Templar
             }
             sw.Close();
         }
-
-        //ecrit dans le fichier .txt les nouveau tile
         public void ecrire(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-
             for (int j = 0; j < tiles.GetLength(1); j++)
             {
                 for (int i = 0; i < tiles.GetLength(0); i++)
@@ -72,19 +68,15 @@ namespace Templar
                 }
                 sw.WriteLine();
             }
-
             sw.Close();
         }
-
         public void load(string path)
         {
             try
             {
                 int j = 0;
-                //instanci un nouveau lecteur
                 StreamReader sr = new StreamReader(path);
                 string ligne;
-                //lis les lignes et stocke chaque caractere de la ligne dans la matrice 
                 while ((ligne = sr.ReadLine()) != null)
                 {
                     for (int i = 0; i < tiles.GetLength(0); i++)
@@ -101,8 +93,6 @@ namespace Templar
                 Console.WriteLine("erreur : " + e.Message);
             }
         }
-        #endregion
-        #region update & draw
         public void Update(GameTime gametime, string path, textbox text)
         {
             lastKeyboardState = keyboardState;
@@ -116,14 +106,12 @@ namespace Templar
                 ecrire(path);
             }
         }
-
         public void Draw(SpriteBatch spriteBatch, int x)
         {
             for (int j = 0; j < tiles.GetLength(1); j++)
                 for (int i = 0; i < tiles.GetLength(0); i++)
                     spriteBatch.Draw(ressource.tile, new Rectangle(i * x, j * x, 16, 16), Tile.tile(tiles[i, j]), Color.White);
         }
-        #endregion
         public bool ValidCoordinate(int x, int y)
         {
             if (x < 0 || y < 0 || x >= tilelist.GetLength(0) || y >= tilelist.GetLength(1))

@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUTTON.cs" />
+    <Compile Include="Donjon.cs" />
     <Compile Include="jeu\character\creat_perso.cs" />
     <Compile Include="jeu\character\dessin_perso.cs" />
     <Compile Include="ecran\liste des ecrans\actionscreen.cs" />
@@ -148,7 +149,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="misc\ressource.cs" />
     <Compile Include="misc\wall.cs" />
-    <Compile Include="jeu\switch_map.cs" />
+    <Compile Include="tile_mapping\switch_map.cs" />
     <Compile Include="tile_mapping\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
