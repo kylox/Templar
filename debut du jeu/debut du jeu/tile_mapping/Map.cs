@@ -35,12 +35,11 @@ namespace Templar
             get { return tiles; }
         }
         #endregion
-        public Map(string path)
+        public Map()
         {
             tiles = new Vector2[32, 32];
             tilelist = new Tile[32, 32];
         }
-
         public void init(string path)
         {
             StreamWriter sw = new StreamWriter(path);

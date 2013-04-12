@@ -10,6 +10,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
 
+
+
 namespace Templar
 {
     public class EDM : GameScreen
@@ -24,6 +26,7 @@ namespace Templar
         Rectangle tileset;
         Map[,] listes_map;
         Donjon Donjon;
+        int nb;
         #endregion
 
         public Rectangle Fenetre
@@ -41,6 +44,7 @@ namespace Templar
             current_tile = new Tile(0, 0, 0);
             tileset = new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height);
             listes_map = new Map[5, 5];
+            nb = 0;
         }
         #region update & draw
         public override void Update(GameTime gameTime)
@@ -61,7 +65,7 @@ namespace Templar
             //charge une map
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
             {
-                map = new Map(text.Saisie + ".txt");
+                map = new Map();
                 map.load(text.Saisie + ".txt");
                 text.Is_shown = false;
             }
@@ -73,24 +77,25 @@ namespace Templar
             //creer une nouvelle map
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.Enter))
                 creation_donjon(text.Saisie);
-            
+
 
             if (map != null)
-                map.Update(gameTime, text.Saisie + ".txt", text);
+                map.Update(gameTime, @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", text);
         }
         public void creation_donjon(string path)
         {
+            System.IO.Directory.CreateDirectory(@text.Saisie + @"\Map" + @nb);
             Donjon = new Donjon(path);
             Donjon.Ajout_map(0, 0, 0, creation_map(0, 0, 0));
             text.Is_shown = false;
         }
         public Map creation_map(int nb, int i, int j)
         {
-            Stream sr = new FileStream(text.Saisie + ".txt", FileMode.Create, FileAccess.ReadWrite);
+            Stream sr = new FileStream(@text.Saisie + @"\Map" + @nb + @"\Map" + @nb+ @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr.Close();
-            map = new Map(text.Saisie + ".txt");
+            map = new Map();
             listes_map[i, j] = map;
-            map.init("MAP" + nb + ".txt");
+            map.init(@text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt");
             //text.Is_shown = false;
             return map;
         }
@@ -112,14 +117,14 @@ namespace Templar
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    if (new Rectangle( Data.mouseState.X,Data.mouseState.Y,1,1).Intersects(new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8)))
-                        spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(204, 0, 0, 50));   
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8)))
+                        spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(204, 0, 0, 50));
                     else
-                    spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));   
+                        spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
                 }
             }
-
-            cursor.Draw(spriteBatch,fenetre);
+         
+            cursor.Draw(spriteBatch, fenetre);
             text.Draw(spriteBatch);
         }
         #endregion

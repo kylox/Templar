@@ -27,7 +27,7 @@ namespace Templar
         {
             this.player = player;
             Pv = 100;
-            this.map = new Map("map.txt");
+            this.map = new Map();
         }
 
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages)
