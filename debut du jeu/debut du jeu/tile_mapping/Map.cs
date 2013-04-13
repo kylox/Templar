@@ -20,15 +20,20 @@ namespace Templar
         KeyboardState lastKeyboardState;
         Vector2[,] tiles;
         Tile[,] tilelist;
-
+        int[,] colision;
+        bool iscreate;//variable utile pour l'edm
         # endregion
         #region fields
+        public bool isCreate
+        {
+            get { return iscreate; }
+            set { iscreate = value; }
+        }
         //retourne la matrice de tile
         public Tile[,] Tilelist
         {
             get { return tilelist; }
         }
-
         //matrice de stockage des tile
         public Vector2[,] Tiles
         {
@@ -39,11 +44,11 @@ namespace Templar
         {
             tiles = new Vector2[32, 32];
             tilelist = new Tile[32, 32];
+            iscreate = false;
         }
         public void init(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-
             for (int j = 0; j < tiles.GetLength(1); j++)
             {
                 for (int i = 0; i < tiles.GetLength(0); i++)
@@ -109,7 +114,7 @@ namespace Templar
         {
             for (int j = 0; j < tiles.GetLength(1); j++)
                 for (int i = 0; i < tiles.GetLength(0); i++)
-                    spriteBatch.Draw(ressource.tile, new Rectangle(i * x, j * x, 16, 16), Tile.tile(tiles[i, j]), Color.White);
+                    spriteBatch.Draw(ressource.tile, new Rectangle(i * x, j * x, x, x), Tile.tile(tiles[i, j]), Color.White);
         }
         public bool ValidCoordinate(int x, int y)
         {

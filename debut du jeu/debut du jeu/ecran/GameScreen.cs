@@ -25,20 +25,16 @@ namespace Templar
         {
             get { return components; }
         }
-
         public GameScreen(Game game, SpriteBatch spriteBatch)
             : base(game)
         {
             this.game = game;
-            this.spriteBatch = spriteBatch;
-            
+            this.spriteBatch = spriteBatch; 
         }
-
         public override void Initialize()
         {
             base.Initialize();
         }
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -46,8 +42,6 @@ namespace Templar
                 if (component.Enabled == true)
                     component.Update(gameTime);
         }
-
-        // affcihe l'ecran
         public virtual void Show()
         {
             this.Visible = true;
@@ -61,8 +55,6 @@ namespace Templar
                     ((DrawableGameComponent)componenet).Visible = true; // affiche les composant 
             }
         }
-
-        // cache l'ecran
         public virtual void hide()
         {
             this.Visible = false;
@@ -78,7 +70,6 @@ namespace Templar
 
 
         }
-
         public override void Draw(GameTime gameTime) // dessine les composant de l'ecran (la liste Item)
         {
             base.Draw(gameTime);

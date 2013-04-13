@@ -21,6 +21,20 @@ namespace Templar
         public switch_map map;
         HUD HUD;
         BasicEffect effect;
+        GamePlayer localPlayer;
+        Color noir;
+        Color white;
+        List<wall> Walls;
+        List<Personnage> personnage;
+        List<NPC> list_zombi;
+        List<sort> liste_sort;
+        List<potion> liste_objet_map;
+        KeyboardState keyboard;
+        MouseState mouse;
+        Vector2 position_joueur, position_npc;
+        Random x;
+        bool ClickDown, pressdown;
+        int pop_time, score, count_dead_zombi, timer_level_up;
 
         #region get set
 
@@ -63,32 +77,10 @@ namespace Templar
         }
 
         #endregion
-
-
         #region field du jeu
 
-        GamePlayer localPlayer;
-        Color noir;
-        Color white;
-
-        List<wall> Walls;
-        List<Personnage> personnage;
-        List<NPC> list_zombi;
-        List<sort> liste_sort;
-        List<potion> liste_objet_map;
-        KeyboardState keyboard;
-        MouseState mouse;
-        Vector2 position_joueur, position_npc;
-
-        Random x;
-
-        bool ClickDown, pressdown;
-
-        int pop_time, score, count_dead_zombi, timer_level_up;
         #endregion
-
-
-        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen)
+        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon)
             : base(game, spriteBatch)
         {
             #region init du jeu
@@ -113,24 +105,20 @@ namespace Templar
             keyboard = new KeyboardState();
 
             #endregion init du jeu
-
             # region media_player;
             MediaPlayer.Play(ressource.main_theme);
             MediaPlayer.Volume = 0.56f;
             MediaPlayer.IsRepeating = true;
             # endregion
-
             noir.A = 200;
             noir.B = noir.G = noir.R = 0;
-
             white = Color.White;
             white.A = 120;
-
-
             effect = new BasicEffect(game.GraphicsDevice);
-            map = new switch_map(localPlayer, this);
+            map = new switch_map(localPlayer, this, donjon);
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             HUD = new HUD(localPlayer, this);
+            map.Active_Map = map.Listes_map[0, 0];
         }
 
         public override void Update(GameTime gameTime)
@@ -145,53 +133,53 @@ namespace Templar
 
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-       /*
-          #region ZOMBIE
+            /*
+               #region ZOMBIE
 
-            int a = x.Next(0, 1200);
-            int b = x.Next(0, 800);
-            position_npc = new Vector2(20, 20);
-            pop_time++;
+                 int a = x.Next(0, 1200);
+                 int b = x.Next(0, 800);
+                 position_npc = new Vector2(20, 20);
+                 pop_time++;
 
-            if (pop_time == 120)
-            {
-                list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
-                pop_time = 0;
-            }
+                 if (pop_time == 120)
+                 {
+                     list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
+                     pop_time = 0;
+                 }
 
-            foreach (NPC zombie in list_zombi)
-                zombie.update(mouse, keyboard, Walls, personnage);
+                 foreach (NPC zombie in list_zombi)
+                     zombie.update(mouse, keyboard, Walls, personnage);
 
-            foreach (NPC zombie in list_zombi)
-            {
-                if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
-                    localPlayer.pv_player--;
-            }
+                 foreach (NPC zombie in list_zombi)
+                 {
+                     if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
+                         localPlayer.pv_player--;
+                 }
 
-            for (int i = 0; i < list_zombi.Count; i++)
-            {
-                if (list_zombi[i].PV <= 0)
-                {
-                    if (pop_item == 0)
-                    {
-                        liste_objet_map.Add(new potion(ressource.potion_vie, localPlayer, this, list_zombi[i], "VIE"));
-                    }
+                 for (int i = 0; i < list_zombi.Count; i++)
+                 {
+                     if (list_zombi[i].PV <= 0)
+                     {
+                         if (pop_item == 0)
+                         {
+                             liste_objet_map.Add(new potion(ressource.potion_vie, localPlayer, this, list_zombi[i], "VIE"));
+                         }
 
-                    if (pop_item == 1)
-                    {
-                        liste_objet_map.Add(new potion(ressource.potion_mana, localPlayer, this, list_zombi[i], "MANA"));
-                    }
+                         if (pop_item == 1)
+                         {
+                             liste_objet_map.Add(new potion(ressource.potion_mana, localPlayer, this, list_zombi[i], "MANA"));
+                         }
 
-                    list_zombi.RemoveAt(i);
-                    score += 5;
+                         list_zombi.RemoveAt(i);
+                         score += 5;
 
-                    localPlayer.XP += 20 / localPlayer.Niveau;
-                }
-            }
+                         localPlayer.XP += 20 / localPlayer.Niveau;
+                     }
+                 }
 
 
-            #endregion ZOMBIE
-            */
+                 #endregion ZOMBIE
+                 */
             #region PLAYER
 
             localPlayer.update(mouse, keyboard, Walls, personnage); //fait l'update du player
@@ -320,7 +308,7 @@ namespace Templar
 
         public override void Draw(GameTime gameTime)
         {
-            spriteBatch.Draw(map.Active_Map, fenetre, Color.White);
+            map.Active_Map.Draw(spriteBatch, 32);
             timer_level_up++;
             #region draw du jeu
 
@@ -347,23 +335,15 @@ namespace Templar
             }
 
             #endregion draw du jeu
-
-            /*
-            for (int i = 0; i < game.Window.ClientBounds.Width; i++)
-            {
-                for (int j = 0; j < game.Window.ClientBounds.Height; j++)
-                {
-                    if (!player.vision(i, j))
-                        spriteBatch.Draw(ressource.pixel, new Vector2(i, j), Color.Black);
-
-                }
-            }
-
-            */
-
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 5; j++)
+                    if (map.Listes_map[i, j] != null)
+                        spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(51, 204, 0, 50));
+                    else
+                        spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
 
             HUD.draw(spriteBatch);
-
+            spriteBatch.DrawString(ressource.ecriture, "coordonner map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
             base.Draw(gameTime);
         }
     }
