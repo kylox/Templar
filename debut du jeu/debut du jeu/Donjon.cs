@@ -19,24 +19,26 @@ namespace Templar
             int x = 0;
             int y = 0;
             _maps = new Map[5, 5];
-            foreach (string dr in System.IO.Directory.GetDirectories(path))
-            {
-                for (int i = 0; i <= Convert.ToInt32(Convert.ToString(dr[5])); i++)
+
+            if (System.IO.Directory.GetDirectories(path) != null)
+                foreach (string dr in System.IO.Directory.GetDirectories(path))
                 {
-                    x++;
-                    if (x > 4)
+                    for (int i = 0; i <= Convert.ToInt32(Convert.ToString(dr[5])); i++)
                     {
-                        x = 0;
-                        y++;
+                        x++;
+                        if (x > 4)
+                        {
+                            x = 0;
+                            y++;
+                        }
                     }
+                    foreach (string file in System.IO.Directory.GetFiles(dr))
+                        if (file[7] == 'M')
+                        {
+                            _maps[x, y] = new Map();
+                            _maps[x, y].load(file);
+                        }
                 }
-                foreach (string file in System.IO.Directory.GetFiles(dr))
-                    if (file[7] == 'M')
-                    {
-                        _maps[x, y] = new Map();
-                        _maps[x, y].load(file);
-                    }
-            }
         }
         public void Ajout_map(int i, int j, int nb, string path)
         {
