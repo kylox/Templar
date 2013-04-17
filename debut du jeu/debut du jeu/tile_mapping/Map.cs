@@ -21,7 +21,7 @@ namespace Templar
         Vector2[,] tiles;
         Tile[,] tilelist;
         int[,] colision;
-        bool iscreate;//variable utile pour l'edm
+        bool iscreate;
         # endregion
         #region fields
         public bool isCreate
@@ -29,12 +29,10 @@ namespace Templar
             get { return iscreate; }
             set { iscreate = value; }
         }
-        //retourne la matrice de tile
         public Tile[,] Tilelist
         {
             get { return tilelist; }
         }
-        //matrice de stockage des tile
         public Vector2[,] Tiles
         {
             get { return tiles; }
@@ -107,6 +105,10 @@ namespace Templar
                 && text.Is_shown == false)
             {
                 tiles[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                if (cursor.iD != new Vector2(0, 1) && cursor.iD != new Vector2(2, 3))
+                    tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
+                else
+                    tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
                 ecrire(path);
             }
         }

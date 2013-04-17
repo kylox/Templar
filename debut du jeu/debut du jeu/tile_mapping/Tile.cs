@@ -19,14 +19,12 @@ namespace Templar
             wall = -1,
             normal = 0,
         };
-
         int x;
         public int X
         {
             get { return this.x; }
             set { this.x = value; }
         }
-
         int y;
         public int Y
         {
@@ -36,13 +34,12 @@ namespace Templar
 
         TileType type;
 
-        //permet de retounre le type du tyle
         public TileType Type
         {
             get { return type; }
+            set { type = value; }
         }
 
-        //constructeur de la classe
         public Tile(int x, int y,int type)
         {
 
