@@ -13,3 +13,4 @@ C:\Users\Sagot_A\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeuContent\ob
 C:\Users\William F\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
