@@ -21,7 +21,7 @@ namespace Templar
             _maps = new Map[5, 5];
             foreach (string dr in System.IO.Directory.GetDirectories(path))
             {
-                for (int i = 0; i <= Convert.ToInt32(Convert.ToString(dr[5])); i++)
+                for (int i = 0; i < Convert.ToInt32(Convert.ToString(dr[5]))*10 + Convert.ToInt32(Convert.ToString(dr[6])); i++)
                 {
                     x++;
                     if (x > 4)
@@ -31,10 +31,12 @@ namespace Templar
                     }
                 }
                 foreach (string file in System.IO.Directory.GetFiles(dr))
-                    if (file[7] == 'M')
+                    if (file[8] == 'M')
                     {
                         _maps[x, y] = new Map();
                         _maps[x, y].load(file);
+                        x = 0;
+                        y = 0;
                     }
             }
         }

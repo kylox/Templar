@@ -36,7 +36,6 @@ namespace Templar
         public List<Node> GetPossibleNode(Map map, Tile Destination)
         {
             List<Node> result = new List<Node>();
-            map.load("map.txt");
             // Bottom
             if (map.ValidCoordinate(tile.X, tile.Y + 1) && map.Tilelist[tile.X, tile.Y + 1].Type != Templar.Tile.TileType.wall)
             {
