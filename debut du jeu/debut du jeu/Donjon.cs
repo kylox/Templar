@@ -8,10 +8,7 @@ namespace Templar
 {
     class Donjon
     {
-        Map map;
         Map[,] _maps;
-        
-        string Path;
         public Map[,] Map
         {
             get { return _maps; }
@@ -21,7 +18,6 @@ namespace Templar
         {
             int x = 0;
             int y = 0;
-            this.Path = path;
             _maps = new Map[5, 5];
             foreach (string dr in System.IO.Directory.GetDirectories(path))
             {
