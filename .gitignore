@@ -1,8 +1,5 @@
 ~
 build/
-[Bb]in
-[Dd]ebug*/
-obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult
