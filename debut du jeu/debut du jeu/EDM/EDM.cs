@@ -54,24 +54,20 @@ namespace Templar
             text.update();
             if (Donjon == null)
                 text.Is_shown = true;
-
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.Enter))
                 creation_donjon(text.Saisie);
-
             if (Donjon != null)
             {
                 creation_map();
                 selectionmap();
                 Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", text);
             }
-
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
             {
                 map = new Map();
                 map.load(text.Saisie + ".txt");
                 text.Is_shown = false;
             }
-
             if (text.Is_shown == false && keyboardState.IsKeyDown(Keys.A))
                 text.Is_shown = true;
         }
@@ -79,7 +75,6 @@ namespace Templar
         {
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
-                {
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8))
                         && Data.mouseState.LeftButton == ButtonState.Pressed
                         && Data.prevMouseState.LeftButton != ButtonState.Pressed && Donjon.Map[i, j] != null)
@@ -87,7 +82,7 @@ namespace Templar
                         actuel.X = i;
                         actuel.Y = j;
                     }
-                }
+
         }
         public void creation_map()
         {
@@ -135,11 +130,10 @@ namespace Templar
             if (Donjon != null && Donjon.Map[actuel.X, actuel.Y] != null)
             {
                 Donjon.Map[actuel.X, actuel.Y].Draw(spriteBatch, 16);
-
                 spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y, 16, 1), Color.Red);
                 spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y, 1, 8), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y +8, 16, 1), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X+16, 300 + 32 * actuel.Y, 1, 8), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y + 8, 16, 1), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X + 16, 300 + 32 * actuel.Y, 1, 8), Color.Red);
             }
             spriteBatch.Draw(ressource.tile, new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height), Color.White);
             //dessine les ligne de l'editeur de map
@@ -148,7 +142,6 @@ namespace Templar
                 spriteBatch.Draw(ressource.pixel, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
                 spriteBatch.Draw(ressource.pixel, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
             }
-
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                 {

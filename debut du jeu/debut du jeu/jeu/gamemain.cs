@@ -75,7 +75,6 @@ namespace Templar
             get { return list_zombi; }
             set { list_zombi = value; }
         }
-
         #endregion
         #region field du jeu
 
@@ -133,7 +132,7 @@ namespace Templar
 
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-            /*
+            
                #region ZOMBIE
 
                  int a = x.Next(0, 1200);
@@ -179,7 +178,7 @@ namespace Templar
 
 
                  #endregion ZOMBIE
-                 */
+                 
             #region PLAYER
 
             localPlayer.update(mouse, keyboard, Walls, personnage); //fait l'update du player

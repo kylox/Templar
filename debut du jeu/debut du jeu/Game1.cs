@@ -85,13 +85,13 @@ namespace Templar
             Components.Add(option);
             option.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen,new Donjon("z"));
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z"));
             Components.Add(main);
             main.hide();
 
             activeScreen = menu;
             activeScreen.Show();
-                MediaPlayer.Play(ressource.menu);
+            MediaPlayer.Play(ressource.menu);
             MediaPlayer.IsRepeating = true;
             MediaPlayer.IsMuted = true;
             SoundEffect.MasterVolume = 0f;
@@ -106,7 +106,7 @@ namespace Templar
 
         private bool checkKey(Keys theKey)
         {
-            if ( activeScreen == pause)
+            if (activeScreen == pause)
                 if (theKey != Keys.Escape)
                     return (keyboard.IsKeyUp(theKey) &&
                         oldKeyboard.IsKeyDown(theKey)) ||
@@ -137,7 +137,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen,new Donjon("z"));
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z"));
                         Components.Add(main);
                         main.hide();
 
@@ -217,7 +217,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen,new Donjon("z"));
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z"));
                     Components.Add(main);
                     main.hide();
 
@@ -300,7 +300,7 @@ namespace Templar
                     else
                         if (pause.SelectedIndex == 1)
                         {
-                           
+
                         }
                         else
                             if (pause.SelectedIndex == 2)
@@ -345,10 +345,10 @@ namespace Templar
             {
                 if (keyboard.IsKeyUp(Keys.H) && keyboard.IsKeyUp(Keys.J) && keyboard.IsKeyUp(Keys.K) && keyboard.IsKeyUp(Keys.L))
                     click_down = false;
- 
+
 
                 if (keyboard.IsKeyDown(Keys.L) && SoundEffect.MasterVolume < 0.99f && click_down == false)
-                {  
+                {
                     SoundEffect.MasterVolume += 0.01f;
                 }
 

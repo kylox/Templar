@@ -18,7 +18,7 @@ namespace Templar
     {
         Vector2 deplacement;
         int chrono;
-        Map map;
+        Map Map;
         GamePlayer player;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, Vector2 position,
@@ -27,7 +27,7 @@ namespace Templar
         {
             this.player = player;
             Pv = 100;
-            this.map = new Map();
+            this.Map = main.map.Active_Map ;
         }
 
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages)
@@ -59,7 +59,7 @@ namespace Templar
 
             List<Tile> sol = new List<Tile>();
 
-            sol = Pathfinding.Astar(map, start, End);
+            sol = Pathfinding.Astar(Map, start, End);
             Tile end = sol[0];
 
             deplacement = new Vector2(player.Position.X - position.X, player.Position.Y - position.Y);

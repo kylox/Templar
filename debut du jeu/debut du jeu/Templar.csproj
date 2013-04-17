@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUTTON.cs" />
-    <Compile Include="Donjon.cs" />
+    <Compile Include="tile_mapping\Donjon.cs" />
     <Compile Include="jeu\character\creat_perso.cs" />
     <Compile Include="jeu\character\dessin_perso.cs" />
     <Compile Include="ecran\liste des ecrans\actionscreen.cs" />
