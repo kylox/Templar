@@ -42,6 +42,7 @@ namespace Templar
         {
             tiles = new Vector2[32, 32];
             tilelist = new Tile[32, 32];
+            colision = new int[32, 32];
             iscreate = false;
         }
         public void init(string path)
@@ -58,6 +59,20 @@ namespace Templar
                 sw.WriteLine();
             }
             sw.Close();
+        }
+        public void ecrire_coll(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int j = 0; j < colision.GetLength(1); j++)
+            {
+                for (int i = 0; i < colision.GetLength(0); i++)
+                {
+                    sw.Write(colision[i, j]);
+                }
+                sw.WriteLine();
+            }
+            sw.Close();
+
         }
         public void ecrire(string path)
         {
@@ -95,7 +110,7 @@ namespace Templar
                 Console.WriteLine("erreur : " + e.Message);
             }
         }
-        public void Update(GameTime gametime, string path, textbox text)
+        public void Update(GameTime gametime, string path,string path_coll, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
@@ -105,11 +120,19 @@ namespace Templar
                 && text.Is_shown == false)
             {
                 tiles[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+
                 if (cursor.iD != new Vector2(0, 1) && cursor.iD != new Vector2(2, 3))
+                {
                     tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
+                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
+                }
                 else
+                {
                     tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
+                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
+                }
                 ecrire(path);
+                ecrire_coll(path_coll);
             }
         }
         public void Draw(SpriteBatch spriteBatch, int x)

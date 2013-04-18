@@ -60,7 +60,7 @@ namespace Templar
             {
                 creation_map();
                 selectionmap();
-                Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", text);
+                Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt", text);
             }
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
             {
@@ -121,7 +121,7 @@ namespace Templar
         public void creation_donjon(string path)
         {
             System.IO.Directory.CreateDirectory(@text.Saisie + @"\Map" + @nb);
-            Donjon = new Donjon(path);
+            Donjon = new Donjon(path,null);
             Donjon.Ajout_map(0, 0, 0, text.Saisie);
             text.Is_shown = false;
         }

@@ -132,53 +132,53 @@ namespace Templar
 
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-            
-               #region ZOMBIE
 
-                 int a = x.Next(0, 1200);
-                 int b = x.Next(0, 800);
-                 position_npc = new Vector2(20, 20);
-                 pop_time++;
+            #region ZOMBIE
 
-                 if (pop_time == 120)
-                 {
-                     list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
-                     pop_time = 0;
-                 }
+            int a = x.Next(0, 1200);
+            int b = x.Next(0, 800);
+            position_npc = new Vector2(20, 20);
+            pop_time++;
 
-                 foreach (NPC zombie in list_zombi)
-                     zombie.update(mouse, keyboard, Walls, personnage);
+            if (pop_time == 120)
+            {
+                list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
+                pop_time = 0;
+            }
 
-                 foreach (NPC zombie in list_zombi)
-                 {
-                     if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
-                         localPlayer.pv_player--;
-                 }
+            foreach (NPC zombie in list_zombi)
+                zombie.update(mouse, keyboard, Walls, personnage);
 
-                 for (int i = 0; i < list_zombi.Count; i++)
-                 {
-                     if (list_zombi[i].PV <= 0)
-                     {
-                         if (pop_item == 0)
-                         {
-                             liste_objet_map.Add(new potion(ressource.potion_vie, localPlayer, this, list_zombi[i], "VIE"));
-                         }
+            foreach (NPC zombie in list_zombi)
+            {
+                if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
+                    localPlayer.pv_player--;
+            }
 
-                         if (pop_item == 1)
-                         {
-                             liste_objet_map.Add(new potion(ressource.potion_mana, localPlayer, this, list_zombi[i], "MANA"));
-                         }
+            for (int i = 0; i < list_zombi.Count; i++)
+            {
+                if (list_zombi[i].PV <= 0)
+                {
+                    if (pop_item == 0)
+                    {
+                        liste_objet_map.Add(new potion(ressource.potion_vie, localPlayer, this, list_zombi[i], "VIE"));
+                    }
 
-                         list_zombi.RemoveAt(i);
-                         score += 5;
+                    if (pop_item == 1)
+                    {
+                        liste_objet_map.Add(new potion(ressource.potion_mana, localPlayer, this, list_zombi[i], "MANA"));
+                    }
 
-                         localPlayer.XP += 20 / localPlayer.Niveau;
-                     }
-                 }
+                    list_zombi.RemoveAt(i);
+                    score += 5;
+
+                    localPlayer.XP += 20 / localPlayer.Niveau;
+                }
+            }
 
 
-                 #endregion ZOMBIE
-                 
+            #endregion ZOMBIE
+
             #region PLAYER
 
             localPlayer.update(mouse, keyboard, Walls, personnage); //fait l'update du player
