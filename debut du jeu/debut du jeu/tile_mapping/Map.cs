@@ -99,7 +99,6 @@ namespace Templar
                     for (int i = 0; i < tiles.GetLength(0); i++)
                     {
                         tiles[i, j] = (cursor.id_to_vec(ligne[i]));
-                        tilelist[i, j] = new Tile(i, j, 1);
                     }
                     j += 1;
                 }
@@ -109,6 +108,21 @@ namespace Templar
             {
                 Console.WriteLine("erreur : " + e.Message);
             }
+        }
+        public void load_collision(string path)
+        {
+             int j = 0;
+                StreamReader sr = new StreamReader(path);
+                string ligne;
+                while ((ligne = sr.ReadLine()) != null)
+                {
+                    for (int i = 0; i < tiles.GetLength(0); i++)
+                    {
+                        tilelist[i, j] = new Tile(i, j,Convert.ToInt32(ligne[i]));
+                    }
+                    j += 1;
+                }
+                sr.Close();
         }
         public void Update(GameTime gametime, string path,string path_coll, textbox text)
         {

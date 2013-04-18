@@ -85,7 +85,7 @@ namespace Templar
             Components.Add(option);
             option.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z",main));
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("yo",main));
             Components.Add(main);
             main.hide();
 

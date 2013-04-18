@@ -33,13 +33,19 @@ namespace Templar
                         }
                     }
                     foreach (string file in System.IO.Directory.GetFiles(dr))
+                    {
                         if (file[8] == 'M')
                         {
                             _maps[x, y] = new Map();
                             _maps[x, y].load(file);
-                            x = 0;
-                            y = 0;
                         }
+                        if (file[8] == 'c')
+                        {
+                            _maps[x, y].load_collision(file);
+                        }
+                        x = 0;
+                        y = 0;
+                    }
                 }
         }
         public void Ajout_map(int i, int j, int nb, string path)

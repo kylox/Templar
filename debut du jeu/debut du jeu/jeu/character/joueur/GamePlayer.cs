@@ -95,6 +95,24 @@ namespace Templar
             click_down = false;
         }
 
+        public void deplacement()
+        {
+            if (Data.keyboardState.IsKeyDown(Keys.Z))
+                direction = Direction.Up;
+
+            if (Data.keyboardState.IsKeyDown(Keys.S))
+                direction = Direction.Down;
+
+            if (Data.keyboardState.IsKeyDown(Keys.D))
+                direction = Direction.Right;
+
+            if (Data.keyboardState.IsKeyDown(Keys.Q))
+                direction = Direction.Left;
+
+            if (Data.keyboardState.IsKeyUp(Keys.Z) && Data.keyboardState.IsKeyUp(Keys.S) &&
+             Data.keyboardState.IsKeyUp(Keys.Q) && Data.keyboardState.IsKeyUp(Keys.D))
+                direction = Direction.None;
+        }
         public void collision_bord()
         {
             if (position.X + 34 >= main.Fenetre.Width)
@@ -109,12 +127,10 @@ namespace Templar
             if (position.Y <= 0)
                 position.Y = 0;
         }
-
-        public bool vision(int x ,int y)
+        public bool vision(int x, int y)
         {
-            return Math.Pow((x-position.X),2)+ Math.Pow((y-position.Y),2) < Math.Pow(50,2);
+            return Math.Pow((x - position.X), 2) + Math.Pow((y - position.Y), 2) < Math.Pow(50, 2);
         }
-
         public void attaque_mana(KeyboardState keyboard)
         {
             if (keyboard.IsKeyDown(Keys.Space) && Mana >= 0 && click_down == false)
@@ -126,6 +142,7 @@ namespace Templar
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages)
         {
             collision_bord();
+            deplacement();
 
             #region sort
             //modifie la selection des sorts
@@ -187,23 +204,6 @@ namespace Templar
 
 
             #endregion
-            #region mouvement
-            if (keyboard.IsKeyDown(Keys.Z))
-                direction = Direction.Up;
-
-            if (keyboard.IsKeyDown(Keys.S))
-                direction = Direction.Down;
-
-            if (keyboard.IsKeyDown(Keys.D))
-                direction = Direction.Right;
-
-            if (keyboard.IsKeyDown(Keys.Q))
-                direction = Direction.Left;
-
-            if (keyboard.IsKeyUp(Keys.Z) && keyboard.IsKeyUp(Keys.S) &&
-              keyboard.IsKeyUp(Keys.Q) && keyboard.IsKeyUp(Keys.D))
-                direction = Direction.None;
-            #endregion
             #region attaque
             if (keyboard.IsKeyDown(Keys.A))
                 frameline = 5;
@@ -217,7 +217,6 @@ namespace Templar
         }
         public override void Draw(SpriteBatch spritebatch)
         {
-          
             base.Draw(spritebatch);
             dessin_tete.draw(spritebatch);
         }

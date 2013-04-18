@@ -134,7 +134,7 @@ namespace Templar
             mouse = Mouse.GetState();
 
             #region ZOMBIE
-
+            /*
             int a = x.Next(0, 1200);
             int b = x.Next(0, 800);
             position_npc = new Vector2(20, 20);
@@ -175,8 +175,7 @@ namespace Templar
                     localPlayer.XP += 20 / localPlayer.Niveau;
                 }
             }
-
-
+             */
             #endregion ZOMBIE
 
             #region PLAYER
@@ -228,12 +227,8 @@ namespace Templar
             foreach (sort sort in liste_sort)
                 sort.update();
 
-
-
             for (int i = 0; i < liste_objet_map.Count; i++)
-            {
                 if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
-                {
                     switch (liste_objet_map[i]._Name)
                     {
                         case "VIE":
@@ -251,37 +246,24 @@ namespace Templar
                             }
                             break;
                     }
-                }
-            }
 
             for (int i = 0; i < liste_sort.Count; i++)
-            {
                 for (int j = 0; j < Walls.Count; j++)
-                {
                     if (liste_sort[i].hitbox_object.Intersects(Walls[j].Hitbox))
                     {
                         Walls.RemoveAt(j);
                         liste_sort.RemoveAt(i);
                         break;
                     }
-                }
-            }
-
             for (int i = 0; i < liste_sort.Count; i++)
-            {
                 for (int j = 0; j < list_zombi.Count; j++)
-                {
                     if (liste_sort[i].hitbox_object.Intersects(list_zombi[j].Hitbox_image))
                     {
                         list_zombi[j].PV -= 100;
                         liste_sort.RemoveAt(i);
                         break;
                     }
-                }
-            }
-
             #endregion SORT
-
             // collision oO riena  foutre la ce truc xD
             if (position_joueur.X + ressource.sprite_player.Width == game.Window.ClientBounds.Width)
                 position_joueur.X = 0;
@@ -294,14 +276,10 @@ namespace Templar
             }
 
             #endregion update jeu
-
             if (mouse.LeftButton == ButtonState.Released)
                 ClickDown = false;
-
             if (keyboard.IsKeyUp(Keys.Space))
                 pressdown = false;
-
-
             base.Update(gameTime);
         }
 

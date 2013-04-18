@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
+  
     public class Tile
     {
         //enumerationdes type de tile

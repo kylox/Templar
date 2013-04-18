@@ -31,8 +31,8 @@ namespace Templar
             }
             sol.Add(possibleNode[result].Tile);
             return sol;
-
-         /*   while (openlist.Count>0)
+            /*
+          while (openlist.Count>0)
             {
                 Node current = openlist[0];
                 closelist.Add(current);
@@ -53,8 +53,8 @@ namespace Templar
                 }
                 
                 return sol;
-            }*/
-          
+            }
+          */
         }
     }
 }
