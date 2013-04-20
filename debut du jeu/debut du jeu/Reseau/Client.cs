@@ -12,20 +12,22 @@ namespace Templar.Reseau
     class Client
     {
         private int port;
-        IPAddress address;
+        int Type; // int permettant de savoir de quel champ on parle (position/vie etc...)
         TcpClient client;
         TcpListener server;
         Thread Client_Listener;
         NetworkStream stream;
 
-        public Client()
+        public Client(string address)
         {
+            
             try
             {
-                int Type;
                 Int32 port = 4242;
-                client = new TcpClient(new IPEndPoint(address, port));
-                client.Connect(address, port);    
+                client = new TcpClient(new IPEndPoint(IPAddress.Parse(address), port));
+                client.Connect(address, port);
+                Client_Listener = new Thread(new ThreadStart(Receive));//Ce thread permet de recevoir en permanence
+                Client_Listener.Start();
             }
             catch (SocketException e)
             {
@@ -33,8 +35,8 @@ namespace Templar.Reseau
                 Console.WriteLine("SocketException: {0}", e);
             }
 
-            Console.WriteLine("\n Press Enter to continue...");
-            Console.Read();
+           // Console.WriteLine("\n Press Enter to continue...");
+          //  Console.Read();
         }
 
         public void ping()
@@ -56,21 +58,27 @@ namespace Templar.Reseau
 
         public void Receive()
         {
-            client.Connect(address, port);
-            stream = client.GetStream();
-            BinaryReader clientStreamReader = new BinaryReader(stream);
-            
+           byte[] Number = new byte[2];           
             while (true)
             {
-                clientStreamReader.Read();
+
+                NetworkStream SentStream = client.GetStream();
+                if (Type == 0)
+                {
+
+                    Type = BitConverter.ToInt32(Number, 0);
+                }
+                else
+                {
+                    // Méthode remplissant les champs
+                }
+
             }
         }
 
         public void Send()
         {
-            client.Connect(address, port);
-            stream = client.GetStream();
-            BinaryWriter clientStreamWriter = new BinaryWriter(stream);
+            BinaryWriter clientStreamWriter = new BinaryWriter(client.GetStream());
 
             while (true)
             {
