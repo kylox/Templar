@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUTTON.cs" />
+    <Compile Include="ecran\liste des ecrans\Menudeuxjoueurs.cs" />
     <Compile Include="Reseau\Client.cs" />
     <Compile Include="Reseau\Server.cs" />
     <Compile Include="tile_mapping\Donjon.cs" />
