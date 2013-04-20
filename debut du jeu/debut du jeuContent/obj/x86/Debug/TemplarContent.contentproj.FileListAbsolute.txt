@@ -14,7 +14,11 @@ C:\Users\William F\Dropbox\project 2.0\TEMPLAR\debut du jeu\debut du jeuContent\
 C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\Louis\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
+=======
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
+>>>>>>> 068b6dcf3af220586e669aa6b7c08ce9eb562899
 =======
 C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 >>>>>>> 068b6dcf3af220586e669aa6b7c08ce9eb562899
