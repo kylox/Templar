@@ -15,7 +15,7 @@ namespace Templar.Reseau
         IPAddress address;
         TcpClient client;
         TcpListener server;
-        Thread Client_Listener;
+        Thread Client_thread;
         NetworkStream stream;
 
         public Client()
@@ -24,8 +24,7 @@ namespace Templar.Reseau
             {
                 int Type;
                 Int32 port = 4242;
-                client = new TcpClient(new IPEndPoint(address, port));
-                client.Connect(address, port);    
+                Client_thread = new Thread(new ThreadStart(StartConnexion));       
             }
             catch (SocketException e)
             {
@@ -35,6 +34,11 @@ namespace Templar.Reseau
 
             Console.WriteLine("\n Press Enter to continue...");
             Console.Read();
+        }
+
+        public void StartConnexion()
+        {
+            client.Connect(address, port);
         }
 
         public void ping()
@@ -56,7 +60,6 @@ namespace Templar.Reseau
 
         public void Receive()
         {
-            client.Connect(address, port);
             stream = client.GetStream();
             BinaryReader clientStreamReader = new BinaryReader(stream);
             
@@ -64,18 +67,19 @@ namespace Templar.Reseau
             {
                 clientStreamReader.Read();
             }
+            stream.Close();
         }
 
         public void Send()
         {
-            client.Connect(address, port);
             stream = client.GetStream();
             BinaryWriter clientStreamWriter = new BinaryWriter(stream);
 
             while (true)
             {
-               // clientStreamWriter.Write
+               // clientStreamWriter
             }
+            stream.Close();
         }
     }
 
