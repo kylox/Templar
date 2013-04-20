@@ -74,12 +74,6 @@ namespace Templar.Reseau
         {
             stream = client.GetStream();
             BinaryWriter clientStreamWriter = new BinaryWriter(stream);
-
-            while (true)
-            {
-               // clientStreamWriter
-            }
-            stream.Close();
         }
     }
 
