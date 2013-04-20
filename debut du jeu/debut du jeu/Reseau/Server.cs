@@ -10,16 +10,19 @@ namespace Templar.Reseau
 {
     class Server
     {
+        gamemain Infos;
+        int Type = 0;
         private int port;
         TcpClient Client;
         TcpListener server;
         Thread Client_Listener, Client_Handler;
-        public Server()
+        public Server(gamemain infos)
         {
+            Infos = infos;
             try
             {
                 port = 4242;
-                server = new TcpListener(new IPEndPoint(IPAddress.Any, port));        
+                server = new TcpListener(new IPEndPoint(IPAddress.Any, port));
                 Client_Listener = new Thread(new ThreadStart(StartConnexion));
                 Client_Listener.Start();
             }
@@ -38,7 +41,7 @@ namespace Templar.Reseau
                 Client_Handler = new Thread(new ParameterizedThreadStart(Receiver));
                 Client_Handler.Start(Client);
             }
-            
+
         }
 
         public void Ping()
@@ -55,11 +58,35 @@ namespace Templar.Reseau
 
         public void Receiver(object client)
         {
+            byte[] Number = new byte[2];
             TcpClient Sender = (TcpClient)client;
             while (true)
             {
+                
                 NetworkStream SentStream = Sender.GetStream();
+                if (Type == 0)
+                {
+                    
+                    Type = BitConverter.ToInt32(Number, 0);
+                }
+                else
+                {
 
+                }
+
+            }
+        }
+
+        public void Parser(int type, int info)
+        {
+            switch (type)
+            {
+                case 1:
+                    Infos.player.chgt_position(info, (int)Infos.player.position_player.Y);
+                    break;
+
+                default:
+                    break;
             }
         }
 
