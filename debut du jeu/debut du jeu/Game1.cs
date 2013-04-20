@@ -26,7 +26,7 @@ namespace Templar
         menudujeu menudujeu;
         option option;
         menudepause pause;
-        gamemain main;
+        public gamemain main;
         GameOverScreen gameover;
         EDM edm;
         creat_perso creation;
