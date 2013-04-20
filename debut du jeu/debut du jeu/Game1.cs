@@ -16,7 +16,7 @@ namespace Templar
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+       public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         KeyboardState oldKeyboard;
         KeyboardState keyboard;
@@ -32,20 +32,21 @@ namespace Templar
         creat_perso creation;
         Sauvegarde save;
         Chargement load;
-
-        bool ecran;
         bool click_down;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-            graphics.IsFullScreen = false;
-            this.IsMouseVisible = true;
-            graphics.PreferredBackBufferHeight = 640;
-            graphics.PreferredBackBufferWidth = 800;
+            graphics = new GraphicsDeviceManager(this)
+                {
+                    PreferredBackBufferWidth = 800,
+            PreferredBackBufferHeight = 675
 
+                };
+            Content.RootDirectory = "Content";
+            this.IsMouseVisible = true;
+            Window.Title = "Templar";
             click_down = false;
+
         }
 
         protected override void Initialize()
@@ -56,7 +57,6 @@ namespace Templar
         {
             ressource.loadcontent(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             creation = new creat_perso(this, spriteBatch, ressource.pixel);
             Components.Add(creation);
             creation.hide();
@@ -85,7 +85,7 @@ namespace Templar
             Components.Add(option);
             option.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("yo",main));
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
             Components.Add(main);
             main.hide();
 
@@ -95,8 +95,6 @@ namespace Templar
             MediaPlayer.IsRepeating = true;
             MediaPlayer.IsMuted = true;
             SoundEffect.MasterVolume = 0f;
-
-            ecran = false;
         }
 
         protected override void UnloadContent()
@@ -137,7 +135,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z",main));
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
                         Components.Add(main);
                         main.hide();
 
@@ -217,7 +215,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z",main));
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
                     Components.Add(main);
                     main.hide();
 

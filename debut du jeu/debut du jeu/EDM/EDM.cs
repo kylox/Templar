@@ -28,6 +28,7 @@ namespace Templar
         Donjon Donjon;
         Point actuel;
         int nb;
+        string nombre;
         #endregion
         public Rectangle Fenetre
         {
@@ -45,6 +46,7 @@ namespace Templar
             listes_map = new Map[5, 5];
             nb = 0;
             actuel = new Point();
+            nombre = "";
         }
         public override void Update(GameTime gameTime)
         {
@@ -60,7 +62,11 @@ namespace Templar
             {
                 creation_map();
                 selectionmap();
-                Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt", text);
+                if(nb < 10)
+                    Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt", @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt", text);
+                else
+                    Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt", text);
+
             }
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
             {
@@ -82,7 +88,6 @@ namespace Templar
                         actuel.X = i;
                         actuel.Y = j;
                     }
-
         }
         public void creation_map()
         {
@@ -120,7 +125,13 @@ namespace Templar
         }
         public void creation_donjon(string path)
         {
-            System.IO.Directory.CreateDirectory(@text.Saisie + @"\Map" + @nb);
+            string nombre;
+            if (nb < 10)
+                nombre = "0" + Convert.ToString(nb);
+            else
+                nombre = Convert.ToString(nb);
+
+            System.IO.Directory.CreateDirectory(@text.Saisie + @"\Map" + @nombre);
             Donjon = new Donjon(path,null);
             Donjon.Ajout_map(0, 0, 0, text.Saisie);
             text.Is_shown = false;

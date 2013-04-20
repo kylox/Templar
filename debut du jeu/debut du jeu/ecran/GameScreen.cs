@@ -67,8 +67,6 @@ namespace Templar
                 if (componenet is DrawableGameComponent)
                     ((DrawableGameComponent)componenet).Visible = false;
             }
-
-
         }
         public override void Draw(GameTime gameTime) // dessine les composant de l'ecran (la liste Item)
         {

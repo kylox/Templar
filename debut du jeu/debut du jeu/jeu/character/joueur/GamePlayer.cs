@@ -139,7 +139,7 @@ namespace Templar
                 click_down = true;
             }
         }
-        public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages)
+        public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages,switch_map map)
         {
             collision_bord();
             deplacement();
@@ -213,7 +213,7 @@ namespace Templar
             if (keyboard.IsKeyUp(Keys.Space))
                 click_down = false;
             dessin_tete.update();
-            base.update(mouse, keyboard, walls, personnages);
+            base.update(mouse, keyboard, walls, personnages,map);
         }
         public override void Draw(SpriteBatch spritebatch)
         {

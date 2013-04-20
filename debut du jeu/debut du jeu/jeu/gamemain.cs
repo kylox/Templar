@@ -83,26 +83,22 @@ namespace Templar
             : base(game, spriteBatch)
         {
             #region init du jeu
-
+            map = new switch_map(localPlayer, this, donjon);
+            map.Active_Map = map.Listes_map[0, 0];
             x = new Random();
-
+            keyboard = new KeyboardState();
             liste_sort = new List<sort>();
             list_zombi = new List<NPC>();
             Walls = new List<wall>();
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
-
-            position_joueur = new Vector2(100, 100);
-
+            position_joueur = new Vector2(32, 32);
             localPlayer = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this);
+            
             localPlayer.Niveau = 1;
-
             pop_time = 0;
             score = 0;
             count_dead_zombi = 0;
-
-            keyboard = new KeyboardState();
-
             #endregion init du jeu
             # region media_player;
             MediaPlayer.Play(ressource.main_theme);
@@ -114,25 +110,21 @@ namespace Templar
             white = Color.White;
             white.A = 120;
             effect = new BasicEffect(game.GraphicsDevice);
-            map = new switch_map(localPlayer, this, donjon);
+
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             HUD = new HUD(localPlayer, this);
-            map.Active_Map = map.Listes_map[0, 0];
+
         }
 
         public override void Update(GameTime gameTime)
         {
             map.update();
-
             HUD.update();
-
             int pop_item = x.Next(0, 5);
 
             #region JEU
-
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-
             #region ZOMBIE
             /*
             int a = x.Next(0, 1200);
@@ -177,10 +169,8 @@ namespace Templar
             }
              */
             #endregion ZOMBIE
-
             #region PLAYER
-
-            localPlayer.update(mouse, keyboard, Walls, personnage); //fait l'update du player
+            localPlayer.update(mouse, keyboard, Walls, personnage,map); //fait l'update du player
             //cheat code
             if (keyboard.IsKeyDown(Keys.M))
                 localPlayer.mana_player = 100;
@@ -195,9 +185,7 @@ namespace Templar
                 localPlayer.XP -= 100;
                 localPlayer.mana_player = localPlayer.pv_player = 100;
             }
-
             #endregion
-
             #region WALL
             //fait l'update des murs
 
@@ -212,7 +200,6 @@ namespace Templar
                 ClickDown = true;
             }
             #endregion WALL
-
             #region ITEM
 
             if (keyboard.IsKeyDown(Keys.Space) && !pressdown && localPlayer.mana_player > 0)
@@ -287,8 +274,8 @@ namespace Templar
         {
             map.Active_Map.Draw(spriteBatch, 32);
             timer_level_up++;
-            #region draw du jeu
 
+            #region draw du jeu
             foreach (item item in liste_objet_map)
                 item.draw(spriteBatch);
 
@@ -306,12 +293,9 @@ namespace Templar
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
 
             if (timer_level_up < 60 && localPlayer.Niveau != 1)
-            {
-                spriteBatch.DrawString(ressource.ecriture, "LEVEL UP !", new Vector2(localPlayer.position_player.X, localPlayer.position_player.Y - 10), Color.Yellow);
-
-            }
-
+                spriteBatch.DrawString(ressource.ecriture, "LEVEL UP !", new Vector2(localPlayer.position_player.X, localPlayer.position_player.Y - 10), Color.Yellow);       
             #endregion draw du jeu
+
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                     if (map.Listes_map[i, j] != null)
@@ -321,6 +305,7 @@ namespace Templar
 
             HUD.draw(spriteBatch);
             spriteBatch.DrawString(ressource.ecriture, "coordonner map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
+          
             base.Draw(gameTime);
         }
     }

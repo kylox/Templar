@@ -36,11 +36,14 @@ namespace Templar
                     {
                         if (file[8] == 'M')
                         {
-                            _maps[x, y] = new Map();
+                            if (_maps[x, y] == null)
+                                _maps[x, y] = new Map();
                             _maps[x, y].load(file);
                         }
                         if (file[8] == 'c')
                         {
+                            if (_maps[x, y] == null)
+                                _maps[x, y] = new Map();
                             _maps[x, y].load_collision(file);
                         }
                         x = 0;
@@ -50,11 +53,16 @@ namespace Templar
         }
         public void Ajout_map(int i, int j, int nb, string path)
         {
-            System.IO.Directory.CreateDirectory(@path + @"\Map" + @nb);
-            Stream sr = new FileStream(@path + @"\Map" + @nb + @"\Map" + @nb + @".txt", FileMode.Create, FileAccess.ReadWrite);
+            string nombre;
+            if (nb < 10)
+                nombre = "0" + Convert.ToString(nb);
+            else
+                nombre = Convert.ToString(nb);
+            System.IO.Directory.CreateDirectory(@path + @"\Map" + @nombre);
+            Stream sr = new FileStream(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr.Close();
             _maps[i, j] = new Map();
-            this.Map[i, j].init(@path + @"\Map" + @nb + @"\Map" + @nb + @".txt");
+            this.Map[i, j].init(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
             this.Map[i, j].isCreate = true;
         }
 

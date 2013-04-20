@@ -51,9 +51,7 @@ namespace Templar
             listes_map = new Map[5, 5];
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
-                {
                     listes_map[j, i] = donjon.Map[j, i];
-                }
 
             x = 0;
             y = 0;
@@ -61,6 +59,7 @@ namespace Templar
         }
         public void update()
         {
+            active_map = listes_map[y, x];
             if (player != null)
             {
                 if (player.Position.X == 0 && x - 1 >= 0 && listes_map[x - 1, y] != null)
@@ -99,7 +98,7 @@ namespace Templar
                     main.List_Sort.Clear();
                     main.List_wall.Clear();
                 }
-                active_map = listes_map[y, x];
+
             }
         }
     }

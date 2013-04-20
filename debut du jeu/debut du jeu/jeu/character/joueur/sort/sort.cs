@@ -69,10 +69,9 @@ namespace Templar
                     break;
             }
         }
-
         public void draw(SpriteBatch spritebatch)
         {
-            spritebatch.Draw(texture, position, Color.White);
+            spritebatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), Color.White);
         }
 
     }
