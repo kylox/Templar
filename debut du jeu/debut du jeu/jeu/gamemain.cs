@@ -132,53 +132,52 @@ namespace Templar
 
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-            
-               #region ZOMBIE
 
-                 int a = x.Next(0, 1200);
-                 int b = x.Next(0, 800);
-                 position_npc = new Vector2(20, 20);
-                 pop_time++;
+            #region ZOMBIE
+            /*
+            int a = x.Next(0, 1200);
+            int b = x.Next(0, 800);
+            position_npc = new Vector2(20, 20);
+            pop_time++;
 
-                 if (pop_time == 120)
-                 {
-                     list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
-                     pop_time = 0;
-                 }
+            if (pop_time == 120)
+            {
+                list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
+                pop_time = 0;
+            }
 
-                 foreach (NPC zombie in list_zombi)
-                     zombie.update(mouse, keyboard, Walls, personnage);
+            foreach (NPC zombie in list_zombi)
+                zombie.update(mouse, keyboard, Walls, personnage);
 
-                 foreach (NPC zombie in list_zombi)
-                 {
-                     if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
-                         localPlayer.pv_player--;
-                 }
+            foreach (NPC zombie in list_zombi)
+            {
+                if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
+                    localPlayer.pv_player--;
+            }
 
-                 for (int i = 0; i < list_zombi.Count; i++)
-                 {
-                     if (list_zombi[i].PV <= 0)
-                     {
-                         if (pop_item == 0)
-                         {
-                             liste_objet_map.Add(new potion(ressource.potion_vie, localPlayer, this, list_zombi[i], "VIE"));
-                         }
+            for (int i = 0; i < list_zombi.Count; i++)
+            {
+                if (list_zombi[i].PV <= 0)
+                {
+                    if (pop_item == 0)
+                    {
+                        liste_objet_map.Add(new potion(ressource.potion_vie, localPlayer, this, list_zombi[i], "VIE"));
+                    }
 
-                         if (pop_item == 1)
-                         {
-                             liste_objet_map.Add(new potion(ressource.potion_mana, localPlayer, this, list_zombi[i], "MANA"));
-                         }
+                    if (pop_item == 1)
+                    {
+                        liste_objet_map.Add(new potion(ressource.potion_mana, localPlayer, this, list_zombi[i], "MANA"));
+                    }
 
-                         list_zombi.RemoveAt(i);
-                         score += 5;
+                    list_zombi.RemoveAt(i);
+                    score += 5;
 
-                         localPlayer.XP += 20 / localPlayer.Niveau;
-                     }
-                 }
+                    localPlayer.XP += 20 / localPlayer.Niveau;
+                }
+            }
+             */
+            #endregion ZOMBIE
 
-
-                 #endregion ZOMBIE
-                 
             #region PLAYER
 
             localPlayer.update(mouse, keyboard, Walls, personnage); //fait l'update du player
@@ -228,12 +227,8 @@ namespace Templar
             foreach (sort sort in liste_sort)
                 sort.update();
 
-
-
             for (int i = 0; i < liste_objet_map.Count; i++)
-            {
                 if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
-                {
                     switch (liste_objet_map[i]._Name)
                     {
                         case "VIE":
@@ -251,37 +246,24 @@ namespace Templar
                             }
                             break;
                     }
-                }
-            }
 
             for (int i = 0; i < liste_sort.Count; i++)
-            {
                 for (int j = 0; j < Walls.Count; j++)
-                {
                     if (liste_sort[i].hitbox_object.Intersects(Walls[j].Hitbox))
                     {
                         Walls.RemoveAt(j);
                         liste_sort.RemoveAt(i);
                         break;
                     }
-                }
-            }
-
             for (int i = 0; i < liste_sort.Count; i++)
-            {
                 for (int j = 0; j < list_zombi.Count; j++)
-                {
                     if (liste_sort[i].hitbox_object.Intersects(list_zombi[j].Hitbox_image))
                     {
                         list_zombi[j].PV -= 100;
                         liste_sort.RemoveAt(i);
                         break;
                     }
-                }
-            }
-
             #endregion SORT
-
             // collision oO riena  foutre la ce truc xD
             if (position_joueur.X + ressource.sprite_player.Width == game.Window.ClientBounds.Width)
                 position_joueur.X = 0;
@@ -294,14 +276,10 @@ namespace Templar
             }
 
             #endregion update jeu
-
             if (mouse.LeftButton == ButtonState.Released)
                 ClickDown = false;
-
             if (keyboard.IsKeyUp(Keys.Space))
                 pressdown = false;
-
-
             base.Update(gameTime);
         }
 

@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
+  
     public class Tile
     {
         //enumerationdes type de tile
@@ -31,15 +32,12 @@ namespace Templar
             get { return this.y; }
             set { this.y = value; }
         }
-
         TileType type;
-
         public TileType Type
         {
             get { return type; }
             set { type = value; }
         }
-
         public Tile(int x, int y,int type)
         {
 
