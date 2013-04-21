@@ -21,7 +21,8 @@ namespace Templar
             barre, selection_sort, barre_xp,// HUD
             glace, boule_de_feu, // sort 
             ARBRE, MUR, STATUT, SOL, // EDM
-            potion_vie, potion_mana, map, tile, plus, moin; //POTION
+            potion_vie, potion_mana,//POTION
+            map, tile, plus, moin,objet_map; 
 
         public static SoundEffect selection, lowHP, feu; //ressource des bruitage
 
@@ -60,6 +61,7 @@ namespace Templar
             map_1 = Content.Load<Texture2D>(@"ecran\jeux\map_1");
             map_2 = Content.Load<Texture2D>(@"ecran\jeux\game_o10");
             tile = Content.Load<Texture2D>(@"piece");
+            objet_map = Content.Load<Texture2D>("piece_objet_mod");
 
             //autre
             pixel = Content.Load<Texture2D>(@"Misc\pixel");

@@ -52,8 +52,30 @@ namespace Templar
             {
                 for (int i = 0; i < tiles.GetLength(0); i++)
                 {
-                    tiles[i, j] = new Vector2(1, 0);
-                    tilelist[i, j] = new Tile(i, j, 1);
+                    if (j == 0)
+                        if (i == 0)
+                            tiles[i, j] = new Vector2(0, 1);
+                        else
+                            if (i == tiles.GetLength(0) - 1)
+                                tiles[i, j] = new Vector2(2, 1);
+                            else
+                                tiles[i, j] = new Vector2(1, 1);
+                    else if (j == tiles.GetLength(1) - 1)
+                        if (i == 0)
+                            tiles[i, j] = new Vector2(0, 3);
+                        else
+                            if (i == tiles.GetLength(0) - 1)
+                                tiles[i, j] = new Vector2(2, 3);
+                            else
+                                tiles[i, j] = new Vector2(1, 3);
+                    else if (i == tiles.GetLength(0) - 1 && j != tiles.GetLength(1) - 1 && j != 0)
+                        tiles[i, j] = new Vector2(2, 2);
+                    else
+                        if (i == 0 && j != tiles.GetLength(1) - 1 && j != 0)
+                            tiles[i, j] = new Vector2(0, 2);
+
+                        else
+                            tiles[i, j] = new Vector2(1, 2);
                     sw.Write(cursor.vec_to_id(tiles[i, j]));
                 }
                 sw.WriteLine();
@@ -72,7 +94,6 @@ namespace Templar
                 sw.WriteLine();
             }
             sw.Close();
-
         }
         public void ecrire(string path)
         {

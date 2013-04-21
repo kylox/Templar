@@ -46,3 +46,4 @@ Content\piece2.xnb
 Content\piece3.xnb
 Content\piece.xnb
 Content\piece1.xnb
+Content\piece_objet_mod.xnb

@@ -59,10 +59,12 @@ namespace Templar
             else
                 nombre = Convert.ToString(nb);
             System.IO.Directory.CreateDirectory(@path + @"\Map" + @nombre);
-            Stream sr = new FileStream(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
-            sr.Close();
+            Stream sr1 = new FileStream(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
+            sr1.Close();
+            Stream sr2 = new FileStream(@path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
+            sr2.Close();
             _maps[i, j] = new Map();
-            this.Map[i, j].init(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
+            this.Map[i, j].init(@path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
             this.Map[i, j].isCreate = true;
         }
 

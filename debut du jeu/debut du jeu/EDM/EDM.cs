@@ -42,7 +42,7 @@ namespace Templar
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));
             current_tile = new Tile(0, 0, 0);
-            tileset = new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height);
+            tileset = new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height);
             listes_map = new Map[5, 5];
             nb = 0;
             actuel = new Point();
@@ -146,7 +146,7 @@ namespace Templar
                 spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y + 8, 16, 1), Color.Red);
                 spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X + 16, 300 + 32 * actuel.Y, 1, 8), Color.Red);
             }
-            spriteBatch.Draw(ressource.tile, new Rectangle(fenetre.Width - ressource.tile.Width, 0, ressource.tile.Width, ressource.tile.Height), Color.White);
+            spriteBatch.Draw(ressource.objet_map, new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height), Color.White);
             //dessine les ligne de l'editeur de map
             for (int i = 0; i <= 32 * 16; i += 16)
             {
@@ -166,6 +166,7 @@ namespace Templar
 
                 }
             cursor.Draw(spriteBatch, fenetre);
+            spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
             text.Draw(spriteBatch);
         }
     }

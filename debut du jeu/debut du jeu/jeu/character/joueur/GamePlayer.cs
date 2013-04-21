@@ -191,7 +191,7 @@ namespace Templar
                 utilise_objet(inventaire.ElementAt(obj_selec - 1));
                 inventaire.RemoveAt(obj_selec - 1);
             }
-
+            
             switch (sort_selec)
             {
                 case 1:
