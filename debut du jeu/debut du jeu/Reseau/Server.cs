@@ -5,11 +5,14 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace Templar.Reseau
 {
     class Server
     {
+        
         gamemain Infos;
         int Type = 0;
         private int port;
@@ -25,6 +28,7 @@ namespace Templar.Reseau
                 server = new TcpListener(new IPEndPoint(IPAddress.Any, port));
                 Client_Listener = new Thread(new ThreadStart(StartConnexion));
                 Client_Listener.Start();
+                
             }
             catch (SocketException e)
             {
@@ -66,7 +70,7 @@ namespace Templar.Reseau
                 NetworkStream SentStream = Sender.GetStream();
                 if (Type == 0)
                 {
-                    
+
                     Type = BitConverter.ToInt32(Number, 0);
                 }
                 else
