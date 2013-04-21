@@ -16,7 +16,8 @@ namespace Templar
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-       public GraphicsDeviceManager graphics;
+       GraphicsDeviceManager graphics;
+       
         SpriteBatch spriteBatch;
         KeyboardState oldKeyboard;
         KeyboardState keyboard;
@@ -26,12 +27,14 @@ namespace Templar
         menudujeu menudujeu;
         option option;
         menudepause pause;
-        public gamemain main;
+        gamemain main;
         GameOverScreen gameover;
         EDM edm;
+        Inventaire inventaire;
         creat_perso creation;
         Sauvegarde save;
         Chargement load;
+        
         bool click_down;
 
         public Game1()
@@ -57,9 +60,11 @@ namespace Templar
         {
             ressource.loadcontent(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            
             creation = new creat_perso(this, spriteBatch, ressource.pixel);
             Components.Add(creation);
             creation.hide();
+
 
             gameover = new GameOverScreen(this, main, spriteBatch, ressource.ecriture, ressource.gameover);
             Components.Add(gameover);
@@ -88,6 +93,11 @@ namespace Templar
             main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
             Components.Add(main);
             main.hide();
+
+
+            inventaire = new Inventaire(this, spriteBatch,main);
+            Components.Add(inventaire);
+            inventaire.hide();
 
             activeScreen = menu;
             activeScreen.Show();
@@ -284,6 +294,16 @@ namespace Templar
             }
             #endregion
 
+            else if (activeScreen == inventaire)
+            {
+                if (checkKey(Keys.Escape))
+                {
+                    activeScreen.hide();
+                    activeScreen = main;
+                    activeScreen.Show();
+                }
+            }
+
             #region screen_pause
             else if (activeScreen == pause)
             {
@@ -292,7 +312,9 @@ namespace Templar
 
                     if (pause.SelectedIndex == 0)
                     {
-
+                        activeScreen.hide();
+                        activeScreen = inventaire;
+                        activeScreen.Show();
                     }
 
                     else

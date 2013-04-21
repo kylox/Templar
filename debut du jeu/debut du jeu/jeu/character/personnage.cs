@@ -146,10 +146,10 @@ namespace Templar
             Hitbox = new Rectangle((int)position.X, (int)position.Y, Taille_image_x, Taille_image_y);
             if (Direction == Direction.Up)
             {
-                this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (Taille_image_y - 10)) - this.Speed, 20, 10);
+                this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (32 - 10)) - this.Speed, 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer > 8 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
+                if (!collision && timer > 8 &&  (int)position.Y / 32 - 1 > 0 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
                 {
                     this.position.Y -= 32;
                     timer = 0;
@@ -158,11 +158,11 @@ namespace Templar
             }
             else if (Direction == Direction.Down)
             {
-                this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (Taille_image_y - 10)) + this.Speed, 20, 10);
+                this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (32 - 10)) + this.Speed, 20, 10);
 
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer > 8 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 + 1] != 1)
+                if (!collision && timer > 8 && (int)position.Y / 32 + 1 < 18 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 + 1] != 1)
                 {
                     this.position.Y += 32;
                     timer = 0;
@@ -172,7 +172,7 @@ namespace Templar
             }
             else if (Direction == Direction.Right) // same 
             {
-                this.newHitbox = new Rectangle((int)this.position.X + this.Speed, ((int)this.position.Y + (Taille_image_y - 10)), Taille_image_x, 10);
+                this.newHitbox = new Rectangle((int)this.position.X + this.Speed, ((int)this.position.Y + (32 - 10)), 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
                 if (!collision && timer > 8 && map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
@@ -184,7 +184,7 @@ namespace Templar
             }
             else if (Direction == Direction.Left) // same 
             {
-                this.newHitbox = new Rectangle((int)this.position.X - this.Speed, ((int)this.position.Y + (Taille_image_y - 10)), 20, 10);
+                this.newHitbox = new Rectangle((int)this.position.X - this.Speed, ((int)this.position.Y + (32 - 10)), 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
                 if (!collision && timer > 8 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
@@ -222,7 +222,7 @@ namespace Templar
 
         public virtual void Draw(SpriteBatch spritbatch)
         {
-            spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 64), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
+            spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 32), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
         }
 
         public void chgt_position(int X, int Y)

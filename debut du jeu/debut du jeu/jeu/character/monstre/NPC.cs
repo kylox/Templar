@@ -30,7 +30,7 @@ namespace Templar
             this.Map = main.map.Active_Map ;
         }
 
-        public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages,switch_map map)
+        public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
             chrono++;
             if (chrono % 16 == 0)

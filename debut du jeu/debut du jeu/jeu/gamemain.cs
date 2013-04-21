@@ -37,9 +37,6 @@ namespace Templar
         int pop_time, score, count_dead_zombi, timer_level_up;
 
         #region get set
-
-
-
         public GamePlayer player
         {
             get { return localPlayer; }
@@ -94,7 +91,7 @@ namespace Templar
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
             localPlayer = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this);
-            
+
             localPlayer.Niveau = 1;
             pop_time = 0;
             score = 0;
@@ -115,6 +112,31 @@ namespace Templar
             HUD = new HUD(localPlayer, this);
 
         }
+        public void ramassage_objet()
+        {
+            bool est_present = false;
+            int j = 0;
+            for (int i = 0; i < liste_objet_map.Count; i++)
+                if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
+                {
+                    while (!est_present && j < 25 && j < localPlayer.inventaire.Count())
+                    {
+                        if (localPlayer.inventaire.ElementAt(j) == liste_objet_map[i])
+                        {
+                            est_present = true;
+                            localPlayer.nb_objet[j]++;
+                            liste_objet_map.RemoveAt(i);
+                        }
+                        j++;
+                    }
+
+                    if (localPlayer.inventaire.Count < 25)
+                    {
+                        localPlayer.inventaire.Add(liste_objet_map[i]);
+                        liste_objet_map.RemoveAt(i);
+                    }
+                }
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -126,10 +148,9 @@ namespace Templar
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
             #region ZOMBIE
-            /*
             int a = x.Next(0, 1200);
             int b = x.Next(0, 800);
-            position_npc = new Vector2(20, 20);
+            position_npc = new Vector2(32, 32);
             pop_time++;
 
             if (pop_time == 120)
@@ -139,7 +160,7 @@ namespace Templar
             }
 
             foreach (NPC zombie in list_zombi)
-                zombie.update(mouse, keyboard, Walls, personnage);
+                zombie.update(mouse, keyboard, Walls, personnage, map);
 
             foreach (NPC zombie in list_zombi)
             {
@@ -153,12 +174,12 @@ namespace Templar
                 {
                     if (pop_item == 0)
                     {
-                        liste_objet_map.Add(new potion(ressource.potion_vie, localPlayer, this, list_zombi[i], "VIE"));
+                        liste_objet_map.Add(new potion(ressource.potion_vie, this, list_zombi[i], "VIE"));
                     }
 
                     if (pop_item == 1)
                     {
-                        liste_objet_map.Add(new potion(ressource.potion_mana, localPlayer, this, list_zombi[i], "MANA"));
+                        liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
                     }
 
                     list_zombi.RemoveAt(i);
@@ -167,10 +188,10 @@ namespace Templar
                     localPlayer.XP += 20 / localPlayer.Niveau;
                 }
             }
-             */
+
             #endregion ZOMBIE
             #region PLAYER
-            localPlayer.update(mouse, keyboard, Walls, personnage,map); //fait l'update du player
+            localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
             //cheat code
             if (keyboard.IsKeyDown(Keys.M))
                 localPlayer.mana_player = 100;
@@ -180,10 +201,8 @@ namespace Templar
             //leveling
             if (localPlayer.XP >= 100)
             {
-                localPlayer.Niveau++;
                 timer_level_up = 0;
-                localPlayer.XP -= 100;
-                localPlayer.mana_player = localPlayer.pv_player = 100;
+                localPlayer.levelup = true;
             }
             #endregion
             #region WALL
@@ -202,6 +221,8 @@ namespace Templar
             #endregion WALL
             #region ITEM
 
+            ramassage_objet();
+
             if (keyboard.IsKeyDown(Keys.Space) && !pressdown && localPlayer.mana_player > 0)
             {
                 if (localPlayer.Active == "feu")
@@ -214,25 +235,8 @@ namespace Templar
             foreach (sort sort in liste_sort)
                 sort.update();
 
-            for (int i = 0; i < liste_objet_map.Count; i++)
-                if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
-                    switch (liste_objet_map[i]._Name)
-                    {
-                        case "VIE":
-                            if (localPlayer.pv_player < 100)
-                            {
-                                localPlayer.pv_player += 25;
-                                liste_objet_map.RemoveAt(i);
-                            }
-                            break;
-                        case "MANA":
-                            if (localPlayer.mana_player < 100)
-                            {
-                                localPlayer.mana_player += 25;
-                                liste_objet_map.RemoveAt(i);
-                            }
-                            break;
-                    }
+
+
 
             for (int i = 0; i < liste_sort.Count; i++)
                 for (int j = 0; j < Walls.Count; j++)
@@ -293,7 +297,7 @@ namespace Templar
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
 
             if (timer_level_up < 60 && localPlayer.Niveau != 1)
-                spriteBatch.DrawString(ressource.ecriture, "LEVEL UP !", new Vector2(localPlayer.position_player.X, localPlayer.position_player.Y - 10), Color.Yellow);       
+                spriteBatch.DrawString(ressource.ecriture, "LEVEL UP !", new Vector2(localPlayer.position_player.X, localPlayer.position_player.Y - 10), Color.Yellow);
             #endregion draw du jeu
 
             for (int i = 0; i < 5; i++)
@@ -305,7 +309,7 @@ namespace Templar
 
             HUD.draw(spriteBatch);
             spriteBatch.DrawString(ressource.ecriture, "coordonner map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
-          
+
             base.Draw(gameTime);
         }
     }

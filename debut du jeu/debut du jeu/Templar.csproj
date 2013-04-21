@@ -108,7 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUTTON.cs" />
-    <Compile Include="ecran\liste des ecrans\Menudeuxjoueurs.cs" />
     <Compile Include="Reseau\Client.cs" />
     <Compile Include="Reseau\Server.cs" />
     <Compile Include="tile_mapping\Donjon.cs" />
@@ -127,6 +126,7 @@
     <Compile Include="Serialisation\Chargement.cs" />
     <Compile Include="Serialisation\Sauvegarde.cs" />
     <Compile Include="misc\textbox.cs" />
+    <Compile Include="tile_mapping\Inventaire.cs" />
     <Compile Include="tile_mapping\Map.cs" />
     <Compile Include="ecran\liste des ecrans\pause_edm.cs" />
     <Compile Include="misc\objet\item.cs" />
