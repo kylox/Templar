@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb</Output>
-      <Time>2013-04-20T11:44:57.7283525+02:00</Time>
+      <Time>2013-04-21T08:56:45.0143104+02:00</Time>
     </Item>
     <Item>
       <Source>Misc\pixel.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb</Output>
-      <Time>2013-04-20T11:44:57.0263123+02:00</Time>
+      <Time>2013-04-21T08:56:44.3402718+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Personnage\sprite_cochon.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb</Output>
-      <Time>2013-04-20T11:44:57.7043511+02:00</Time>
+      <Time>2013-04-21T08:56:45.0123102+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\jeux\2012-07-24 08.10.02.jpg</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb</Output>
-      <Time>2013-04-20T11:44:57.8483593+02:00</Time>
+      <Time>2013-04-21T08:56:45.1443178+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Personnage\spritefinale1habit.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb</Output>
-      <Time>2013-04-20T11:44:57.7293525+02:00</Time>
+      <Time>2013-04-21T08:56:45.0163105+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\th.jpg</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb</Output>
-      <Time>2013-04-20T11:44:57.8753609+02:00</Time>
+      <Time>2013-04-21T08:56:45.1893204+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\templar-style-cross-logo.jpg</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb</Output>
-      <Time>2013-04-20T11:44:57.8693605+02:00</Time>
+      <Time>2013-04-21T08:56:45.18232+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\option\option.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb</Output>
-      <Time>2013-04-20T11:44:57.8663603+02:00</Time>
+      <Time>2013-04-21T08:56:45.1773197+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Personnage\Zomtemplate.png</Source>
@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb</Output>
-      <Time>2013-04-20T11:44:57.7043511+02:00</Time>
+      <Time>2013-04-21T08:56:45.0113102+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Tile\ARBRE.png</Source>
@@ -89,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb</Output>
-      <Time>2013-04-20T11:44:57.7293525+02:00</Time>
+      <Time>2013-04-21T08:56:45.0183106+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Tile\SOL.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb</Output>
-      <Time>2013-04-20T11:44:57.7303526+02:00</Time>
+      <Time>2013-04-21T08:56:45.0213108+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Tile\STATUT.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb</Output>
-      <Time>2013-04-20T11:44:57.7313526+02:00</Time>
+      <Time>2013-04-21T08:56:45.0223108+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\jeux\map_test.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb</Output>
-      <Time>2013-04-20T11:44:57.8513595+02:00</Time>
+      <Time>2013-04-21T08:56:45.1493181+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\attaque\Boule_de_feu.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb</Output>
-      <Time>2013-04-20T11:44:57.7353529+02:00</Time>
+      <Time>2013-04-21T08:56:45.0303113+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\attaque\Boule_de_feu_2.png</Source>
@@ -134,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb</Output>
-      <Time>2013-04-20T11:44:57.7363529+02:00</Time>
+      <Time>2013-04-21T08:56:45.0313113+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\jeux\game_o10.png</Source>
@@ -143,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb</Output>
-      <Time>2013-04-20T11:44:57.8503594+02:00</Time>
+      <Time>2013-04-21T08:56:45.147318+02:00</Time>
     </Item>
     <Item>
       <Source>Misc\particule.png</Source>
@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb</Output>
-      <Time>2013-04-20T11:44:57.0253122+02:00</Time>
+      <Time>2013-04-21T08:56:44.3392718+02:00</Time>
     </Item>
     <Item>
       <Source>HUD\barre.png</Source>
@@ -161,7 +161,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb</Output>
-      <Time>2013-04-20T11:44:57.0093113+02:00</Time>
+      <Time>2013-04-21T08:56:44.326271+02:00</Time>
     </Item>
     <Item>
       <Source>HUD\boite_selection.png</Source>
@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb</Output>
-      <Time>2013-04-20T11:44:57.0133116+02:00</Time>
+      <Time>2013-04-21T08:56:44.3282711+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\attaque\glaces.png</Source>
@@ -179,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb</Output>
-      <Time>2013-04-20T11:44:57.7363529+02:00</Time>
+      <Time>2013-04-21T08:56:45.0323114+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\jeux\map_1.png</Source>
@@ -188,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb</Output>
-      <Time>2013-04-20T11:44:57.8503594+02:00</Time>
+      <Time>2013-04-21T08:56:45.148318+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Tile\EDITOR.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb</Output>
-      <Time>2013-04-20T11:44:57.7303526+02:00</Time>
+      <Time>2013-04-21T08:56:45.0203107+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\item\Potion_de_Mana.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb</Output>
-      <Time>2013-04-20T11:44:57.737353+02:00</Time>
+      <Time>2013-04-21T08:56:45.0383117+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\item\Potion_de_Vie.png</Source>
@@ -215,7 +215,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb</Output>
-      <Time>2013-04-20T11:44:57.737353+02:00</Time>
+      <Time>2013-04-21T08:56:45.0393118+02:00</Time>
     </Item>
     <Item>
       <Source>HUD\barre_xp.png</Source>
@@ -224,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb</Output>
-      <Time>2013-04-20T11:44:57.0103114+02:00</Time>
+      <Time>2013-04-21T08:56:44.3272711+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Tile\tile_map.png</Source>
@@ -233,7 +233,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tile_map.xnb</Output>
-      <Time>2013-04-20T11:44:57.7343528+02:00</Time>
+      <Time>2013-04-21T08:56:45.0273111+02:00</Time>
     </Item>
     <Item>
       <Source>Sprite\Tile\tileset.png</Source>
@@ -242,7 +242,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\tileset.xnb</Output>
-      <Time>2013-04-20T11:44:57.7353529+02:00</Time>
+      <Time>2013-04-21T08:56:45.0283112+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\option\plus.png</Source>
@@ -251,7 +251,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb</Output>
-      <Time>2013-04-20T11:44:57.8673604+02:00</Time>
+      <Time>2013-04-21T08:56:45.1793198+02:00</Time>
     </Item>
     <Item>
       <Source>ecran\option\moin.png</Source>
@@ -260,7 +260,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb</Output>
-      <Time>2013-04-20T11:44:57.8513595+02:00</Time>
+      <Time>2013-04-21T08:56:45.1553184+02:00</Time>
     </Item>
     <Item>
       <Source>swordsman_m.png</Source>
@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb</Output>
-      <Time>2013-04-20T11:44:57.9223636+02:00</Time>
+      <Time>2013-04-21T08:56:45.3203279+02:00</Time>
     </Item>
     <Item>
       <Source>M_Knight.png</Source>
@@ -278,7 +278,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb</Output>
-      <Time>2013-04-20T11:44:57.0223121+02:00</Time>
+      <Time>2013-04-21T08:56:44.3372716+02:00</Time>
     </Item>
     <Item>
       <Source>swordsman_m_mod.png</Source>
@@ -287,7 +287,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb</Output>
-      <Time>2013-04-20T11:44:57.9313641+02:00</Time>
+      <Time>2013-04-21T08:56:45.3293284+02:00</Time>
     </Item>
     <Item>
       <Source>tile.png</Source>
@@ -296,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile.xnb</Output>
-      <Time>2013-04-20T11:44:57.9403646+02:00</Time>
+      <Time>2013-04-21T08:56:45.3483295+02:00</Time>
     </Item>
     <Item>
       <Source>tile_1.png</Source>
@@ -305,7 +305,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\tile_1.xnb</Output>
-      <Time>2013-04-20T11:44:57.9413646+02:00</Time>
+      <Time>2013-04-21T08:56:45.3493295+02:00</Time>
     </Item>
     <Item>
       <Source>piece.png</Source>
@@ -314,7 +314,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb</Output>
-      <Time>2013-04-20T11:44:57.913363+02:00</Time>
+      <Time>2013-04-21T08:56:45.3043269+02:00</Time>
     </Item>
     <Item>
       <Source>swordsman_m_2.png</Source>
@@ -323,7 +323,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb</Output>
-      <Time>2013-04-20T11:44:57.9273638+02:00</Time>
+      <Time>2013-04-21T08:56:45.3243281+02:00</Time>
     </Item>
     <Item>
       <Source>M_Black.png</Source>
@@ -332,7 +332,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb</Output>
-      <Time>2013-04-20T11:44:57.0163117+02:00</Time>
+      <Time>2013-04-21T08:56:44.3312713+02:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont.spritefont</Source>
@@ -341,7 +341,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb</Output>
-      <Time>2013-04-20T11:44:57.738353+02:00</Time>
+      <Time>2013-04-21T08:56:45.0403118+02:00</Time>
     </Item>
     <Item>
       <Source>Music\effet\selection.mp3</Source>
@@ -350,7 +350,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb</Output>
-      <Time>2013-04-20T11:44:57.0323126+02:00</Time>
+      <Time>2013-04-21T08:56:44.3492723+02:00</Time>
     </Item>
     <Item>
       <Source>Music\musiques\charge of the rohirrim soundtrack.mp3</Source>
@@ -360,7 +360,7 @@
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb</Output>
       <Extra>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma</Extra>
-      <Time>2013-04-20T11:44:57.5763438+02:00</Time>
+      <Time>2013-04-21T08:56:44.8393004+02:00</Time>
     </Item>
     <Item>
       <Source>Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.mp3</Source>
@@ -370,7 +370,7 @@
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb</Output>
       <Extra>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma</Extra>
-      <Time>2013-04-20T11:44:57.2493251+02:00</Time>
+      <Time>2013-04-21T08:56:44.5562842+02:00</Time>
     </Item>
     <Item>
       <Source>Music\musiques\01 - niNzo` - Epic feel.mp3</Source>
@@ -380,7 +380,7 @@
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb</Output>
       <Extra>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma</Extra>
-      <Time>2013-04-20T11:44:57.1523195+02:00</Time>
+      <Time>2013-04-21T08:56:44.4552784+02:00</Time>
     </Item>
     <Item>
       <Source>Music\musiques\PSICODREAMICS_-_Into_the_Darkness.mp3</Source>
@@ -390,7 +390,7 @@
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb</Output>
       <Extra>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma</Extra>
-      <Time>2013-04-20T11:44:57.4363358+02:00</Time>
+      <Time>2013-04-21T08:56:44.7322942+02:00</Time>
     </Item>
     <Item>
       <Source>Music\effet\lowHP.wav</Source>
@@ -399,7 +399,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb</Output>
-      <Time>2013-04-20T11:44:57.0313126+02:00</Time>
+      <Time>2013-04-21T08:56:44.3472722+02:00</Time>
     </Item>
     <Item>
       <Source>Music\effet\Mémo.wav</Source>
@@ -408,7 +408,7 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\gaudro_m\Desktop\TEMPLAR\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb</Output>
-      <Time>2013-04-20T11:44:57.0293125+02:00</Time>
+      <Time>2013-04-21T08:56:44.3452721+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
