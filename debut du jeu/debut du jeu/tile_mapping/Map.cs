@@ -13,14 +13,14 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-   public class Map
+    public class Map
     {
         #region variable
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
         Vector2[,] tiles;
         Tile[,] tilelist;
-        int[,] colision;
+        public int[,] colision;
         bool iscreate;
         # endregion
         #region fields
@@ -40,9 +40,9 @@ namespace Templar
         #endregion
         public Map()
         {
-            tiles = new Vector2[32, 32];
-            tilelist = new Tile[32, 32];
-            colision = new int[32, 32];
+            tiles = new Vector2[25, 18];
+            tilelist = new Tile[25, 18];
+            colision = new int[25, 18];
             iscreate = false;
         }
         public void init(string path)
@@ -52,8 +52,30 @@ namespace Templar
             {
                 for (int i = 0; i < tiles.GetLength(0); i++)
                 {
-                    tiles[i, j] = new Vector2(1, 0);
-                    tilelist[i, j] = new Tile(i, j, 1);
+                    if (j == 0)
+                        if (i == 0)
+                            tiles[i, j] = new Vector2(0, 1);
+                        else
+                            if (i == tiles.GetLength(0) - 1)
+                                tiles[i, j] = new Vector2(2, 1);
+                            else
+                                tiles[i, j] = new Vector2(1, 1);
+                    else if (j == tiles.GetLength(1) - 1)
+                        if (i == 0)
+                            tiles[i, j] = new Vector2(0, 3);
+                        else
+                            if (i == tiles.GetLength(0) - 1)
+                                tiles[i, j] = new Vector2(2, 3);
+                            else
+                                tiles[i, j] = new Vector2(1, 3);
+                    else if (i == tiles.GetLength(0) - 1 && j != tiles.GetLength(1) - 1 && j != 0)
+                        tiles[i, j] = new Vector2(2, 2);
+                    else
+                        if (i == 0 && j != tiles.GetLength(1) - 1 && j != 0)
+                            tiles[i, j] = new Vector2(0, 2);
+
+                        else
+                            tiles[i, j] = new Vector2(1, 2);
                     sw.Write(cursor.vec_to_id(tiles[i, j]));
                 }
                 sw.WriteLine();
@@ -72,7 +94,6 @@ namespace Templar
                 sw.WriteLine();
             }
             sw.Close();
-
         }
         public void ecrire(string path)
         {
@@ -111,20 +132,22 @@ namespace Templar
         }
         public void load_collision(string path)
         {
-             int j = 0;
-                StreamReader sr = new StreamReader(path);
-                string ligne;
-                while ((ligne = sr.ReadLine()) != null)
+            int j = 0;
+            StreamReader sr = new StreamReader(path);
+            string ligne;
+            while ((ligne = sr.ReadLine()) != null)
+            {
+                for (int i = 0; i < tiles.GetLength(0); i++)
                 {
-                    for (int i = 0; i < tiles.GetLength(0); i++)
-                    {
-                        tilelist[i, j] = new Tile(i, j,Convert.ToInt32(ligne[i]));
-                    }
-                    j += 1;
+                    tilelist[i, j] = new Tile(i, j, Convert.ToInt32(ligne[i]));
+                    colision[i, j] = Convert.ToInt32(Convert.ToString(ligne[i]));
                 }
-                sr.Close();
+
+                j += 1;
+            }
+            sr.Close();
         }
-        public void Update(GameTime gametime, string path,string path_coll, textbox text)
+        public void Update(GameTime gametime, string path, string path_coll, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();

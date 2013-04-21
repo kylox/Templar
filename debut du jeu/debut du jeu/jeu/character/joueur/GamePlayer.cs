@@ -12,18 +12,28 @@ namespace Templar
     {
         SpriteFont spriteFont;
         Vector2 position_pv;
-
         gamemain main;
         dessin_perso dessin_tete;
         sort active_sort;
-
         bool click_down;
-
+        public bool levelup;
         int sort_selec;
+        public int obj_selec;
         int Endurance;
         int timer_endurance;
         int Mana;
         string active;
+        public List<item> inventaire;
+        public int[] nb_objet;
+
+        public int attaque;
+        public int defense;
+        public int magie;
+
+        public int nb_amelioration;
+
+        public Rectangle HitBox;
+
         public int tete
         {
             get;
@@ -83,18 +93,28 @@ namespace Templar
             position_pv.X = 300;
             position_pv.Y = 0;
             this.Direction = Direction.None;
-
+            attaque = 10;
+            defense = 10;
+            magie = 10;
             Endurance = 100;
             Mana = 100;
             Pv = 100;
             timer_endurance = 0;
-
             sort_selec = 1;
+            obj_selec = 1;
             active_sort = new sort(ressource.boule_de_feu, this);
             dessin_tete = new dessin_perso(this);
             click_down = false;
+            levelup = false;
+            nb_amelioration = 0;
+            inventaire = new List<item>();
+            nb_objet = new int[25];
+            HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
         }
-
+        public void utilise_objet(item item)
+        {
+            item.action(this);
+        }
         public void deplacement()
         {
             if (Data.keyboardState.IsKeyDown(Keys.Z))
@@ -139,23 +159,39 @@ namespace Templar
                 click_down = true;
             }
         }
-        public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages)
+        public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
             collision_bord();
             deplacement();
-
+            HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
             #region sort
-            //modifie la selection des sorts
-            if (keyboard.IsKeyDown(Keys.D1))
-            {
+           
+            if (keyboard.IsKeyDown(Keys.F1))
                 sort_selec = 1;
-            }
-            if (keyboard.IsKeyDown(Keys.D2))
-            {
+            if (keyboard.IsKeyDown(Keys.F2))
                 sort_selec = 2;
-            }
+            if (keyboard.IsKeyDown(Keys.F3))
+                sort_selec = 3;
+            if (keyboard.IsKeyDown(Keys.F4))
+                sort_selec = 4;
 
-            //lance le nouveau sort suivant la selection
+            if (Data.keyboardState.IsKeyDown(Keys.D1))
+                obj_selec = 1;
+            if (Data.keyboardState.IsKeyDown(Keys.D2))
+                obj_selec = 2;
+            if (Data.keyboardState.IsKeyDown(Keys.D3))
+                obj_selec = 3;
+            if (Data.keyboardState.IsKeyDown(Keys.D4))
+                obj_selec = 4;
+            if (Data.keyboardState.IsKeyDown(Keys.D5))
+                obj_selec = 5;
+
+            if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A))
+            {
+                utilise_objet(inventaire.ElementAt(obj_selec - 1));
+                inventaire.RemoveAt(obj_selec - 1);
+            }
+            
             switch (sort_selec)
             {
                 case 1:
@@ -167,13 +203,11 @@ namespace Templar
                     active = "glace";
                     break;
             }
-
             attaque_mana(keyboard);
             #endregion
+
             #region endurance
-
-
-            //permet de courir
+            timer_endurance++;
             if (keyboard.IsKeyDown(Keys.LeftShift) && Endurance > 0)
             {
                 animate();
@@ -181,7 +215,6 @@ namespace Templar
                 Speed = 4;
                 animaitonspeed = 5;
             }
-
             else
             {
                 animate();
@@ -189,36 +222,47 @@ namespace Templar
                 animaitonspeed = 8;
             }
 
-            timer_endurance++;
-
-            //recharge l'endurance 
             if (keyboard.IsKeyUp(Keys.LeftShift) && timer_endurance >= 5 && Endurance < 100)
             {
                 Endurance++;
                 timer = 0;
             }
-
-            //ces deux test marche aps specialement bien A MODIFIER 
             if (Endurance <= 0)
                 Endurance = 0;
-
-
             #endregion
+
             #region attaque
             if (keyboard.IsKeyDown(Keys.A))
                 frameline = 5;
             #endregion
 
-            //evite de trop cliquer
+            if (levelup == true)
+            {
+                nb_amelioration++;
+                XP -= 100;
+                mana_player = pv_player = 100;
+                Niveau++;
+                levelup = false;
+
+            }
+
             if (keyboard.IsKeyUp(Keys.Space))
                 click_down = false;
+
             dessin_tete.update();
-            base.update(mouse, keyboard, walls, personnages);
+
+            base.update(mouse, keyboard, walls, personnages, map);
         }
         public override void Draw(SpriteBatch spritebatch)
         {
             base.Draw(spritebatch);
             dessin_tete.draw(spritebatch);
+            for (int i = 0; i < 5; i++)
+            {
+                if (i < inventaire.Count())
+                    spritebatch.Draw(inventaire.ElementAt(i).Texture, new Rectangle(100 + i * 32 + 5, 0, 32, 32), Color.White);
+            }
+            spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
         }
     }
 }
