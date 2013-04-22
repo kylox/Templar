@@ -241,20 +241,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprite\Tile\tile_map.png">
-      <Name>tile_map</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sprite\Tile\tileset.png">
-      <Name>tileset</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.mp3">
       <Name>Butterfly_Tea_-_New_Rise_of_Legend_-_Instru</Name>
       <Importer>Mp3Importer</Importer>
@@ -318,15 +304,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tile.png">
-      <Name>tile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="tile_1.png">
-      <Name>tile_1</Name>
+    <Compile Include="piece3.png">
+      <Name>piece3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -348,6 +327,27 @@
   <ItemGroup>
     <Compile Include="M_Black.png">
       <Name>M_Black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="piece2.png">
+      <Name>piece2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="piece1.jpg">
+      <Name>piece1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="piece_objet_mod.png">
+      <Name>piece_objet_mod</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

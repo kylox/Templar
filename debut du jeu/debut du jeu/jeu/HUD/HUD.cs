@@ -86,14 +86,30 @@ namespace Templar
             {
                 if (localPlayer.Sort_selec == i + 1)
                     spriteBatch.Draw(ressource.selection_sort,
-                        new Rectangle((Main.Fenetre.Width / 3) + 60 * i,
-                            Main.Fenetre.Height - 65, 60, 60), Color.Red);
+                        new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i-20, Main.Fenetre.Height - 65, 40, 40),
+                            Color.Red);
 
                 else
                     spriteBatch.Draw(ressource.selection_sort,
-                    new Rectangle((Main.Fenetre.Width / 3) + 60 * i,
-                        Main.Fenetre.Height - 65, 60, 60), Color.White);
+                    new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i-20,Main.Fenetre.Height - 65, 40, 40), Color.White);
+
             }
+            for (int i = 0; i < 5; i++)
+            {          
+                if (localPlayer.obj_selec == i + 1)
+                    spriteBatch.Draw(ressource.selection_sort,
+                        new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i + 100, Main.Fenetre.Height-65, 40, 40),
+                        Color.Red);
+
+                else
+                    spriteBatch.Draw(
+                      ressource.selection_sort,
+                    new Rectangle((Main.Fenetre.Width / 3) + 40 * i + 100, Main.Fenetre.Height-65, 40, 40),
+                    Color.White);
+
+            }
+
+
 
             //dessine la mini map 
             mini_map.draw(spriteBatch);

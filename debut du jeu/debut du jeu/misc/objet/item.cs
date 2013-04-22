@@ -14,13 +14,18 @@ namespace Templar
 {
     abstract class item
     {
-        Texture2D Texture;
+        public Texture2D Texture;
         protected Vector2 Position;
 
-        public item(Texture2D texture, GamePlayer player, Vector2 position, GameScreen screen)
+        public item(Texture2D texture, Vector2 position, GameScreen screen)
         {
             Texture = texture;
             Position = position;
+        }
+        
+        public virtual void action(GamePlayer player)
+        {
+            
         }
 
         public virtual void update()

@@ -16,7 +16,8 @@ namespace Templar
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+       GraphicsDeviceManager graphics;
+       
         SpriteBatch spriteBatch;
         KeyboardState oldKeyboard;
         KeyboardState keyboard;
@@ -26,26 +27,29 @@ namespace Templar
         menudujeu menudujeu;
         option option;
         menudepause pause;
-        public gamemain main;
+        gamemain main;
         GameOverScreen gameover;
         EDM edm;
+        Inventaire inventaire;
         creat_perso creation;
         Sauvegarde save;
         Chargement load;
-
-        bool ecran;
+        
         bool click_down;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-            graphics.IsFullScreen = false;
-            this.IsMouseVisible = true;
-            graphics.PreferredBackBufferHeight = 640;
-            graphics.PreferredBackBufferWidth = 800;
+            graphics = new GraphicsDeviceManager(this)
+                {
+                    PreferredBackBufferWidth = 800,
+            PreferredBackBufferHeight = 675
 
+                };
+            Content.RootDirectory = "Content";
+            this.IsMouseVisible = true;
+            Window.Title = "Templar";
             click_down = false;
+
         }
 
         protected override void Initialize()
@@ -56,10 +60,11 @@ namespace Templar
         {
             ressource.loadcontent(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             creation = new creat_perso(this, spriteBatch, ressource.pixel);
             Components.Add(creation);
             creation.hide();
+
 
             gameover = new GameOverScreen(this, main, spriteBatch, ressource.ecriture, ressource.gameover);
             Components.Add(gameover);
@@ -85,9 +90,14 @@ namespace Templar
             Components.Add(option);
             option.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("yo",main));
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
             Components.Add(main);
             main.hide();
+
+
+            inventaire = new Inventaire(this, spriteBatch,main);
+            Components.Add(inventaire);
+            inventaire.hide();
 
             activeScreen = menu;
             activeScreen.Show();
@@ -95,8 +105,6 @@ namespace Templar
             MediaPlayer.IsRepeating = true;
             MediaPlayer.IsMuted = true;
             SoundEffect.MasterVolume = 0f;
-
-            ecran = false;
         }
 
         protected override void UnloadContent()
@@ -137,7 +145,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z",main));
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
                         Components.Add(main);
                         main.hide();
 
@@ -217,7 +225,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("z",main));
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
                     Components.Add(main);
                     main.hide();
 
@@ -286,6 +294,16 @@ namespace Templar
             }
             #endregion
 
+            else if (activeScreen == inventaire)
+            {
+                if (checkKey(Keys.Escape))
+                {
+                    activeScreen.hide();
+                    activeScreen = main;
+                    activeScreen.Show();
+                }
+            }
+
             #region screen_pause
             else if (activeScreen == pause)
             {
@@ -294,7 +312,9 @@ namespace Templar
 
                     if (pause.SelectedIndex == 0)
                     {
-
+                        activeScreen.hide();
+                        activeScreen = inventaire;
+                        activeScreen.Show();
                     }
 
                     else

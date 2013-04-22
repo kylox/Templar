@@ -23,8 +23,6 @@ namespace Templar
             get { return menugeneral.SelectedIndex; }
             set { menugeneral.SelectedIndex = value; }
         }
-
-
         public menudujeu(Game game, SpriteBatch spriteBatch, SpriteFont spriteFont, Texture2D image)
             : base(game, spriteBatch)
         {
@@ -35,7 +33,6 @@ namespace Templar
             rectangle = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de l'ecran 
             //note : pensez a faire des variable pour modifier taille d'ecran
         }
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
