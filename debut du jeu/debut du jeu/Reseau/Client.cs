@@ -7,7 +7,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 
-namespace Templar.Reseau
+namespace Templar
 {
     class Client
     {

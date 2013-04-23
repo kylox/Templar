@@ -8,11 +8,11 @@ using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
-namespace Templar.Reseau
+namespace Templar
 {
     class Server
     {
-        
+        IFormatter Serialiseur;
         gamemain Infos;
         int Type = 0;
         private int port;
@@ -21,14 +21,16 @@ namespace Templar.Reseau
         Thread Client_Listener, Client_Handler;
         public Server(gamemain infos)
         {
+            Serialiseur = new BinaryFormatter();
             Infos = infos;
             try
             {
-                port = 4242;
+                port = 9580;
                 server = new TcpListener(new IPEndPoint(IPAddress.Any, port));
+                server.Start();
                 Client_Listener = new Thread(new ThreadStart(StartConnexion));
                 Client_Listener.Start();
-                
+
             }
             catch (SocketException e)
             {
@@ -38,7 +40,7 @@ namespace Templar.Reseau
 
         public void StartConnexion()
         {
-            server.Start();
+
             while (true)
             {
                 Client = server.AcceptTcpClient();
@@ -62,21 +64,12 @@ namespace Templar.Reseau
 
         public void Receiver(object client)
         {
-            byte[] Number = new byte[2];
             TcpClient Sender = (TcpClient)client;
             while (true)
             {
-                
+
                 NetworkStream SentStream = Sender.GetStream();
-                if (Type == 0)
-                {
-
-                    Type = BitConverter.ToInt32(Number, 0);
-                }
-                else
-                {
-
-                }
+               Infos = (Templar.gamemain)Serialiseur.Deserialize(SentStream);
 
             }
         }
@@ -94,13 +87,10 @@ namespace Templar.Reseau
             }
         }
 
-        public void Send(NetworkStream file, int type)
+        public void Send(NetworkStream file)
         {
-            byte[] FileType = BitConverter.GetBytes(type);
-            byte[] File = new byte[file.Length];
-            file.Read(File, 0, (int)file.Length);
-            Client.Client.Send(FileType);
-            Client.Client.Send(File);
+            file = new NetworkStream(Client.Client);
+            Serialiseur.Serialize(file, Infos);
         }
     }
 }

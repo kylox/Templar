@@ -28,8 +28,13 @@ Content\ecran\option\moin.xnb
 Content\swordsman_m.xnb
 Content\M_Knight.xnb
 Content\swordsman_m_mod.xnb
+Content\piece3.xnb
+Content\piece.xnb
 Content\swordsman_m_2.xnb
 Content\M_Black.xnb
+Content\piece2.xnb
+Content\piece1.xnb
+Content\piece_objet_mod.xnb
 Content\SpriteFont.xnb
 Content\Music\effet\selection.xnb
 Content\Music\musiques\charge of the rohirrim soundtrack.xnb
@@ -42,8 +47,3 @@ Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
 Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
 Content\Music\effet\lowHP.xnb
 Content\Music\effet\Mémo.xnb
-Content\piece2.xnb
-Content\piece3.xnb
-Content\piece.xnb
-Content\piece1.xnb
-Content\piece_objet_mod.xnb
