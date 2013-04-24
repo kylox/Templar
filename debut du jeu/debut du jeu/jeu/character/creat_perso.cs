@@ -27,7 +27,6 @@ namespace Templar
             get { return Frameligne; }
             set { value = Frameligne; } 
         }
-
         public bool change
         {
             get { return Change; }
@@ -37,7 +36,6 @@ namespace Templar
         public creat_perso(Game game, SpriteBatch spriteBatch, Texture2D image)
             : base(game, spriteBatch)
         {
-
             this.texture = image;
             rectangle = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de l'ecran 
             Change = false;

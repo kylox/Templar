@@ -81,8 +81,10 @@ namespace Templar
             : base(game, spriteBatch)
         {
             //ICI
+            /*
             prout = new Server(this);
             prout.StartConnexion();
+             * */
             #region init du jeu
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -120,6 +122,7 @@ namespace Templar
         {
             bool est_present = false;
             int j = 0;
+           
             for (int i = 0; i < liste_objet_map.Count; i++)
                 if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
                 {
@@ -133,7 +136,6 @@ namespace Templar
                         }
                         j++;
                     }
-
                     if (localPlayer.inventaire.Count < 25)
                     {
                         localPlayer.inventaire.Add(liste_objet_map[i]);
@@ -145,7 +147,7 @@ namespace Templar
         public override void Update(GameTime gameTime)
         {
             //ICI
-            prout.Receiver(this);
+            //prout.Receiver(this);
             map.update();
             HUD.update();
             int pop_item = x.Next(0, 5);
@@ -169,31 +171,23 @@ namespace Templar
                 zombie.update(mouse, keyboard, Walls, personnage, map);
 
             foreach (NPC zombie in list_zombi)
-            {
                 if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
                     localPlayer.pv_player--;
-            }
 
             for (int i = 0; i < list_zombi.Count; i++)
-            {
                 if (list_zombi[i].PV <= 0)
                 {
                     if (pop_item == 0)
-                    {
                         liste_objet_map.Add(new potion(ressource.potion_vie, this, list_zombi[i], "VIE"));
-                    }
 
                     if (pop_item == 1)
-                    {
                         liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
-                    }
 
                     list_zombi.RemoveAt(i);
                     score += 5;
 
                     localPlayer.XP += 20 / localPlayer.Niveau;
                 }
-            }
 
             #endregion ZOMBIE
             #region PLAYER

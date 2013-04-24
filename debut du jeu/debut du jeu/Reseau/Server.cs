@@ -37,7 +37,7 @@ namespace Templar
                 Console.WriteLine("erreur" + e.Message);
             }
         }
-
+        
         public void StartConnexion()
         {
 
@@ -49,7 +49,7 @@ namespace Templar
             }
 
         }
-
+        
         public void Ping()
         {
             if (Client.Client.Poll(-1, SelectMode.SelectError))

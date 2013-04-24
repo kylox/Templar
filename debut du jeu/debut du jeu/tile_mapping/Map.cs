@@ -19,6 +19,7 @@ namespace Templar
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
         Vector2[,] tiles;
+        Vector2[,] objet;
         Tile[,] tilelist;
         public int[,] colision;
         bool iscreate;
@@ -41,6 +42,15 @@ namespace Templar
         public Map()
         {
             tiles = new Vector2[25, 18];
+            objet = new Vector2[25, 18];
+            for (int i = 0; i < objet.GetLength(0); i++)
+            {
+                for (int j = 0; j < objet.GetLength(1); j++)
+                {
+                    objet[i, j] = new Vector2(15, 15);
+                }
+                
+            }
             tilelist = new Tile[25, 18];
             colision = new int[25, 18];
             iscreate = false;
@@ -82,6 +92,19 @@ namespace Templar
             }
             sw.Close();
         }
+        public void init_objet(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int j = 0; j < objet.GetLength(1); j++)
+            {
+                for (int i = 0; i < objet.GetLength(0); i++)
+                {
+                    sw.Write("0");
+                }
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
         public void ecrire_coll(string path)
         {
             StreamWriter sw = new StreamWriter(path);
@@ -95,14 +118,17 @@ namespace Templar
             }
             sw.Close();
         }
-        public void ecrire(string path)
+        public void ecrire_objet(string path)
         {
             StreamWriter sw = new StreamWriter(path);
             for (int j = 0; j < tiles.GetLength(1); j++)
             {
                 for (int i = 0; i < tiles.GetLength(0); i++)
                 {
-                    sw.Write(cursor.vec_to_id(tiles[i, j]));
+                    if (objet[i,j] != new Vector2(15,15))
+                        sw.Write(cursor.vec_to_id(objet[i,j]));
+                    else
+                        sw.Write("0");
                 }
                 sw.WriteLine();
             }
@@ -156,7 +182,7 @@ namespace Templar
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 32, 16 * 32))
                 && text.Is_shown == false)
             {
-                tiles[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
 
                 if (cursor.iD != new Vector2(0, 1) && cursor.iD != new Vector2(2, 3))
                 {
@@ -168,7 +194,7 @@ namespace Templar
                     tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
                     colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
                 }
-                ecrire(path);
+                ecrire_objet(path);
                 ecrire_coll(path_coll);
             }
         }
@@ -177,6 +203,12 @@ namespace Templar
             for (int j = 0; j < tiles.GetLength(1); j++)
                 for (int i = 0; i < tiles.GetLength(0); i++)
                     spriteBatch.Draw(ressource.tile, new Rectangle(i * x, j * x, x, x), Tile.tile(tiles[i, j]), Color.White);
+
+            for (int j = 0; j < tiles.GetLength(1); j++)
+                for (int i = 0; i < tiles.GetLength(0); i++)
+                    if (objet[i, j] != new Vector2(15,15))
+                        spriteBatch.Draw(ressource.objet_map, new Rectangle(i * x, j * x, x, x), Tile.tile(objet[i, j]), Color.White);
+
         }
         public bool ValidCoordinate(int x, int y)
         {

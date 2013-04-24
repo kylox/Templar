@@ -16,8 +16,8 @@ namespace Templar
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-       GraphicsDeviceManager graphics;
-       
+        GraphicsDeviceManager graphics;
+
         SpriteBatch spriteBatch;
         KeyboardState oldKeyboard;
         KeyboardState keyboard;
@@ -34,7 +34,7 @@ namespace Templar
         creat_perso creation;
         Sauvegarde save;
         Chargement load;
-        
+
         bool click_down;
 
         public Game1()
@@ -42,7 +42,7 @@ namespace Templar
             graphics = new GraphicsDeviceManager(this)
                 {
                     PreferredBackBufferWidth = 800,
-            PreferredBackBufferHeight = 675
+                    PreferredBackBufferHeight = 675
 
                 };
             Content.RootDirectory = "Content";
@@ -60,11 +60,10 @@ namespace Templar
         {
             ressource.loadcontent(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             creation = new creat_perso(this, spriteBatch, ressource.pixel);
             Components.Add(creation);
             creation.hide();
-
 
             gameover = new GameOverScreen(this, main, spriteBatch, ressource.ecriture, ressource.gameover);
             Components.Add(gameover);
@@ -82,6 +81,10 @@ namespace Templar
             Components.Add(menu);
             menu.hide();
 
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a", main));
+            Components.Add(main);
+            main.hide();
+
             menudujeu = new menudujeu(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.th);
             Components.Add(menudujeu);
             menudujeu.hide();
@@ -90,12 +93,7 @@ namespace Templar
             Components.Add(option);
             option.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
-            Components.Add(main);
-            main.hide();
-
-
-            inventaire = new Inventaire(this, spriteBatch,main);
+            inventaire = new Inventaire(this, spriteBatch, main);
             Components.Add(inventaire);
             inventaire.hide();
 
@@ -145,7 +143,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a", main));
                         Components.Add(main);
                         main.hide();
 
