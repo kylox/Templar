@@ -17,6 +17,7 @@ namespace Templar
     {
 
         //field ecran 
+        Server prout;
         Rectangle fenetre;
         public switch_map map;
         HUD HUD;
@@ -79,6 +80,9 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon)
             : base(game, spriteBatch)
         {
+            //ICI
+            prout = new Server(this);
+            prout.StartConnexion();
             #region init du jeu
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -140,6 +144,8 @@ namespace Templar
 
         public override void Update(GameTime gameTime)
         {
+            //ICI
+            prout.Receiver(this);
             map.update();
             HUD.update();
             int pop_item = x.Next(0, 5);
