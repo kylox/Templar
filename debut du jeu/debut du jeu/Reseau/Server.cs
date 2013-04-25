@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace Templar
 {
@@ -14,11 +15,12 @@ namespace Templar
     {
         IFormatter Serialiseur;
         gamemain Infos;
-        int Type = 0;
         private int port;
+        int type = 0;
         TcpClient Client;
         TcpListener server;
         Thread Client_Listener, Client_Handler;
+        NetworkStream Sentstream;
         public Server(gamemain infos)
         {
             Serialiseur = new BinaryFormatter();
@@ -37,7 +39,7 @@ namespace Templar
                 Console.WriteLine("erreur" + e.Message);
             }
         }
-        
+
         public void StartConnexion()
         {
 
@@ -49,7 +51,7 @@ namespace Templar
             }
 
         }
-        
+
         public void Ping()
         {
             if (Client.Client.Poll(-1, SelectMode.SelectError))
@@ -67,23 +69,33 @@ namespace Templar
             TcpClient Sender = (TcpClient)client;
             while (true)
             {
-
-                NetworkStream SentStream = Sender.GetStream();
-               Infos = (Templar.gamemain)Serialiseur.Deserialize(SentStream);
-
+                Sentstream = Sender.GetStream();
             }
         }
 
-        public void Parser(int type, int info)
+        public void Parser(gamemain Infos)
         {
+            BinaryReader BR = new BinaryReader(Sentstream);
+            type = BR.ReadInt32();
             switch (type)
             {
-                case 1:
-                    Infos.player.chgt_position(info, (int)Infos.player.position_player.Y);
+                case 2:
+                    Infos.player.chgt_position(BR.ReadInt32(), BR.ReadInt32());
+                    break;
+                case 31:
+                    Infos.List_Sort.RemoveAt(BR.ReadInt32());
+                    break;
+                case 32:
+                    Infos.List_Sort.Add((Templar.sort)Serialiseur.Deserialize(Sentstream));
+                    break;
+                case 41:
+                    Infos.List_Zombie.RemoveAt(BR.ReadInt32());
+                    break;
+                case 42:
+                    Infos.List_Zombie.Add((Templar.NPC)Serialiseur.Deserialize(Sentstream));
                     break;
 
-                default:
-                    break;
+
             }
         }
 
