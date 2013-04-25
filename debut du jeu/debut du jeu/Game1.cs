@@ -462,7 +462,7 @@ namespace Templar
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.HotPink);
             spriteBatch.Begin();
             base.Draw(gameTime);
             spriteBatch.End();
