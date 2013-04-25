@@ -11,7 +11,7 @@ namespace Templar
 {
     public class textbox
     {
-        Rectangle Fenetre;
+        public Rectangle Fenetre;
         string saisie = "";
         KeyboardState keyboard;
         KeyboardState oldkeyboard;
@@ -144,6 +144,11 @@ namespace Templar
             couleurfenetre.A = 100;
             if (is_shown == true)
             {
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Y - 3, 3, Fenetre.Height+3), Color.Gray);
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Y - 3, Fenetre.Width+6, 3), Color.Gray);
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Height + Fenetre.Y, Fenetre.Width+3, 3), Color.Gray);
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width + Fenetre.X, Fenetre.Y, 3, Fenetre.Height+3), Color.Gray);
+
                 spritebatch.Draw(ressource.pixel, Fenetre, couleurfenetre);
                 spritebatch.DrawString(ressource.ecriture, saisie, new Vector2(Fenetre.X + 5, Fenetre.Y + 5), Color.White);
             }

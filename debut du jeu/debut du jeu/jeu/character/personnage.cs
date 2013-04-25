@@ -219,7 +219,7 @@ namespace Templar
                 this.timer = 0;
             }
         }
-
+      
         public virtual void Draw(SpriteBatch spritbatch)
         {
             spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 32), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
