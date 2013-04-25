@@ -41,7 +41,6 @@ namespace Templar
             {
                 result.Add(new Node(map.Tilelist[tile.X, tile.Y + 1], this, Destination));
             }
-
             // Right
             if (map.ValidCoordinate((tile.X  + 1), tile.Y ) && map.Tilelist[tile.X + 1, tile.Y].Type != Templar.Tile.TileType.wall)
             {
@@ -55,7 +54,6 @@ namespace Templar
                 //result.Add(new Node(map.Tilelist[tile.Y-1, tile.X], this, Destination));
                 result.Add(new Node(map.Tilelist[tile.X, tile.Y - 1], this, Destination));
             }
-
             //Left
             if (map.ValidCoordinate(tile.X - 1, tile.Y) && map.Tilelist[tile.X - 1, tile.Y].Type != Templar.Tile.TileType.wall)
             {

@@ -19,7 +19,7 @@ namespace Templar
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
         Vector2[,] tiles;
-        Vector2[,] objet;
+        public Vector2[,] objet;
         Tile[,] tilelist;
         public int[,] colision;
         bool iscreate;

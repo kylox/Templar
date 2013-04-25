@@ -33,6 +33,7 @@ namespace Templar
         MouseState mouse;
         Vector2 position_joueur, position_npc;
         Random x;
+        textbox text;
         bool ClickDown, pressdown;
         int pop_time, score, count_dead_zombi, timer_level_up;
 
@@ -84,6 +85,9 @@ namespace Templar
             prout = new Server(this);
             prout.StartConnexion();
              * */
+            fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
+            text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
+            text.Is_shown = false;
             #region init du jeu
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -95,7 +99,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this);
+            localPlayer = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
 
             localPlayer.Niveau = 1;
             pop_time = 0;
@@ -113,7 +117,7 @@ namespace Templar
             white.A = 120;
             effect = new BasicEffect(game.GraphicsDevice);
 
-            fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
+           
             HUD = new HUD(localPlayer, this);
 
         }
@@ -121,7 +125,7 @@ namespace Templar
         {
             bool est_present = false;
             int j = 0;
-           
+
             for (int i = 0; i < liste_objet_map.Count; i++)
                 if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
                 {
@@ -146,7 +150,7 @@ namespace Templar
         public override void Update(GameTime gameTime)
         {
             //ICI
-            //prout.Receiver(this);
+            
             map.update();
             HUD.update();
             int pop_item = x.Next(0, 5);
@@ -160,116 +164,127 @@ namespace Templar
             position_npc = new Vector2(32, 32);
             pop_time++;
 
-            if (pop_time == 120)
+            if (text.Is_shown == true)
             {
-                list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
-                pop_time = 0;
+                if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
+                    text.Is_shown = false;
             }
+            else
+            {
 
-            foreach (NPC zombie in list_zombi)
-                zombie.update(mouse, keyboard, Walls, personnage, map);
 
-            foreach (NPC zombie in list_zombi)
-                if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
-                    localPlayer.pv_player--;
-
-            for (int i = 0; i < list_zombi.Count; i++)
-                if (list_zombi[i].PV <= 0)
+                if (pop_time == 120)
                 {
-                    if (pop_item == 0)
-                        liste_objet_map.Add(new potion(ressource.potion_vie, this, list_zombi[i], "VIE"));
-
-                    if (pop_item == 1)
-                        liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
-
-                    list_zombi.RemoveAt(i);
-                    score += 5;
-
-                    localPlayer.XP += 20 / localPlayer.Niveau;
+                    list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
+                    pop_time = 0;
                 }
 
+                foreach (NPC zombie in list_zombi)
+                    zombie.update(mouse, keyboard, Walls, personnage, map);
+
+                foreach (NPC zombie in list_zombi)
+                    if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
+                        localPlayer.pv_player--;
+
+                for (int i = 0; i < list_zombi.Count; i++)
+                    if (list_zombi[i].PV <= 0)
+                    {
+                        if (pop_item == 0)
+                            liste_objet_map.Add(new potion(ressource.potion_vie, this, list_zombi[i], "VIE"));
+
+                        if (pop_item == 1)
+                            liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
+
+                        list_zombi.RemoveAt(i);
+                        score += 5;
+
+                        localPlayer.XP += 20 / localPlayer.Niveau;
+                    }
+
             #endregion ZOMBIE
-            #region PLAYER
-            localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
-            //cheat code
-            if (keyboard.IsKeyDown(Keys.M))
-                localPlayer.mana_player = 100;
-            if (keyboard.IsKeyDown(Keys.V))
-                localPlayer.pv_player = 100;
+                #region PLAYER
+                localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
+                //cheat code
+                if (keyboard.IsKeyDown(Keys.M))
+                    localPlayer.mana_player = 100;
+                if (keyboard.IsKeyDown(Keys.V))
+                    localPlayer.pv_player = 100;
 
-            //leveling
-            if (localPlayer.XP >= 100)
-            {
-                timer_level_up = 0;
-                localPlayer.levelup = true;
-            }
-            #endregion
-            #region WALL
-            //fait l'update des murs
+                //leveling
+                if (localPlayer.XP >= 100)
+                {
+                    timer_level_up = 0;
+                    localPlayer.levelup = true;
+                }
+                #endregion
+                #region WALL
+                //fait l'update des murs
 
-            foreach (wall wall in Walls)
-                wall.Update(mouse, keyboard);
+                foreach (wall wall in Walls)
+                    wall.Update(mouse, keyboard);
 
-            //dessine des nouveau mur
+                //dessine des nouveau mur
 
-            if (mouse.LeftButton == ButtonState.Pressed && !ClickDown)
-            {
-                Walls.Add(new wall(mouse.X, mouse.Y, ressource.pixel, 32, Color.Black));
-                ClickDown = true;
-            }
-            #endregion WALL
-            #region ITEM
+                if (mouse.LeftButton == ButtonState.Pressed && !ClickDown)
+                {
+                    Walls.Add(new wall(mouse.X, mouse.Y, ressource.pixel, 32, Color.Black));
+                    ClickDown = true;
+                }
+                #endregion WALL
+                #region ITEM
 
-            ramassage_objet();
+                ramassage_objet();
 
-            if (keyboard.IsKeyDown(Keys.Space) && !pressdown && localPlayer.mana_player > 0)
-            {
-                if (localPlayer.Active == "feu")
-                    ressource.feu.Play();
+                if (keyboard.IsKeyDown(Keys.Space) && !pressdown && localPlayer.mana_player > 0)
+                {
+                    if (localPlayer.Active == "feu")
+                        ressource.feu.Play();
 
-                liste_sort.Add(localPlayer.Active_Sort);
-                pressdown = true;
-            }
+                    liste_sort.Add(localPlayer.Active_Sort);
+                    pressdown = true;
+                }
 
-            foreach (sort sort in liste_sort)
-                sort.update();
-
-
+                foreach (sort sort in liste_sort)
+                    sort.update();
 
 
-            for (int i = 0; i < liste_sort.Count; i++)
-                for (int j = 0; j < Walls.Count; j++)
-                    if (liste_sort[i].hitbox_object.Intersects(Walls[j].Hitbox))
-                    {
-                        Walls.RemoveAt(j);
-                        liste_sort.RemoveAt(i);
-                        break;
-                    }
-            for (int i = 0; i < liste_sort.Count; i++)
-                for (int j = 0; j < list_zombi.Count; j++)
-                    if (liste_sort[i].hitbox_object.Intersects(list_zombi[j].Hitbox_image))
-                    {
-                        list_zombi[j].PV -= 100;
-                        liste_sort.RemoveAt(i);
-                        break;
-                    }
-            #endregion SORT
-            // collision oO riena  foutre la ce truc xD
-            if (position_joueur.X + ressource.sprite_player.Width == game.Window.ClientBounds.Width)
-                position_joueur.X = 0;
 
-            // LEVEL UP! 
-            if (count_dead_zombi == 5)
-            {
-                localPlayer.Niveau++;
-                count_dead_zombi = 0;
-            }
+                for (int i = 0; i < liste_sort.Count; i++)
+                    for (int j = 0; j < Walls.Count; j++)
+                        if (liste_sort[i].hitbox_object.Intersects(Walls[j].Hitbox))
+                        {
+                            Walls.RemoveAt(j);
+                            liste_sort.RemoveAt(i);
+                            break;
+                        }
+
+                for (int i = 0; i < liste_sort.Count; i++)
+                    for (int j = 0; j < list_zombi.Count; j++)
+                        if (liste_sort[i].hitbox_object.Intersects(list_zombi[j].Hitbox_image))
+                        {
+                            list_zombi[j].PV -= 100;
+                            liste_sort.RemoveAt(i);
+                            break;
+                        }
+
+                #endregion SORT
+                // collision oO riena  foutre la ce truc xD
+                if (position_joueur.X + ressource.sprite_player.Width == game.Window.ClientBounds.Width)
+                    position_joueur.X = 0;
+
+                // LEVEL UP! 
+                if (count_dead_zombi == 5)
+                {
+                    localPlayer.Niveau++;
+                    count_dead_zombi = 0;
+                }
 
             #endregion update jeu
-            if (mouse.LeftButton == ButtonState.Released)
-                ClickDown = false;
-            if (keyboard.IsKeyUp(Keys.Space))
-                pressdown = false;
+                if (mouse.LeftButton == ButtonState.Released)
+                    ClickDown = false;
+                if (keyboard.IsKeyUp(Keys.Space))
+                    pressdown = false;
+            }
             base.Update(gameTime);
         }
 
@@ -277,6 +292,9 @@ namespace Templar
         {
             map.Active_Map.Draw(spriteBatch, 32);
             timer_level_up++;
+
+            if (text.Is_shown)
+                text.Draw(spriteBatch);
 
             #region draw du jeu
             foreach (item item in liste_objet_map)

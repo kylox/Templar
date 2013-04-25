@@ -15,6 +15,7 @@ namespace Templar
         gamemain main;
         dessin_perso dessin_tete;
         sort active_sort;
+        textbox text;
         bool click_down;
         public bool levelup;
         int sort_selec;
@@ -85,10 +86,11 @@ namespace Templar
             set { position = value; }
 
         }
-        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, Vector2 position, int pv, Texture2D image, gamemain main)
+        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, position, image, main)
         {
             this.main = main;
+            this.text = text;
             spriteFont = ressource.ecriture;
             position_pv.X = 300;
             position_pv.Y = 0;
@@ -110,6 +112,8 @@ namespace Templar
             inventaire = new List<item>();
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
+
+            text.Is_shown = false;
         }
         public void utilise_objet(item item)
         {
@@ -165,7 +169,7 @@ namespace Templar
             deplacement();
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
             #region sort
-           
+
             if (keyboard.IsKeyDown(Keys.F1))
                 sort_selec = 1;
             if (keyboard.IsKeyDown(Keys.F2))
@@ -186,12 +190,38 @@ namespace Templar
             if (Data.keyboardState.IsKeyDown(Keys.D5))
                 obj_selec = 5;
 
+            if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
+            {
+                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
+                {
+                text.Is_shown = true;
+                text.Saisie = "quelque bouquin relatant de la vie, de l'univers et du reste";
+                text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X +10;
+                }
+
+                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
+                {
+                    text.Is_shown = true;
+                    text.Saisie = "hummm... des tonneau, plein de tonneau !! ";
+                    text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                }
+            }
+
+            //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
+            if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
+            {
+                map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
+            }
+
             if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A))
             {
-                utilise_objet(inventaire.ElementAt(obj_selec - 1));
-                inventaire.RemoveAt(obj_selec - 1);
+                if (inventaire.Count != 0)
+                {
+                    utilise_objet(inventaire.ElementAt(obj_selec - 1));
+                    inventaire.RemoveAt(obj_selec - 1);
+                }
             }
-            
+
             switch (sort_selec)
             {
                 case 1:
