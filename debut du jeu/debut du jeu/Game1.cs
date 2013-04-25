@@ -81,7 +81,7 @@ namespace Templar
             Components.Add(menu);
             menu.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a", main));
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main));
             Components.Add(main);
             main.hide();
 
@@ -223,7 +223,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("a",main));
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main));
                     Components.Add(main);
                     main.hide();
 

@@ -156,6 +156,28 @@ namespace Templar
                 Console.WriteLine("erreur : " + e.Message);
             }
         }
+        public void load_objet(string path)
+        {
+            try
+            {
+                int j = 0;
+                StreamReader sr = new StreamReader(path);
+                string ligne;
+                while ((ligne = sr.ReadLine()) != null)
+                {
+                    for (int i = 0; i < tiles.GetLength(0); i++)
+                    {
+                        objet[i, j] = (cursor.id_to_vec(ligne[i]));
+                    }
+                    j += 1;
+                }
+                sr.Close();
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("erreur : " + e.Message);
+            }
+        }
         public void load_collision(string path)
         {
             int j = 0;
@@ -184,7 +206,7 @@ namespace Templar
             {
                 objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
 
-                if (cursor.iD != new Vector2(0, 1) && cursor.iD != new Vector2(2, 3))
+                if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(0, 3))
                 {
                     tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
                     colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;

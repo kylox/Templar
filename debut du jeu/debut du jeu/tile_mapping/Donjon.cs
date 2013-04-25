@@ -38,13 +38,19 @@ namespace Templar
                         {
                             if (_maps[x, y] == null)
                                 _maps[x, y] = new Map();
-                            _maps[x, y].load(file);
+                            _maps[x, y].load_objet(file);
                         }
                         if (file[8] == 'c')
                         {
                             if (_maps[x, y] == null)
                                 _maps[x, y] = new Map();
                             _maps[x, y].load_collision(file);
+                        }
+                        if (file[8] == 'f')
+                        {
+                            if (_maps[x, y] == null)
+                                _maps[x, y] = new Map();
+                            _maps[x, y].load(file);
                         }
                         x = 0;
                         y = 0;
