@@ -13,7 +13,7 @@ namespace Templar
 {
     public static class cursor
     {
-        static Texture2D Texture = ressource.tile;
+        static Texture2D Texture = ressource.objet_map;
         static Vector2 ID = new Vector2(0, 0);
         static public Vector2 iD
         {
@@ -34,7 +34,7 @@ namespace Templar
 
             return C;
         }
-        
+
         public static Vector2 id_to_vec(char C)
         {
             Vector2 vec;
@@ -52,7 +52,7 @@ namespace Templar
                 Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released)
             {
-                ID.X = Math.Abs(((fenetre.Width - Data.mouseState.X) / 32) - 2);
+                ID.X = Math.Abs(((fenetre.Width - Data.mouseState.X) / 32) - 5);
                 ID.Y = Data.mouseState.Y / 32;
                 selected = true;
             }
@@ -62,10 +62,10 @@ namespace Templar
         {
             if (selected)
             {
-                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32, (int)ID.Y * 32, 32, 2), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32, (int)ID.Y * 32, 2, 32), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32, (int)ID.Y * 32 + 32,34, 2), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 3) * 32 + 32, (int)ID.Y * 32, 2, 34), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32, (int)ID.Y * 32, 32, 2), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32, (int)ID.Y * 32, 2, 32), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32, (int)ID.Y * 32 + 32, 34, 2), Color.Red);
+                spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32 + 32, (int)ID.Y * 32, 2, 34), Color.Red);
             }
 
             for (int i = 0; i < 32 * 16; i += 16)

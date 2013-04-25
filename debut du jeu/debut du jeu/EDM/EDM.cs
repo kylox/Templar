@@ -123,6 +123,7 @@ namespace Templar
                     }
                 }
         }
+        //creer le donjon (le dossier + la premiere map°
         public void creation_donjon(string path)
         {
             string nombre;
