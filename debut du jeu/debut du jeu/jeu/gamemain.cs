@@ -146,7 +146,7 @@ namespace Templar
         public override void Update(GameTime gameTime)
         {
             //ICI
-            //prout.Receiver(this);
+            
             map.update();
             HUD.update();
             int pop_item = x.Next(0, 5);

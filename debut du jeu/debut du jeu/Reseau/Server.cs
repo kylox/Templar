@@ -14,7 +14,7 @@ namespace Templar
     class Server
     {
         IFormatter Serialiseur;
-        gamemain Infos;
+        gamemain infos;
         private int port;
         int type = 0;
         TcpClient Client;
@@ -24,7 +24,7 @@ namespace Templar
         public Server(gamemain infos)
         {
             Serialiseur = new BinaryFormatter();
-            Infos = infos;
+            this.infos = infos;
             try
             {
                 port = 9580;
@@ -76,33 +76,45 @@ namespace Templar
         public void Parser(gamemain Infos)
         {
             BinaryReader BR = new BinaryReader(Sentstream);
-            type = BR.ReadInt32();
-            switch (type)
+            if (Sentstream.DataAvailable)
             {
-                case 2:
-                    Infos.player.chgt_position(BR.ReadInt32(), BR.ReadInt32());
-                    break;
-                case 31:
-                    Infos.List_Sort.RemoveAt(BR.ReadInt32());
-                    break;
-                case 32:
-                    Infos.List_Sort.Add((Templar.sort)Serialiseur.Deserialize(Sentstream));
-                    break;
-                case 41:
-                    Infos.List_Zombie.RemoveAt(BR.ReadInt32());
-                    break;
-                case 42:
-                    Infos.List_Zombie.Add((Templar.NPC)Serialiseur.Deserialize(Sentstream));
-                    break;
+                type = BR.ReadInt32();
+                switch (type)
+                {
+                    case 2:
+                        Infos.player.chgt_position(BR.ReadInt32(), BR.ReadInt32());
+                        break;
+                    case 31:
+                        Infos.List_Sort.RemoveAt(BR.ReadInt32());
+                        break;
+                    case 32:
+                        Infos.List_Sort.Add((Templar.sort)Serialiseur.Deserialize(Sentstream));
+                        break;
+                    case 41:
+                        Infos.List_Zombie.RemoveAt(BR.ReadInt32());
+                        break;
+                    case 42:
+                        Infos.List_Zombie.Add((Templar.NPC)Serialiseur.Deserialize(Sentstream));
+                        break;
+                }
 
-
+                if (Sentstream.DataAvailable)
+                {
+                    Parser(Infos);
+                }
             }
         }
 
-        public void Send(NetworkStream file)
+        public void Send(int type, int a, int b)
         {
-            file = new NetworkStream(Client.Client);
-            Serialiseur.Serialize(file, Infos);
+            BinaryWriter BW = new BinaryWriter(Client.GetStream());
+            BW.Write(type);
+            BW.Write(a);
+            BW.Write(b);
+        }
+        public void Send(int type, object value)
+        {
+            Serialiseur.Serialize(Client.GetStream(), value);
         }
     }
 }
