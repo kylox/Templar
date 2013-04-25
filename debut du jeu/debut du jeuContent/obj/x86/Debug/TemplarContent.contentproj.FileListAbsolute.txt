@@ -1,2 +1,3 @@
 C:\Users\gaudro_m\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Louis\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache

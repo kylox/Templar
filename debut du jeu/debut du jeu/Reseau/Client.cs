@@ -6,14 +6,18 @@ using System.Net.Sockets;
 using System.IO;
 using System.Net;
 using System.Threading;
+using System.Runtime.Serialization;
 
 namespace Templar
 {
     class Client
     {
-        int Type; // int permettant de savoir de quel champ on parle (position/vie etc...)
+        int type = 0; // int permettant de savoir de quel champ on parle (position/vie etc...)
+        IFormatter Serialiseur;
         TcpClient client;        
         Thread Client_Listener;
+        NetworkStream SentStream;
+        gamemain Infos;
 
         public Client(string address)
         {
@@ -58,29 +62,40 @@ namespace Templar
            byte[] Number = new byte[2];           
             while (true)
             {
+                SentStream = client.GetStream();
+            }
+        }
 
-                NetworkStream SentStream = client.GetStream();
-                if (Type == 0)
-                {
+        public void Parser(gamemain Infos)
+        {
+            BinaryReader BR = new BinaryReader(SentStream);
+            type = BR.ReadInt32();
+            switch (type)
+            {
+                case 2:
+                    Infos.player.chgt_position(BR.ReadInt32(), BR.ReadInt32());
+                    break;
+                case 31:
+                    Infos.List_Sort.RemoveAt(BR.ReadInt32());
+                    break;
+                case 32:
+                    Infos.List_Sort.Add((Templar.sort)Serialiseur.Deserialize(SentStream));
+                    break;
+                case 41:
+                    Infos.List_Zombie.RemoveAt(BR.ReadInt32());
+                    break;
+                case 42:
+                    Infos.List_Zombie.Add((Templar.NPC)Serialiseur.Deserialize(SentStream));
+                    break;
 
-                    Type = BitConverter.ToInt32(Number, 0);
-                }
-                else
-                {
-                    // Méthode remplissant les champs
-                }
 
             }
         }
 
-        public void Send()
+        public void Send(NetworkStream file)
         {
-            BinaryWriter clientStreamWriter = new BinaryWriter(client.GetStream());
-
-            while (true)
-            {
-               // clientStreamWriter.Write
-            }
+            file = new NetworkStream(client.Client);
+            Serialiseur.Serialize(file, Infos);
         }
     }
 
