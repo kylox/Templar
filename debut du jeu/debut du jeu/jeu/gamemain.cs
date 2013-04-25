@@ -17,7 +17,6 @@ namespace Templar
     {
 
         //field ecran 
-        Server prout;
         Rectangle fenetre;
         public switch_map map;
         HUD HUD;

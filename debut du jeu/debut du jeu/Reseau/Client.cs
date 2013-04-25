@@ -11,12 +11,9 @@ namespace Templar
 {
     class Client
     {
-        private int port;
         int Type; // int permettant de savoir de quel champ on parle (position/vie etc...)
-        TcpClient client;
-        TcpListener server;
+        TcpClient client;        
         Thread Client_Listener;
-        NetworkStream stream;
 
         public Client(string address)
         {
