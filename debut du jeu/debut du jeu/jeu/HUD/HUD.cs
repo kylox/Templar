@@ -108,9 +108,6 @@ namespace Templar
                     Color.White);
 
             }
-
-
-
             //dessine la mini map 
             mini_map.draw(spriteBatch);
         }

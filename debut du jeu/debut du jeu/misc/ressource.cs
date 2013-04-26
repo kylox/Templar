@@ -43,7 +43,7 @@ namespace Templar
             //sprite character
             zombie = Content.Load<Texture2D>(@"Sprite\Personnage\Zomtemplate");
             sprite_cochon = Content.Load<Texture2D>(@"Sprite\Personnage\sprite_cochon");
-            sprite_player = Content.Load<Texture2D>("swordsman_m_2");
+            sprite_player = Content.Load<Texture2D>( "fdp2"/*"swordsman_m_2"*/);
             tete_player = Content.Load<Texture2D>("M_Black");
 
             //fond d'ecran menu

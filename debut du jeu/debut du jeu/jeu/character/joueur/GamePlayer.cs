@@ -168,6 +168,7 @@ namespace Templar
             collision_bord();
             deplacement();
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
+          
             #region sort
 
             if (keyboard.IsKeyDown(Keys.F1))
@@ -235,7 +236,6 @@ namespace Templar
             }
             attaque_mana(keyboard);
             #endregion
-
             #region endurance
             timer_endurance++;
             if (keyboard.IsKeyDown(Keys.LeftShift) && Endurance > 0)
@@ -260,12 +260,10 @@ namespace Templar
             if (Endurance <= 0)
                 Endurance = 0;
             #endregion
-
             #region attaque
             if (keyboard.IsKeyDown(Keys.A))
                 frameline = 5;
             #endregion
-
             if (levelup == true)
             {
                 nb_amelioration++;
@@ -275,7 +273,6 @@ namespace Templar
                 levelup = false;
 
             }
-
             if (keyboard.IsKeyUp(Keys.Space))
                 click_down = false;
 
@@ -292,7 +289,7 @@ namespace Templar
                 if (i < inventaire.Count())
                     spritebatch.Draw(inventaire.ElementAt(i).Texture, new Rectangle(100 + i * 32 + 5, 0, 32, 32), Color.White);
             }
-            spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
+           // spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
         }
     }
 }
