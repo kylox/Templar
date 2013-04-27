@@ -172,24 +172,24 @@ namespace Templar
 
             #region sort
 
-            if (keyboard.IsKeyDown(Keys.F1))
+            if (keyboard.IsKeyDown(Keys.D1))
                 sort_selec = 1;
-            if (keyboard.IsKeyDown(Keys.F2))
+            if (keyboard.IsKeyDown(Keys.D2))
                 sort_selec = 2;
-            if (keyboard.IsKeyDown(Keys.F3))
+            if (keyboard.IsKeyDown(Keys.D3))
                 sort_selec = 3;
-            if (keyboard.IsKeyDown(Keys.F4))
+            if (keyboard.IsKeyDown(Keys.D4))
                 sort_selec = 4;
 
-            if (Data.keyboardState.IsKeyDown(Keys.D1))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad1))
                 obj_selec = 1;
-            if (Data.keyboardState.IsKeyDown(Keys.D2))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad2))
                 obj_selec = 2;
-            if (Data.keyboardState.IsKeyDown(Keys.D3))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad3))
                 obj_selec = 3;
-            if (Data.keyboardState.IsKeyDown(Keys.D4))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad4))
                 obj_selec = 4;
-            if (Data.keyboardState.IsKeyDown(Keys.D5))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad5))
                 obj_selec = 5;
 
             if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
@@ -291,11 +291,7 @@ namespace Templar
           //dessin_tete.draw(spritebatch);
            
           
-            for (int i = 0; i < 5; i++)
-            {
-                if (i < inventaire.Count())
-                    spritebatch.Draw(inventaire.ElementAt(i).Texture, new Rectangle(100 + i * 32 + 5, 0, 32, 32), Color.White);
-            }
+           
             // spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
         }
     }

@@ -85,8 +85,9 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon)
             : base(game, spriteBatch)
         {
-            Is_Server = true;
-            Is_Client = true;
+            #region serveur
+            Is_Server = false;
+            Is_Client = false;
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
             if (Is_Server)
@@ -101,12 +102,10 @@ namespace Templar
                 same_map = true;
                 Player2 = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
             }
+
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
-            
-            
+            #endregion
             #region init du jeu
-            map = new switch_map(localPlayer, this, donjon);
-            map.Active_Map = map.Listes_map[0, 0];
             x = new Random();
             keyboard = new KeyboardState();
             liste_sort = new List<sort>();
@@ -117,6 +116,8 @@ namespace Templar
             position_joueur = new Vector2(32, 32);
             localPlayer = new GamePlayer(32, 48 /*62, 121*/, 4, 10, 3, 10, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
+            map = new switch_map(localPlayer, this, donjon);
+            map.Active_Map = map.Listes_map[0, 0];
             pop_time = 0;
             score = 0;
             count_dead_zombi = 0;

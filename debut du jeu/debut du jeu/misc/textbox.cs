@@ -48,6 +48,39 @@ namespace Templar
                 {
                     switch (keyboard.GetPressedKeys().First())
                     {
+                        case Keys.D1:
+                            saisie += '1';
+                            break;
+                        case Keys.D2:
+                            saisie += '2';
+                            break;
+                        case Keys.D3:
+                            saisie += '3';
+                            break;
+                        case Keys.D4:
+                            saisie += '4';
+                            break;
+                        case Keys.D5:
+                            saisie += '5';
+                            break;
+                        case Keys.D6:
+                            saisie += '6';
+                            break;
+                        case Keys.D7:
+                            saisie += '7';
+                            break;
+                        case Keys.D8:
+                            saisie += '8';
+                            break;
+                        case Keys.D9:
+                            saisie += '9';
+                            break;
+                        case Keys.D0:
+                            saisie += '0';
+                            break;
+                        case Keys.OemBackslash:
+                            saisie += '.';
+                            break;
                         case Keys.A:
                             saisie += 'a';
                             break;

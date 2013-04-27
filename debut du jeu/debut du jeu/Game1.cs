@@ -34,7 +34,8 @@ namespace Templar
         creat_perso creation;
         Sauvegarde save;
         Chargement load;
-        menudeux menudeux
+        Donjon donjon;
+        //menudeux menudeux;
 
         bool click_down;
 
@@ -44,7 +45,6 @@ namespace Templar
                 {
                     PreferredBackBufferWidth = 800,
                     PreferredBackBufferHeight = 675
-
                 };
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
@@ -77,7 +77,7 @@ namespace Templar
             pause = new menudepause(this, spriteBatch, ressource.ecriture, ressource.pixel);
             Components.Add(pause);
             pause.hide();
-
+          
             menu = new menu(this, spriteBatch, Content.Load<SpriteFont>("SpriteFont"), ressource.templar);
             Components.Add(menu);
             menu.hide();
