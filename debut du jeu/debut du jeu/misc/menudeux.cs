@@ -21,7 +21,7 @@ namespace Templar
 
         public menudeux(Game game, SpriteBatch spritebatch):base(game,spritebatch)
         {
-            box = new textbox(new Rectangle(200,200,200,200);
+            box = new textbox(new Rectangle(200,200,200,200));
             selec = false;
         }
         public override void Update(GameTime gameTime)

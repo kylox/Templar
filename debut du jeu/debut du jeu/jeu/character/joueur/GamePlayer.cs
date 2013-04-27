@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Templar
 {
+    [Serializable()]
     class GamePlayer : Personnage
     {
         SpriteFont spriteFont;

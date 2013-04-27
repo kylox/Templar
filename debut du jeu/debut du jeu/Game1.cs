@@ -34,7 +34,7 @@ namespace Templar
         creat_perso creation;
         Sauvegarde save;
         Chargement load;
-        menudeux menudeux
+        menudeux menudeux;
 
         bool click_down;
 
@@ -82,7 +82,7 @@ namespace Templar
             Components.Add(menu);
             menu.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main));
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main),false);
             Components.Add(main);
             main.hide();
 
@@ -144,7 +144,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main));
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false);
                         Components.Add(main);
                         main.hide();
 
@@ -224,7 +224,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main));
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main),true);
                     Components.Add(main);
                     main.hide();
 

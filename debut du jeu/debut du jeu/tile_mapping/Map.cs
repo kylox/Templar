@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
+    [Serializable()]
     public class Map
     {
         #region variable
