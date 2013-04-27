@@ -24,9 +24,8 @@ namespace Templar
             
             try
             {
-                Int32 port = 4242;
-                client = new TcpClient(new IPEndPoint(IPAddress.Parse(address), port));
-                client.Connect(address, port);
+                Int32 port = 9580;
+                client = new TcpClient(address, port);
                 Client_Listener = new Thread(new ThreadStart(Receive));//Ce thread permet de recevoir en permanence
                 Client_Listener.Start();
             }
@@ -58,8 +57,7 @@ namespace Templar
         }
 
         public void Receive()
-        {
-           byte[] Number = new byte[2];           
+        {        
             while (true)
             {
                 SentStream = client.GetStream();
@@ -92,10 +90,16 @@ namespace Templar
             }
         }
 
-        public void Send(NetworkStream file)
+        public void Send(int type, int a, int b)
         {
-            file = new NetworkStream(client.Client);
-            Serialiseur.Serialize(file, Infos);
+            BinaryWriter BW = new BinaryWriter(client.GetStream());
+            BW.Write(type);
+            BW.Write(a);
+            BW.Write(b);
+        }
+        public void Send(int type, object value)
+        {
+            Serialiseur.Serialize(client.GetStream(), value);
         }
     }
 
