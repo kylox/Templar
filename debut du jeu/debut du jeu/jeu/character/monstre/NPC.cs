@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,11 @@ using System.Threading;
 
 namespace Templar
 {
-
+    [Serializable()]
     class NPC : Personnage
     {
+        
+        
         Vector2 deplacement;
         int chrono;
         Map Map;
