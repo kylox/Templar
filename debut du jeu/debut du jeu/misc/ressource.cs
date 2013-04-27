@@ -60,8 +60,8 @@ namespace Templar
             map_0 = Content.Load<Texture2D>(@"ecran\jeux\map_test");
             map_1 = Content.Load<Texture2D>(@"ecran\jeux\map_1");
             map_2 = Content.Load<Texture2D>(@"ecran\jeux\game_o10");
-            tile = Content.Load<Texture2D>(@"piece");
-            objet_map = Content.Load<Texture2D>("piece_objet_mod");
+            tile = Content.Load<Texture2D>(@"maintenantoui"/*"piece"*/);
+            objet_map = Content.Load<Texture2D>(@"maintenantoui"/*"piece_objet_mod"*/);
 
             //autre
             pixel = Content.Load<Texture2D>(@"Misc\pixel");

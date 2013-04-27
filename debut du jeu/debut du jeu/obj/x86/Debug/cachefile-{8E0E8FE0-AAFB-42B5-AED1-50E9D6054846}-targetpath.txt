@@ -49,3 +49,4 @@ Content\Music\effet\lowHP.xnb
 Content\Music\effet\Mémo.xnb
 Content\fdp2.xnb
 Content\perso.xnb
+Content\maintenantoui.xnb

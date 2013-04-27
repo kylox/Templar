@@ -288,7 +288,7 @@ namespace Templar
             timer_attaque++;
 
             base.Draw(spritebatch);
-            dessin_tete.draw(spritebatch);
+          //dessin_tete.draw(spritebatch);
            
           
             for (int i = 0; i < 5; i++)
