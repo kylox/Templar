@@ -99,7 +99,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32,48 /*62, 121*/,4 , 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32,48 /*62, 121*/,4 , 10, 3, 10, position_joueur, 100, ressource.sprite_player, this, text);
 
             localPlayer.Niveau = 1;
             pop_time = 0;

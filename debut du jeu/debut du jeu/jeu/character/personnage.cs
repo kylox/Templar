@@ -15,13 +15,13 @@ namespace Templar
     {
 
         //fields
-
+        int timer_attaque;
         Rectangle Hitbox;
         Rectangle true_hitbox_motherfucker;
         protected Vector2 position;
         protected Direction Direction;
         Rectangle newHitbox;
-        Texture2D Image;
+        protected Texture2D Image;
         gamemain main;
         //variable d'animation
         protected int timer;
@@ -35,7 +35,7 @@ namespace Templar
         protected int Taille_image_y;
         protected int Frame_start;
         protected bool collision;
-
+        protected bool combat;
         //autre
         protected int Pv;
 
@@ -96,6 +96,7 @@ namespace Templar
             this.Taille_image_x = taille_image_x;
             this.Taille_image_y = taille_image_y;
             this.Frame_start = frame_start;
+            timer_attaque = 0;
         }
 
         // method
@@ -149,7 +150,7 @@ namespace Templar
                 this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (32 - 10)) - this.Speed, 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer > 8 &&  (int)position.Y / 32 - 1 > 0 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
+                if (!collision && timer > 8 && (int)position.Y / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
                 {
                     this.position.Y -= 32;
                     timer = 0;
@@ -187,42 +188,67 @@ namespace Templar
                 this.newHitbox = new Rectangle((int)this.position.X - this.Speed, ((int)this.position.Y + (32 - 10)), 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer > 8 && map.Active_Map.colision[(int)position.X / 32 -1, (int)position.Y / 32 ] != 1)
+                if (!collision && timer > 8 && position.X / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32 - 1, (int)position.Y / 32] != 1)
                 {
                     this.position.X -= 32;
                     timer = 0;
                 }
                 this.animate();
             }
-            switch (this.Direction)
+            if (combat == true)
             {
-                case Direction.Up:
-                    this.FrameLine = 3;
-                    break;
-
-                case Direction.Down:
-                    this.FrameLine = 1;
-                    break;
-
-                case Direction.Left:
-                    this.FrameLine = 2;
-                    break;
-
-                case Direction.Right:
-                    this.FrameLine = 4;
-                    break;
+                switch (FrameLine)
+                {
+                    case 4:
+                        frameline = 6;
+                        break;
+                    case 1:
+                        frameline = 5;
+                        break;
+                    case 3:
+                        frameline = 7;
+                        break;
+                }
             }
+            else
+                switch (this.Direction)
+                {
+                    case Direction.Up:
+                        this.FrameLine = 3;
+                        break;
 
+                    case Direction.Down:
+                        this.FrameLine = 1;
+                        break;
+
+                    case Direction.Left:
+                        this.FrameLine = 2;
+                        break;
+
+                    case Direction.Right:
+                        this.FrameLine = 4;
+                        break;
+                }
             if (Direction == Direction.None) // si toute les touches sont relacher alors tu affiche le personnage a l'arret
             {
                 this.Framecolumn = 2;
                 this.timer = 0;
             }
         }
-      
+
         public virtual void Draw(SpriteBatch spritbatch)
         {
-            spritbatch.Draw(Image, new Vector2((int)position.X, (int)position.Y), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
+            timer_attaque++;
+            if (combat == true && timer_attaque > 60)
+            {
+                timer_attaque = 0;
+                framecolumn++;
+                spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
+                if (framecolumn == 7)
+                    combat = false;
+            }
+            else
+                spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
         }
 
         public void chgt_position(int X, int Y)
