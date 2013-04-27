@@ -215,7 +215,7 @@ namespace Templar
                 map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
             }
 
-            if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A))
+            if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
             {
                 if (inventaire.Count != 0)
                 {
@@ -263,11 +263,9 @@ namespace Templar
             #endregion
             #region attaque
 
-            if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A))
-            {
+            if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A) && direction == Templar.Direction.None && !combat)
                 combat = true;
-               
-            }
+            
             #endregion
             if (levelup == true)
             {

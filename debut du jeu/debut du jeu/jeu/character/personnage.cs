@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Templar
 {
-    enum Direction
+    public enum Direction
     {
         Up, Down, Left, Right, None
     };
@@ -195,8 +195,10 @@ namespace Templar
                 }
                 this.animate();
             }
+
+
             if (combat == true)
-            {
+
                 switch (FrameLine)
                 {
                     case 4:
@@ -209,8 +211,9 @@ namespace Templar
                         frameline = 7;
                         break;
                 }
-            }
+
             else
+            {
                 switch (this.Direction)
                 {
                     case Direction.Up:
@@ -229,26 +232,41 @@ namespace Templar
                         this.FrameLine = 4;
                         break;
                 }
-            if (Direction == Direction.None) // si toute les touches sont relacher alors tu affiche le personnage a l'arret
-            {
-                this.Framecolumn = 2;
-                this.timer = 0;
+                if (Direction == Direction.None) // si toute les touches sont relacher alors tu affiche le personnage a l'arret
+                {
+                    this.Framecolumn = 2;
+                    this.timer = 0;
+                }
             }
         }
 
         public virtual void Draw(SpriteBatch spritbatch)
         {
             timer_attaque++;
-            if (combat == true && timer_attaque > 60)
+            if (combat == true && timer_attaque > 4)
             {
                 timer_attaque = 0;
                 framecolumn++;
                 spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
                 if (framecolumn == 7)
+                {
                     combat = false;
+                    switch (FrameLine)
+                    {
+                        case 6:
+                            frameline = 4;
+                            break;
+                        case 5:
+                            frameline = 1;
+                            break;
+                        case 7:
+                            frameline = 3;
+                            break;
+                    }
+                }
             }
-            else
-                spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
+
+            spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
         }
 
         public void chgt_position(int X, int Y)
