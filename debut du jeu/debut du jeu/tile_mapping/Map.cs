@@ -49,7 +49,6 @@ namespace Templar
                 {
                     objet[i, j] = new Vector2(15, 15);
                 }
-                
             }
             tilelist = new Tile[25, 18];
             colision = new int[25, 18];
@@ -64,28 +63,28 @@ namespace Templar
                 {
                     if (j == 0)
                         if (i == 0)
-                            tiles[i, j] = new Vector2(0, 1);
+                            tiles[i, j] = new Vector2(2, 4);
                         else
                             if (i == tiles.GetLength(0) - 1)
-                                tiles[i, j] = new Vector2(2, 1);
+                                tiles[i, j] = new Vector2(5, 4);
                             else
-                                tiles[i, j] = new Vector2(1, 1);
+                                tiles[i, j] = new Vector2(3, 4);
                     else if (j == tiles.GetLength(1) - 1)
                         if (i == 0)
-                            tiles[i, j] = new Vector2(0, 3);
+                            tiles[i, j] = new Vector2(2, 7);
                         else
                             if (i == tiles.GetLength(0) - 1)
-                                tiles[i, j] = new Vector2(2, 3);
+                                tiles[i, j] = new Vector2(5, 7);
                             else
-                                tiles[i, j] = new Vector2(1, 3);
+                                tiles[i, j] = new Vector2(3, 7);
                     else if (i == tiles.GetLength(0) - 1 && j != tiles.GetLength(1) - 1 && j != 0)
-                        tiles[i, j] = new Vector2(2, 2);
+                        tiles[i, j] = new Vector2(5, 5);
                     else
                         if (i == 0 && j != tiles.GetLength(1) - 1 && j != 0)
-                            tiles[i, j] = new Vector2(0, 2);
+                            tiles[i, j] = new Vector2(2, 5);
 
                         else
-                            tiles[i, j] = new Vector2(1, 2);
+                            tiles[i, j] = new Vector2(2, 0);
                     sw.Write(cursor.vec_to_id(tiles[i, j]));
                 }
                 sw.WriteLine();
@@ -99,7 +98,7 @@ namespace Templar
             {
                 for (int i = 0; i < objet.GetLength(0); i++)
                 {
-                    sw.Write("0");
+                    sw.Write(cursor.vec_to_id(new Vector2(15,15)));
                 }
                 sw.WriteLine();
             }
@@ -128,7 +127,7 @@ namespace Templar
                     if (objet[i,j] != new Vector2(15,15))
                         sw.Write(cursor.vec_to_id(objet[i,j]));
                     else
-                        sw.Write("0");
+                        sw.Write(cursor.vec_to_id(new Vector2(15,15)));
                 }
                 sw.WriteLine();
             }
@@ -167,6 +166,7 @@ namespace Templar
                 {
                     for (int i = 0; i < tiles.GetLength(0); i++)
                     {
+                        if(ligne[i] != cursor.vec_to_id(new Vector2(15,15)))
                         objet[i, j] = (cursor.id_to_vec(ligne[i]));
                     }
                     j += 1;

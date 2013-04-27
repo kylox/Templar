@@ -311,6 +311,9 @@ namespace Templar
                     if (pause.SelectedIndex == 0)
                     {
                         activeScreen.hide();
+                        inventaire = new Inventaire(this, spriteBatch, main);
+                        Components.Add(inventaire);
+                        inventaire.hide();
                         activeScreen = inventaire;
                         activeScreen.Show();
                     }

@@ -86,12 +86,12 @@ namespace Templar
             {
                 if (localPlayer.Sort_selec == i + 1)
                     spriteBatch.Draw(ressource.selection_sort,
-                        new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i-20, Main.Fenetre.Height - 65, 40, 40),
+                        new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i - 20 - ressource.selection_sort.Width, Main.Fenetre.Height - 65, 40, 40),
                             Color.Red);
 
                 else
                     spriteBatch.Draw(ressource.selection_sort,
-                    new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i-20,Main.Fenetre.Height - 65, 40, 40), Color.White);
+                    new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i-20-ressource.selection_sort.Width,Main.Fenetre.Height - 65, 40, 40), Color.White);
 
             }
             for (int i = 0; i < 5; i++)
@@ -108,9 +108,6 @@ namespace Templar
                     Color.White);
 
             }
-
-
-
             //dessine la mini map 
             mini_map.draw(spriteBatch);
         }

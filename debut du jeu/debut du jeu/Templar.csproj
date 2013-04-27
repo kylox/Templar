@@ -127,7 +127,7 @@
     <Compile Include="Serialisation\Chargement.cs" />
     <Compile Include="Serialisation\Sauvegarde.cs" />
     <Compile Include="misc\textbox.cs" />
-    <Compile Include="tile_mapping\Inventaire.cs" />
+    <Compile Include="jeu\character\joueur\Inventaire.cs" />
     <Compile Include="tile_mapping\Map.cs" />
     <Compile Include="ecran\liste des ecrans\pause_edm.cs" />
     <Compile Include="misc\objet\item.cs" />

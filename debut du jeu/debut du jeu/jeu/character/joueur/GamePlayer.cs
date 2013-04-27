@@ -16,23 +16,23 @@ namespace Templar
         dessin_perso dessin_tete;
         sort active_sort;
         textbox text;
-        bool click_down;
-        public bool levelup;
+        bool click_down, actif;
         int sort_selec;
-        public int obj_selec;
         int Endurance;
         int timer_endurance;
+        int timer_attaque;
         int Mana;
+        int k = 0;
         string active;
+
         public List<item> inventaire;
         public int[] nb_objet;
-
+        public int obj_selec;
+        public bool levelup;
         public int attaque;
         public int defense;
         public int magie;
-
         public int nb_amelioration;
-
         public Rectangle HitBox;
 
         public int tete
@@ -112,8 +112,9 @@ namespace Templar
             inventaire = new List<item>();
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
-
-            //text.Is_shown = false;
+            actif = false;
+            text.Is_shown = false;
+            timer_attaque = 0;
         }
         public void utilise_objet(item item)
         {
@@ -168,6 +169,7 @@ namespace Templar
             collision_bord();
             deplacement();
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
+
             #region sort
 
             if (keyboard.IsKeyDown(Keys.F1))
@@ -194,9 +196,9 @@ namespace Templar
             {
                 if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
                 {
-                text.Is_shown = true;
-                text.Saisie = "quelque bouquin relatant de la vie, de l'univers et du reste";
-                text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X +10;
+                    text.Is_shown = true;
+                    text.Saisie = "quelque bouquin relatant de la vie, de l'univers et du reste";
+                    text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                 }
 
                 if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
@@ -213,7 +215,7 @@ namespace Templar
                 map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
             }
 
-            if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A))
+            if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
             {
                 if (inventaire.Count != 0)
                 {
@@ -235,7 +237,6 @@ namespace Templar
             }
             attaque_mana(keyboard);
             #endregion
-
             #region endurance
             timer_endurance++;
             if (keyboard.IsKeyDown(Keys.LeftShift) && Endurance > 0)
@@ -260,12 +261,12 @@ namespace Templar
             if (Endurance <= 0)
                 Endurance = 0;
             #endregion
-
             #region attaque
-            if (keyboard.IsKeyDown(Keys.A))
-                frameline = 5;
-            #endregion
 
+            if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A) && direction == Templar.Direction.None && !combat)
+                combat = true;
+            
+            #endregion
             if (levelup == true)
             {
                 nb_amelioration++;
@@ -273,9 +274,7 @@ namespace Templar
                 mana_player = pv_player = 100;
                 Niveau++;
                 levelup = false;
-
             }
-
             if (keyboard.IsKeyUp(Keys.Space))
                 click_down = false;
 
@@ -285,14 +284,19 @@ namespace Templar
         }
         public override void Draw(SpriteBatch spritebatch)
         {
+
+            timer_attaque++;
+
             base.Draw(spritebatch);
-            dessin_tete.draw(spritebatch);
+          //dessin_tete.draw(spritebatch);
+           
+          
             for (int i = 0; i < 5; i++)
             {
                 if (i < inventaire.Count())
                     spritebatch.Draw(inventaire.ElementAt(i).Texture, new Rectangle(100 + i * 32 + 5, 0, 32, 32), Color.White);
             }
-            spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
+            // spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
         }
     }
 }

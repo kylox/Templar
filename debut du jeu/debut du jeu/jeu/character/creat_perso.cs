@@ -25,7 +25,7 @@ namespace Templar
         public int frameligne
         {
             get { return Frameligne; }
-            set { value = Frameligne; } 
+            set { value = Frameligne; }
         }
         public bool change
         {
@@ -79,8 +79,8 @@ namespace Templar
                 higlight = Color.Red;
 
             spriteBatch.DrawString(ressource.ecriture, "SUIVANT", new Vector2(500, 200), higlight);
-            spriteBatch.Draw(ressource.sprite_player, new Rectangle(100, 300, 100, 200), new Rectangle(0, 0, 50, 100), Color.White);
-            spriteBatch.Draw(ressource.tete_player, new Rectangle(125, 260, 78, 100), new Rectangle(0, 50 * frameligne, 39, 50), Color.White);
+            spriteBatch.Draw(ressource.sprite_player, new Rectangle(100, 300, 100, 200), new Rectangle(0, 0, 32, 48), Color.White);
+            //spriteBatch.Draw(ressource.tete_player, new Rectangle(125, 260, 78, 100), new Rectangle(0, 50 * frameligne, 39, 50), Color.White);
 
             base.Draw(gameTime);
         }
