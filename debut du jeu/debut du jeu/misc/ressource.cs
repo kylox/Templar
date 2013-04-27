@@ -22,7 +22,7 @@ namespace Templar
             glace, boule_de_feu, // sort 
             ARBRE, MUR, STATUT, SOL, // EDM
             potion_vie, potion_mana,//POTION
-            map, tile, plus, moin,objet_map; 
+            map, tile, plus, moin,objet_map,mob; 
 
         public static SoundEffect selection, lowHP, feu; //ressource des bruitage
 
@@ -33,8 +33,6 @@ namespace Templar
 
         public static void loadcontent(ContentManager Content) //installe les ressource du jeu 
         {
-
-
             //effect
             selection = Content.Load<SoundEffect>(@"Music\effet\selection");
             lowHP = Content.Load<SoundEffect>(@"Music\effet\lowHP");

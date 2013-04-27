@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="BUTTON.cs" />
     <Compile Include="jeu\character\joueur\Coffre.cs" />
+    <Compile Include="misc\menudeux.cs" />
     <Compile Include="Reseau\Client.cs" />
     <Compile Include="Reseau\Server.cs" />
     <Compile Include="tile_mapping\Donjon.cs" />
