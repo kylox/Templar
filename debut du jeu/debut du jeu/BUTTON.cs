@@ -27,7 +27,6 @@ namespace Templar
         public BUTTON(Texture2D texture, Rectangle bouton)
         {
             Texture = texture;
-
             Bouton = bouton;
         }
        
