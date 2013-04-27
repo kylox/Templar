@@ -21,10 +21,9 @@ namespace Templar
         TcpListener server;
         Thread Client_Listener, Client_Handler;
         NetworkStream Sentstream;
-        public Server(gamemain infos)
+        public Server()
         {
             Serialiseur = new BinaryFormatter();
-            this.infos = infos;
             try
             {
                 port = 9580;
@@ -32,7 +31,6 @@ namespace Templar
                 server.Start();
                 Client_Listener = new Thread(new ThreadStart(StartConnexion));
                 Client_Listener.Start();
-
             }
             catch (SocketException e)
             {
@@ -42,17 +40,16 @@ namespace Templar
 
         public void StartConnexion()
         {
-
-            while (true)
+            bool isrunnin = true;
+            while (isrunnin)
             {
                 Client = server.AcceptTcpClient();
                 Client_Handler = new Thread(new ParameterizedThreadStart(Receiver));
                 Client_Handler.Start(Client);
             }
-
         }
 
-        public void Ping()
+        public bool Ping()
         {
             if (Client.Client.Poll(-1, SelectMode.SelectError))
             {
@@ -61,7 +58,9 @@ namespace Templar
                 Client_Listener.Abort();
                 Client_Handler.Abort();
                 Console.WriteLine("Le Client distant s'est deconnecté");
+                return false;
             }
+            return true;
         }
 
         public void Receiver(object client)
@@ -81,8 +80,12 @@ namespace Templar
                 type = BR.ReadInt32();
                 switch (type)
                 {
+                    case 1:
+                        Infos.same_map = (Infos.map.x == BR.ReadInt32() && Infos.map.y == BR.ReadInt32());
+                        break;
                     case 2:
-                        Infos.player.chgt_position(BR.ReadInt32(), BR.ReadInt32());
+                        Infos.player2.chgt_position(BR.ReadInt32(), BR.ReadInt32());
+                        
                         break;
                     case 31:
                         Infos.List_Sort.RemoveAt(BR.ReadInt32());
