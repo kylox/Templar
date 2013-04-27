@@ -41,6 +41,29 @@ namespace Templar
             }
             base.update(mouse, keyboard, walls, personnages,map);
         }
+        public void touché(Direction direction)
+        {
+            switch (direction)
+            {
+                case Templar.Direction.Left:
+                    if (position.X - 32 >= 0)
+                        position.X -= 32;
+                    break;
+                case Templar.Direction.Right:
+                    if (position.X + 32 <= 25*32)
+                        position.X += 32;
+                    break;
+                case Templar.Direction.Up:
+                    if (position.Y - 32 >= 0)
+                        position.Y -= 32;
+                    break;
+                case Templar.Direction.Down:
+                    if (position.Y + 32 <= 18*32)
+                        position.Y += 32;
+                    break;
+            }
+            Pv -= player.attaque / 3;
+        }
 
         public void cheminement()
         {

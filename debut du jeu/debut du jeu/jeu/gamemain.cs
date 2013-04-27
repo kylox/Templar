@@ -99,8 +99,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32,48 /*62, 121*/,4 , 10, 3, 10, position_joueur, 100, ressource.sprite_player, this, text);
-
+            localPlayer = new GamePlayer(32, 48 /*62, 121*/, 4, 10, 3, 10, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             pop_time = 0;
             score = 0;
@@ -116,10 +115,7 @@ namespace Templar
             white = Color.White;
             white.A = 120;
             effect = new BasicEffect(game.GraphicsDevice);
-
-           
             HUD = new HUD(localPlayer, this);
-
         }
         public void ramassage_objet()
         {
@@ -151,7 +147,7 @@ namespace Templar
         public override void Update(GameTime gameTime)
         {
             //ICI
-            
+
             map.update();
             HUD.update();
             int pop_item = x.Next(0, 5);
@@ -159,7 +155,7 @@ namespace Templar
             #region JEU
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-          
+
             int a = x.Next(0, 1200);
             int b = x.Next(0, 800);
             position_npc = new Vector2(32, 32);
@@ -174,9 +170,7 @@ namespace Templar
             {
 
                 #region ZOMBIE
-                /*
-
-                if (pop_time == 120)
+                if (pop_time == 250)
                 {
                     list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
                     pop_time = 0;
@@ -203,10 +197,7 @@ namespace Templar
 
                         localPlayer.XP += 20 / localPlayer.Niveau;
                     }
-
-           
-                */
-                #endregion 
+                #endregion
                 #region PLAYER
                 localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
                 //cheat code
@@ -215,6 +206,30 @@ namespace Templar
                 if (keyboard.IsKeyDown(Keys.V))
                     localPlayer.pv_player = 100;
 
+                if (localPlayer.combat == true)
+                    switch (localPlayer.frameline)
+                    {
+                        case 5:
+                            for (int i = 0; i < list_zombi.Count; i++)
+                                if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y+32, 32, 32).Intersects(new Rectangle((int)list_zombi[i].Position.X, (int)list_zombi[i].Position.Y, 32, 32)))
+                                    list_zombi[i].touché(Direction.Down);
+                            break;
+                        case 6:
+                            for (int i = 0; i < list_zombi.Count; i++)
+                                if (new Rectangle((int)localPlayer.position_player.X+32, (int)localPlayer.position_player.Y, 32, 32).Intersects(new Rectangle((int)list_zombi[i].Position.X, (int)list_zombi[i].Position.Y, 32, 32)))
+                                    list_zombi[i].touché(Direction.Right);
+                            break;
+                        case 7:
+                            for (int i = 0; i < list_zombi.Count; i++)
+                                if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y-32, 32, 32).Intersects(new Rectangle((int)list_zombi[i].Position.X, (int)list_zombi[i].Position.Y, 32, 32)))
+                                    list_zombi[i].touché(Direction.Up);
+                            break;
+                        case 8:
+                            for (int i = 0; i < list_zombi.Count; i++)
+                                if (new Rectangle((int)localPlayer.position_player.X-32, (int)localPlayer.position_player.Y, 32, 32).Intersects(new Rectangle((int)list_zombi[i].Position.X, (int)list_zombi[i].Position.Y, 32, 32)))
+                                    list_zombi[i].touché(Direction.Left);
+                            break;
+                    }
                 //leveling
                 if (localPlayer.XP >= 100)
                 {
