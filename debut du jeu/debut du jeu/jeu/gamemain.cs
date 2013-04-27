@@ -17,11 +17,14 @@ namespace Templar
     {
 
         //field ecran 
+        string IP;
+        Server Serveur;
+        Client Client;
         Rectangle fenetre;
         public switch_map map;
         HUD HUD;
         BasicEffect effect;
-        GamePlayer localPlayer;
+        GamePlayer localPlayer, Player2;
         Color noir;
         Color white;
         List<wall> Walls;
@@ -34,10 +37,12 @@ namespace Templar
         Vector2 position_joueur, position_npc;
         Random x;
         textbox text;
-        bool ClickDown, pressdown;
+        public bool same_map;
+        bool ClickDown, pressdown, Is_Server, Is_Client, Is_2player;
         int pop_time, score, count_dead_zombi, timer_level_up;
 
         #region get set
+        public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
         public GamePlayer player
         {
             get { return localPlayer; }
@@ -80,14 +85,25 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon)
             : base(game, spriteBatch)
         {
-            //ICI
-            /*
-            prout = new Server(this);
-            prout.StartConnexion();
-             * */
-            fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
+            Is_Server = true;
+            Is_Client = true;
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
+            if (Is_Server)
+            {
+                Serveur = new Server();
+                same_map = true;
+                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
+            }
+            if (Is_Client)
+            {
+                Client = new Client("127.0.0.1");
+                same_map = true;
+                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
+            }
+            fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
+            
+            
             #region init du jeu
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -176,6 +192,14 @@ namespace Templar
                 if (pop_time == 120)
                 {
                     list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
+                    if (Is_Server)
+                    {
+                        Serveur.Send(42, new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this)); 
+                    }
+                    if (Is_Client)
+                    {
+                        Client.Send(42, new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this)); 
+                    }
                     pop_time = 0;
                 }
 
@@ -196,6 +220,14 @@ namespace Templar
                             liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
 
                         list_zombi.RemoveAt(i);
+                        if (Is_Server)
+                        {
+                            Serveur.Send(41, i);
+                        }
+                        if (Is_Client)
+                        {
+                            Client.Send(41, i);
+                        }
                         score += 5;
 
                         localPlayer.XP += 20 / localPlayer.Niveau;
@@ -204,6 +236,14 @@ namespace Templar
             #endregion ZOMBIE
                 #region PLAYER
                 localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
+                if (Is_Server)
+                {
+                    Client.Send(2,(int) player.Position.X, (int)player.position_player.Y);
+                }
+                if (Is_Client)
+                {
+                    Client.Send(2, (int)player.Position.X, (int)player.position_player.Y);
+                }
                 //cheat code
                 if (keyboard.IsKeyDown(Keys.M))
                     localPlayer.mana_player = 100;
@@ -241,6 +281,14 @@ namespace Templar
                         ressource.feu.Play();
 
                     liste_sort.Add(localPlayer.Active_Sort);
+                    if (Is_Server)
+                    {
+                        Serveur.Send(32, localPlayer.Active_Sort);
+                    }
+                    if (Is_Client)
+                    {
+                        Client.Send(32, localPlayer.Active_Sort);
+                    }
                     pressdown = true;
                 }
 
@@ -255,6 +303,7 @@ namespace Templar
                         {
                             Walls.RemoveAt(j);
                             liste_sort.RemoveAt(i);
+
                             break;
                         }
 
@@ -264,6 +313,14 @@ namespace Templar
                         {
                             list_zombi[j].PV -= 100;
                             liste_sort.RemoveAt(i);
+                            if (Is_Client)
+                            {
+                                Client.Send(31, i);
+                            }
+                            if (Is_Server)
+                            {
+                                Serveur.Send(31, i);
+                            }
                             break;
                         }
 
@@ -325,7 +382,7 @@ namespace Templar
                         spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
 
             HUD.draw(spriteBatch);
-            spriteBatch.DrawString(ressource.ecriture, "coordonner map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
+            spriteBatch.DrawString(ressource.ecriture, "coordonnees map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
 
             base.Draw(gameTime);
         }

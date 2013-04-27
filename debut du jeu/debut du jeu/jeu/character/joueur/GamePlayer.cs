@@ -113,7 +113,7 @@ namespace Templar
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
-            text.Is_shown = false;
+            //text.Is_shown = false;
         }
         public void utilise_objet(item item)
         {
