@@ -99,7 +99,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32,48 /*62, 121*/,4 , 10, 3, 10, position_joueur, 100, ressource.sprite_player, this, text);
 
             localPlayer.Niveau = 1;
             pop_time = 0;
@@ -136,6 +136,7 @@ namespace Templar
                             est_present = true;
                             localPlayer.nb_objet[j]++;
                             liste_objet_map.RemoveAt(i);
+                            break;
                         }
                         j++;
                     }
@@ -158,7 +159,7 @@ namespace Templar
             #region JEU
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
-            #region ZOMBIE
+          
             int a = x.Next(0, 1200);
             int b = x.Next(0, 800);
             position_npc = new Vector2(32, 32);
@@ -172,6 +173,8 @@ namespace Templar
             else
             {
 
+                #region ZOMBIE
+                /*
 
                 if (pop_time == 120)
                 {
@@ -201,7 +204,9 @@ namespace Templar
                         localPlayer.XP += 20 / localPlayer.Niveau;
                     }
 
-            #endregion ZOMBIE
+           
+                */
+                #endregion 
                 #region PLAYER
                 localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
                 //cheat code
