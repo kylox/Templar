@@ -224,7 +224,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main),true);
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main),false);
                     Components.Add(main);
                     main.hide();
 

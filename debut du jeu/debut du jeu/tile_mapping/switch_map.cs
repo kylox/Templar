@@ -55,14 +55,16 @@ namespace Templar
 
             x = 0;
             y = 0;
-            active_map = listes_map[x, y];
+            active_map = listes_map[y, x];
         }
         public void update()
         {
-            active_map = listes_map[x, y];
+            active_map = listes_map[y, x];
             if (player != null)
             {
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 4) || active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0,7)) && x - 1 >= 0 && listes_map[x - 1, y] != null)
+                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 4) || 
+                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0,7)) 
+                    && x - 1 >= 0 && listes_map[x - 1, y] != null)
                 {
                     x--;
                     player.Position = new Vector2(main.Fenetre.Width - 32, player.Position.Y);
@@ -71,7 +73,9 @@ namespace Templar
                     main.List_Sort.Clear();
                     main.List_wall.Clear();
                 }
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 7) || active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 6)) && y - 1 >= 0 && listes_map[x, y - 1] != null)
+                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 7) ||
+                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 6)) 
+                    && y - 1 >= 0 && listes_map[x, y - 1] != null)
                 {
                     y--;
                     player.Position = new Vector2(player.Position.X, main.Fenetre.Height - 32);
@@ -80,7 +84,9 @@ namespace Templar
                     main.List_Sort.Clear();
                     main.List_wall.Clear();
                 }
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 5) || active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4)) && listes_map[x + 1, y] != null)
+                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 5) ||
+                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4))
+                    && listes_map[x + 1, y] != null)
                 {
                     x++;
                     player.Position = new Vector2(0 + 32, player.Position.Y);
@@ -89,7 +95,9 @@ namespace Templar
                     main.List_Sort.Clear();
                     main.List_wall.Clear();
                 }
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 5) || active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4)) && listes_map[x, y + 1] != null)
+                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 5) ||
+                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4)) 
+                    && listes_map[x, y + 1] != null)
                 {
                     y++;
                     player.Position = new Vector2(player.Position.X, 0 + 32);

@@ -35,9 +35,6 @@ namespace Templar
                 case Direction.Right:
                     Framecolumn = 2;
                     break;
-
-
-
             }
         }
 
@@ -113,7 +110,6 @@ namespace Templar
                     break;
 
                 #endregion
-
                 #region down
                 case Direction.Down:
                     Framecolumn = 0;
@@ -178,16 +174,12 @@ namespace Templar
                     }
                     break;
                 #endregion
-
                 case Direction.Left:
                     Framecolumn = 2;
                     break;
                 case Direction.Right:
                     Framecolumn = 2;
                     break;
-
-
-
             }
 
 
