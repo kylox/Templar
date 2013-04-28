@@ -44,10 +44,40 @@ namespace Templar
             keyboard = Keyboard.GetState();
             timer++;
             if (is_shown)
-                if (keyboard.GetPressedKeys().Length != 0 && timer > 5)
+                if (keyboard.GetPressedKeys().Length != 0 && timer > 7)
                 {
                     switch (keyboard.GetPressedKeys().First())
                     {
+                        case Keys.NumPad0:
+                            saisie += '0';
+                            break;
+                        case Keys.NumPad1:
+                            saisie += '1';
+                            break;
+                        case Keys.NumPad2:
+                            saisie += '2';
+                            break;
+                        case Keys.NumPad3:
+                            saisie += '3';
+                            break;
+                        case Keys.NumPad4:
+                            saisie += '4';
+                            break;
+                        case Keys.NumPad5:
+                            saisie += '5';
+                            break;
+                        case Keys.NumPad6:
+                            saisie += '6';
+                            break;
+                        case Keys.NumPad7:
+                            saisie += '7';
+                            break;
+                        case Keys.NumPad8:
+                            saisie += '8';
+                            break;
+                        case Keys.NumPad9:
+                            saisie += '9';
+                            break;
                         case Keys.D1:
                             saisie += '1';
                             break;
@@ -78,7 +108,7 @@ namespace Templar
                         case Keys.D0:
                             saisie += '0';
                             break;
-                        case Keys.OemBackslash:
+                        case Keys.Decimal:
                             saisie += '.';
                             break;
                         case Keys.A:
@@ -177,10 +207,10 @@ namespace Templar
             couleurfenetre.A = 100;
             if (is_shown == true)
             {
-                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Y - 3, 3, Fenetre.Height+3), Color.Gray);
-                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Y - 3, Fenetre.Width+6, 3), Color.Gray);
-                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Height + Fenetre.Y, Fenetre.Width+3, 3), Color.Gray);
-                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width + Fenetre.X, Fenetre.Y, 3, Fenetre.Height+3), Color.Gray);
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Y - 3, 3, Fenetre.Height + 3), Color.Gray);
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Y - 3, Fenetre.Width + 6, 3), Color.Gray);
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.X - 3, Fenetre.Height + Fenetre.Y, Fenetre.Width + 3, 3), Color.Gray);
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width + Fenetre.X, Fenetre.Y, 3, Fenetre.Height + 3), Color.Gray);
 
                 spritebatch.Draw(ressource.pixel, Fenetre, couleurfenetre);
                 spritebatch.DrawString(ressource.ecriture, saisie, new Vector2(Fenetre.X + 5, Fenetre.Y + 5), Color.White);

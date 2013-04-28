@@ -35,6 +35,7 @@ namespace Templar
         Sauvegarde save;
         Chargement load;
         menudeux menudeux;
+        textbox box;
         bool ecran;
         bool click_down;
 
@@ -59,6 +60,8 @@ namespace Templar
         }
         protected override void LoadContent()
         {
+            box = new textbox(new Rectangle(200, 200, 200, 200));
+
             ressource.loadcontent(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -82,7 +85,7 @@ namespace Templar
             Components.Add(menu);
             menu.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main),false);
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false, "");
             Components.Add(main);
             main.hide();
 
@@ -143,7 +146,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false);
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false, "");
                         Components.Add(main);
                         main.hide();
 
@@ -166,14 +169,36 @@ namespace Templar
                         ressource.selection.Play();
                         this.Exit();
                     }
-
-
                 }
-
             }
             #endregion
             #region screen_menu_principal
+            if (activeScreen == menudeux)
+            {
+                if (Data.keyboardState.IsKeyDown(Keys.Escape))
+                {
+                    activeScreen.hide();
+                    activeScreen = menu;
+                    activeScreen.Show();
+                }
 
+                if (Data.keyboardState.IsKeyDown(Keys.Enter))
+                {
+
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), true, box.Saisie);
+                    main.IP = menudeux.box.Saisie;
+                    main.Is_Client = menudeux.selec;
+                    main.Is_Server = !menudeux.selec;
+                    Components.Add(main);
+                    main.hide();
+
+                    ressource.selection.Play();
+                    activeScreen.hide();
+                    activeScreen = main;
+                    activeScreen.Show();
+
+                }
+            }
             if (activeScreen == menu)
             {
                 if (checkKey(Keys.Enter))
@@ -185,10 +210,15 @@ namespace Templar
                         activeScreen = menudujeu;
                         activeScreen.Show();
                     }
-
                     else if (menu.SelectedIndex == 1)
                     {
-
+                        ressource.selection.Play();
+                        menudeux = new menudeux(this, spriteBatch, ref box);
+                        Components.Add(menudeux);
+                        creation.hide();
+                        activeScreen.hide();
+                        activeScreen = menudeux;
+                        activeScreen.Show();
                     }
 
                     else if (menu.SelectedIndex == 2)
@@ -221,10 +251,9 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main),false);
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false, "");
                     Components.Add(main);
                     main.hide();
-
                     ressource.selection.Play();
                     activeScreen.hide();
                     activeScreen = main;
@@ -406,7 +435,7 @@ namespace Templar
                             graphics.ToggleFullScreen();
                             graphics.PreferredBackBufferHeight = 800;
                             graphics.PreferredBackBufferWidth = 675;
-                            
+
                             ecran = false;
                         }
                     }

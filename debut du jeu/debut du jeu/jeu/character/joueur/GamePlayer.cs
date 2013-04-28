@@ -18,13 +18,13 @@ namespace Templar
         dessin_perso dessin_tete;
         sort active_sort;
         textbox text;
-        bool click_down, actif;
+        bool click_down/*, actif*/;
         int sort_selec;
         int Endurance;
         int timer_endurance;
-        int timer_attaque;
+       // int timer_attaque;
         int Mana;
-        int k = 0;
+        //int k = 0;
         string active;
 
         public List<item> inventaire;
@@ -113,9 +113,9 @@ namespace Templar
             inventaire = new List<item>();
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
-            actif = false;
+           // actif = false;
             text.Is_shown = false;
-            timer_attaque = 0;
+           // timer_attaque = 0;
         }
         public void utilise_objet(item item)
         {
@@ -123,7 +123,7 @@ namespace Templar
         }
         public void deplacement()
         {
-            if (CanMove>16)
+            if (CanMove>=32/Speed)
             {
                 if (Data.keyboardState.IsKeyDown(Keys.Z))
                     direction = Direction.Up;
