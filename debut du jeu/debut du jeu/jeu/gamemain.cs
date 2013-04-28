@@ -82,7 +82,7 @@ namespace Templar
         #region field du jeu
 
         #endregion
-        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p)
+        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p ,string ip)
             : base(game, spriteBatch)
         {
             Is_Server = false;
