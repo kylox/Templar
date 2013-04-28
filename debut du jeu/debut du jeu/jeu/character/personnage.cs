@@ -130,9 +130,11 @@ namespace Templar
             if (this.timer == this.animaitonspeed)
             {
                 this.timer = 0;
-                
+                if (Frame_start ==10)
+                    this.Framecolumn+=2;
+                else
                     this.Framecolumn++;
-                if (this.Framecolumn > this.nb_Framecolumn + Frame_start)
+                if (this.Framecolumn > this.nb_Framecolumn + Frame_start-1)
                     this.Framecolumn = this.Frame_start;
             }
         }
@@ -254,9 +256,8 @@ namespace Templar
                 timer_attaque = 0;
                 framecolumn++;
                 spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
-                if (framecolumn == 7)
+                if (framecolumn-Frame_start == 7)
                 {
-
                     combat = false;
                     switch (FrameLine)
                     {

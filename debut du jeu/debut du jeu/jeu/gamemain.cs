@@ -111,7 +111,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 7, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 5, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -159,7 +159,6 @@ namespace Templar
                     }
                 }
         }
-
         public override void Update(GameTime gameTime)
         {
             //ICI
