@@ -437,6 +437,15 @@
       <Output>C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb</Output>
       <Time>2013-04-17T15:31:49.7916099+02:00</Time>
     </Item>
+    <Item>
+      <Source>mobs.png</Source>
+      <Name>mobs</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb</Output>
+      <Time>2013-04-27T18:49:54.001177+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

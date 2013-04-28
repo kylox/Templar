@@ -34,7 +34,7 @@ namespace Templar
         creat_perso creation;
         Sauvegarde save;
         Chargement load;
-        menudeux menudeux
+        menudeux menudeux;
 
         bool click_down;
 
