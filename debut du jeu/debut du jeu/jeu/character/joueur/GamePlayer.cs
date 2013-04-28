@@ -11,6 +11,7 @@ namespace Templar
     [Serializable()]
     class GamePlayer : Personnage
     {
+        int CanMove;
         SpriteFont spriteFont;
         Vector2 position_pv;
         gamemain main;
@@ -88,6 +89,7 @@ namespace Templar
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
         {
+            CanMove = 16;
             this.main = main;
             this.text = text;
             spriteFont = ressource.ecriture;
@@ -121,21 +123,25 @@ namespace Templar
         }
         public void deplacement()
         {
-            if (Data.keyboardState.IsKeyDown(Keys.Z))
-                direction = Direction.Up;
+            if (CanMove>16)
+            {
+                if (Data.keyboardState.IsKeyDown(Keys.Z))
+                    direction = Direction.Up;
 
-            if (Data.keyboardState.IsKeyDown(Keys.S))
-                direction = Direction.Down;
+                if (Data.keyboardState.IsKeyDown(Keys.S))
+                    direction = Direction.Down;
 
-            if (Data.keyboardState.IsKeyDown(Keys.D))
-                direction = Direction.Right;
+                if (Data.keyboardState.IsKeyDown(Keys.D))
+                    direction = Direction.Right;
 
-            if (Data.keyboardState.IsKeyDown(Keys.Q))
-                direction = Direction.Left;
+                if (Data.keyboardState.IsKeyDown(Keys.Q))
+                    direction = Direction.Left;
 
-            if (Data.keyboardState.IsKeyUp(Keys.Z) && Data.keyboardState.IsKeyUp(Keys.S) &&
-             Data.keyboardState.IsKeyUp(Keys.Q) && Data.keyboardState.IsKeyUp(Keys.D))
-                direction = Direction.None;
+                if (Data.keyboardState.IsKeyUp(Keys.Z) && Data.keyboardState.IsKeyUp(Keys.S) &&
+                 Data.keyboardState.IsKeyUp(Keys.Q) && Data.keyboardState.IsKeyUp(Keys.D))
+                    direction = Direction.None;
+                CanMove = 0;
+            }
         }
         public void collision_bord()
         {
@@ -166,7 +172,8 @@ namespace Templar
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
             collision_bord();
-            deplacement();
+            CanMove++;
+            deplacement();           
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
             #region sort

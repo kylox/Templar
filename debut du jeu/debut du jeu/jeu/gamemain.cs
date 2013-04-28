@@ -39,7 +39,7 @@ namespace Templar
         textbox text;
         public bool same_map;
         bool ClickDown, pressdown, Is_Server, Is_Client, Is_2player;
-        int pop_time, score, count_dead_zombi, timer_level_up;
+        int pop_time, score, count_dead_zombi, timer_level_up, Chrono_CanMove;
 
         #region get set
         public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
@@ -85,8 +85,8 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p)
             : base(game, spriteBatch)
         {
-            Is_Server = is2p;
-            Is_Client = is2p;
+            Is_Server = false;
+            Is_Client = false;
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
             if (Is_Server)
@@ -103,6 +103,7 @@ namespace Templar
             }
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             #region init du jeu
+            Chrono_CanMove = 0;
             x = new Random();
             keyboard = new KeyboardState();
             liste_sort = new List<sort>();
@@ -111,7 +112,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 5, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -159,6 +160,7 @@ namespace Templar
                     }
                 }
         }
+
         public override void Update(GameTime gameTime)
         {
             //ICI
@@ -386,6 +388,7 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
+
 
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
 
