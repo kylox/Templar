@@ -230,3 +230,7 @@ C:\Users\Louis\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAs
 C:\Users\Louis\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Louis\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
 C:\Users\Louis\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
