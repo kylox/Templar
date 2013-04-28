@@ -20,6 +20,7 @@ namespace Templar
         TcpListener server;
         Thread Client_Listener, Client_Handler;
         NetworkStream Sentstream;
+        public bool isrunnin = true;
         public Server()
         {
             Serialiseur = new BinaryFormatter();
@@ -39,12 +40,13 @@ namespace Templar
 
         public void StartConnexion()
         {
-            bool isrunnin = true;
+           isrunnin = true;
             while (isrunnin)
             {
                 Client = server.AcceptTcpClient();
                 Client_Handler = new Thread(new ParameterizedThreadStart(Receiver));
                 Client_Handler.Start(Client);
+                isrunnin = false;
             }
         }
 

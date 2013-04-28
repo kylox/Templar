@@ -85,8 +85,6 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p ,string ip)
             : base(game, spriteBatch)
         {
-            Is_Server = Is_Server && is2p;
-            Is_Client = Is_Client && is2p; ;
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
@@ -130,6 +128,10 @@ namespace Templar
                 Serveur = new Server();
                 same_map = true;
                 Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
+                while (Serveur.isrunnin)
+                {
+
+                }
             }
             if (Is_Client)
             {
@@ -177,7 +179,7 @@ namespace Templar
             int a = x.Next(0, 1200);
             int b = x.Next(0, 800);
             position_npc = new Vector2(32, 32);
-            pop_time++;
+            //pop_time++;
 
             if (text.Is_shown == true)
             {
