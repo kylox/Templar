@@ -112,7 +112,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 3, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -185,7 +185,7 @@ namespace Templar
             {
                 if (pop_time == 120)
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 16, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 4, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
                         Serveur.Send(42, 1, 0);
                     if (Is_Client)
@@ -194,7 +194,7 @@ namespace Templar
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.U) && Data.prevKeyboardState.IsKeyUp(Keys.U))
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 10, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
                         Serveur.Send(42, 1, 0);
                     if (Is_Client)
@@ -202,7 +202,7 @@ namespace Templar
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.I) && Data.prevKeyboardState.IsKeyUp(Keys.I))
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 15, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 5, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
                         Serveur.Send(42, 1, 0);
                     if (Is_Client)
