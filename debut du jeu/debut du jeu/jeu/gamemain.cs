@@ -102,11 +102,7 @@ namespace Templar
                 Player2 = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
             }
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
-
-
             #region init du jeu
-            map = new switch_map(localPlayer, this, donjon);
-            map.Active_Map = map.Listes_map[0, 0];
             x = new Random();
             keyboard = new KeyboardState();
             liste_sort = new List<sort>();
@@ -116,8 +112,9 @@ namespace Templar
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
             localPlayer = new GamePlayer(32, 48, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
-
             localPlayer.Niveau = 1;
+            map = new switch_map(localPlayer, this, donjon);
+            map.Active_Map = map.Listes_map[0, 0];
             pop_time = 0;
             score = 0;
             count_dead_zombi = 0;
@@ -167,7 +164,7 @@ namespace Templar
         {
             //ICI
 
-            map.update();
+            map.update(localPlayer);
             HUD.update();
             int pop_item = x.Next(0, 5);
 
@@ -189,7 +186,7 @@ namespace Templar
             {
                 if (pop_time == 120)
                 {
-                    list_zombi.Add(new NPC(24, 32, 4, 2, 1, 15, position_npc, ressource.zombie, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48,4,3, 15,15, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
                     {
                         Serveur.Send(42, 1, 0);

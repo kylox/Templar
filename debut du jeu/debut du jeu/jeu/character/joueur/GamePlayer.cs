@@ -210,9 +210,8 @@ namespace Templar
             }
 
             //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
-            if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
+            if ( map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
                 map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
-
 
             if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
                 if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
@@ -262,7 +261,7 @@ namespace Templar
 
             if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A) && direction == Templar.Direction.None && !combat)
                 combat = true;
-            
+
             #endregion
             if (levelup == true)
             {
@@ -281,14 +280,9 @@ namespace Templar
         }
         public override void Draw(SpriteBatch spritebatch)
         {
-
-            timer_attaque++;
-
+            spritebatch.DrawString(ressource.ecriture, position_player.X + " " + position_player.Y, new Vector2(100, 0), Color.Red);
             base.Draw(spritebatch);
-          //dessin_tete.draw(spritebatch);
-           
-          
-           
+            //dessin_tete.draw(spritebatch);
             // spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
         }
     }

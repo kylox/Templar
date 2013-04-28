@@ -136,7 +136,6 @@ namespace Templar
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
             Data.Update();
-
             # region gameover
             if (activeScreen == gameover)
             {
@@ -173,7 +172,6 @@ namespace Templar
 
             }
             #endregion
-
             #region screen_menu_principal
 
             if (activeScreen == menu)
@@ -218,7 +216,6 @@ namespace Templar
             }
 
             #endregion
-
             #region creation
             else if (activeScreen == creation)
             {
@@ -236,7 +233,6 @@ namespace Templar
 
             }
             #endregion
-
             #region menu_1_Joueur
 
             else if (activeScreen == menudujeu)
@@ -273,7 +269,6 @@ namespace Templar
             }
 
             #endregion
-
             #region screen_action
             else if (activeScreen == main)
             {
@@ -292,7 +287,6 @@ namespace Templar
                 }
             }
             #endregion
-
             else if (activeScreen == inventaire)
             {
                 if (checkKey(Keys.Escape))
@@ -302,7 +296,6 @@ namespace Templar
                     activeScreen.Show();
                 }
             }
-
             #region screen_pause
             else if (activeScreen == pause)
             {
@@ -361,7 +354,6 @@ namespace Templar
                 }
             }
             #endregion
-
             #region screen_option
             else if (activeScreen == option)
             {
@@ -443,7 +435,6 @@ namespace Templar
                 }
             }
             #endregion
-
             #region screen_EDM
 
             if (activeScreen == edm)
@@ -456,7 +447,6 @@ namespace Templar
                 }
             }
             #endregion
-
             base.Update(gameTime);
 
             oldKeyboard = keyboard;

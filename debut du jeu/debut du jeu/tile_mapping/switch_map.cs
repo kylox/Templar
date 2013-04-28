@@ -55,57 +55,64 @@ namespace Templar
 
             x = 0;
             y = 0;
-            active_map = listes_map[y, x];
+            active_map = listes_map[x, y];
         }
-        public void update()
+        public void update(GamePlayer player)
         {
-            active_map = listes_map[y, x];
+            active_map = listes_map[x, y];
             if (player != null)
             {
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 4) || 
-                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0,7)) 
+                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 4) ||
+                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 7))
                     && x - 1 >= 0 && listes_map[x - 1, y] != null)
                 {
                     x--;
-                    player.Position = new Vector2(main.Fenetre.Width - 32, player.Position.Y);
+                    player.Position = new Vector2(main.Fenetre.Width - 64, player.Position.Y);
                     main.List_Objet_Map.Clear();
                     main.List_Zombie.Clear();
                     main.List_Sort.Clear();
                     main.List_wall.Clear();
+                    active_map = listes_map[x, y];
                 }
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 7) ||
-                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 6)) 
-                    && y - 1 >= 0 && listes_map[x, y - 1] != null)
-                {
-                    y--;
-                    player.Position = new Vector2(player.Position.X, main.Fenetre.Height - 32);
-                    main.List_Objet_Map.Clear();
-                    main.List_Zombie.Clear();
-                    main.List_Sort.Clear();
-                    main.List_wall.Clear();
-                }
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 5) ||
-                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4))
-                    && listes_map[x + 1, y] != null)
-                {
-                    x++;
-                    player.Position = new Vector2(0 + 32, player.Position.Y);
-                    main.List_Objet_Map.Clear();
-                    main.List_Zombie.Clear();
-                    main.List_Sort.Clear();
-                    main.List_wall.Clear();
-                }
-                if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 5) ||
-                    active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4)) 
-                    && listes_map[x, y + 1] != null)
-                {
-                    y++;
-                    player.Position = new Vector2(player.Position.X, 0 + 32);
-                    main.List_Objet_Map.Clear();
-                    main.List_Zombie.Clear();
-                    main.List_Sort.Clear();
-                    main.List_wall.Clear();
-                }
+                else
+                    if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 7) ||
+                active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 6))
+                && y - 1 >= 0 && listes_map[x, y - 1] != null)
+                    {
+                        y--;
+                        player.Position = new Vector2(player.Position.X, main.Fenetre.Height - 64 - 99);
+                        main.List_Objet_Map.Clear();
+                        main.List_Zombie.Clear();
+                        main.List_Sort.Clear();
+                        main.List_wall.Clear();
+                        active_map = listes_map[x, y];
+                    }
+                    else
+                        if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 5) ||
+            active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4))
+            && listes_map[x + 1, y] != null)
+                        {
+                            x++;
+                            player.Position = new Vector2(0 + 32, player.Position.Y);
+                            main.List_Objet_Map.Clear();
+                            main.List_Zombie.Clear();
+                            main.List_Sort.Clear();
+                            main.List_wall.Clear();
+                            active_map = listes_map[x, y];
+                        }
+                        else
+                            if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 5) ||
+        active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 4))
+        && listes_map[x, y + 1] != null)
+                            {
+                                y++;
+                                player.Position = new Vector2(player.Position.X, 0 + 32);
+                                main.List_Objet_Map.Clear();
+                                main.List_Zombie.Clear();
+                                main.List_Sort.Clear();
+                                main.List_wall.Clear();
+                                active_map = listes_map[x, y];
+                            }
 
             }
         }
