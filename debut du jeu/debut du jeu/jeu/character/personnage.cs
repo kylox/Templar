@@ -38,6 +38,7 @@ namespace Templar
         public int defense;
         protected bool collision;
         public bool combat;
+        public bool CanMove;
         //autre
         protected int Pv;
 
@@ -99,6 +100,7 @@ namespace Templar
             timer_attaque = 0;
             Speed = speed;
             timer_speed = 0;
+            CanMove = true;
         }
         // method
         bool collide(List<wall> walls, List<Personnage> personnages)
@@ -111,6 +113,10 @@ namespace Templar
                     break;
                 }
             return collision;
+        }
+        public void Attaque(Personnage attaquant, Personnage attaque)
+        {
+            attaque.Pv -= attaquant.attaque * 3;
         }
         bool coll(Map map)
         {
@@ -126,9 +132,11 @@ namespace Templar
             if (this.timer == this.animaitonspeed)
             {
                 this.timer = 0;
-                
+                if (Frame_start ==10)
+                    this.Framecolumn+=2;
+                else
                     this.Framecolumn++;
-                if (this.Framecolumn > this.nb_Framecolumn + Frame_start)
+                if (this.Framecolumn > this.nb_Framecolumn + Frame_start-1)
                     this.Framecolumn = this.Frame_start;
             }
         }
@@ -143,13 +151,14 @@ namespace Templar
                 this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (32 - 10)) - this.Speed, 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer_speed > Speed && (int)position.Y / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
+                if (!collision && /*timer_speed > Speed && */(int)position.Y / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
                 {
                     timer_speed = 0;
-                    for (int i = 0; i < 32; i++)
+                    this.position.Y -= Speed;
+                   /* for (int i = 0; i < 32; i++)
                     {
                         this.position.Y--;
-                    }
+                    }*/
                 }
                 this.animate();
             }
@@ -159,13 +168,14 @@ namespace Templar
 
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer_speed > Speed && (int)position.Y / 32 + 1 < 18 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 + 1] != 1)
+                if (!collision && /*timer_speed > Speed &&*/ (int)position.Y / 32 + 1 < 18 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 + 1] != 1)
                 {
                     timer_speed = 0;
-                    for (int i = 0; i < 32; i++)
+                    this.position.Y += Speed;
+                    /*for (int i = 0; i < 32; i++)
                     {
                         this.position.Y++;
-                    }
+                    }*/
                 }
                 this.animate();
             }
@@ -174,13 +184,14 @@ namespace Templar
                 this.newHitbox = new Rectangle((int)this.position.X + this.Speed, ((int)this.position.Y + (32 - 10)), 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer_speed > Speed && map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
+                if (!collision && /*timer_speed > Speed && */map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
                 {
                     timer_speed = 0;
-                    for (int i = 0; i < 32; i++)
+                    this.position.X += Speed;
+                    /*for (int i = 0; i < 32; i++)
                     {
                         this.position.X++;
-                    }
+                    }*/
                 }
                 this.animate();
             }
@@ -189,13 +200,14 @@ namespace Templar
                 this.newHitbox = new Rectangle((int)this.position.X - this.Speed, ((int)this.position.Y + (32 - 10)), 20, 10);
                 if (collide(walls, personnages) == true)
                     Pv--;
-                if (!collision && timer_speed > Speed && position.X / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32 - 1, (int)position.Y / 32] != 1)
+                if (!collision && /*timer_speed > Speed &&*/ position.X / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32 - 1, (int)position.Y / 32] != 1)
                 {
                     timer_speed = 0;
-                    for (int i = 0; i < 32; i++)
+                    this.position.X -= Speed;
+                   /* for (int i = 0; i < 32; i++)
                     {
                         this.position.X--;
-                    }
+                    }*/
                 }
                 this.animate();
             }
@@ -249,9 +261,8 @@ namespace Templar
             {
                 timer_attaque = 0;
                 framecolumn++;
-
                 spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
-                if (framecolumn == 7)
+                if (framecolumn-Frame_start == 7)
                 {
                     combat = false;
                     switch (FrameLine)

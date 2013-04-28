@@ -22,9 +22,9 @@ namespace Templar
         Map Map;
         GamePlayer player;
 
-        public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed,int speed, Vector2 position,
+        public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
             Texture2D image, GamePlayer player, gamemain main)
-            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed,speed, position, image, main)
+            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
         {
             this.player = player;
             Pv = 100;
@@ -102,12 +102,28 @@ namespace Templar
             switch (direction)
             {
                 case Templar.Direction.Down:
+                    if (new Rectangle(Taille_image_x, (int)position.Y + 32, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
                 case Templar.Direction.Up:
+                    if (new Rectangle(Taille_image_x, (int)position.Y - 32, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
                 case Templar.Direction.Left:
+                    if (new Rectangle(Taille_image_x - 32, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
                 case Templar.Direction.Right:
+                    if (new Rectangle(Taille_image_x + 32, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
             }
 
@@ -189,7 +205,6 @@ namespace Templar
         {
             spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, 100 / 4, 2), Color.Red);
             spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, Pv / 4, 2), Color.Green);
-
             base.Draw(spritbatch);
         }
     }

@@ -39,7 +39,7 @@ namespace Templar
         textbox text;
         public bool same_map;
         bool ClickDown, pressdown, Is_Server, Is_Client, Is_2player;
-        int pop_time, score, count_dead_zombi, timer_level_up;
+        int pop_time, score, count_dead_zombi, timer_level_up, Chrono_CanMove;
 
         #region get set
         public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
@@ -85,24 +85,25 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p)
             : base(game, spriteBatch)
         {
-            Is_Server = is2p;
-            Is_Client = is2p;
+            Is_Server = false;
+            Is_Client = false;
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
             if (Is_Server)
             {
                 Serveur = new Server();
                 same_map = true;
-                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10,8, position_joueur, 100, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
             }
             if (Is_Client)
             {
                 Client = new Client("127.0.0.1");
                 same_map = true;
-                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10,8, position_joueur, 100, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
             }
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             #region init du jeu
+            Chrono_CanMove = 0;
             x = new Random();
             keyboard = new KeyboardState();
             liste_sort = new List<sort>();
@@ -111,7 +112,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15,7, position_joueur, 100,ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 3, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -163,11 +164,9 @@ namespace Templar
         public override void Update(GameTime gameTime)
         {
             //ICI
-
             map.update(localPlayer);
             HUD.update();
             int pop_item = x.Next(0, 5);
-
             #region JEU
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
@@ -186,62 +185,42 @@ namespace Templar
             {
                 if (pop_time == 120)
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 16, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 4, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
-                    {
                         Serveur.Send(42, 1, 0);
-                    }
                     if (Is_Client)
-                    {
                         Client.Send(42, 1, 0);
-                    }
                     pop_time = 0;
-
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.U) && Data.prevKeyboardState.IsKeyUp(Keys.U))
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 10, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
-                    {
                         Serveur.Send(42, 1, 0);
-                    }
                     if (Is_Client)
-                    {
                         Client.Send(42, 1, 0);
-                    }
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.I) && Data.prevKeyboardState.IsKeyUp(Keys.I))
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 15, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 5, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
-                    {
                         Serveur.Send(42, 1, 0);
-                    }
                     if (Is_Client)
-                    {
                         Client.Send(42, 1, 0);
-                    }
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.O) && Data.prevKeyboardState.IsKeyUp(Keys.O))
                 {
                     list_zombi.Add(new NPC(32, 48, 4, 3, 4, 15, 4, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
-                    {
                         Serveur.Send(42, 1, 0);
-                    }
                     if (Is_Client)
-                    {
                         Client.Send(42, 1, 0);
-                    }
                 }
-
                 foreach (NPC zombie in list_zombi)
                     zombie.update(mouse, keyboard, Walls, personnage, map);
-
                 foreach (NPC zombie in list_zombi)
                     if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
                         localPlayer.pv_player--;
-
                 for (int i = 0; i < list_zombi.Count; i++)
                 {
                     if (localPlayer.combat == true)
@@ -264,7 +243,6 @@ namespace Templar
                                     list_zombi[i].touché(Direction.Right);
                                 break;
                         }
-
                     if (list_zombi[i].PV <= 0)
                     {
                         if (pop_item == 0)
@@ -283,7 +261,6 @@ namespace Templar
                         localPlayer.XP += 20 / localPlayer.Niveau;
                     }
                 }
-
             #endregion ZOMBIE
                 #region PLAYER
                 localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
@@ -300,7 +277,6 @@ namespace Templar
                     localPlayer.mana_player = 100;
                 if (keyboard.IsKeyDown(Keys.V))
                     localPlayer.pv_player = 100;
-
                 //leveling
                 if (localPlayer.XP >= 100)
                 {
@@ -309,12 +285,8 @@ namespace Templar
                 }
                 #endregion
                 #region WALL
-                //fait l'update des murs
-
                 foreach (wall wall in Walls)
                     wall.Update(mouse, keyboard);
-
-                //dessine des nouveau mur
 
                 if (mouse.LeftButton == ButtonState.Pressed && !ClickDown)
                 {
@@ -416,6 +388,7 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
+
 
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
 
