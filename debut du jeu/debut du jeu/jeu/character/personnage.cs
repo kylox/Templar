@@ -112,6 +112,10 @@ namespace Templar
                 }
             return collision;
         }
+        public void Attaque(Personnage attaquant, Personnage attaque)
+        {
+            attaque.Pv -= attaquant.attaque * 3;
+        }
         bool coll(Map map)
         {
             bool poissible = false;
@@ -249,10 +253,10 @@ namespace Templar
             {
                 timer_attaque = 0;
                 framecolumn++;
-
                 spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
                 if (framecolumn == 7)
                 {
+
                     combat = false;
                     switch (FrameLine)
                     {

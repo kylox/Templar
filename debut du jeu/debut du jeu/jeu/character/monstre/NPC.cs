@@ -102,12 +102,28 @@ namespace Templar
             switch (direction)
             {
                 case Templar.Direction.Down:
+                    if (new Rectangle(Taille_image_x, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
                 case Templar.Direction.Up:
+                    if (new Rectangle(Taille_image_x, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
                 case Templar.Direction.Left:
+                    if (new Rectangle(Taille_image_x, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
                 case Templar.Direction.Right:
+                    if (new Rectangle(Taille_image_x, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                        combat = true;
+                    else
+                        combat = false;
                     break;
             }
 
