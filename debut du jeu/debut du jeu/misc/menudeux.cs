@@ -16,8 +16,8 @@ namespace Templar
 {
     class menudeux : GameScreen
     {
-        textbox box;
-        bool selec;
+        public textbox box;
+        public bool selec;
 
         public menudeux(Game game, SpriteBatch spritebatch,ref textbox Box)
             : base(game, spritebatch)

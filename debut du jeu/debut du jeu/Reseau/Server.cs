@@ -14,7 +14,6 @@ namespace Templar
     class Server
     {
         IFormatter Serialiseur;
-        gamemain infos;
         private int port;
         int type = 0;
         TcpClient Client;
