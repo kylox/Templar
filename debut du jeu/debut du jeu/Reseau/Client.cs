@@ -97,7 +97,7 @@ namespace Templar
                     Infos.List_Zombie.RemoveAt(BR.ReadInt32());
                     break;
                 case 42:
-                    Infos.List_Zombie.Add(new NPC(24, 32, 4, 2, 1, 15, Infos.position_npc, ressource.zombie, Infos.player, Infos));
+                    Infos.List_Zombie.Add(new NPC(24, 32, 4, 2, 1, 15,8, Infos.position_npc, ressource.zombie, Infos.player, Infos));
                     break;
             }
         }

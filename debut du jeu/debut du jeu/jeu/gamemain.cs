@@ -93,13 +93,13 @@ namespace Templar
             {
                 Serveur = new Server();
                 same_map = true;
-                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10,8, position_joueur, 100, ressource.sprite_player, this, text);
             }
             if (Is_Client)
             {
                 Client = new Client("127.0.0.1");
                 same_map = true;
-                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(62, 121, 4, 8, 2, 10,8, position_joueur, 100, ressource.sprite_player, this, text);
             }
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             #region init du jeu
@@ -111,7 +111,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15,7, position_joueur, 100,ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -186,7 +186,7 @@ namespace Templar
             {
                 if (pop_time == 120)
                 {
-                    list_zombi.Add(new NPC(32, 48,4,3, 15,15, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 16, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
                     {
                         Serveur.Send(42, 1, 0);
@@ -196,6 +196,43 @@ namespace Templar
                         Client.Send(42, 1, 0);
                     }
                     pop_time = 0;
+
+                }
+                if (Data.keyboardState.IsKeyDown(Keys.U) && Data.prevKeyboardState.IsKeyUp(Keys.U))
+                {
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 10, position_npc, ressource.mob, localPlayer, this));
+                    if (Is_Server)
+                    {
+                        Serveur.Send(42, 1, 0);
+                    }
+                    if (Is_Client)
+                    {
+                        Client.Send(42, 1, 0);
+                    }
+                }
+                if (Data.keyboardState.IsKeyDown(Keys.I) && Data.prevKeyboardState.IsKeyUp(Keys.I))
+                {
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 15, position_npc, ressource.mob, localPlayer, this));
+                    if (Is_Server)
+                    {
+                        Serveur.Send(42, 1, 0);
+                    }
+                    if (Is_Client)
+                    {
+                        Client.Send(42, 1, 0);
+                    }
+                }
+                if (Data.keyboardState.IsKeyDown(Keys.O) && Data.prevKeyboardState.IsKeyUp(Keys.O))
+                {
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 4, 15, 4, position_npc, ressource.mob, localPlayer, this));
+                    if (Is_Server)
+                    {
+                        Serveur.Send(42, 1, 0);
+                    }
+                    if (Is_Client)
+                    {
+                        Client.Send(42, 1, 0);
+                    }
                 }
 
                 foreach (NPC zombie in list_zombi)

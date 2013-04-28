@@ -35,7 +35,7 @@ namespace Templar
         Sauvegarde save;
         Chargement load;
         menudeux menudeux;
-
+        bool ecran;
         bool click_down;
 
         public Game1()
@@ -50,9 +50,9 @@ namespace Templar
             this.IsMouseVisible = true;
             Window.Title = "Templar";
             click_down = false;
-
+            ecran = false;
+            graphics.IsFullScreen = false;
         }
-
         protected override void Initialize()
         {
             base.Initialize();
@@ -382,7 +382,7 @@ namespace Templar
                 }
 
                 if (checkKey(Keys.Enter))
-                {/*
+                {
                     if (option.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
@@ -390,8 +390,8 @@ namespace Templar
                         if (ecran == false)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 1920;
-                            graphics.PreferredBackBufferWidth = 1080;
+                            graphics.PreferredBackBufferHeight = 1600;
+                            graphics.PreferredBackBufferWidth = 1350;
 
                             ecran = true;
                         }
@@ -404,13 +404,12 @@ namespace Templar
                         if (ecran == true)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 1920;
-                            graphics.PreferredBackBufferWidth = 1080;
+                            graphics.PreferredBackBufferHeight = 800;
+                            graphics.PreferredBackBufferWidth = 675;
                             
                             ecran = false;
                         }
                     }
-                */
                     if (option.SelectedIndex == 2)
                     {
                         ressource.selection.Play();

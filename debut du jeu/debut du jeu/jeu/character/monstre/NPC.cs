@@ -17,20 +17,76 @@ namespace Templar
     [Serializable()]
     class NPC : Personnage
     {
-        
-        
         Vector2 deplacement;
         int chrono;
         Map Map;
         GamePlayer player;
 
-        public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, Vector2 position,
+        public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed,int speed, Vector2 position,
             Texture2D image, GamePlayer player, gamemain main)
-            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, position, image, main)
+            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed,speed, position, image, main)
         {
             this.player = player;
             Pv = 100;
-            this.Map = main.map.Active_Map ;
+            this.Map = main.map.Active_Map;
+            switch (frame_start)
+            {
+                case 1:
+                    Pv = 100;
+                    attaque = 5;
+                    defense = 5;
+                    break;
+                case 4:
+                    Pv = 50;
+                    attaque = 5;
+                    defense = 5;
+                    break;
+                case 7:
+                    attaque = 7;
+                    defense = 5;
+                    Pv = 50;
+                    break;
+                case 10:
+                    attaque = 10;
+                    defense = 5;
+                    Pv = 200;
+                    break;
+                case 16:
+                    attaque = 5;
+                    defense = 5;
+                    Pv = 100;
+                    break;
+                case 19:
+                    attaque = 5;
+                    defense = 5;
+                    Pv = 100;
+                    break;
+                case 22:
+                    attaque = 5;
+                    defense = 5;
+                    Pv = 100;
+                    break;
+                case 25:
+                    attaque = 5;
+                    defense = 5;
+                    Pv = 100;
+                    break;
+                case 28:
+                    attaque = 5;
+                    defense = 5;
+                    Pv = 100;
+                    break;
+                case 31:
+                    attaque = 5;
+                    defense = 5;
+                    Pv = 100;
+                    break;
+                case 34:
+                    attaque = 5;
+                    defense = 5;
+                    Pv = 100;
+                    break;
+            }
         }
 
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
@@ -42,7 +98,20 @@ namespace Templar
                 Deleg.Start();
                 chrono = 0;
             }
-            base.update(mouse, keyboard, walls, personnages,map);
+
+            switch (direction)
+            {
+                case Templar.Direction.Down:
+                    break;
+                case Templar.Direction.Up:
+                    break;
+                case Templar.Direction.Left:
+                    break;
+                case Templar.Direction.Right:
+                    break;
+            }
+
+            base.update(mouse, keyboard, walls, personnages, map);
         }
         public void touché(Direction direction)
         {
@@ -53,7 +122,7 @@ namespace Templar
                         position.X -= 32;
                     break;
                 case Templar.Direction.Right:
-                    if (position.X + 32 <= 25*32)
+                    if (position.X + 32 <= 25 * 32)
                         position.X += 32;
                     break;
                 case Templar.Direction.Up:
@@ -61,7 +130,7 @@ namespace Templar
                         position.Y -= 32;
                     break;
                 case Templar.Direction.Down:
-                    if (position.Y + 32 <= 18*32)
+                    if (position.Y + 32 <= 18 * 32)
                         position.Y += 32;
                     break;
             }
@@ -119,7 +188,7 @@ namespace Templar
         public override void Draw(SpriteBatch spritbatch)
         {
             spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, 100 / 4, 2), Color.Red);
-            spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, Pv/4, 2), Color.Green);
+            spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, Pv / 4, 2), Color.Green);
 
             base.Draw(spritbatch);
         }

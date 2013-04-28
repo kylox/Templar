@@ -30,8 +30,6 @@ namespace Templar
         public int[] nb_objet;
         public int obj_selec;
         public bool levelup;
-        public int attaque;
-        public int defense;
         public int magie;
         public int nb_amelioration;
         public Rectangle HitBox;
@@ -87,8 +85,8 @@ namespace Templar
             set { position = value; }
 
         }
-        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
-            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, position, image, main)
+        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
+            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
         {
             this.main = main;
             this.text = text;
@@ -210,7 +208,7 @@ namespace Templar
             }
 
             //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
-            if ( map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
+            if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
                 map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
 
             if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
@@ -239,13 +237,11 @@ namespace Templar
             {
                 animate();
                 Endurance--;
-                Speed = 4;
                 animaitonspeed = 5;
             }
             else
             {
                 animate();
-                Speed = 2;
                 animaitonspeed = 8;
             }
 
