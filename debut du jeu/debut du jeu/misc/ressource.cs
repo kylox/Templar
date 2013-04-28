@@ -43,6 +43,7 @@ namespace Templar
             sprite_cochon = Content.Load<Texture2D>(@"Sprite\Personnage\sprite_cochon");
             sprite_player = Content.Load<Texture2D>( "perso"/*"swordsman_m_2"*/);
             tete_player = Content.Load<Texture2D>("M_Black");
+            mob = Content.Load<Texture2D>("mobs");
 
             //fond d'ecran menu
             templar = Content.Load<Texture2D>(@"ecran\templar-style-cross-logo");

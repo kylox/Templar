@@ -48,6 +48,21 @@ namespace Templar
             actuel = new Point();
             nombre = "";
         }
+        public void deposer_porte(string path)
+        {
+            if ((cursor.iD == new Vector2(0, 4) || cursor.iD == new Vector2(0, 7)) && Data.mouseState.X / 32 == 0)
+                map.ecrire_objet(path);
+
+            else
+                if ((cursor.iD == new Vector2(0, 5) || cursor.iD == new Vector2(1, 4)) && Data.mouseState.X / 32 == 24)
+                    map.ecrire_coll(path);
+                else
+                    if ((cursor.iD == new Vector2(0, 6) || cursor.iD == new Vector2(1, 7)) && Data.mouseState.Y / 32 == 0)
+                        map.ecrire_objet(path);
+                    else
+                        if ((cursor.iD == new Vector2(1, 6) || cursor.iD == new Vector2(1, 5)) && Data.mouseState.Y / 32 == 24)
+                            map.ecrire_objet(path);
+        }
         public override void Update(GameTime gameTime)
         {
             lastKeyboardState = keyboardState;
@@ -60,6 +75,7 @@ namespace Templar
                 creation_donjon(text.Saisie);
             if (Donjon != null)
             {
+               
                 creation_map();
                 selectionmap();
                 if(nb < 10)
