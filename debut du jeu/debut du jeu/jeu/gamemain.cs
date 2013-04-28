@@ -85,10 +85,11 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon,bool is2p)
             : base(game, spriteBatch)
         {
-            Is_Server = is2p;
-            Is_Client = is2p;
+            Is_Server = false; 
+            Is_Client = false;
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
+            Player2 = new GamePlayer(62, 121, 4, 8, 2, 10, position_joueur, 100, ressource.sprite_player, this, text);
             if (Is_Server)
             {
                 Serveur = new Server();
@@ -367,6 +368,7 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
+            Player2.Draw(spriteBatch);
 
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
 
