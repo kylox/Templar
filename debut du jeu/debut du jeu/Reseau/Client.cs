@@ -70,23 +70,35 @@ namespace Templar
             type = BR.ReadInt32();
             switch (type)
             {
+                case 1:
+                    Infos.same_map = (Infos.map.x == BR.ReadInt32() && Infos.map.y == BR.ReadInt32());
+                    break;
                 case 2:
-                    Infos.player.chgt_position(BR.ReadInt32(), BR.ReadInt32());
+                    Infos.player2.chgt_position(BR.ReadInt32(), BR.ReadInt32());
+
                     break;
                 case 31:
                     Infos.List_Sort.RemoveAt(BR.ReadInt32());
                     break;
                 case 32:
-                    Infos.List_Sort.Add((Templar.sort)Serialiseur.Deserialize(SentStream));
+                    int transit = BR.ReadInt32();
+                    Infos.player2.Sort_selec = transit;
+                    if (transit == 1)
+                    {
+                        Infos.List_Sort.Add(new sort(ressource.boule_de_feu, Infos.player2));
+                    }
+                    else
+                    {
+                        Infos.List_Sort.Add(new sort(ressource.glace, Infos.player2));
+                    }
+                    BR.ReadInt32();
                     break;
                 case 41:
                     Infos.List_Zombie.RemoveAt(BR.ReadInt32());
                     break;
                 case 42:
-                    Infos.List_Zombie.Add((Templar.NPC)Serialiseur.Deserialize(SentStream));
+                    Infos.List_Zombie.Add(new NPC(24, 32, 4, 2, 1, 15,8, Infos.position_npc, ressource.zombie, Infos.player, Infos));
                     break;
-
-
             }
         }
 

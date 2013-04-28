@@ -45,13 +45,11 @@ namespace Templar
         public void update()
         {
             mini_map.update();
-
             //update des barres de vie d'endurance et de mana 
             barre_vie = new Rectangle(20, Main.Fenetre.Height - 80, localPlayer.pv_player, 7);
             barre_endurance = new Rectangle(20, Main.Fenetre.Height - 48, localPlayer.end_player, 7);
             barre_mana = new Rectangle(20, Main.Fenetre.Height - 18, localPlayer.mana_player, 7);
             barre_experience = new Rectangle((2 * Main.Fenetre.Width / 6) - 26, Main.Fenetre.Height - 76, localPlayer.XP * ((Main.Fenetre.Width / 5) + 150) / 100, 3);
-
         }
 
         public void draw(SpriteBatch spriteBatch)
@@ -76,10 +74,18 @@ namespace Templar
             spriteBatch.Draw(ressource.barre_xp, barre_xp, Color.White);
 
             //dessine les sorts
-            spriteBatch.Draw(ressource.boule_de_feu, new Rectangle((Main.Fenetre.Width / 3) + 5,
-                        Main.Fenetre.Height - 60, 50, 50), Color.White);
-            spriteBatch.Draw(ressource.glace, new Rectangle((Main.Fenetre.Width / 3) + 65,
-                        Main.Fenetre.Height - 60, 50, 50), Color.White);
+            spriteBatch.Draw(ressource.boule_de_feu,
+                new Rectangle((2 * Main.Fenetre.Width / 6) - 20 - ressource.selection_sort.Width, Main.Fenetre.Height - 65, 40, 40),
+                Color.White);
+            spriteBatch.Draw(ressource.glace,
+                new Rectangle((2 * Main.Fenetre.Width / 6) + 20 - ressource.selection_sort.Width, Main.Fenetre.Height - 65, 40, 40),
+                Color.White);
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (i < Main.player.inventaire.Count)
+                    spriteBatch.Draw(Main.player.inventaire.ElementAt(i).Texture, new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i + 100, Main.Fenetre.Height - 65, 40, 40), Color.White);
+            }
 
             //dessine les fenetre des sort 
             for (int i = 0; i < 4; i++)
@@ -88,25 +94,21 @@ namespace Templar
                     spriteBatch.Draw(ressource.selection_sort,
                         new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i - 20 - ressource.selection_sort.Width, Main.Fenetre.Height - 65, 40, 40),
                             Color.Red);
-
                 else
                     spriteBatch.Draw(ressource.selection_sort,
-                    new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i-20-ressource.selection_sort.Width,Main.Fenetre.Height - 65, 40, 40), Color.White);
-
+                    new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i - 20 - ressource.selection_sort.Width, Main.Fenetre.Height - 65, 40, 40), Color.White);
             }
             for (int i = 0; i < 5; i++)
-            {          
+            {
                 if (localPlayer.obj_selec == i + 1)
                     spriteBatch.Draw(ressource.selection_sort,
-                        new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i + 100, Main.Fenetre.Height-65, 40, 40),
+                        new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i + 100, Main.Fenetre.Height - 65, 40, 40),
                         Color.Red);
-
                 else
                     spriteBatch.Draw(
                       ressource.selection_sort,
-                    new Rectangle((Main.Fenetre.Width / 3) + 40 * i + 100, Main.Fenetre.Height-65, 40, 40),
+                    new Rectangle((Main.Fenetre.Width / 3) + 40 * i + 100, Main.Fenetre.Height - 65, 40, 40),
                     Color.White);
-
             }
             //dessine la mini map 
             mini_map.draw(spriteBatch);

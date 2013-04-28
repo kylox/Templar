@@ -23,11 +23,14 @@ namespace Templar
         {
             box = new textbox(new Rectangle(200,200,200,200));
             selec = false;
+
         }
         public override void Update(GameTime gameTime)
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(400, 300, 100, 50)) && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
                 selec = true;
+            else
+                selec = false;
 
             if (selec)
                 box.update();
@@ -38,7 +41,7 @@ namespace Templar
         {
             if (selec)
                 box.Draw(spriteBatch);
-            
+
             spriteBatch.Draw(ressource.pixel, new Rectangle(200, 300, 100, 50), Color.Green);
             spriteBatch.Draw(ressource.pixel, new Rectangle(400, 300, 100, 50), Color.Yellow);
             spriteBatch.DrawString(ressource.ecriture, "CLIENT", new Vector2(200, 300), Color.Azure);

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Templar
 {
+    [Serializable()]
     class GamePlayer : Personnage
     {
         SpriteFont spriteFont;
@@ -29,8 +30,6 @@ namespace Templar
         public int[] nb_objet;
         public int obj_selec;
         public bool levelup;
-        public int attaque;
-        public int defense;
         public int magie;
         public int nb_amelioration;
         public Rectangle HitBox;
@@ -86,8 +85,8 @@ namespace Templar
             set { position = value; }
 
         }
-        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
-            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, position, image, main)
+        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
+            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
         {
             this.main = main;
             this.text = text;
@@ -172,24 +171,24 @@ namespace Templar
 
             #region sort
 
-            if (keyboard.IsKeyDown(Keys.F1))
+            if (keyboard.IsKeyDown(Keys.D1))
                 sort_selec = 1;
-            if (keyboard.IsKeyDown(Keys.F2))
+            if (keyboard.IsKeyDown(Keys.D2))
                 sort_selec = 2;
-            if (keyboard.IsKeyDown(Keys.F3))
+            if (keyboard.IsKeyDown(Keys.D3))
                 sort_selec = 3;
-            if (keyboard.IsKeyDown(Keys.F4))
+            if (keyboard.IsKeyDown(Keys.D4))
                 sort_selec = 4;
 
-            if (Data.keyboardState.IsKeyDown(Keys.D1))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad1))
                 obj_selec = 1;
-            if (Data.keyboardState.IsKeyDown(Keys.D2))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad2))
                 obj_selec = 2;
-            if (Data.keyboardState.IsKeyDown(Keys.D3))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad3))
                 obj_selec = 3;
-            if (Data.keyboardState.IsKeyDown(Keys.D4))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad4))
                 obj_selec = 4;
-            if (Data.keyboardState.IsKeyDown(Keys.D5))
+            if (Data.keyboardState.IsKeyDown(Keys.NumPad5))
                 obj_selec = 5;
 
             if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
@@ -200,7 +199,6 @@ namespace Templar
                     text.Saisie = "quelque bouquin relatant de la vie, de l'univers et du reste";
                     text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                 }
-
                 if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
                 {
                     text.Is_shown = true;
@@ -211,18 +209,14 @@ namespace Templar
 
             //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
             if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
-            {
                 map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
-            }
 
             if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
-            {
-                if (inventaire.Count != 0)
+                if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
                 {
                     utilise_objet(inventaire.ElementAt(obj_selec - 1));
                     inventaire.RemoveAt(obj_selec - 1);
                 }
-            }
 
             switch (sort_selec)
             {
@@ -243,13 +237,11 @@ namespace Templar
             {
                 animate();
                 Endurance--;
-                Speed = 4;
                 animaitonspeed = 5;
             }
             else
             {
                 animate();
-                Speed = 2;
                 animaitonspeed = 8;
             }
 
@@ -265,7 +257,7 @@ namespace Templar
 
             if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A) && direction == Templar.Direction.None && !combat)
                 combat = true;
-            
+
             #endregion
             if (levelup == true)
             {
@@ -284,18 +276,9 @@ namespace Templar
         }
         public override void Draw(SpriteBatch spritebatch)
         {
-
-            timer_attaque++;
-
+            spritebatch.DrawString(ressource.ecriture, position_player.X + " " + position_player.Y, new Vector2(100, 0), Color.Red);
             base.Draw(spritebatch);
-          //dessin_tete.draw(spritebatch);
-           
-          
-            for (int i = 0; i < 5; i++)
-            {
-                if (i < inventaire.Count())
-                    spritebatch.Draw(inventaire.ElementAt(i).Texture, new Rectangle(100 + i * 32 + 5, 0, 32, 32), Color.White);
-            }
+            //dessin_tete.draw(spritebatch);
             // spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
         }
     }

@@ -25,8 +25,6 @@ namespace Templar
             this.Game = game;
             Main = main;
         }
-
-
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             base.Update(gameTime);

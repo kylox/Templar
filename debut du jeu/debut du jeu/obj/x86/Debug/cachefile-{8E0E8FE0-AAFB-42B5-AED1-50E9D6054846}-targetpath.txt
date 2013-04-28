@@ -38,6 +38,7 @@ Content\piece_objet_mod.xnb
 Content\fdp2.xnb
 Content\perso.xnb
 Content\maintenantoui.xnb
+Content\mobs.xnb
 Content\SpriteFont.xnb
 Content\Music\effet\selection.xnb
 Content\Music\musiques\charge of the rohirrim soundtrack.xnb
@@ -50,4 +51,3 @@ Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
 Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
 Content\Music\effet\lowHP.xnb
 Content\Music\effet\Mémo.xnb
-Content\mobs.xnb

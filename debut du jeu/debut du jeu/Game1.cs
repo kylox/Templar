@@ -35,7 +35,7 @@ namespace Templar
         Sauvegarde save;
         Chargement load;
         menudeux menudeux;
-
+        bool ecran;
         bool click_down;
 
         public Game1()
@@ -50,9 +50,9 @@ namespace Templar
             this.IsMouseVisible = true;
             Window.Title = "Templar";
             click_down = false;
-
+            ecran = false;
+            graphics.IsFullScreen = false;
         }
-
         protected override void Initialize()
         {
             base.Initialize();
@@ -82,7 +82,7 @@ namespace Templar
             Components.Add(menu);
             menu.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main));
+            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main),false);
             Components.Add(main);
             main.hide();
 
@@ -136,7 +136,6 @@ namespace Templar
             keyboard = Keyboard.GetState();
             mouse = Mouse.GetState();
             Data.Update();
-
             # region gameover
             if (activeScreen == gameover)
             {
@@ -144,7 +143,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main));
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false);
                         Components.Add(main);
                         main.hide();
 
@@ -173,7 +172,6 @@ namespace Templar
 
             }
             #endregion
-
             #region screen_menu_principal
 
             if (activeScreen == menu)
@@ -218,13 +216,12 @@ namespace Templar
             }
 
             #endregion
-
             #region creation
             else if (activeScreen == creation)
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main));
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w",main),false);
                     Components.Add(main);
                     main.hide();
 
@@ -236,7 +233,6 @@ namespace Templar
 
             }
             #endregion
-
             #region menu_1_Joueur
 
             else if (activeScreen == menudujeu)
@@ -273,7 +269,6 @@ namespace Templar
             }
 
             #endregion
-
             #region screen_action
             else if (activeScreen == main)
             {
@@ -292,7 +287,6 @@ namespace Templar
                 }
             }
             #endregion
-
             else if (activeScreen == inventaire)
             {
                 if (checkKey(Keys.Escape))
@@ -302,7 +296,6 @@ namespace Templar
                     activeScreen.Show();
                 }
             }
-
             #region screen_pause
             else if (activeScreen == pause)
             {
@@ -361,7 +354,6 @@ namespace Templar
                 }
             }
             #endregion
-
             #region screen_option
             else if (activeScreen == option)
             {
@@ -390,7 +382,7 @@ namespace Templar
                 }
 
                 if (checkKey(Keys.Enter))
-                {/*
+                {
                     if (option.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
@@ -398,8 +390,8 @@ namespace Templar
                         if (ecran == false)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 1920;
-                            graphics.PreferredBackBufferWidth = 1080;
+                            graphics.PreferredBackBufferHeight = 1600;
+                            graphics.PreferredBackBufferWidth = 1350;
 
                             ecran = true;
                         }
@@ -412,13 +404,12 @@ namespace Templar
                         if (ecran == true)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 1920;
-                            graphics.PreferredBackBufferWidth = 1080;
+                            graphics.PreferredBackBufferHeight = 800;
+                            graphics.PreferredBackBufferWidth = 675;
                             
                             ecran = false;
                         }
                     }
-                */
                     if (option.SelectedIndex == 2)
                     {
                         ressource.selection.Play();
@@ -443,7 +434,6 @@ namespace Templar
                 }
             }
             #endregion
-
             #region screen_EDM
 
             if (activeScreen == edm)
@@ -456,7 +446,6 @@ namespace Templar
                 }
             }
             #endregion
-
             base.Update(gameTime);
 
             oldKeyboard = keyboard;

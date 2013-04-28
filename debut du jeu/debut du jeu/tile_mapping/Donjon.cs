@@ -39,6 +39,8 @@ namespace Templar
                             if (_maps[x, y] == null)
                                 _maps[x, y] = new Map();
                             _maps[x, y].load_objet(file);
+                            x = 0;
+                            y = 0;
                         }
                         if (file[8] == 'c')
                         {
@@ -52,8 +54,6 @@ namespace Templar
                                 _maps[x, y] = new Map();
                             _maps[x, y].load(file);
                         }
-                        x = 0;
-                        y = 0;
                     }
                 }
         }
@@ -74,6 +74,7 @@ namespace Templar
             _maps[i, j] = new Map();
             this.Map[i, j].init(@path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
             this.Map[i, j].init_objet(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
+            this.Map[i,j].init_coll(@path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt");
             this.Map[i, j].isCreate = true;
         }
 
