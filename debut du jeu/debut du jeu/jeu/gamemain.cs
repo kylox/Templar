@@ -89,18 +89,6 @@ namespace Templar
             Is_Client = Is_Client && is2p; ;
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
-            if (Is_Server)
-            {
-                Serveur = new Server();
-                same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
-            }
-            if (Is_Client)
-            {
-                Client = new Client("127.0.0.1");
-                same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
-            }
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             #region init du jeu
             x = new Random();
@@ -133,6 +121,22 @@ namespace Templar
 
             HUD = new HUD(localPlayer, this);
 
+        }
+
+        public void StartReseauConnexion()
+        {
+            if (Is_Server)
+            {
+                Serveur = new Server();
+                same_map = true;
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
+            }
+            if (Is_Client)
+            {
+                Client = new Client("127.0.0.1");
+                same_map = true;
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
+            }
         }
         public void ramassage_objet()
         {
