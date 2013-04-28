@@ -14,27 +14,27 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Templar
 {
-    class menudeux:GameScreen
+    class menudeux : GameScreen
     {
         textbox box;
         bool selec;
 
-        public menudeux(Game game, SpriteBatch spritebatch):base(game,spritebatch)
+        public menudeux(Game game, SpriteBatch spritebatch,ref textbox Box)
+            : base(game, spritebatch)
         {
-            box = new textbox(new Rectangle(200,200,200,200));
+            box = Box;
             selec = false;
-
         }
         public override void Update(GameTime gameTime)
         {
-            if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(400, 300, 100, 50)) && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
+            if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(200, 300, 100, 50)) && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
                 selec = true;
-            else
+            if (!(new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(200, 300, 100, 50))) && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
                 selec = false;
-
             if (selec)
-                box.update();
+                box.Is_shown = true;
 
+            box.update();
             base.Update(gameTime);
         }
         public override void Draw(GameTime gameTime)
@@ -49,6 +49,6 @@ namespace Templar
             base.Draw(gameTime);
         }
 
-        
+
     }
 }
