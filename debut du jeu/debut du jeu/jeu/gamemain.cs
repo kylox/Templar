@@ -133,7 +133,7 @@ namespace Templar
             }
             if (Is_Client)
             {
-                Client = new Client("127.0.0.1");
+                Client = new Client(IP);
                 same_map = true;
                 Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
             }
@@ -393,8 +393,9 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
+            if(Is_Client|| Is_Server)
             Player2.Draw(spriteBatch);
-            Player2.Draw(spriteBatch);
+
 
 
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
