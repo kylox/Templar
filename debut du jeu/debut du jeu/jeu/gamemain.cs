@@ -40,7 +40,7 @@ namespace Templar
         public bool same_map, Is_Server, Is_Client;
         bool ClickDown, pressdown;
         int pop_time, score, count_dead_zombi, timer_level_up;
-
+        Princess princess;
         #region get set
         public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
         public GamePlayer player
@@ -194,9 +194,17 @@ namespace Templar
                         Client.Send(42, 1, 0);
                     pop_time = 0;
                 }
+                if (Data.keyboardState.IsKeyDown(Keys.P) && Data.prevKeyboardState.IsKeyUp(Keys.P))
+                {
+                    princess = new Princess(32, 48, 4, 3, 40, 15, 2, new Vector2(64, 32), ressource.mob, localPlayer, this);
+                    if (Is_Server)
+                        Serveur.Send(42, 1, 0);
+                    if (Is_Client)
+                        Client.Send(42, 1, 0);
+                }
                 if (Data.keyboardState.IsKeyDown(Keys.U) && Data.prevKeyboardState.IsKeyUp(Keys.U))
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48,4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
                         Serveur.Send(42, 1, 0);
                     if (Is_Client)
@@ -204,7 +212,7 @@ namespace Templar
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.I) && Data.prevKeyboardState.IsKeyUp(Keys.I))
                 {
-                    list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 5, position_npc, ressource.mob, localPlayer, this));
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 2, position_npc, ressource.mob, localPlayer, this));
                     if (Is_Server)
                         Serveur.Send(42, 1, 0);
                     if (Is_Client)
@@ -353,7 +361,8 @@ namespace Templar
                 // collision oO riena  foutre la ce truc xD
                 if (position_joueur.X + ressource.sprite_player.Width == game.Window.ClientBounds.Width)
                     position_joueur.X = 0;
-
+                if (princess != null)
+                    princess.update(mouse, keyboard,Walls, personnage, map) ;
                 // LEVEL UP! 
                 if (count_dead_zombi == 5)
                 {
@@ -408,7 +417,8 @@ namespace Templar
                         spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(51, 204, 0, 50));
                     else
                         spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
-
+            if (princess != null)
+                princess.Draw(spriteBatch);
             HUD.draw(spriteBatch);
             spriteBatch.DrawString(ressource.ecriture, "coordonnees map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
 

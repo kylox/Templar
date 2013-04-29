@@ -132,7 +132,7 @@ namespace Templar
             if (this.timer == this.animaitonspeed)
             {
                 this.timer = 0;
-                if (Frame_start == 10)
+                if (this.Frame_start == 10)
                     this.Framecolumn += 2;
                 else
                     this.Framecolumn++;
@@ -254,7 +254,7 @@ namespace Templar
                 }
                 if (Direction == Direction.None) // si toute les touches sont relacher alors tu affiche le personnage a l'arret
                 {
-                    this.Framecolumn = 2;
+                    this.Framecolumn = Frame_start;
                     this.timer = 0;
                 }
             }

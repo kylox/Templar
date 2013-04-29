@@ -14,7 +14,6 @@ namespace Templar
 {
     class potion : item
     {
-        Texture2D Texture;
         Rectangle Hitbox_potion;
         gamemain Main;
         string Name;
@@ -32,7 +31,6 @@ namespace Templar
             : base(texture, npc.Position, main)
         {
             Main = main;
-            Texture = texture;
             Hitbox_potion = new Rectangle((int)Position.X, (int)Position.Y, 32, 32);
             Name = name;
         }
