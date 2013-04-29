@@ -22,7 +22,7 @@ namespace Templar
         int sort_selec;
         int Endurance;
         int timer_endurance;
-       // int timer_attaque;
+        // int timer_attaque;
         int Mana;
         //int k = 0;
         string active;
@@ -89,7 +89,7 @@ namespace Templar
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
         {
-            CanMove = 16;
+            CanMove = 0;
             this.main = main;
             this.text = text;
             spriteFont = ressource.ecriture;
@@ -113,9 +113,9 @@ namespace Templar
             inventaire = new List<item>();
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
-           // actif = false;
+            // actif = false;
             text.Is_shown = false;
-           // timer_attaque = 0;
+            // timer_attaque = 0;
         }
         public void utilise_objet(item item)
         {
@@ -123,7 +123,7 @@ namespace Templar
         }
         public void deplacement()
         {
-            if (CanMove>=16)
+            if (CanMove > 15)
             {
                 if (Data.keyboardState.IsKeyDown(Keys.Z))
                     direction = Direction.Up;
@@ -133,7 +133,6 @@ namespace Templar
                     direction = Direction.Right;
                 if (Data.keyboardState.IsKeyDown(Keys.Q))
                     direction = Direction.Left;
-
                 if (Data.keyboardState.IsKeyUp(Keys.Z) && Data.keyboardState.IsKeyUp(Keys.S) &&
                  Data.keyboardState.IsKeyUp(Keys.Q) && Data.keyboardState.IsKeyUp(Keys.D))
                     direction = Direction.None;
@@ -168,9 +167,12 @@ namespace Templar
         }
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
+            base.update(mouse, keyboard, walls, personnages, map);
             collision_bord();
             CanMove++;
-            deplacement();           
+
+            deplacement();
+
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
             #region sort
@@ -276,7 +278,7 @@ namespace Templar
 
             dessin_tete.update();
 
-            base.update(mouse, keyboard, walls, personnages, map);
+
         }
         public override void Draw(SpriteBatch spritebatch)
         {

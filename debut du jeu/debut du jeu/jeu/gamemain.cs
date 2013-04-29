@@ -82,7 +82,7 @@ namespace Templar
         #region field du jeu
 
         #endregion
-        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p ,string ip)
+        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p, string ip)
             : base(game, spriteBatch)
         {
             text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
@@ -97,7 +97,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 4, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -115,10 +115,7 @@ namespace Templar
             white = Color.White;
             white.A = 120;
             effect = new BasicEffect(game.GraphicsDevice);
-
-
             HUD = new HUD(localPlayer, this);
-
         }
 
         public void StartReseauConnexion()
@@ -395,8 +392,8 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
-            if(Is_Client|| Is_Server)
-            Player2.Draw(spriteBatch);
+            if (Is_Client || Is_Server)
+                Player2.Draw(spriteBatch);
 
 
 
@@ -405,7 +402,6 @@ namespace Templar
             if (timer_level_up < 60 && localPlayer.Niveau != 1)
                 spriteBatch.DrawString(ressource.ecriture, "LEVEL UP !", new Vector2(localPlayer.position_player.X, localPlayer.position_player.Y - 10), Color.Yellow);
             #endregion draw du jeu
-
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                     if (map.Listes_map[i, j] != null)
@@ -416,6 +412,10 @@ namespace Templar
             HUD.draw(spriteBatch);
             spriteBatch.DrawString(ressource.ecriture, "coordonnees map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
 
+            for (int i = 0; i < 25; i++)
+                for (int j = 0; j < 18; j++)
+                    if (map.Active_Map.colision[i, j] == 1)
+                        spriteBatch.Draw(ressource.pixel, new Rectangle(i * 32, j * 32, 32, 32), Color.FromNonPremultiplied(204, 0, 0, 50));
             base.Draw(gameTime);
         }
     }
