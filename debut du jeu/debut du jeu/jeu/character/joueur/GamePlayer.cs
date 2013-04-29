@@ -202,13 +202,13 @@ namespace Templar
                 if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
                 {
                     text.Is_shown = true;
-                    text.Saisie = "quelque bouquin relatant de la vie, de l'univers et du reste";
+                    text.Saisie = "quelques bouquins relatant de la vie, de l'univers et du reste";
                     text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                 }
                 if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
                 {
                     text.Is_shown = true;
-                    text.Saisie = "hummm... des tonneau, plein de tonneau !! ";
+                    text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
                     text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                 }
             }
@@ -277,8 +277,6 @@ namespace Templar
                 click_down = false;
 
             dessin_tete.update();
-
-
         }
         public override void Draw(SpriteBatch spritebatch)
         {
