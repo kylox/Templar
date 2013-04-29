@@ -123,17 +123,14 @@ namespace Templar
         }
         public void deplacement()
         {
-            if (CanMove>=32/Speed)
+            if (CanMove>=16)
             {
                 if (Data.keyboardState.IsKeyDown(Keys.Z))
                     direction = Direction.Up;
-
                 if (Data.keyboardState.IsKeyDown(Keys.S))
                     direction = Direction.Down;
-
                 if (Data.keyboardState.IsKeyDown(Keys.D))
                     direction = Direction.Right;
-
                 if (Data.keyboardState.IsKeyDown(Keys.Q))
                     direction = Direction.Left;
 
