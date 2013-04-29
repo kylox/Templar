@@ -186,6 +186,10 @@ namespace Templar
                 {
 
                     main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), true, box.Saisie);
+                    main.IP = menudeux.box.Saisie;
+                    main.Is_Client = menudeux.selec;
+                    main.Is_Server = !menudeux.selec;
+                    main.StartReseauConnexion();
                     Components.Add(main);
                     main.hide();
 

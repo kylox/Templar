@@ -16,9 +16,9 @@ namespace Templar
 
         //fields
         int timer_attaque;
-        int gauche;
+        //int gauche;
         Rectangle Hitbox;
-        Rectangle true_hitbox_motherfucker;
+        //Rectangle true_hitbox_motherfucker;
         protected Vector2 position;
         protected Direction Direction;
         Rectangle newHitbox;
@@ -38,7 +38,6 @@ namespace Templar
         public int defense;
         protected bool collision;
         public bool combat;
-        public bool CanMove;
         //autre
         protected int Pv;
 
@@ -100,7 +99,6 @@ namespace Templar
             timer_attaque = 0;
             Speed = speed;
             timer_speed = 0;
-            CanMove = true;
         }
         // method
         bool collide(List<wall> walls, List<Personnage> personnages)

@@ -17,7 +17,7 @@ namespace Templar
     {
 
         //field ecran 
-        string IP;
+        public string IP;
         Server Serveur;
         Client Client;
         Rectangle fenetre;
@@ -37,9 +37,9 @@ namespace Templar
         public Vector2 position_joueur, position_npc;
         Random x;
         textbox text;
-        public bool same_map;
-        bool ClickDown, pressdown, Is_Server, Is_Client, Is_2player;
-        int pop_time, score, count_dead_zombi, timer_level_up, Chrono_CanMove;
+        public bool same_map, Is_Server, Is_Client;
+        bool ClickDown, pressdown;
+        int pop_time, score, count_dead_zombi, timer_level_up;
 
         #region get set
         public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
@@ -82,28 +82,13 @@ namespace Templar
         #region field du jeu
 
         #endregion
-        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p, string ip)
+        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p ,string ip)
             : base(game, spriteBatch)
         {
-            Is_Server = false;
-            Is_Client = false;
-            text = new textbox(new Rectangle(100, 100, 96, 32));
+            text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
             text.Is_shown = false;
-            if (Is_Server)
-            {
-                Serveur = new Server();
-                same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
-            }
-            if (Is_Client)
-            {
-                Client = new Client("127.0.0.1");
-                same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
-            }
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             #region init du jeu
-            Chrono_CanMove = 0;
             x = new Random();
             keyboard = new KeyboardState();
             liste_sort = new List<sort>();
@@ -112,7 +97,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 4, position_joueur, 100, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -134,6 +119,26 @@ namespace Templar
 
             HUD = new HUD(localPlayer, this);
 
+        }
+
+        public void StartReseauConnexion()
+        {
+            if (Is_Server)
+            {
+                Serveur = new Server();
+                same_map = true;
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
+                while (Serveur.isrunnin)
+                {
+
+                }
+            }
+            if (Is_Client)
+            {
+                Client = new Client(IP);
+                same_map = true;
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
+            }
         }
         public void ramassage_objet()
         {
@@ -174,7 +179,7 @@ namespace Templar
             int a = x.Next(0, 1200);
             int b = x.Next(0, 800);
             position_npc = new Vector2(32, 32);
-            pop_time++;
+            //pop_time++;
 
             if (text.Is_shown == true)
             {
@@ -183,15 +188,15 @@ namespace Templar
             }
             else
             {
-                //if (pop_time == 120)
-                //{
-                //    list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 4, position_npc, ressource.mob, localPlayer, this));
-                //    if (Is_Server)
-                //        Serveur.Send(42, 1, 0);
-                //    if (Is_Client)
-                //        Client.Send(42, 1, 0);
-                //    pop_time = 0;
-                //}
+                if (pop_time == 120)
+                {
+                    list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 4, position_npc, ressource.mob, localPlayer, this));
+                    if (Is_Server)
+                        Serveur.Send(42, 1, 0);
+                    if (Is_Client)
+                        Client.Send(42, 1, 0);
+                    pop_time = 0;
+                }
                 if (Data.keyboardState.IsKeyDown(Keys.U) && Data.prevKeyboardState.IsKeyUp(Keys.U))
                 {
                     list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, this));
@@ -267,10 +272,12 @@ namespace Templar
                 if (Is_Server)
                 {
                     Serveur.Send(2, (int)player.Position.X, (int)player.position_player.Y);
+                    Serveur.Parser(this);
                 }
                 if (Is_Client)
                 {
                     Client.Send(2, (int)player.Position.X, (int)player.position_player.Y);
+                    Client.Parser(this);
                 }
                 //cheat code
                 if (keyboard.IsKeyDown(Keys.M))
@@ -388,6 +395,9 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
+            if(Is_Client|| Is_Server)
+            Player2.Draw(spriteBatch);
+
 
 
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
@@ -404,7 +414,7 @@ namespace Templar
                         spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
 
             HUD.draw(spriteBatch);
-           // spriteBatch.DrawString(ressource.ecriture, "coordonnees map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
+            spriteBatch.DrawString(ressource.ecriture, "coordonnees map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
 
             base.Draw(gameTime);
         }
