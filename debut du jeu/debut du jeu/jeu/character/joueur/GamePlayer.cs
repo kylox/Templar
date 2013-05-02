@@ -215,7 +215,16 @@ namespace Templar
 
             //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
             if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
+            {
                 map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
+                pv_player -= 15;
+            }
+            else
+                if (!(map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2)))
+                    for (int i = 0; i < 25; i++)
+                        for (int j = 0; j < 18; j++)
+                            if (main.map.Active_Map.objet[i, j] == new Vector2(1, 2))
+                                main.map.Active_Map.objet[i, j] = new Vector2(0, 2);
 
             if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
                 if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
@@ -223,7 +232,6 @@ namespace Templar
                     utilise_objet(inventaire.ElementAt(obj_selec - 1));
                     inventaire.RemoveAt(obj_selec - 1);
                 }
-
             switch (sort_selec)
             {
                 case 1:
