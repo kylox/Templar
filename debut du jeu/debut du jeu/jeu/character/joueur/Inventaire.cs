@@ -17,12 +17,10 @@ namespace Templar
 {
     class Inventaire:GameScreen
     {
-        Game Game;
         gamemain Main;
         public Inventaire(Game game, SpriteBatch spriteBatch, gamemain main)
             : base(game, spriteBatch)
         {
-            this.Game = game;
             Main = main;
         }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
