@@ -21,6 +21,7 @@ namespace Templar
         KeyboardState lastKeyboardState;
         Vector2[,] tiles;
         public Vector2[,] objet;
+        List<Coffre> Coffres;
         Tile[,] tilelist;
         public int[,] colision;
         bool iscreate;
@@ -44,6 +45,7 @@ namespace Templar
         {
             tiles = new Vector2[25, 18];
             objet = new Vector2[25, 18];
+            Coffres = new List<Coffre>();
             for (int i = 0; i < objet.GetLength(0); i++)
             {
                 for (int j = 0; j < objet.GetLength(1); j++)
@@ -91,6 +93,7 @@ namespace Templar
                                     colision[i, j] = 0;
                     sw.Write(colision[i, j]);
                 }
+                sw.WriteLine();
             }
             sw.Close();
         }
@@ -194,7 +197,12 @@ namespace Templar
                     for (int i = 0; i < tiles.GetLength(0); i++)
                     {
                         if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
+                        {
+                            if (ligne[i] == cursor.vec_to_id(Vector2.Zero))
+                                Coffres.Add(new Coffre(new Vector2(i, j)));
+
                             objet[i, j] = (cursor.id_to_vec(ligne[i]));
+                        }
                     }
                     j += 1;
                 }
@@ -212,7 +220,7 @@ namespace Templar
             string ligne;
             while ((ligne = sr.ReadLine()) != null)
             {
-                for (int i = 0; i < tiles.GetLength(0); i++)
+                for (int i = 0; i < colision.GetLength(0); i++)
                 {
                     tilelist[i, j] = new Tile(i, j, Convert.ToInt32(ligne[i]));
                     colision[i, j] = Convert.ToInt32(Convert.ToString(ligne[i]));
@@ -240,12 +248,12 @@ namespace Templar
                     cursor.iD != new Vector2(1, 0) && cursor.iD != new Vector2(1, 4) &&
                     cursor.iD != new Vector2(2, 0))
                 {
-                    tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
+                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
                     colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
                 }
                 else
                 {
-                    tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
+                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
                     colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
                 }
                 ecrire_objet(path);

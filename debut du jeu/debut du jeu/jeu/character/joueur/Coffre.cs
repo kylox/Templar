@@ -15,7 +15,7 @@ namespace Templar
     class Coffre
     {
 
-        public Coffre()
+        public Coffre(Vector2 position)
         {
 
         }

@@ -85,9 +85,9 @@ namespace Templar
             Components.Add(menu);
             menu.hide();
 
-            main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false, "");
-            Components.Add(main);
-            main.hide();
+            //main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon,false), false, "");
+            //Components.Add(main);
+            //main.hide();
 
             menudujeu = new menudujeu(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.th);
             Components.Add(menudujeu);
@@ -146,7 +146,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false, "");
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), false, "");
                         Components.Add(main);
                         main.hide();
 
@@ -172,7 +172,7 @@ namespace Templar
                 }
             }
             #endregion
-            #region screen_menu_principal
+            #region menu_deuxJ
             if (activeScreen == menudeux)
             {
                 if (Data.keyboardState.IsKeyDown(Keys.Escape))
@@ -185,7 +185,7 @@ namespace Templar
                 if (Data.keyboardState.IsKeyDown(Keys.Enter))
                 {
 
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), true, box.Saisie);
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie);
                     main.IP = menudeux.box.Saisie;
                     main.Is_Client = menudeux.selec;
                     main.Is_Server = !menudeux.selec;
@@ -200,6 +200,8 @@ namespace Templar
 
                 }
             }
+            #endregion
+            #region screen_menu_principal
             if (activeScreen == menu)
             {
                 if (checkKey(Keys.Enter))
@@ -252,15 +254,15 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon("w", main), false, "");
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "");
                     Components.Add(main);
                     main.hide();
+                    creation.change = false;
                     ressource.selection.Play();
                     activeScreen.hide();
                     activeScreen = main;
                     activeScreen.Show();
                 }
-
             }
             #endregion
             #region menu_1_Joueur
@@ -317,6 +319,7 @@ namespace Templar
                 }
             }
             #endregion
+            #region inventaire
             else if (activeScreen == inventaire)
             {
                 if (checkKey(Keys.Escape))
@@ -326,6 +329,7 @@ namespace Templar
                     activeScreen.Show();
                 }
             }
+            #endregion
             #region screen_pause
             else if (activeScreen == pause)
             {

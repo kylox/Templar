@@ -14,16 +14,16 @@ namespace Templar
             get { return _maps; }
             set { _maps = value; }
         }
-        public Donjon(string path, gamemain main)
+        public Donjon(string path, bool edm)
         {
             int x = 0;
             int y = 0;
             _maps = new Map[5, 5];
 
-            if (main != null)
+            if (edm == false)
                 foreach (string dr in System.IO.Directory.GetDirectories(path))
                 {
-                    for (int i = 0; i < Convert.ToInt32(Convert.ToString(dr[5])) * 10 + Convert.ToInt32(Convert.ToString(dr[6])); i++)
+                    for (int i = 0; i < Convert.ToInt32(Convert.ToString(dr[dr.Length - 2])) * 10 + Convert.ToInt32(Convert.ToString(dr[dr.Length - 1])); i++)
                     {
                         x++;
                         if (x > 4)
@@ -34,7 +34,7 @@ namespace Templar
                     }
                     foreach (string file in System.IO.Directory.GetFiles(dr))
                     {
-                        if (file[8] == 'M')
+                        if (file[file.Length - 9] == 'M')
                         {
                             if (_maps[x, y] == null)
                                 _maps[x, y] = new Map();
@@ -42,18 +42,20 @@ namespace Templar
                             x = 0;
                             y = 0;
                         }
-                        if (file[8] == 'c')
-                        {
-                            if (_maps[x, y] == null)
-                                _maps[x, y] = new Map();
-                            _maps[x, y].load_collision(file);
-                        }
-                        if (file[8] == 'f')
-                        {
-                            if (_maps[x, y] == null)
-                                _maps[x, y] = new Map();
-                            _maps[x, y].load(file);
-                        }
+                        else
+                            if (file[file.Length - 10] == 'f')
+                            {
+                                if (_maps[x, y] == null)
+                                    _maps[x, y] = new Map();
+                                _maps[x, y].load(file);
+                            }
+                            else
+                                if (file[file.Length - 15] == 'c')
+                                {
+                                    if (_maps[x, y] == null)
+                                        _maps[x, y] = new Map();
+                                    _maps[x, y].load_collision(file);
+                                }
                     }
                 }
         }
@@ -64,17 +66,17 @@ namespace Templar
                 nombre = "0" + Convert.ToString(nb);
             else
                 nombre = Convert.ToString(nb);
-            System.IO.Directory.CreateDirectory(@path + @"\Map" + @nombre);
-            Stream sr1 = new FileStream(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
+            System.IO.Directory.CreateDirectory(@"Donjons\" + @path + @"\Map" + @nombre);
+            Stream sr1 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr1.Close();
-            Stream sr2 = new FileStream(@path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
+            Stream sr2 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr2.Close();
-            Stream sr3 = new FileStream(@path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
+            Stream sr3 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr3.Close();
             _maps[i, j] = new Map();
-            this.Map[i, j].init(@path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
-            this.Map[i, j].init_objet(@path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
-            this.Map[i,j].init_coll(@path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt");
+            this.Map[i, j].init(@"Donjons\" + @path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
+            this.Map[i, j].init_objet(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
+            this.Map[i, j].init_coll(@"Donjons\" + @path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt");
             this.Map[i, j].isCreate = true;
         }
 

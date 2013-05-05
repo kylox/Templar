@@ -189,6 +189,9 @@ namespace Templar
                         case Keys.N:
                             saisie += 'n';
                             break;
+                        case Keys.Space:
+                            saisie += ' ';
+                            break;
                         case Keys.Back:
                             if (saisie.Length != 0)
                                 saisie = saisie.Remove(saisie.Length - 1);

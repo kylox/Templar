@@ -22,7 +22,7 @@ namespace Templar
             glace, boule_de_feu, // sort 
             ARBRE, MUR, STATUT, SOL, // EDM
             potion_vie, potion_mana,//POTION
-            map, tile, plus, moin,objet_map,mob; 
+            tile, plus, moin,objet_map,mob; 
 
         public static SoundEffect selection, lowHP, feu; //ressource des bruitage
 

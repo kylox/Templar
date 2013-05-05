@@ -86,6 +86,7 @@ namespace Templar
             set { position = value; }
 
         }
+
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
         {
@@ -175,7 +176,7 @@ namespace Templar
 
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
-            #region sort
+            #region sort & item
 
             if (keyboard.IsKeyDown(Keys.D1))
                 sort_selec = 1;
@@ -196,20 +197,73 @@ namespace Templar
                 obj_selec = 4;
             if (Data.keyboardState.IsKeyDown(Keys.NumPad5))
                 obj_selec = 5;
+            switch (sort_selec)
+            {
+                case 1:
+                    active_sort = new sort(ressource.boule_de_feu, this);
+                    active = "feu";
+                    break;
+                case 2:
+                    active_sort = new sort(ressource.glace, this);
+                    active = "glace";
+                    break;
+            }
+            attaque_mana(keyboard);
+
+            if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
+                if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
+                {
+                    utilise_objet(inventaire.ElementAt(obj_selec - 1));
+                    inventaire.RemoveAt(obj_selec - 1);
+                }
+            #endregion
 
             if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
             {
-                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
+                switch (frameline)
                 {
-                    text.Is_shown = true;
-                    text.Saisie = "quelques bouquins relatant de la vie, de l'univers et du reste";
-                    text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
-                }
-                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
-                {
-                    text.Is_shown = true;
-                    text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
-                    text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                    //en haut
+                    case 3:
+                        if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "quelques bouquins relatant de la vie, de l'univers et du reste";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        break;
+                    // en bas
+                    case 1:
+                        if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 + 1] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        break;
+                    //a gauche
+                    case 2:
+                        if (map.Active_Map.objet[(int)position.X / 32 - 1, (int)position.Y / 32] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        break;
+                    //a droite
+                    case 4:
+                        if (map.Active_Map.objet[(int)position.X / 32 - 1, (int)position.Y / 32] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        break;
                 }
             }
 
@@ -226,25 +280,7 @@ namespace Templar
                             if (main.map.Active_Map.objet[i, j] == new Vector2(1, 2))
                                 main.map.Active_Map.objet[i, j] = new Vector2(0, 2);
 
-            if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
-                if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
-                {
-                    utilise_objet(inventaire.ElementAt(obj_selec - 1));
-                    inventaire.RemoveAt(obj_selec - 1);
-                }
-            switch (sort_selec)
-            {
-                case 1:
-                    active_sort = new sort(ressource.boule_de_feu, this);
-                    active = "feu";
-                    break;
-                case 2:
-                    active_sort = new sort(ressource.glace, this);
-                    active = "glace";
-                    break;
-            }
-            attaque_mana(keyboard);
-            #endregion
+
             #region endurance
             timer_endurance++;
             if (keyboard.IsKeyDown(Keys.LeftShift) && Endurance > 0)
