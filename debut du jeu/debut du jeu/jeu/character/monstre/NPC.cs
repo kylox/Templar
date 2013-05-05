@@ -135,11 +135,11 @@ namespace Templar
             {
                 case Templar.Direction.Left:
                     if (position.X - 32 >= 0)
-                        position.X -= 32;
+                        position.X += 32;
                     break;
                 case Templar.Direction.Right:
                     if (position.X + 32 <= 25 * 32)
-                        position.X += 32;
+                        position.X -= 32;
                     break;
                 case Templar.Direction.Up:
                     if (position.Y - 32 >= 0)

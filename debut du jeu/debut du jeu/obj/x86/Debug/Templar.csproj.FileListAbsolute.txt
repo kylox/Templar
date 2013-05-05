@@ -116,3 +116,4 @@ C:\Users\gaudro_m\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Resolv
 C:\Users\gaudro_m\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\gaudro_m\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
 C:\Users\gaudro_m\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\gaudro_m\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb

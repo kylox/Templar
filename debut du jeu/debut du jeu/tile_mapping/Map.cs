@@ -21,7 +21,7 @@ namespace Templar
         KeyboardState lastKeyboardState;
         Vector2[,] tiles;
         public Vector2[,] objet;
-        List<Coffre> Coffres;
+        public Coffre[,] Coffres;
         Tile[,] tilelist;
         public int[,] colision;
         bool iscreate;
@@ -45,7 +45,7 @@ namespace Templar
         {
             tiles = new Vector2[25, 18];
             objet = new Vector2[25, 18];
-            Coffres = new List<Coffre>();
+            Coffres = new Coffre[25, 18];
             for (int i = 0; i < objet.GetLength(0); i++)
             {
                 for (int j = 0; j < objet.GetLength(1); j++)
@@ -199,7 +199,7 @@ namespace Templar
                         if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
                         {
                             if (ligne[i] == cursor.vec_to_id(Vector2.Zero))
-                                Coffres.Add(new Coffre(new Vector2(i, j)));
+                                Coffres[i,j] = new Coffre(new Vector2(i, j));
 
                             objet[i, j] = (cursor.id_to_vec(ligne[i]));
                         }

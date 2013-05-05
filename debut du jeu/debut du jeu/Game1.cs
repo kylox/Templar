@@ -304,7 +304,6 @@ namespace Templar
             #region screen_action
             else if (activeScreen == main)
             {
-                main.player.tete = creation.frameligne;
                 if (main.player.pv_player == 0)
                 {
                     activeScreen.hide();
