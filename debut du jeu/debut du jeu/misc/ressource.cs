@@ -13,8 +13,8 @@ namespace Templar
     class ressource
     {
         //static field
-        public static Texture2D 
-            sprite_player, zombie, sprite_cochon,tete_player, //sprite personnage
+        public static Texture2D
+            sprite_player, zombie, sprite_cochon, tete_player, //sprite personnage
             particule, pixel, // autre
             map_0, map_1, map_2, // map
             th, templar, option, gameover, //ecran de jeu 
@@ -22,14 +22,10 @@ namespace Templar
             glace, boule_de_feu, // sort 
             ARBRE, MUR, STATUT, SOL, // EDM
             potion_vie, potion_mana,//POTION
-            map, tile, plus, moin,objet_map,mob; 
-
-        public static SoundEffect selection, lowHP, feu; //ressource des bruitage
-
-        public static Song menu,main_theme;
-
+            tile, plus, moin, objet_map, mob;
+        public static SoundEffect selection, lowHP, feu, pique; //ressource des bruitage
+        public static Song menu, main_theme;
         public static SpriteFont ecriture;
-
 
         public static void loadcontent(ContentManager Content) //installe les ressource du jeu 
         {
@@ -37,11 +33,12 @@ namespace Templar
             selection = Content.Load<SoundEffect>(@"Music\effet\selection");
             lowHP = Content.Load<SoundEffect>(@"Music\effet\lowHP");
             feu = Content.Load<SoundEffect>(@"Music\effet\Mémo");
+            pique = Content.Load<SoundEffect>(@"pique");
 
             //sprite character
             zombie = Content.Load<Texture2D>(@"Sprite\Personnage\Zomtemplate");
             sprite_cochon = Content.Load<Texture2D>(@"Sprite\Personnage\sprite_cochon");
-            sprite_player = Content.Load<Texture2D>( "perso"/*"swordsman_m_2"*/);
+            sprite_player = Content.Load<Texture2D>("perso");
             tete_player = Content.Load<Texture2D>("M_Black");
             mob = Content.Load<Texture2D>("mobs");
 

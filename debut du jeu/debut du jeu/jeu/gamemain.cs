@@ -127,7 +127,6 @@ namespace Templar
                 Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
                 while (Serveur.isrunnin)
                 {
-
                 }
             }
             if (Is_Client)
@@ -178,10 +177,14 @@ namespace Templar
             position_npc = new Vector2(32, 32);
             //pop_time++;
 
-            if (text.Is_shown == true)
+            if (text.Is_shown == true || localPlayer.in_action == true)
             {
                 if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
+                {
                     text.Is_shown = false;
+                    localPlayer.in_action = false;
+                    localPlayer.Coffre_ouvert = null;
+                }
             }
             else
             {
@@ -237,19 +240,23 @@ namespace Templar
                         switch (localPlayer.frameline)
                         {
                             case 5:
-                                if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y + 32, 32, 32).Intersects(list_zombi[i].Hitbox_image))
+                                if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y + 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
+                                    new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
                                     list_zombi[i].touché(Direction.Down);
                                 break;
                             case 6:
-                                if (new Rectangle((int)localPlayer.position_player.X + 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
+                                if (new Rectangle((int)localPlayer.position_player.X + 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) || 
+                                    new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
                                     list_zombi[i].touché(Direction.Left);
                                 break;
                             case 7:
-                                if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y - 32, 32, 32).Intersects(list_zombi[i].Hitbox_image))
+                                if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y - 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) || 
+                                    new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
                                     list_zombi[i].touché(Direction.Up);
                                 break;
                             case 8:
-                                if (new Rectangle((int)localPlayer.position_player.X - 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
+                                if (new Rectangle((int)localPlayer.position_player.X - 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) || 
+                                    new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
                                     list_zombi[i].touché(Direction.Right);
                                 break;
                         }
@@ -336,7 +343,6 @@ namespace Templar
                         {
                             Walls.RemoveAt(j);
                             liste_sort.RemoveAt(i);
-
                             break;
                         }
 
@@ -383,10 +389,12 @@ namespace Templar
         {
             map.Active_Map.Draw(spriteBatch, 32);
             timer_level_up++;
-
             if (text.Is_shown)
                 text.Draw(spriteBatch);
 
+            if (localPlayer.Coffre_ouvert != null)
+                localPlayer.Coffre_ouvert.Draw(spriteBatch,fenetre);
+                
             #region draw du jeu
             foreach (item item in liste_objet_map)
                 item.draw(spriteBatch);

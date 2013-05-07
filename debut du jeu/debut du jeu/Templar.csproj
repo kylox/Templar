@@ -115,7 +115,6 @@
     <Compile Include="Reseau\Server.cs" />
     <Compile Include="tile_mapping\Donjon.cs" />
     <Compile Include="jeu\character\creat_perso.cs" />
-    <Compile Include="jeu\character\dessin_perso.cs" />
     <Compile Include="ecran\liste des ecrans\actionscreen.cs" />
     <Compile Include="EDM\Chemin.cs" />
     <Compile Include="ecran\liste des ecrans\GameOverScreen.cs" />

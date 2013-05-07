@@ -15,18 +15,17 @@ namespace Templar
         SpriteFont spriteFont;
         Vector2 position_pv;
         gamemain main;
-        dessin_perso dessin_tete;
         sort active_sort;
         textbox text;
-        bool click_down/*, actif*/;
+        public Coffre Coffre_ouvert;
+        bool click_down;
         int sort_selec;
         int Endurance;
         int timer_endurance;
-        // int timer_attaque;
         int Mana;
-        //int k = 0;
         string active;
 
+        public bool in_action;
         public List<item> inventaire;
         public int[] nb_objet;
         public int obj_selec;
@@ -34,12 +33,6 @@ namespace Templar
         public int magie;
         public int nb_amelioration;
         public Rectangle HitBox;
-
-        public int tete
-        {
-            get;
-            set;
-        }
         public string Active
         {
             get { return active; }
@@ -86,6 +79,7 @@ namespace Templar
             set { position = value; }
 
         }
+
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, int pv, Texture2D image, gamemain main, textbox text)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
         {
@@ -106,16 +100,14 @@ namespace Templar
             sort_selec = 1;
             obj_selec = 1;
             active_sort = new sort(ressource.boule_de_feu, this);
-            dessin_tete = new dessin_perso(this);
             click_down = false;
             levelup = false;
             nb_amelioration = 0;
             inventaire = new List<item>();
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
-            // actif = false;
+            in_action = false;
             text.Is_shown = false;
-            // timer_attaque = 0;
         }
         public void utilise_objet(item item)
         {
@@ -165,17 +157,74 @@ namespace Templar
                 click_down = true;
             }
         }
+        public void action(switch_map map)
+        {
+            if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
+            {
+                switch (frameline)
+                {
+                    // en haut
+                    case 3:
+                        if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "quelques bouquins relatant de la vie, de l'univers et du reste";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 0))
+                        {
+                            map.Active_Map.Coffres[(int)position.X / 32, (int)position.Y / 32 - 1].is_open = true;
+                            Coffre_ouvert = map.Active_Map.Coffres[(int)position.X / 32, (int)position.Y / 32 - 1];
+                            in_action = true;
+                        }
+                        break;
+                    // en bas
+                    case 1:
+                        if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 + 1] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        break;
+                    // a gauche
+                    case 2:
+                        if (map.Active_Map.objet[(int)position.X / 32 - 1, (int)position.Y / 32] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        break;
+                    // a droite
+                    case 4:
+                        if (map.Active_Map.objet[(int)position.X / 32 - 1, (int)position.Y / 32] == new Vector2(0, 3))
+                        {
+                            text.Is_shown = true;
+                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
+                        }
+                        break;
+                }
+            }
+        }
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
             base.update(mouse, keyboard, walls, personnages, map);
             collision_bord();
             CanMove++;
-
             deplacement();
+            action(map);
 
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
-            #region sort
+            #region sort & item
 
             if (keyboard.IsKeyDown(Keys.D1))
                 sort_selec = 1;
@@ -196,42 +245,6 @@ namespace Templar
                 obj_selec = 4;
             if (Data.keyboardState.IsKeyDown(Keys.NumPad5))
                 obj_selec = 5;
-
-            if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
-            {
-                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
-                {
-                    text.Is_shown = true;
-                    text.Saisie = "quelques bouquins relatant de la vie, de l'univers et du reste";
-                    text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
-                }
-                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
-                {
-                    text.Is_shown = true;
-                    text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
-                    text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
-                }
-            }
-
-            //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
-            if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
-            {
-                map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
-                pv_player -= 15;
-            }
-            else
-                if (!(map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2)))
-                    for (int i = 0; i < 25; i++)
-                        for (int j = 0; j < 18; j++)
-                            if (main.map.Active_Map.objet[i, j] == new Vector2(1, 2))
-                                main.map.Active_Map.objet[i, j] = new Vector2(0, 2);
-
-            if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
-                if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
-                {
-                    utilise_objet(inventaire.ElementAt(obj_selec - 1));
-                    inventaire.RemoveAt(obj_selec - 1);
-                }
             switch (sort_selec)
             {
                 case 1:
@@ -244,7 +257,27 @@ namespace Templar
                     break;
             }
             attaque_mana(keyboard);
+
+            if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
+                if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
+                {
+                    utilise_objet(inventaire.ElementAt(obj_selec - 1));
+                    inventaire.RemoveAt(obj_selec - 1);
+                }
             #endregion
+            //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
+            if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
+            {
+                map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
+                pv_player -= 15;
+                ressource.pique.Play();
+            }
+            else
+                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] != new Vector2(0, 2) && map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] != new Vector2(1, 2))
+                    for (int i = 0; i < 25; i++)
+                        for (int j = 0; j < 18; j++)
+                            if (main.map.Active_Map.objet[i, j] == new Vector2(1, 2))
+                                main.map.Active_Map.objet[i, j] = new Vector2(0, 2);
             #region endurance
             timer_endurance++;
             if (keyboard.IsKeyDown(Keys.LeftShift) && Endurance > 0)
@@ -283,15 +316,11 @@ namespace Templar
             }
             if (keyboard.IsKeyUp(Keys.Space))
                 click_down = false;
-
-            dessin_tete.update();
         }
         public override void Draw(SpriteBatch spritebatch)
         {
             spritebatch.DrawString(ressource.ecriture, position_player.X + " " + position_player.Y, new Vector2(100, 0), Color.Red);
             base.Draw(spritebatch);
-            //dessin_tete.draw(spritebatch);
-            // spritebatch.Draw(ressource.pixel, HitBox, Color.Red);
         }
     }
 }

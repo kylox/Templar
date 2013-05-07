@@ -12,12 +12,30 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-    class Coffre
+    public class Coffre
     {
-
-        public Coffre()
+        public bool is_open;
+        item[,] tab;
+        public Coffre(Vector2 position)
         {
-
+            tab = new item[5, 5];
+            
+            is_open = false;
+        }
+        public void Draw(SpriteBatch spritebatch, Rectangle Fenetre)
+        {
+            if (is_open == true)
+            {
+                spritebatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width / 3, Fenetre.Height / 3, 160, 160), Color.Black);
+                for (int i = 0; i < tab.GetLength(0); i++)
+                    for (int j = 0; j < tab.GetLength(1); j++)
+                    {
+                        spritebatch.Draw(ressource.selection_sort, new Rectangle(Fenetre.Width / 3 + i * 32, Fenetre.Height / 3
+                            + j * 32, 32 + i, 32 + j), Color.White);
+                        if (tab[i, j] != null)
+                            tab[i, j].draw(spritebatch);
+                    }
+            }
         }
     }
 }
