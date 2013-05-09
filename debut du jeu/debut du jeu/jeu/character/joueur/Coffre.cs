@@ -19,7 +19,6 @@ namespace Templar
         public Coffre(Vector2 position)
         {
             tab = new item[5, 5];
-            
             is_open = false;
         }
         public void Draw(SpriteBatch spritebatch, Rectangle Fenetre)

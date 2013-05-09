@@ -17,7 +17,7 @@ namespace Templar
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-
+        Caracteristique carac;
         SpriteBatch spriteBatch;
         KeyboardState oldKeyboard;
         KeyboardState keyboard;
@@ -334,7 +334,6 @@ namespace Templar
             {
                 if (checkKey(Keys.Enter))
                 {
-
                     if (pause.SelectedIndex == 0)
                     {
                         activeScreen.hide();
@@ -344,11 +343,14 @@ namespace Templar
                         activeScreen = inventaire;
                         activeScreen.Show();
                     }
-
                     else
                         if (pause.SelectedIndex == 1)
                         {
-
+                            activeScreen.hide();
+                            carac = new Caracteristique(this, spriteBatch, main.player);
+                            Components.Add(carac);
+                            activeScreen = carac;
+                            activeScreen.Show();
                         }
                         else
                             if (pause.SelectedIndex == 2)
@@ -377,8 +379,6 @@ namespace Templar
                                         activeScreen.Show();
                                     }
                 }
-
-
                 if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
@@ -479,13 +479,22 @@ namespace Templar
                 }
             }
             #endregion
+            #region caracteristique
+            if (activeScreen == carac)
+            {
+                if(checkKey(Keys.Escape))
+                {
+                    activeScreen.hide();
+                    activeScreen = main;
+                    activeScreen.Show();
+                }
+            }
+            #endregion
             base.Update(gameTime);
 
             oldKeyboard = keyboard;
             oldmouse = mouse;
-
         }
-
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);

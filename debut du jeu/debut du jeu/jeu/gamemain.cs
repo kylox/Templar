@@ -97,7 +97,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = new Vector2(32, 32);
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, 100, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
             map.Active_Map = map.Listes_map[0, 0];
@@ -124,7 +124,7 @@ namespace Templar
             {
                 Serveur = new Server();
                 same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text);
                 while (Serveur.isrunnin)
                 {
                 }
@@ -133,7 +133,7 @@ namespace Templar
             {
                 Client = new Client(IP);
                 same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, 100, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur,  ressource.sprite_player, this, text);
             }
         }
         public void ramassage_objet()
