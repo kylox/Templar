@@ -45,7 +45,6 @@ namespace Templar
                 {
                     PreferredBackBufferWidth = 800,
                     PreferredBackBufferHeight = 675
-
                 };
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
@@ -423,8 +422,8 @@ namespace Templar
                         if (ecran == false)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 1600;
-                            graphics.PreferredBackBufferWidth = 1350;
+                            graphics.PreferredBackBufferHeight = 675;
+                            graphics.PreferredBackBufferWidth = 800;
 
                             ecran = true;
                         }
@@ -437,8 +436,8 @@ namespace Templar
                         if (ecran == true)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 800;
-                            graphics.PreferredBackBufferWidth = 675;
+                            graphics.PreferredBackBufferHeight = 675;
+                            graphics.PreferredBackBufferWidth = 800;
 
                             ecran = false;
                         }

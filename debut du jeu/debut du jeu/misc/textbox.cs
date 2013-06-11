@@ -197,6 +197,21 @@ namespace Templar
                                 saisie = saisie.Remove(saisie.Length - 1);
                             break;
                     }
+
+                    if (ressource.ecriture.MeasureString(saisie).X > Fenetre.Width)
+                        for (int i = saisie.Length - 1; i > 0; i--)
+                            if (saisie[i] == ' ')
+                            {
+                                string S1 = "";
+                                for (int j = 0; j < i + 1; j++)
+                                    S1 += saisie[j];
+                                string S2 = "";
+                                for (int j = i + 1; j < saisie.Length; j++)
+                                    S2 += saisie[j];
+                                saisie = S1 + "\n" + S2;
+                                break;
+                            }
+
                     timer = 0;
                 }
 

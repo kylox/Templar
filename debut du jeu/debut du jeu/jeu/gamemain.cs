@@ -140,7 +140,6 @@ namespace Templar
         {
             bool est_present = false;
             int j = 0;
-
             for (int i = 0; i < liste_objet_map.Count; i++)
                 if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
                 {

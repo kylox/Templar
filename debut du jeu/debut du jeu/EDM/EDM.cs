@@ -10,14 +10,13 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
 
-
-
 namespace Templar
 {
     public class EDM : GameScreen
     {
         #region variable
         textbox text;
+        textbox message;
         Rectangle fenetre;
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
@@ -40,6 +39,8 @@ namespace Templar
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));
+            message = new textbox(new Rectangle(game.Window.ClientBounds.Width - game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3, 200, 100));
+            message.Is_shown = true;
             current_tile = new Tile(0, 0, 0);
             tileset = new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height);
             listes_map = new Map[5, 5];
@@ -50,7 +51,6 @@ namespace Templar
         {
             if ((cursor.iD == new Vector2(0, 4) || cursor.iD == new Vector2(0, 7)) && Data.mouseState.X / 32 == 0)
                 map.ecrire_objet(path);
-
             else
                 if ((cursor.iD == new Vector2(0, 5) || cursor.iD == new Vector2(1, 4)) && Data.mouseState.X / 32 == 24)
                     map.ecrire_coll(path);
@@ -67,10 +67,13 @@ namespace Templar
             keyboardState = Keyboard.GetState();
             cursor.Update(gameTime, tileset, fenetre);
             text.update();
+            //permet de creer le donjon
             if (Donjon == null)
                 text.Is_shown = true;
+            //donjon creer
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.Enter))
                 creation_donjon(text.Saisie);
+            //si donfon creer alors on update
             if (Donjon != null)
             {
                 creation_map();
@@ -80,6 +83,7 @@ namespace Templar
                 else
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt", text);
             }
+            //ne sert a rien
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
             {
                 map = new Map();
@@ -89,6 +93,7 @@ namespace Templar
             if (text.Is_shown == false && keyboardState.IsKeyDown(Keys.A))
                 text.Is_shown = true;
         }
+        //selectionne la map dans l'edm
         public void selectionmap()
         {
             for (int i = 0; i < 5; i++)
@@ -101,6 +106,7 @@ namespace Templar
                         actuel.Y = j;
                     }
         }
+        //cree une map
         public void creation_map()
         {
             for (int i = 0; i < 5; i++)
@@ -135,7 +141,7 @@ namespace Templar
                     }
                 }
         }
-        //creer le donjon (le dossier + la premiere map°
+        //creer le donjon (le dossier + la premiere map)
         public void creation_donjon(string path)
         {
             string nombre;
@@ -150,6 +156,7 @@ namespace Templar
         }
         public override void Draw(GameTime gameTime)
         {
+            //dessine la map + ou on est sur la map !
             if (Donjon != null && Donjon.Map[actuel.X, actuel.Y] != null)
             {
                 Donjon.Map[actuel.X, actuel.Y].Draw(spriteBatch, 16);
@@ -165,6 +172,7 @@ namespace Templar
                 spriteBatch.Draw(ressource.pixel, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
                 spriteBatch.Draw(ressource.pixel, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
             }
+            //dessine le rectangle rouge de la souris
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                 {
@@ -179,6 +187,7 @@ namespace Templar
             cursor.Draw(spriteBatch, fenetre);
             spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
             text.Draw(spriteBatch);
+            message.Draw(spriteBatch);
         }
     }
 }
