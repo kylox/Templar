@@ -48,6 +48,9 @@ namespace Templar
                 {
                     switch (keyboard.GetPressedKeys().First())
                     {
+                        case Keys.Enter :
+                            saisie += '\n';
+                            break;
                         case Keys.NumPad0:
                             saisie += '0';
                             break;
@@ -110,6 +113,10 @@ namespace Templar
                             break;
                         case Keys.Decimal:
                             saisie += '.';
+                            break;
+                        case Keys.LeftShift:
+                            if (keyboard.GetPressedKeys() == new Keys[]{Keys.LeftShift, Keys.A})
+                                saisie += 'A';
                             break;
                         case Keys.A:
                             saisie += 'a';
@@ -211,7 +218,22 @@ namespace Templar
                                 saisie = S1 + "\n" + S2;
                                 break;
                             }
+                            else
+                                if (i == 1)
+                                {
+                                    string S1 = "";
+                                    for (int j = 0; j < saisie.Length - 3; j++)
+                                        S1 += saisie[j];
+                                    string S2 = "";
+                                    for (int j = saisie.Length - 3; j < saisie.Length; j++)
+                                        S2 += saisie[j];
+                                    saisie = S1 + "\n" + S2;
+                                    break;
+                                }
 
+                    if (ressource.ecriture.MeasureString(saisie).Y > Fenetre.Height)
+                        Fenetre.Height += ressource.ecriture.LineSpacing*2;
+                   
                     timer = 0;
                 }
 
