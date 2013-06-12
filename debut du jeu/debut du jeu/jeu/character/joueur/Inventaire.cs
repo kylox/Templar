@@ -27,26 +27,19 @@ namespace Templar
         {
             base.Update(gameTime);
         }
-
         public override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-           
+        {           
             spriteBatch.Draw(ressource.pixel, new Rectangle(0, 0, Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height),Color.SaddleBrown);
-
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                 {
                     spriteBatch.Draw(ressource.selection_sort, new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50, 64, 64), Color.White);
                     if (i + j < Main.player.inventaire.Count)
                         spriteBatch.Draw(Main.player.inventaire[i + j].Texture, new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50, 64, 64), Color.White);
-
                 }
-
             for (int i = 0; i < 4; i++)
                 spriteBatch.Draw(ressource.selection_sort, new Rectangle(25, i * 64 + 5 + 50 , 64, 64), Color.White);
-
             spriteBatch.DrawString(ressource.ecriture, "Attaque : " + Main.player.attaque + "      Defense : " + Main.player.defense + "      Magie : " + Main.player.magie,new Vector2(50,400),Color.DarkRed);
-
             base.Draw(gameTime);
         }
     }

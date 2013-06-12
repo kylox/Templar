@@ -253,7 +253,7 @@ namespace Templar
 
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released &&
-                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 16, 16 * 16))
+                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
                 && text.Is_shown == false)
             {
                 objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;

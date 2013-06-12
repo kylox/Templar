@@ -23,7 +23,6 @@ namespace Templar
         int selec;
         List<string> donjons;
         public string donjon;
-
         public int frameligne
         {
             get { return Frameligne; }
@@ -34,7 +33,6 @@ namespace Templar
             get { return Change; }
             set { Change = value; }
         }
-
         public creat_perso(Game game, SpriteBatch spriteBatch, Texture2D image)
             : base(game, spriteBatch)
         {
@@ -48,10 +46,10 @@ namespace Templar
             {
                 donjons.Add(dr.Substring(8));
             }
-            if (donjons[0] != null)
-                donjon = donjons[0];
+            if (donjons.Count != 0)
+                if (donjons[0] != null)
+                    donjon = donjons[0];
         }
-
         public override void Update(GameTime gameTime)
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(500, 200, 50, 50)) && Data.mouseState.LeftButton == ButtonState.Pressed)
@@ -62,13 +60,11 @@ namespace Templar
             {
                 if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(100, 100 + y, s.Length * (int)s.LongCount() + 20, 20)) && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
                 {
-                    donjon = donjons[y / 20];
+                    donjon = donjons[y / 30];
                     selec = y;
                 }
-
                 y += 30;
             }
-
             //if (keyboard.IsKeyDown(Keys.Right))
             //{
             //    Frameligne++;
@@ -84,10 +80,8 @@ namespace Templar
             //    if (Frameligne < 0)
             //        Frameligne = 18;
             //}
-
             base.Update(gameTime);
         }
-
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Draw(texture, rectangle, Color.Black);
@@ -113,7 +107,6 @@ namespace Templar
             spriteBatch.DrawString(ressource.ecriture, "SUIVANT", new Vector2(500, 200), higlight);
             spriteBatch.Draw(ressource.sprite_player, new Rectangle(100, 300, 100, 200), new Rectangle(0, 0, 32, 48), Color.White);
             //spriteBatch.Draw(ressource.tete_player, new Rectangle(125, 260, 78, 100), new Rectangle(0, 50 * frameligne, 39, 50), Color.White);
-
             base.Draw(gameTime);
         }
     }

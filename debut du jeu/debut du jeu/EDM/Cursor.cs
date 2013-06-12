@@ -26,7 +26,6 @@ namespace Templar
             set { Texture = value; }
         }
         static bool selected;
-
         public static char vec_to_id(Vector2 vec)
         {
             int symb = (int)vec.X * 10 + (int)vec.Y;
@@ -34,7 +33,6 @@ namespace Templar
 
             return C;
         }
-
         public static Vector2 id_to_vec(char C)
         {
             Vector2 vec;
@@ -45,7 +43,6 @@ namespace Templar
 
             return vec;
         }
-
         public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre)
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(tileset) &&
@@ -57,7 +54,6 @@ namespace Templar
                 selected = true;
             }
         }
-
         public static void Draw(SpriteBatch spriteBatch, Rectangle fenetre)
         {
             if (selected)
@@ -67,7 +63,6 @@ namespace Templar
                 spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32, (int)ID.Y * 32 + 32, 34, 2), Color.Red);
                 spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32 + 32, (int)ID.Y * 32, 2, 34), Color.Red);
             }
-
             for (int i = 0; i < 32 * 16; i += 16)
                 for (int j = 0; j < 32 * 16; j += 16)
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))
@@ -78,6 +73,5 @@ namespace Templar
                         spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
                     }
         }
-
     }
 }

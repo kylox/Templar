@@ -391,54 +391,35 @@ namespace Templar
             {
                 if (keyboard.IsKeyUp(Keys.H) && keyboard.IsKeyUp(Keys.J) && keyboard.IsKeyUp(Keys.K) && keyboard.IsKeyUp(Keys.L))
                     click_down = false;
-
-
                 if (keyboard.IsKeyDown(Keys.L) && SoundEffect.MasterVolume < 0.99f && click_down == false)
-                {
                     SoundEffect.MasterVolume += 0.01f;
-                }
-
                 if (keyboard.IsKeyDown(Keys.K) && SoundEffect.MasterVolume > 0.01f && click_down == false)
-                {
                     SoundEffect.MasterVolume -= 0.01f;
-                }
-
                 if (keyboard.IsKeyDown(Keys.J) && MediaPlayer.Volume < 0.99f && click_down == false)
-                {
                     MediaPlayer.Volume += 0.01f;
-                }
-
                 if (keyboard.IsKeyDown(Keys.H) && MediaPlayer.Volume > 0.01f && click_down == false)
-                {
                     MediaPlayer.Volume -= 0.01f;
-                }
-
                 if (checkKey(Keys.Enter))
                 {
                     if (option.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
-
                         if (ecran == false)
                         {
                             graphics.ToggleFullScreen();
                             graphics.PreferredBackBufferHeight = 675;
                             graphics.PreferredBackBufferWidth = 800;
-
                             ecran = true;
                         }
                     }
-
                     if (option.SelectedIndex == 1)
                     {
                         ressource.selection.Play();
-
                         if (ecran == true)
                         {
                             graphics.ToggleFullScreen();
                             graphics.PreferredBackBufferHeight = 675;
                             graphics.PreferredBackBufferWidth = 800;
-
                             ecran = false;
                         }
                     }
@@ -448,14 +429,12 @@ namespace Templar
                         MediaPlayer.IsMuted = false;
                         SoundEffect.MasterVolume = 0.5f;
                     }
-
                     if (option.SelectedIndex == 3)
                     {
                         ressource.selection.Play();
                         MediaPlayer.IsMuted = true;
                         SoundEffect.MasterVolume = 0;
                     }
-
                     if (option.SelectedIndex == 4)
                     {
                         ressource.selection.Play();
@@ -481,7 +460,7 @@ namespace Templar
             #region caracteristique
             if (activeScreen == carac)
             {
-                if(checkKey(Keys.Escape))
+                if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
                     activeScreen = main;
@@ -490,7 +469,6 @@ namespace Templar
             }
             #endregion
             base.Update(gameTime);
-
             oldKeyboard = keyboard;
             oldmouse = mouse;
         }

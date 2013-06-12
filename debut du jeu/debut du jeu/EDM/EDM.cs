@@ -80,6 +80,7 @@ namespace Templar
             {
                 creation_map();
                 selectionmap();
+                selectiomessage();
                 if (selec == true)
                     message.update();
                 if (nb < 10)
@@ -99,7 +100,6 @@ namespace Templar
             if (text.Is_shown == false && keyboardState.IsKeyDown(Keys.A))
                 text.Is_shown = true;
         }
-        //selectionne la map dans l'edm
         public void selectiomessage()
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre)
@@ -109,6 +109,7 @@ namespace Templar
             else
                 selec = false;
         }
+        //selectionne la map dans l'edm
         public void selectionmap()
         {
             for (int i = 0; i < 5; i++)
@@ -173,6 +174,7 @@ namespace Templar
             }
             catch (Exception)
             {
+                //l'affiche sur la deuxieme sortie car sinon ca valide
                 message.Saisie = "nom incorrect ";
             }
         }
