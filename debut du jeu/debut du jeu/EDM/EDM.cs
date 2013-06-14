@@ -10,14 +10,13 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
 
-
-
 namespace Templar
 {
     public class EDM : GameScreen
     {
         #region variable
         textbox text;
+        textbox message;
         Rectangle fenetre;
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
@@ -27,6 +26,7 @@ namespace Templar
         Map[,] listes_map;
         Donjon Donjon;
         Point actuel;
+        bool selec;
         int nb;
         #endregion
         public Rectangle Fenetre
@@ -40,17 +40,19 @@ namespace Templar
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));
+            message = new textbox(new Rectangle(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3, 600, 200));
+            message.Is_shown = true;
             current_tile = new Tile(0, 0, 0);
             tileset = new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height);
             listes_map = new Map[5, 5];
             nb = 0;
             actuel = new Point();
+            selec = false;
         }
         public void deposer_porte(string path)
         {
             if ((cursor.iD == new Vector2(0, 4) || cursor.iD == new Vector2(0, 7)) && Data.mouseState.X / 32 == 0)
                 map.ecrire_objet(path);
-
             else
                 if ((cursor.iD == new Vector2(0, 5) || cursor.iD == new Vector2(1, 4)) && Data.mouseState.X / 32 == 24)
                     map.ecrire_coll(path);
@@ -67,19 +69,28 @@ namespace Templar
             keyboardState = Keyboard.GetState();
             cursor.Update(gameTime, tileset, fenetre);
             text.update();
+            //permet de creer le donjon
             if (Donjon == null)
                 text.Is_shown = true;
-            if (text.Is_shown && keyboardState.IsKeyDown(Keys.Enter))
+            //donjon creer
+            if (text.Is_shown && keyboardState.IsKeyDown(Keys.F1))
                 creation_donjon(text.Saisie);
+            //si donfon creer alors on update
             if (Donjon != null)
             {
                 creation_map();
                 selectionmap();
+                selectiomessage();
+                if (selec == true)
+                    message.update();
                 if (nb < 10)
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt", @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt", text);
                 else
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt", text);
+                if (map != null)
+                    map.Message = message.Saisie;
             }
+            //ne sert a rien
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
             {
                 map = new Map();
@@ -89,6 +100,16 @@ namespace Templar
             if (text.Is_shown == false && keyboardState.IsKeyDown(Keys.A))
                 text.Is_shown = true;
         }
+        public void selectiomessage()
+        {
+            if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre)
+                        && Data.mouseState.LeftButton == ButtonState.Pressed
+                        && Data.prevMouseState.LeftButton != ButtonState.Pressed)
+                selec = true;
+            else
+                selec = false;
+        }
+        //selectionne la map dans l'edm
         public void selectionmap()
         {
             for (int i = 0; i < 5; i++)
@@ -101,6 +122,7 @@ namespace Templar
                         actuel.Y = j;
                     }
         }
+        //cree une map
         public void creation_map()
         {
             for (int i = 0; i < 5; i++)
@@ -135,21 +157,48 @@ namespace Templar
                     }
                 }
         }
-        //creer le donjon (le dossier + la premiere map°
+        //creer le donjon (le dossier + la premiere map)
         public void creation_donjon(string path)
         {
-            string nombre;
-            if (nb < 10)
-                nombre = "0" + Convert.ToString(nb);
-            else
-                nombre = Convert.ToString(nb);
-            System.IO.Directory.CreateDirectory(@"Donjons\" + @text.Saisie + @"\Map" + @nombre);
-            Donjon = new Donjon(path, true);
-            Donjon.Ajout_map(0, 0, 0, text.Saisie);
-            text.Is_shown = false;
+            try
+            {
+                string nombre;
+                if (nb < 10)
+                    nombre = "0" + Convert.ToString(nb);
+                else
+                    nombre = Convert.ToString(nb);
+                System.IO.Directory.CreateDirectory(@"Donjons\" + @text.Saisie + @"\Map" + @nombre);
+                Donjon = new Donjon(path, true);
+                Donjon.Ajout_map(0, 0, 0, text.Saisie);
+                text.Is_shown = false;
+            }
+            catch (Exception)
+            {
+                //l'affiche sur la deuxieme sortie car sinon ca valide
+                message.Saisie = "nom incorrect ";
+            }
         }
         public override void Draw(GameTime gameTime)
         {
+            if (selec == true)
+            {
+                spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, 3, message.Fenetre.Height + 3), Color.Gray);
+                spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, message.Fenetre.Width + 6, 3), Color.Gray);
+                spriteBatch.Draw(ressource.pixel, new Rectangle(
+                    message.Fenetre.X - 3,
+                    message.Fenetre.Height + message.Fenetre.Y,
+                    message.Fenetre.Width + 3,
+                    3),
+                    Color.Gray);
+                spriteBatch.Draw(ressource.pixel, new Rectangle(
+                    message.Fenetre.Width + message.Fenetre.X,
+                    Fenetre.Y,
+                    3,
+                    message.Fenetre.Height + 3),
+                    Color.Gray);
+
+            }
+            //dessine la map + ou on est sur la map !
             if (Donjon != null && Donjon.Map[actuel.X, actuel.Y] != null)
             {
                 Donjon.Map[actuel.X, actuel.Y].Draw(spriteBatch, 16);
@@ -160,11 +209,12 @@ namespace Templar
             }
             spriteBatch.Draw(ressource.objet_map, new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height), Color.White);
             //dessine les ligne de l'editeur de map
-            for (int i = 0; i <= 32 * 16; i += 16)
+            for (int i = 0; i <= 16 * 32; i += 16)
             {
                 spriteBatch.Draw(ressource.pixel, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
                 spriteBatch.Draw(ressource.pixel, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
             }
+            //dessine le rectangle rouge de la souris
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                 {
@@ -178,7 +228,13 @@ namespace Templar
                 }
             cursor.Draw(spriteBatch, fenetre);
             spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
-            text.Draw(spriteBatch);
+            message.Draw(spriteBatch);
+            if (text.Is_shown == true)
+            {
+                spriteBatch.Draw(ressource.pixel, new Rectangle(0, 0, fenetre.Width, fenetre.Height), Color.FromNonPremultiplied(0, 0, 0, 255));
+                spriteBatch.DrawString(ressource.ecriture, "Veuillez entrez le nom de donjon, une fois fait, appuyez sur F1 pour demarer", new Vector2(fenetre.Width / 9, (int)fenetre.Height / 2), Color.Red);
+                text.Draw(spriteBatch);
+            }
         }
     }
 }

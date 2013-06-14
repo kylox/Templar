@@ -19,10 +19,8 @@ namespace Templar
             this.Mapi = map;
             this.Player = player;
             fichier = new FileStream(@"save/Save.txt", FileMode.OpenOrCreate,FileAccess.Write);
-            stream = new BinaryWriter(fichier);
-            
+            stream = new BinaryWriter(fichier); 
         }
-
         public void Save()
         {
             stream.Write((int)Player.Position.X);

@@ -17,7 +17,7 @@ namespace Templar
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-
+        Caracteristique carac;
         SpriteBatch spriteBatch;
         KeyboardState oldKeyboard;
         KeyboardState keyboard;
@@ -45,7 +45,6 @@ namespace Templar
                 {
                     PreferredBackBufferWidth = 800,
                     PreferredBackBufferHeight = 675
-
                 };
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
@@ -334,7 +333,6 @@ namespace Templar
             {
                 if (checkKey(Keys.Enter))
                 {
-
                     if (pause.SelectedIndex == 0)
                     {
                         activeScreen.hide();
@@ -344,11 +342,14 @@ namespace Templar
                         activeScreen = inventaire;
                         activeScreen.Show();
                     }
-
                     else
                         if (pause.SelectedIndex == 1)
                         {
-
+                            activeScreen.hide();
+                            carac = new Caracteristique(this, spriteBatch, main.player);
+                            Components.Add(carac);
+                            activeScreen = carac;
+                            activeScreen.Show();
                         }
                         else
                             if (pause.SelectedIndex == 2)
@@ -377,8 +378,6 @@ namespace Templar
                                         activeScreen.Show();
                                     }
                 }
-
-
                 if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
@@ -392,54 +391,35 @@ namespace Templar
             {
                 if (keyboard.IsKeyUp(Keys.H) && keyboard.IsKeyUp(Keys.J) && keyboard.IsKeyUp(Keys.K) && keyboard.IsKeyUp(Keys.L))
                     click_down = false;
-
-
                 if (keyboard.IsKeyDown(Keys.L) && SoundEffect.MasterVolume < 0.99f && click_down == false)
-                {
                     SoundEffect.MasterVolume += 0.01f;
-                }
-
                 if (keyboard.IsKeyDown(Keys.K) && SoundEffect.MasterVolume > 0.01f && click_down == false)
-                {
                     SoundEffect.MasterVolume -= 0.01f;
-                }
-
                 if (keyboard.IsKeyDown(Keys.J) && MediaPlayer.Volume < 0.99f && click_down == false)
-                {
                     MediaPlayer.Volume += 0.01f;
-                }
-
                 if (keyboard.IsKeyDown(Keys.H) && MediaPlayer.Volume > 0.01f && click_down == false)
-                {
                     MediaPlayer.Volume -= 0.01f;
-                }
-
                 if (checkKey(Keys.Enter))
                 {
                     if (option.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
-
                         if (ecran == false)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 1600;
-                            graphics.PreferredBackBufferWidth = 1350;
-
+                            graphics.PreferredBackBufferHeight = 675;
+                            graphics.PreferredBackBufferWidth = 800;
                             ecran = true;
                         }
                     }
-
                     if (option.SelectedIndex == 1)
                     {
                         ressource.selection.Play();
-
                         if (ecran == true)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 800;
-                            graphics.PreferredBackBufferWidth = 675;
-
+                            graphics.PreferredBackBufferHeight = 675;
+                            graphics.PreferredBackBufferWidth = 800;
                             ecran = false;
                         }
                     }
@@ -449,14 +429,12 @@ namespace Templar
                         MediaPlayer.IsMuted = false;
                         SoundEffect.MasterVolume = 0.5f;
                     }
-
                     if (option.SelectedIndex == 3)
                     {
                         ressource.selection.Play();
                         MediaPlayer.IsMuted = true;
                         SoundEffect.MasterVolume = 0;
                     }
-
                     if (option.SelectedIndex == 4)
                     {
                         ressource.selection.Play();
@@ -479,13 +457,21 @@ namespace Templar
                 }
             }
             #endregion
+            #region caracteristique
+            if (activeScreen == carac)
+            {
+                if (checkKey(Keys.Escape))
+                {
+                    activeScreen.hide();
+                    activeScreen = main;
+                    activeScreen.Show();
+                }
+            }
+            #endregion
             base.Update(gameTime);
-
             oldKeyboard = keyboard;
             oldmouse = mouse;
-
         }
-
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);

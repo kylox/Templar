@@ -25,8 +25,20 @@ namespace Templar
         Tile[,] tilelist;
         public int[,] colision;
         bool iscreate;
+        string message;
+        bool visited;
         # endregion
         #region fields
+        public bool Visited
+        {
+            get { return visited; }
+            set { visited = value; }
+        }
+        public string Message
+        {
+            get { return message; }
+            set { message = value; }
+        }
         public bool isCreate
         {
             get { return iscreate; }
@@ -56,7 +68,10 @@ namespace Templar
             tilelist = new Tile[25, 18];
             colision = new int[25, 18];
             iscreate = false;
+            visited = false;
+            message = "";
         }
+        //initialise le fond de la map (les tiles)
         public void init(string path)
         {
             StreamWriter sw = new StreamWriter(path);
@@ -71,6 +86,7 @@ namespace Templar
             }
             sw.Close();
         }
+        //initialise les colision
         public void init_coll(string path)
         {
             StreamWriter sw = new StreamWriter(path);
@@ -97,6 +113,7 @@ namespace Templar
             }
             sw.Close();
         }
+        //initialise les objet avec les murs qui vont bien
         public void init_objet(string path)
         {
             StreamWriter sw = new StreamWriter(path);
@@ -134,6 +151,7 @@ namespace Templar
             }
             sw.Close();
         }
+        //ecrit les colision des objet
         public void ecrire_coll(string path)
         {
             StreamWriter sw = new StreamWriter(path);
@@ -147,22 +165,22 @@ namespace Templar
             }
             sw.Close();
         }
+        //ecrit le objet
         public void ecrire_objet(string path)
         {
             StreamWriter sw = new StreamWriter(path);
             for (int j = 0; j < tiles.GetLength(1); j++)
             {
                 for (int i = 0; i < tiles.GetLength(0); i++)
-                {
                     if (objet[i, j] != new Vector2(15, 15))
                         sw.Write(cursor.vec_to_id(objet[i, j]));
                     else
                         sw.Write(cursor.vec_to_id(new Vector2(15, 15)));
-                }
                 sw.WriteLine();
             }
             sw.Close();
         }
+        //charge la map
         public void load(string path)
         {
             try
@@ -173,9 +191,7 @@ namespace Templar
                 while ((ligne = sr.ReadLine()) != null)
                 {
                     for (int i = 0; i < tiles.GetLength(0); i++)
-                    {
                         tiles[i, j] = (cursor.id_to_vec(ligne[i]));
-                    }
                     j += 1;
                 }
                 sr.Close();
@@ -185,6 +201,7 @@ namespace Templar
                 Console.WriteLine("erreur : " + e.Message);
             }
         }
+        //charge les objet de la map
         public void load_objet(string path)
         {
             try
@@ -199,7 +216,7 @@ namespace Templar
                         if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
                         {
                             if (ligne[i] == cursor.vec_to_id(Vector2.Zero))
-                                Coffres[i,j] = new Coffre(new Vector2(i, j));
+                                Coffres[i, j] = new Coffre(new Vector2(i, j));
 
                             objet[i, j] = (cursor.id_to_vec(ligne[i]));
                         }
@@ -236,7 +253,7 @@ namespace Templar
 
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released &&
-                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 32, 16 * 32))
+                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
                 && text.Is_shown == false)
             {
                 objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
@@ -273,13 +290,9 @@ namespace Templar
         public bool ValidCoordinate(int x, int y)
         {
             if (x < 0 || y < 0 || x >= tilelist.GetLength(0) || y >= tilelist.GetLength(1))
-            {
                 return false;
-            }
             else
-            {
                 return true;
-            }
         }
     }
 }

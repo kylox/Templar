@@ -116,7 +116,7 @@ namespace Templar
         }
         public void Attaque(Personnage attaquant, Personnage attaque)
         {
-            attaque.Pv -= attaquant.attaque * 3;
+            attaque.Pv -= attaquant.attaque * 5;
         }
         bool coll(Map map)
         {

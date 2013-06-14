@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUTTON.cs" />
+    <Compile Include="jeu\Caracteristique.cs" />
     <Compile Include="jeu\character\joueur\Coffre.cs" />
     <Compile Include="misc\menudeux.cs" />
     <Compile Include="Princess.cs" />

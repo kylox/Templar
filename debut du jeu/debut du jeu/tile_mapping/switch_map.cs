@@ -27,7 +27,6 @@ namespace Templar
         Map active_map;
         public int x { get; set; }
         public int y { get; set; }
-
         public Map Active_Map
         {
             get { return active_map; }
