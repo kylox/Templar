@@ -96,11 +96,11 @@ namespace Templar
             Walls = new List<wall>();
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
-            position_joueur = new Vector2(32, 32);
+            position_joueur = donjon.position;
             localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon);
-            map.Active_Map = map.Listes_map[0, 0];
+            map.Active_Map = map.Listes_map[(int)donjon.map.X, (int)donjon.map.Y];
             pop_time = 0;
             score = 0;
             count_dead_zombi = 0;

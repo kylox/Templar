@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Net;
+using Microsoft.Xna.Framework.Storage;
 
 namespace Templar
 {
     class Donjon
     {
+        public Vector2 map;
+        public Vector2 position;
         Map[,] _maps;
         public Map[,] Map
         {
@@ -16,10 +27,11 @@ namespace Templar
         }
         public Donjon(string path, bool edm)
         {
+            map = new Vector2(0, 0);
+            position = new Vector2(32, 32);
             int x = 0;
             int y = 0;
             _maps = new Map[5, 5];
-
             if (edm == false)
                 foreach (string dr in System.IO.Directory.GetDirectories(path))
                 {
@@ -50,12 +62,20 @@ namespace Templar
                                 _maps[x, y].load(file);
                             }
                             else
-                                if (file[file.Length - 15] == 'c')
+                                if (file[file.Length - 13] == 'm')
                                 {
                                     if (_maps[x, y] == null)
                                         _maps[x, y] = new Map();
-                                    _maps[x, y].load_collision(file);
+                                    _maps[x, y].load_message(file);
                                 }
+                                else
+                                    if (file[file.Length - 15] == 'c')
+                                    {
+                                        if (_maps[x, y] == null)
+                                            _maps[x, y] = new Map();
+                                        _maps[x, y].load_collision(file);
+                                    }
+
                     }
                 }
         }
@@ -74,6 +94,7 @@ namespace Templar
             Stream sr3 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr3.Close();
             Stream sr4 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\message" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
+            sr4.Close();
             _maps[i, j] = new Map();
             this.Map[i, j].init(@"Donjons\" + @path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
             this.Map[i, j].init_objet(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");

@@ -43,7 +43,7 @@ namespace Templar
             graphics = new GraphicsDeviceManager(this)
                 {
                     PreferredBackBufferWidth = 900,
-                    PreferredBackBufferHeight = 700
+                    PreferredBackBufferHeight = 800
                 };
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;

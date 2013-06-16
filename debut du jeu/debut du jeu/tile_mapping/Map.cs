@@ -252,6 +252,12 @@ namespace Templar
             }
             sr.Close();
         }
+        public void load_message(string path)
+        {
+            StreamReader sr = new StreamReader(path);
+            message = sr.ReadToEnd();
+            sr.Close();
+        }
         public void Update(GameTime gametime, string path, string path_coll,string path_message, textbox text)
         {
             lastKeyboardState = keyboardState;
