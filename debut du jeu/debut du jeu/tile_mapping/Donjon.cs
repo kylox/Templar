@@ -73,6 +73,7 @@ namespace Templar
             sr2.Close();
             Stream sr3 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr3.Close();
+            Stream sr4 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\message" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             _maps[i, j] = new Map();
             this.Map[i, j].init(@"Donjons\" + @path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
             this.Map[i, j].init_objet(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");

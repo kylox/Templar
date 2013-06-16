@@ -20,10 +20,10 @@ namespace Templar
         Rectangle fenetre;
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
-        Map map;
         Tile current_tile;
         Rectangle tileset;
         Map[,] listes_map;
+        Map map;
         Donjon Donjon;
         Point actuel;
         bool selec;
@@ -41,7 +41,7 @@ namespace Templar
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));
             message = new textbox(new Rectangle(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3, 600, 200));
-            message.Is_shown = true;
+            message.Is_shown = false;
             current_tile = new Tile(0, 0, 0);
             tileset = new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height);
             listes_map = new Map[5, 5];
@@ -74,7 +74,11 @@ namespace Templar
                 text.Is_shown = true;
             //donjon creer
             if (text.Is_shown && keyboardState.IsKeyDown(Keys.F1))
+            {
                 creation_donjon(text.Saisie);
+                message.Is_shown = true;
+                text.Is_shown = false;
+            }
             //si donfon creer alors on update
             if (Donjon != null)
             {
@@ -84,29 +88,27 @@ namespace Templar
                 if (selec == true)
                     message.update();
                 if (nb < 10)
-                    Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt", @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt", text);
+                    Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt",
+@"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
+@"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @nb + @".txt", text);
                 else
-                    Donjon.Map[actuel.X, actuel.Y].Update(gameTime, @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt", @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt", text);
-                if (map != null)
-                    map.Message = message.Saisie;
+                    Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
+@"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt",
+@"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
+@"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt", text);
+                Donjon.Map[actuel.X, actuel.Y].Message = message.Saisie;
             }
-            //ne sert a rien
-            if (text.Is_shown && keyboardState.IsKeyDown(Keys.F2))
-            {
-                map = new Map();
-                map.load(text.Saisie + ".txt");
-                text.Is_shown = false;
-            }
-            if (text.Is_shown == false && keyboardState.IsKeyDown(Keys.A))
-                text.Is_shown = true;
         }
         public void selectiomessage()
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre)
-                        && Data.mouseState.LeftButton == ButtonState.Pressed
-                        && Data.prevMouseState.LeftButton != ButtonState.Pressed)
+                && Data.mouseState.LeftButton == ButtonState.Pressed
+                && Data.prevMouseState.LeftButton == ButtonState.Released)
                 selec = true;
-            else
+            if ((!new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre))
+                && Data.mouseState.LeftButton == ButtonState.Pressed
+                && Data.prevMouseState.LeftButton == ButtonState.Released)
                 selec = false;
         }
         //selectionne la map dans l'edm
@@ -180,60 +182,63 @@ namespace Templar
         }
         public override void Draw(GameTime gameTime)
         {
-            if (selec == true)
-            {
-                spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, 3, message.Fenetre.Height + 3), Color.Gray);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, message.Fenetre.Width + 6, 3), Color.Gray);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(
-                    message.Fenetre.X - 3,
-                    message.Fenetre.Height + message.Fenetre.Y,
-                    message.Fenetre.Width + 3,
-                    3),
-                    Color.Gray);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(
-                    message.Fenetre.Width + message.Fenetre.X,
-                    Fenetre.Y,
-                    3,
-                    message.Fenetre.Height + 3),
-                    Color.Gray);
-
-            }
-            //dessine la map + ou on est sur la map !
-            if (Donjon != null && Donjon.Map[actuel.X, actuel.Y] != null)
-            {
-                Donjon.Map[actuel.X, actuel.Y].Draw(spriteBatch, 16);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y, 16, 1), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y, 1, 8), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y + 8, 16, 1), Color.Red);
-                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X + 16, 300 + 32 * actuel.Y, 1, 8), Color.Red);
-            }
-            spriteBatch.Draw(ressource.objet_map, new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height), Color.White);
-            //dessine les ligne de l'editeur de map
-            for (int i = 0; i <= 16 * 32; i += 16)
-            {
-                spriteBatch.Draw(ressource.pixel, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
-                spriteBatch.Draw(ressource.pixel, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
-            }
-            //dessine le rectangle rouge de la souris
-            for (int i = 0; i < 5; i++)
-                for (int j = 0; j < 5; j++)
-                {
-                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8)))
-                        spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(204, 0, 0, 50));
-                    else
-                        if (Donjon != null && Donjon.Map[i, j] != null && Donjon.Map[i, j].isCreate == true)
-                            spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(51, 204, 0, 50));
-                        else
-                            spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
-                }
-            cursor.Draw(spriteBatch, fenetre);
-            spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
-            message.Draw(spriteBatch);
             if (text.Is_shown == true)
             {
                 spriteBatch.Draw(ressource.pixel, new Rectangle(0, 0, fenetre.Width, fenetre.Height), Color.FromNonPremultiplied(0, 0, 0, 255));
                 spriteBatch.DrawString(ressource.ecriture, "Veuillez entrez le nom de donjon, une fois fait, appuyez sur F1 pour demarer", new Vector2(fenetre.Width / 9, (int)fenetre.Height / 2), Color.Red);
                 text.Draw(spriteBatch);
+            }
+            else
+            {
+                spriteBatch.Draw(ressource.pixel, message.Fenetre, Color.White);
+                if (selec == true)
+                {
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, 3, message.Fenetre.Height + 3), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, message.Fenetre.Width + 6, 3), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(
+                        message.Fenetre.X - 3,
+                        message.Fenetre.Height + message.Fenetre.Y,
+                        message.Fenetre.Width + 3,
+                        3),
+                        Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(
+                        message.Fenetre.Width + message.Fenetre.X,
+                        Fenetre.Y,
+                        3,
+                        message.Fenetre.Height + 3),
+                        Color.Red);
+                }
+                //dessine la map + ou on est sur la map !
+                if (Donjon != null && Donjon.Map[actuel.X, actuel.Y] != null)
+                {
+                    Donjon.Map[actuel.X, actuel.Y].Draw(spriteBatch, 16);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y, 16, 1), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y, 1, 8), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X, 300 + 32 * actuel.Y + 8, 16, 1), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * actuel.X + 16, 300 + 32 * actuel.Y, 1, 8), Color.Red);
+                }
+                spriteBatch.Draw(ressource.objet_map, new Rectangle(fenetre.Width - ressource.objet_map.Width, 0, ressource.objet_map.Width, ressource.objet_map.Height), Color.White);
+                //dessine les ligne de l'editeur de map
+                for (int i = 0; i <= 16 * 32; i += 16)
+                {
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(i, 0, 1, 16 * 32), Color.FromNonPremultiplied(0, 0, 0, 250));
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(0, i, 16 * 32, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
+                }
+                //dessine le rectangle rouge de la souris
+                for (int i = 0; i < 5; i++)
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8)))
+                            spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(204, 0, 0, 50));
+                        else
+                            if (Donjon != null && Donjon.Map[i, j] != null && Donjon.Map[i, j].isCreate == true)
+                                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(51, 204, 0, 50));
+                            else
+                                spriteBatch.Draw(ressource.pixel, new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
+                    }
+                cursor.Draw(spriteBatch, fenetre);
+                spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
+                message.Draw(spriteBatch);
             }
         }
     }

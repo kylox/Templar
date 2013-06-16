@@ -38,13 +38,12 @@ namespace Templar
         textbox box;
         bool ecran;
         bool click_down;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this)
                 {
-                    PreferredBackBufferWidth = 800,
-                    PreferredBackBufferHeight = 675
+                    PreferredBackBufferWidth = 900,
+                    PreferredBackBufferHeight = 700
                 };
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
@@ -107,12 +106,10 @@ namespace Templar
             MediaPlayer.IsMuted = true;
             SoundEffect.MasterVolume = 0f;
         }
-
         protected override void UnloadContent()
         {
             Content.Unload();
         }
-
         private bool checkKey(Keys theKey)
         {
             if (activeScreen == pause)
@@ -382,6 +379,7 @@ namespace Templar
                 {
                     activeScreen.hide();
                     activeScreen = main;
+                    
                     activeScreen.Show();
                 }
             }
@@ -407,8 +405,6 @@ namespace Templar
                         if (ecran == false)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 675;
-                            graphics.PreferredBackBufferWidth = 800;
                             ecran = true;
                         }
                     }
@@ -418,8 +414,6 @@ namespace Templar
                         if (ecran == true)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 675;
-                            graphics.PreferredBackBufferWidth = 800;
                             ecran = false;
                         }
                     }
@@ -452,7 +446,7 @@ namespace Templar
                 if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
-                    activeScreen = pause;
+                    activeScreen = menu;
                     activeScreen.Show();
                 }
             }

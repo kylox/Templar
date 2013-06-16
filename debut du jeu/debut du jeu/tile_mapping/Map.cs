@@ -180,6 +180,12 @@ namespace Templar
             }
             sw.Close();
         }
+        public void ecrire_message(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            sw.Write(message);
+            sw.Close();
+        }
         //charge la map
         public void load(string path)
         {
@@ -246,7 +252,7 @@ namespace Templar
             }
             sr.Close();
         }
-        public void Update(GameTime gametime, string path, string path_coll, textbox text)
+        public void Update(GameTime gametime, string path, string path_coll,string path_message, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
@@ -275,6 +281,7 @@ namespace Templar
                 }
                 ecrire_objet(path);
                 ecrire_coll(path_coll);
+                ecrire_message(path_message);
             }
         }
         public void Draw(SpriteBatch spriteBatch, int x)

@@ -411,8 +411,6 @@ namespace Templar
             if (Is_Client || Is_Server)
                 Player2.Draw(spriteBatch);
 
-
-
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);
 
             if (timer_level_up < 60 && localPlayer.Niveau != 1)
