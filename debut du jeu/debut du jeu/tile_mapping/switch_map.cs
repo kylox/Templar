@@ -66,7 +66,7 @@ namespace Templar
                     && x - 1 >= 0 && listes_map[x - 1, y] != null)
                 {
                     x--;
-                    player.Position = new Vector2(main.Fenetre.Width - 64, player.Position.Y);
+                    player.Position = new Vector2(25 * 32 - 64, player.Position.Y);
                     main.List_Objet_Map.Clear();
                     main.List_Zombie.Clear();
                     main.List_Sort.Clear();
@@ -79,7 +79,7 @@ namespace Templar
                 && y - 1 >= 0 && listes_map[x, y - 1] != null)
                     {
                         y--;
-                        player.Position = new Vector2(player.Position.X, main.Fenetre.Height - 64 - 99);
+                        player.Position = new Vector2(player.Position.X, 18 * 32 - 64);
                         main.List_Objet_Map.Clear();
                         main.List_Zombie.Clear();
                         main.List_Sort.Clear();

@@ -13,7 +13,6 @@ namespace Templar
 {
     public static class cursor
     {
-        static Vector2 position_J;
         public static bool position = false;
         static Texture2D Texture = ressource.objet_map;
         static Vector2 ID = new Vector2(0, 0);

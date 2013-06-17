@@ -177,3 +177,4 @@ C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Mu
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb

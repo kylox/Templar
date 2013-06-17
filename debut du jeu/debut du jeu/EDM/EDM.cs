@@ -24,6 +24,7 @@ namespace Templar
         Rectangle tileset;
         Map[,] listes_map;
         Map map;
+        Map prevfirst;
         Donjon Donjon;
         Point actuel;
         bool selec;
@@ -64,6 +65,13 @@ namespace Templar
                         if ((cursor.iD == new Vector2(1, 6) || cursor.iD == new Vector2(1, 5)) && Data.mouseState.Y / 32 == 24)
                             map.ecrire_objet(path);
         }
+        public void ecrire_position(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            sw.WriteLine(position.X + " " + position.Y);
+            sw.WriteLine(actuel.X + " " + actuel.Y);
+            sw.Close();
+        }
         public override void Update(GameTime gameTime)
         {
             lastKeyboardState = keyboardState;
@@ -86,32 +94,58 @@ namespace Templar
                 creation_map();
                 selectionmap();
                 selectiomessage();
+                //met a jour le message de la map
                 Donjon.Map[actuel.X, actuel.Y].Message = message.Saisie;
-                if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(
-                    new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString("position joueur").X, 0, (int)ressource.ecriture.MeasureString("position joueur").X, (int)ressource.ecriture.MeasureString("position joueur").Y)))
+                //check le cursor position joueur
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                        Data.prevMouseState.LeftButton == ButtonState.Released &&
+                            new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(
+                                new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString("position joueur").X, 0, (int)ressource.ecriture.MeasureString("position joueur").X, (int)ressource.ecriture.MeasureString("position joueur").Y)))
                     cursor.position = true;
 
-                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
-   Data.prevMouseState.LeftButton == ButtonState.Released &&
-   new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-   && text.Is_shown == false && cursor.position == true)
-                {
-                    position = new Vector2(Data.mouseState.X / 16, Data.mouseState.Y / 16);
-                    cursor.position = false;
-                }
 
+                //sinon on a selectionner la textbox
                 if (selec == true)
                     message.update();
+
+                //fait l'update de la map 
                 if (nb < 10)
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt",
-@"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
-@"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt", text);
+                            @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
+                                @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt", text);
                 else
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
-@"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt",
-@"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
-@"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt", text);
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt",
+                            @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
+                                @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt", text);
+
+                //change l'endroit de pop du joueur
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                        Data.prevMouseState.LeftButton == ButtonState.Released &&
+                            new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18)) &&
+                                 text.Is_shown == false && cursor.position == true)
+                {
+                    if (prevfirst != null)
+                    {
+                        prevfirst.isfirst = false;
+                        position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
+                        Donjon.Map[actuel.X, actuel.Y].isfirst = true;
+                        prevfirst = Donjon.Map[actuel.X, actuel.Y];
+                        ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
+                        cursor.position = false;
+                    }
+                    else
+                    {
+                        position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
+                        Donjon.Map[actuel.X, actuel.Y].isfirst = true;
+                        prevfirst = Donjon.Map[actuel.X, actuel.Y];
+
+                        ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
+                        cursor.position = false;
+
+                    }
+                }
             }
         }
         public void selectiomessage()
@@ -130,7 +164,7 @@ namespace Templar
         {
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
-                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8))
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8))
                         && Data.mouseState.LeftButton == ButtonState.Pressed
                         && Data.prevMouseState.LeftButton != ButtonState.Pressed && Donjon.Map[i, j] != null)
                     {
@@ -145,7 +179,7 @@ namespace Templar
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                 {
-                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(600 + 32 * i, 300 + 32 * j, 16, 8))
+                    if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8))
                         && Data.mouseState.LeftButton == ButtonState.Pressed
                         && Data.prevMouseState.LeftButton != ButtonState.Pressed && Donjon.Map[i, j] == null)
                     {
@@ -186,6 +220,8 @@ namespace Templar
                 else
                     nombre = Convert.ToString(nb);
                 System.IO.Directory.CreateDirectory(@"Donjons\" + @text.Saisie + @"\Map" + @nombre);
+                Stream sr = new FileStream(@"Donjons\" + @text.Saisie + @"\autres.txt", FileMode.Create);
+                sr.Close();
                 Donjon = new Donjon(path, true);
                 Donjon.Ajout_map(0, 0, 0, text.Saisie);
                 text.Is_shown = false;
@@ -226,21 +262,26 @@ namespace Templar
                     spriteBatch.Draw(ressource.pixel, new Rectangle(i, 0, 1, 16 * 18), Color.FromNonPremultiplied(0, 0, 0, 250));
                 for (int j = 0; j < 16 * 18; j += 16)
                     spriteBatch.Draw(ressource.pixel, new Rectangle(0, j, 16 * 25, 1), Color.FromNonPremultiplied(0, 0, 0, 250));
-                //dessine les quadrillage du donjon 
+                //dessine les 25 maps du donjon 
                 for (int i = 0; i < 5; i++)
                     for (int j = 0; j < 5; j++)
                     {
                         if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8)))
                             spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(204, 0, 0, 50));
                         else
-                            if (Donjon != null && Donjon.Map[i, j] != null && Donjon.Map[i, j].isCreate == true)
-                                spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(51, 204, 0, 50));
+                            if (Donjon != null && Donjon.Map[i, j] != null && Donjon.Map[i, j].isfirst == true)
+                                spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.Blue);
                             else
-                                spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
+                                if (Donjon != null && Donjon.Map[i, j] != null && Donjon.Map[i, j].isCreate == true)
+                                    spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(51, 204, 0, 50));
+                                else
+                                    spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
                     }
                 cursor.Draw(spriteBatch, fenetre);
                 spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
                 message.Draw(spriteBatch);
+                if (Donjon.Map[actuel.X, actuel.Y].isfirst == true)
+                    spriteBatch.Draw(ressource.cross, new Rectangle((int)position.X, (int)position.Y, 16, 16), Color.White);
                 if (selec == true)
                 {
                     spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, 3, message.Fenetre.Height + 3), Color.Red);

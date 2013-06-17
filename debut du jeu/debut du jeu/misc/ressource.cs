@@ -22,7 +22,8 @@ namespace Templar
             glace, boule_de_feu, // sort 
             ARBRE, MUR, STATUT, SOL, // EDM
             potion_vie, potion_mana,//POTION
-            tile, plus, moin, objet_map, mob;
+            tile, plus, moin, objet_map, mob
+            ,cross;
         public static SoundEffect selection, lowHP, feu, pique; //ressource des bruitage
         public static Song menu, main_theme;
         public static SpriteFont ecriture;
@@ -80,6 +81,7 @@ namespace Templar
             MUR = Content.Load<Texture2D>(@"Sprite\Tile\ARBRE");//AMODIFIE
             STATUT = Content.Load<Texture2D>(@"Sprite\Tile\STATUT");
             SOL = Content.Load<Texture2D>(@"Sprite\Tile\SOL");
+            cross = Content.Load<Texture2D>("cross");
         }
     }
 }

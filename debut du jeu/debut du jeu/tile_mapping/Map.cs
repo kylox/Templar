@@ -27,6 +27,7 @@ namespace Templar
         bool iscreate;
         string message;
         bool visited;
+        public bool isfirst;
         # endregion
         #region fields
         public bool Visited
@@ -70,6 +71,7 @@ namespace Templar
             iscreate = false;
             visited = false;
             message = "";
+            isfirst = false;
         }
         //initialise le fond de la map (les tiles)
         public void init(string path)
@@ -258,7 +260,7 @@ namespace Templar
             message = sr.ReadToEnd();
             sr.Close();
         }
-        public void Update(GameTime gametime, string path, string path_coll,string path_message, textbox text)
+        public void Update(GameTime gametime, string path, string path_coll, string path_message, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();

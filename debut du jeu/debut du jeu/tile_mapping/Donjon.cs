@@ -17,22 +17,37 @@ namespace Templar
 {
     class Donjon
     {
+        //position de la premiere map
         public Vector2 map;
-        public Vector2 position;
+        //position du joueur dans la premiere map 
+        public Vector2 position_J;
         Map[,] _maps;
         public Map[,] Map
         {
             get { return _maps; }
             set { _maps = value; }
         }
+        public void load_position(string Path)
+        {
+            StreamReader sr = new StreamReader(Path);
+            string ligne = sr.ReadLine();
+            string[] pos = ligne.Split(' ');
+            position_J.X = Convert.ToInt32(pos[0]);
+            position_J.Y = Convert.ToInt32(pos[1]);
+            ligne = sr.ReadLine();
+            pos = ligne.Split(' ');
+            map.X = Convert.ToInt32(pos[0]);
+            map.Y = Convert.ToInt32(pos[1]);
+            sr.Close();
+        }
         public Donjon(string path, bool edm)
         {
-            map = new Vector2(0, 0);
-            position = new Vector2(32, 32);
             int x = 0;
             int y = 0;
             _maps = new Map[5, 5];
             if (edm == false)
+            {
+                load_position(path + @"\autre" + @".txt");
                 foreach (string dr in System.IO.Directory.GetDirectories(path))
                 {
                     for (int i = 0; i < Convert.ToInt32(Convert.ToString(dr[dr.Length - 2])) * 10 + Convert.ToInt32(Convert.ToString(dr[dr.Length - 1])); i++)
@@ -46,38 +61,38 @@ namespace Templar
                     }
                     foreach (string file in System.IO.Directory.GetFiles(dr))
                     {
-                        if (file[file.Length - 9] == 'M')
+                        if (file[file.Length - 9] == 'M')//3
                         {
                             if (_maps[x, y] == null)
                                 _maps[x, y] = new Map();
                             _maps[x, y].load_objet(file);
-                            x = 0;
-                            y = 0;
                         }
                         else
-                            if (file[file.Length - 10] == 'f')
+                            if (file[file.Length - 10] == 'f')//2
                             {
                                 if (_maps[x, y] == null)
                                     _maps[x, y] = new Map();
                                 _maps[x, y].load(file);
                             }
                             else
-                                if (file[file.Length - 13] == 'm')
+                                if (file[file.Length - 13] == 'm')//4
                                 {
                                     if (_maps[x, y] == null)
                                         _maps[x, y] = new Map();
                                     _maps[x, y].load_message(file);
+                                    x = 0;
+                                    y = 0;
                                 }
                                 else
-                                    if (file[file.Length - 15] == 'c')
+                                    if (file[file.Length - 15] == 'c')//1
                                     {
                                         if (_maps[x, y] == null)
                                             _maps[x, y] = new Map();
                                         _maps[x, y].load_collision(file);
                                     }
-
                     }
                 }
+            }
         }
         public void Ajout_map(int i, int j, int nb, string path)
         {
