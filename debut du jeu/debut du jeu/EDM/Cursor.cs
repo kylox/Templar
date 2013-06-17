@@ -13,6 +13,8 @@ namespace Templar
 {
     public static class cursor
     {
+        static Vector2 position_J;
+        public static bool position = false;
         static Texture2D Texture = ressource.objet_map;
         static Vector2 ID = new Vector2(0, 0);
         static public Vector2 iD
@@ -63,14 +65,25 @@ namespace Templar
                 spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32, (int)ID.Y * 32 + 32, 34, 2), Color.Red);
                 spriteBatch.Draw(ressource.pixel, new Rectangle((int)fenetre.Width - (int)Math.Abs(ID.X - 6) * 32 + 32, (int)ID.Y * 32, 2, 34), Color.Red);
             }
+           
             for (int i = 0; i < 16 * 25; i += 16)
                 for (int j = 0; j < 16 * 18; j += 16)
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))
                     {
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 16, 2), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 2, 16), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Red);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
+                        if (position == false)
+                        {
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 16, 2), Color.Red);
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 2, 16), Color.Red);
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Red);
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Red);
+                        }
+                        else
+                        {
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 16, 2), Color.Blue);
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j, 2, 16), Color.Blue);
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i, (int)j + 16, 18, 2), Color.Blue);
+                            spriteBatch.Draw(ressource.pixel, new Rectangle((int)i + 16, (int)j, 2, 18), Color.Blue);
+                        }
                     }
         }
     }

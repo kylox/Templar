@@ -28,6 +28,7 @@ namespace Templar
         Point actuel;
         bool selec;
         int nb;
+        Vector2 position;
         #endregion
         public Rectangle Fenetre
         {
@@ -86,6 +87,19 @@ namespace Templar
                 selectionmap();
                 selectiomessage();
                 Donjon.Map[actuel.X, actuel.Y].Message = message.Saisie;
+                if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(
+                    new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString("position joueur").X, 0, (int)ressource.ecriture.MeasureString("position joueur").X, (int)ressource.ecriture.MeasureString("position joueur").Y)))
+                    cursor.position = true;
+
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+   Data.prevMouseState.LeftButton == ButtonState.Released &&
+   new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+   && text.Is_shown == false && cursor.position == true)
+                {
+                    position = new Vector2(Data.mouseState.X / 16, Data.mouseState.Y / 16);
+                    cursor.position = false;
+                }
+
                 if (selec == true)
                     message.update();
                 if (nb < 10)
@@ -192,7 +206,11 @@ namespace Templar
             }
             else
             {
-
+                //dessine la string de positionnement du joueur
+                if (cursor.position == false)
+                    spriteBatch.DrawString(ressource.ecriture, "position joueur", new Vector2(tileset.X - ressource.ecriture.MeasureString("position joueur").X, 0), Color.White);
+                else
+                    spriteBatch.DrawString(ressource.ecriture, "position joueur", new Vector2(tileset.X - ressource.ecriture.MeasureString("position joueur").X, 0), Color.Red);
                 //dessine la map + ou on est sur la map !
                 if (Donjon != null && Donjon.Map[actuel.X, actuel.Y] != null)
                 {
