@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-    class potion : item
+   public class potion : item
     {
         Rectangle Hitbox_potion;
         gamemain Main;

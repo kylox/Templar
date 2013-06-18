@@ -19,11 +19,13 @@ namespace Templar
         #region variable
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
+        public List<NPC> monstre;
         Vector2[,] tiles;
         public Vector2[,] objet;
         public Coffre[,] Coffres;
         Tile[,] tilelist;
         public int[,] colision;
+        public Vector2[,] mob;
         bool iscreate;
         string message;
         bool visited;
@@ -56,6 +58,7 @@ namespace Templar
         #endregion
         public Map()
         {
+            monstre = new List<NPC>();
             tiles = new Vector2[25, 18];
             objet = new Vector2[25, 18];
             Coffres = new Coffre[25, 18];
@@ -68,6 +71,7 @@ namespace Templar
             }
             tilelist = new Tile[25, 18];
             colision = new int[25, 18];
+            mob = new Vector2[25, 18];
             iscreate = false;
             visited = false;
             message = "";
@@ -153,6 +157,20 @@ namespace Templar
             }
             sw.Close();
         }
+        public void init_mob(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int i = 0; i < 25; i++)
+            {
+                for (int j = 0; j < 18; j++)
+                {
+                    mob[i, j] = new Vector2(15, 15);
+                    sw.Write(cursor.vec_to_id(mob[i, j]));
+                }
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
         //ecrit les colision des objet
         public void ecrire_coll(string path)
         {
@@ -178,6 +196,17 @@ namespace Templar
                         sw.Write(cursor.vec_to_id(objet[i, j]));
                     else
                         sw.Write(cursor.vec_to_id(new Vector2(15, 15)));
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
+        public void ecrire_mob(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int j = 0; j < tiles.GetLength(1); j++)
+            {
+                for (int i = 0; i < tiles.GetLength(0); i++)
+                    sw.Write(cursor.vec_to_id(mob[i, j]));
                 sw.WriteLine();
             }
             sw.Close();
@@ -260,7 +289,57 @@ namespace Templar
             message = sr.ReadToEnd();
             sr.Close();
         }
-        public void Update(GameTime gametime, string path, string path_coll, string path_message, textbox text)
+        public void load_mob(string path,gamemain main)
+        {
+            int j = 0;
+            StreamReader sr = new StreamReader(path);
+            string ligne;
+            while ((ligne = sr.ReadLine()) != null)
+            {
+                for (int i = 0; i < tiles.GetLength(0); i++)
+                {
+                    if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
+                    {
+                        switch ((int)cursor.id_to_vec(ligne[i]).X)
+                        {
+                            case 0:
+                                monstre.Add(new NPC(32, 48, 4, 3, 0, 15, 2, new Vector2(i*32,j*32), ressource.mob,main.player,this));
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 5:
+                                break;
+                            case 6:
+                                break;
+                            case 7:
+                                break;
+                            case 8:
+                                break;
+                            case 9:
+                                break;
+                            case 10:
+                                break;
+                            case 11:
+                                break;
+                            case 12:
+                                break;
+                            case 13:
+                                break;
+                            case 14: 
+                                break;
+                        }
+                    }
+                }
+                j += 1;
+            }
+            sr.Close();
+
+        }
+        public void Update(GameTime gametime, string path, string path_coll, string path_message, string path_mob, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
@@ -268,7 +347,7 @@ namespace Templar
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released &&
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-                && text.Is_shown == false && cursor.position == false)
+                && text.Is_shown == false && cursor.position == false && cursor.selected == true)
             {
                 objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
                 if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(1, 2) &&
@@ -290,6 +369,14 @@ namespace Templar
                 ecrire_objet(path);
                 ecrire_coll(path_coll);
                 ecrire_message(path_message);
+            }
+            if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+               Data.prevMouseState.LeftButton == ButtonState.Released &&
+               new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+               && text.Is_shown == false && cursor.position == false && cursor.selected_mob == true)
+            {
+                mob[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                ecrire_mob(path_mob);
             }
         }
         public void Draw(SpriteBatch spriteBatch, int x)

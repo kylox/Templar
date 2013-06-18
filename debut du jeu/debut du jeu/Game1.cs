@@ -142,7 +142,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), false, "");
+                        main = new gamemain(this, spriteBatch, activeScreen,new Donjon(@"Donjons\" + creation.donjon, false), false, "");
                         Components.Add(main);
                         main.hide();
 
@@ -378,8 +378,7 @@ namespace Templar
                 if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
-                    activeScreen = main;
-                    
+                    activeScreen = main;                 
                     activeScreen.Show();
                 }
             }

@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Templar
 {
     /*ceci est la fusion de la classe actionscreen(useless maintenant) et gamemain */
-    class gamemain : GameScreen
+    public class gamemain : GameScreen
     {
 
         //field ecran 
@@ -87,9 +87,10 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p, string ip)
             : base(game, spriteBatch)
         {
-            text = new textbox(new Rectangle(fenetre.Width / 3, fenetre.Height / 3, 96, 32));
-            text.Is_shown = false;
+
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
+            text = new textbox(new Rectangle(0, 18 * 32 + 7, 200, 100));
+            text.Is_shown = false;
             #region init du jeu
             x = new Random();
             keyboard = new KeyboardState();
@@ -164,6 +165,8 @@ namespace Templar
         }
         public override void Update(GameTime gameTime)
         {
+            text.Fenetre.Width = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).X + 7;
+            text.Fenetre.Height = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).Y + 7;
             //ICI
             if (text.Is_shown == false)
             {
@@ -192,7 +195,7 @@ namespace Templar
                 {
                     if (pop_time == 120)
                     {
-                        list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 4, position_npc, ressource.mob, localPlayer, this));
+                        list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 4, position_npc, ressource.mob, localPlayer, map.Active_Map));
                         if (Is_Server)
                             Serveur.Send(42, 1, 0);
                         if (Is_Client)
@@ -201,7 +204,7 @@ namespace Templar
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.P) && Data.prevKeyboardState.IsKeyUp(Keys.P))
                     {
-                        princess = new Princess(32, 48, 4, 3, 40, 15, 2, new Vector2(64, 32), ressource.mob, localPlayer, this);
+                        princess = new Princess(32, 48, 4, 3, 40, 15, 2, new Vector2(64, 32), ressource.mob, localPlayer);
                         if (Is_Server)
                             Serveur.Send(42, 1, 0);
                         if (Is_Client)
@@ -209,7 +212,7 @@ namespace Templar
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.U) && Data.prevKeyboardState.IsKeyUp(Keys.U))
                     {
-                        list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, this));
+                        list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, map.Active_Map));
                         if (Is_Server)
                             Serveur.Send(42, 1, 0);
                         if (Is_Client)
@@ -217,7 +220,7 @@ namespace Templar
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.I) && Data.prevKeyboardState.IsKeyUp(Keys.I))
                     {
-                        list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 2, position_npc, ressource.mob, localPlayer, this));
+                        list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 2, position_npc, ressource.mob, localPlayer, map.Active_Map));
                         if (Is_Server)
                             Serveur.Send(42, 1, 0);
                         if (Is_Client)
@@ -225,7 +228,7 @@ namespace Templar
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.O) && Data.prevKeyboardState.IsKeyUp(Keys.O))
                     {
-                        list_zombi.Add(new NPC(32, 48, 4, 3, 4, 15, 4, position_npc, ressource.mob, localPlayer, this));
+                        list_zombi.Add(new NPC(32, 48, 4, 3, 4, 15, 4, position_npc, ressource.mob, localPlayer, map.Active_Map));
                         if (Is_Server)
                             Serveur.Send(42, 1, 0);
                         if (Is_Client)
@@ -439,12 +442,12 @@ namespace Templar
             spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * map.x, 300 + 32 * map.y, 1, 8), Color.Red);
             spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * map.x, 300 + 32 * map.y + 8, 16, 1), Color.Red);
             spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * map.x + 16, 300 + 32 * map.y, 1, 8), Color.Red);
-           
+
             if (princess != null)
                 princess.Draw(spriteBatch);
             HUD.draw(spriteBatch);
             spriteBatch.DrawString(ressource.ecriture, "coordonnees map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
-//dessine le rouge des collisions pour voir que ca marche A SUPPRIMER
+            //dessine le rouge des collisions pour voir que ca marche A SUPPRIMER
             for (int i = 0; i < 25; i++)
                 for (int j = 0; j < 18; j++)
                     if (map.Active_Map.colision[i, j] == 1)

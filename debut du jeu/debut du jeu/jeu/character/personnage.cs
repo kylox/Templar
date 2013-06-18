@@ -11,7 +11,7 @@ namespace Templar
         Up, Down, Left, Right, None
     };
     [Serializable()]
-    abstract class Personnage
+    public abstract class Personnage
     {
 
         //fields
@@ -22,7 +22,7 @@ namespace Templar
         protected Vector2 position;
         protected Direction Direction;
         Rectangle newHitbox;
-        gamemain main;
+
         //variable d'animation
         protected int timer, timer_speed;
         protected int Speed;
@@ -83,9 +83,8 @@ namespace Templar
         // main 
         public Personnage(int taille_image_x, int taille_image_y, int nb_frameLine,
             int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position
-            , Texture2D image, gamemain game)
+            , Texture2D image)
         {
-            main = game;
             this.position = position;
             this.animaitonspeed = animation_speed;
             timer = 0;

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Templar
 {
-    class wall
+   public class wall
     {
         //fields
         public Rectangle Hitbox;

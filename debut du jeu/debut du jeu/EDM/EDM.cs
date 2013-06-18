@@ -113,12 +113,14 @@ namespace Templar
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt",
                             @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
-                                @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt", text);
+                                @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt",
+                                    @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\creature" + @"0" + @nb + @".txt", text);
                 else
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt",
                             @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
-                                @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt", text);
+                                @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
+                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @nb + @".txt", text);
 
                 //change l'endroit de pop du joueur
                 if (Data.mouseState.LeftButton == ButtonState.Pressed &&
@@ -277,6 +279,31 @@ namespace Templar
                                 else
                                     spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
                     }
+
+                int k = 0;
+                for (int i = 0; i < 14; i++)
+                {
+                    if (i == 3)
+                    {
+                        spriteBatch.Draw(ressource.mob, new Rectangle(i * 32, 18 * 16 + 7, 64, 48), new Rectangle(k, 0, 64, 48), Color.White);
+                        k += 192;
+                        i += 1;
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(ressource.mob, new Rectangle(i * 32, 18 * 16 + 7, 32, 48), new Rectangle(k, 0, 32, 48), Color.White);
+                        k += 96;
+                    }
+                }
+
+                for (int j = 0; j < Donjon.Map[actuel.X, actuel.Y].mob.GetLength(1); j++)
+                    for (int i = 0; i < Donjon.Map[actuel.X, actuel.Y].mob.GetLength(0); i++)
+                        if (Donjon.Map[actuel.X, actuel.Y].mob[i, j] != new Vector2(15, 15))
+                            if(Donjon.Map[actuel.X, actuel.Y].mob[i, j].X != 3)
+                            spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16-8, 16, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X*96,0,32,48), Color.White);
+                            else
+                                spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16-8, 32, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X * 96, 0, 64, 48), Color.White);
+
                 cursor.Draw(spriteBatch, fenetre);
                 spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
                 message.Draw(spriteBatch);

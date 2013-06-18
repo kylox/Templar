@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Templar
 {
-    class Inventaire:GameScreen
+   public class Inventaire:GameScreen
     {
         gamemain Main;
         public Inventaire(Game game, SpriteBatch spriteBatch, gamemain main)

@@ -18,7 +18,7 @@ namespace Templar
     //class qui switch les map qui pour l'instant sont representé
     //par des textures
 
-    class switch_map
+   public class switch_map
     {
         GamePlayer player;
         gamemain main;

@@ -322,6 +322,7 @@ namespace Templar
                 {
                     saisie += e.Message;
                 }
+
                 prevPressedKeys = pressedKeys;
             }
         }

@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Templar
 {
-    class Donjon
+    public class Donjon
     {
         //position de la premiere map
         public Vector2 map;
@@ -90,6 +90,7 @@ namespace Templar
                                             _maps[x, y] = new Map();
                                         _maps[x, y].load_collision(file);
                                     }
+
                     }
                 }
             }
@@ -114,6 +115,7 @@ namespace Templar
             this.Map[i, j].init(@"Donjons\" + @path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
             this.Map[i, j].init_objet(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
             this.Map[i, j].init_coll(@"Donjons\" + @path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt");
+            this.Map[i, j].init_mob(@"Donjons\" + @path + @"\Map" + @nombre + @"\creature" + @nombre + @".txt");
             this.Map[i, j].isCreate = true;
         }
 

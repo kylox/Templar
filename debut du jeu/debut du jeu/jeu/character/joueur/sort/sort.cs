@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Templar
 {
     //cette classe initialise tout les sorts 
-    class sort
+    public class sort
     {
         Texture2D texture;
         Vector2 position;

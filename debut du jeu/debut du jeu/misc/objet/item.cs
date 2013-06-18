@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-    abstract class item
+    public abstract class item
     {
         public Texture2D Texture;
         protected Vector2 Position;
@@ -22,10 +22,10 @@ namespace Templar
             Texture = texture;
             Position = position;
         }
-        
+
         public virtual void action(GamePlayer player)
         {
-            
+
         }
 
         public virtual void update()
