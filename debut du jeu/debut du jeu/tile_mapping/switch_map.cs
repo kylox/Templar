@@ -18,13 +18,14 @@ namespace Templar
     //class qui switch les map qui pour l'instant sont representé
     //par des textures
 
-   public class switch_map
+    public class switch_map
     {
         GamePlayer player;
         gamemain main;
         Texture2D[,] liste_map;
         Map[,] listes_map;
         Map active_map;
+        string Directorie;
         public int x { get; set; }
         public int y { get; set; }
         public Map Active_Map
@@ -43,18 +44,19 @@ namespace Templar
             set { listes_map = value; }
         }
 
-        public switch_map(GamePlayer Player, gamemain Main, Donjon donjon)
+        public switch_map(GamePlayer Player, gamemain Main, Donjon donjon, string directori)
         {
             player = Player;
             main = Main;
+            Directorie = directori;
             listes_map = new Map[5, 5];
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                     listes_map[i, j] = donjon.Map[i, j];
-
             x = 0;
             y = 0;
             active_map = listes_map[x, y];
+            active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
         }
         public void update(GamePlayer player)
         {
@@ -72,6 +74,8 @@ namespace Templar
                     main.List_Sort.Clear();
                     main.List_wall.Clear();
                     active_map = listes_map[x, y];
+                    active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                    main.List_Zombie = active_map.monstre;
                 }
                 else
                     if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 7) ||
@@ -85,6 +89,8 @@ namespace Templar
                         main.List_Sort.Clear();
                         main.List_wall.Clear();
                         active_map = listes_map[x, y];
+                        active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                        main.List_Zombie = active_map.monstre;
                     }
                     else
                         if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(0, 5) ||
@@ -98,6 +104,8 @@ namespace Templar
                             main.List_Sort.Clear();
                             main.List_wall.Clear();
                             active_map = listes_map[x, y];
+                            active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                            main.List_Zombie = active_map.monstre;
                         }
                         else
                             if ((active_map.objet[(int)player.Position.X / 32, (int)player.position_player.Y / 32] == new Vector2(1, 5) ||
@@ -111,6 +119,8 @@ namespace Templar
                                 main.List_Sort.Clear();
                                 main.List_wall.Clear();
                                 active_map = listes_map[x, y];
+                                active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                                main.List_Zombie = active_map.monstre;
                             }
 
             }

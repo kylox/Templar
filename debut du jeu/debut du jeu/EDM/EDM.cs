@@ -114,13 +114,13 @@ namespace Templar
                         @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt",
                             @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
                                 @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\creature" + @"0" + @nb + @".txt", text);
+                                    @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\creature" + @".txt", text);
                 else
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt",
                             @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
                                 @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @nb + @".txt", text);
+                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @".txt", text);
 
                 //change l'endroit de pop du joueur
                 if (Data.mouseState.LeftButton == ButtonState.Pressed &&
@@ -299,10 +299,10 @@ namespace Templar
                 for (int j = 0; j < Donjon.Map[actuel.X, actuel.Y].mob.GetLength(1); j++)
                     for (int i = 0; i < Donjon.Map[actuel.X, actuel.Y].mob.GetLength(0); i++)
                         if (Donjon.Map[actuel.X, actuel.Y].mob[i, j] != new Vector2(15, 15))
-                            if(Donjon.Map[actuel.X, actuel.Y].mob[i, j].X != 3)
-                            spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16-8, 16, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X*96,0,32,48), Color.White);
+                            if (Donjon.Map[actuel.X, actuel.Y].mob[i, j].X != 3)
+                                spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16 - 8, 16, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X * 96, 0, 32, 48), Color.White);
                             else
-                                spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16-8, 32, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X * 96, 0, 64, 48), Color.White);
+                                spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16 - 8, 32, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X * 96, 0, 64, 48), Color.White);
 
                 cursor.Draw(spriteBatch, fenetre);
                 spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));

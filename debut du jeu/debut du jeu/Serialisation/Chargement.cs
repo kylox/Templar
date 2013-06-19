@@ -39,7 +39,7 @@ namespace Templar
             Mapi.x = load.ReadInt32();
             Mapi.y = load.ReadInt32();
             Main.List_Zombie.Clear();
-            Mapi.update(Player);
+           // Mapi.update(Player,);
             load.Close();
             fichier.Close();
         }

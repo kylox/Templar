@@ -21,6 +21,7 @@ namespace Templar
         public Vector2 map;
         //position du joueur dans la premiere map 
         public Vector2 position_J;
+        string name;
         Map[,] _maps;
         public Map[,] Map
         {
@@ -50,6 +51,7 @@ namespace Templar
                 load_position(path + @"\autre" + @".txt");
                 foreach (string dr in System.IO.Directory.GetDirectories(path))
                 {
+
                     for (int i = 0; i < Convert.ToInt32(Convert.ToString(dr[dr.Length - 2])) * 10 + Convert.ToInt32(Convert.ToString(dr[dr.Length - 1])); i++)
                     {
                         x++;
@@ -65,6 +67,8 @@ namespace Templar
                         {
                             if (_maps[x, y] == null)
                                 _maps[x, y] = new Map();
+                            _maps[x, y].Nb = Convert.ToString(file[file.Length - 6]) + Convert.ToString(file[file.Length - 5]);
+
                             _maps[x, y].load_objet(file);
                         }
                         else

@@ -30,6 +30,7 @@ namespace Templar
         string message;
         bool visited;
         public bool isfirst;
+        public string Nb;
         # endregion
         #region fields
         public bool Visited
@@ -289,7 +290,7 @@ namespace Templar
             message = sr.ReadToEnd();
             sr.Close();
         }
-        public void load_mob(string path,gamemain main)
+        public void load_mob(string path, gamemain main)
         {
             int j = 0;
             StreamReader sr = new StreamReader(path);
@@ -303,33 +304,46 @@ namespace Templar
                         switch ((int)cursor.id_to_vec(ligne[i]).X)
                         {
                             case 0:
-                                monstre.Add(new NPC(32, 48, 4, 3, 0, 15, 2, new Vector2(i*32,j*32), ressource.mob,main.player,this));
+                                monstre.Add(new NPC(32, 48, 4, 3, 1, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 1:
+                                monstre.Add(new NPC(32, 48, 4, 3, 4, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 2:
+                                monstre.Add(new NPC(32, 48, 4, 3, 7, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 3:
+                                monstre.Add(new NPC(32, 48, 4, 3, 10, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 5:
+                                monstre.Add(new NPC(32, 48, 4, 3, 13, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 6:
+                                monstre.Add(new NPC(32, 48, 4, 3, 16, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 7:
+                                monstre.Add(new NPC(32, 48, 4, 3, 19, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 8:
+                                monstre.Add(new NPC(32, 48, 4, 3, 22, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 9:
+                                monstre.Add(new NPC(32, 48, 4, 3, 25, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 10:
+                                monstre.Add(new NPC(32, 48, 4, 3, 28, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 11:
+                                monstre.Add(new NPC(32, 48, 4, 3, 31, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 12:
+                                monstre.Add(new NPC(32, 48, 4, 3, 34, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 13:
+                                monstre.Add(new NPC(32, 48, 4, 3, 37, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 14: 
+                            case 14:
+                                monstre.Add(new NPC(32, 48, 4, 3, 40, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                         }
                     }
@@ -377,6 +391,7 @@ namespace Templar
             {
                 mob[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
                 ecrire_mob(path_mob);
+                ecrire_message(path_message);
             }
         }
         public void Draw(SpriteBatch spriteBatch, int x)
