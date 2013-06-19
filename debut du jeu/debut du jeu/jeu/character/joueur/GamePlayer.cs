@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Templar
 {
     [Serializable()]
-    class GamePlayer : Personnage
+    public class GamePlayer : Personnage
     {
         int CanMove;
         SpriteFont spriteFont;
@@ -81,7 +81,7 @@ namespace Templar
         }
 
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, Texture2D image, gamemain main, textbox text)
-            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
+            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
             CanMove = 0;
             this.main = main;

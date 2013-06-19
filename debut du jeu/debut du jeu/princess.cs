@@ -18,8 +18,8 @@ namespace Templar
         int bob;
         int canmove;
         Random rd = new Random();
-        public Princess(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, Texture2D image, GamePlayer player, gamemain main)
-            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
+        public Princess(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, Texture2D image, GamePlayer player)
+            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
             bob = 0;
             count_deplacement = 60;

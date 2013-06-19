@@ -38,13 +38,12 @@ namespace Templar
         textbox box;
         bool ecran;
         bool click_down;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this)
                 {
-                    PreferredBackBufferWidth = 800,
-                    PreferredBackBufferHeight = 675
+                    PreferredBackBufferWidth = 900,
+                    PreferredBackBufferHeight = 800
                 };
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
@@ -107,12 +106,10 @@ namespace Templar
             MediaPlayer.IsMuted = true;
             SoundEffect.MasterVolume = 0f;
         }
-
         protected override void UnloadContent()
         {
             Content.Unload();
         }
-
         private bool checkKey(Keys theKey)
         {
             if (activeScreen == pause)
@@ -145,7 +142,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), false, "");
+                        main = new gamemain(this, spriteBatch, activeScreen,new Donjon(@"Donjons\" + creation.donjon, false), false, "", creation.donjon);
                         Components.Add(main);
                         main.hide();
 
@@ -184,7 +181,7 @@ namespace Templar
                 if (Data.keyboardState.IsKeyDown(Keys.Enter))
                 {
 
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie);
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie,creation.donjon);
                     main.IP = menudeux.box.Saisie;
                     main.Is_Client = menudeux.selec;
                     main.Is_Server = !menudeux.selec;
@@ -253,7 +250,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "");
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "",creation.donjon);
                     Components.Add(main);
                     main.hide();
                     creation.change = false;
@@ -381,7 +378,7 @@ namespace Templar
                 if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
-                    activeScreen = main;
+                    activeScreen = main;                 
                     activeScreen.Show();
                 }
             }
@@ -407,8 +404,6 @@ namespace Templar
                         if (ecran == false)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 675;
-                            graphics.PreferredBackBufferWidth = 800;
                             ecran = true;
                         }
                     }
@@ -418,8 +413,6 @@ namespace Templar
                         if (ecran == true)
                         {
                             graphics.ToggleFullScreen();
-                            graphics.PreferredBackBufferHeight = 675;
-                            graphics.PreferredBackBufferWidth = 800;
                             ecran = false;
                         }
                     }
@@ -452,7 +445,7 @@ namespace Templar
                 if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
-                    activeScreen = pause;
+                    activeScreen = menu;
                     activeScreen.Show();
                 }
             }

@@ -15,7 +15,7 @@ using System.Threading;
 namespace Templar
 {
     [Serializable()]
-    class NPC : Personnage
+    public class NPC : Personnage
     {
         Vector2 deplacement;
         int chrono;
@@ -23,12 +23,12 @@ namespace Templar
         GamePlayer player;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
-            Texture2D image, GamePlayer player, gamemain main)
-            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image, main)
+            Texture2D image, GamePlayer player,Map map)
+            : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
             this.player = player;
             Pv = 100;
-            this.Map = main.map.Active_Map;
+            this.Map = map;
             switch (frame_start)
             {
                 case 1:
@@ -88,7 +88,6 @@ namespace Templar
                     break;
             }
         }
-
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
             chrono++;
