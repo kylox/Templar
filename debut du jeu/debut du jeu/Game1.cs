@@ -142,7 +142,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen,new Donjon(@"Donjons\" + creation.donjon, false), false, "");
+                        main = new gamemain(this, spriteBatch, activeScreen,new Donjon(@"Donjons\" + creation.donjon, false), false, "", creation.donjon);
                         Components.Add(main);
                         main.hide();
 
@@ -181,7 +181,7 @@ namespace Templar
                 if (Data.keyboardState.IsKeyDown(Keys.Enter))
                 {
 
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie);
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie,creation.donjon);
                     main.IP = menudeux.box.Saisie;
                     main.Is_Client = menudeux.selec;
                     main.Is_Server = !menudeux.selec;
@@ -250,7 +250,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "");
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "",creation.donjon);
                     Components.Add(main);
                     main.hide();
                     creation.change = false;
