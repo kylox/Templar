@@ -40,6 +40,7 @@ Content\perso.xnb
 Content\maintenantoui.xnb
 Content\mobs.xnb
 Content\cross.xnb
+Content\temaplaritems.xnb
 Content\SpriteFont.xnb
 Content\Music\effet\selection.xnb
 Content\Music\musiques\charge of the rohirrim soundtrack.xnb
@@ -53,8 +54,3 @@ Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
 Content\Music\effet\lowHP.xnb
 Content\Music\effet\Mémo.xnb
 Content\pique.xnb
-<<<<<<< HEAD
-=======
-Content\cross.xnb
-Content\temaplaritems.xnb
->>>>>>> 2ec6fb864bae8959ba08007b241b18ac9182df6d
