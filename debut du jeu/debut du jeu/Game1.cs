@@ -38,6 +38,8 @@ namespace Templar
         textbox box;
         bool ecran;
         bool click_down;
+        bool language = true; // true = french, par défaut;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this)
@@ -91,7 +93,7 @@ namespace Templar
             Components.Add(menudujeu);
             menudujeu.hide();
 
-            option = new option(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.option);
+            option = new option(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.option, language);
             Components.Add(option);
             option.hide();
 
@@ -300,7 +302,7 @@ namespace Templar
             #region screen_action
             else if (activeScreen == main)
             {
-                if (main.player.pv_player == 0)
+                if (main.player.pv_player <= 0)
                 {
                     activeScreen.hide();
                     activeScreen = gameover;
@@ -429,6 +431,12 @@ namespace Templar
                         SoundEffect.MasterVolume = 0;
                     }
                     if (option.SelectedIndex == 4)
+                    {
+                        ressource.selection.Play();
+                        language = !language ;
+                        // BOUUUUUUUUUUUUUUUUUUUUUUUUH
+                    }
+                    if (option.SelectedIndex == 5)
                     {
                         ressource.selection.Play();
                         activeScreen.hide();

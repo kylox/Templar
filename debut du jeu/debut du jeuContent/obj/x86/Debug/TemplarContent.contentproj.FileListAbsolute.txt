@@ -3,3 +3,4 @@ C:\Users\Louis\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAss
 C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Louis\Templar\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\TemplarContent.contentprojResolveAssemblyReference.cache
+C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\TemplarContent.contentprojResolveAssemblyReference.cache
