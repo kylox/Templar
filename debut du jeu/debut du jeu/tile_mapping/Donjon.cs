@@ -51,7 +51,6 @@ namespace Templar
                 load_position(path + @"\autre" + @".txt");
                 foreach (string dr in System.IO.Directory.GetDirectories(path))
                 {
-
                     for (int i = 0; i < Convert.ToInt32(Convert.ToString(dr[dr.Length - 2])) * 10 + Convert.ToInt32(Convert.ToString(dr[dr.Length - 1])); i++)
                     {
                         x++;
@@ -119,7 +118,7 @@ namespace Templar
             this.Map[i, j].init(@"Donjons\" + @path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt");
             this.Map[i, j].init_objet(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
             this.Map[i, j].init_coll(@"Donjons\" + @path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt");
-            this.Map[i, j].init_mob(@"Donjons\" + @path + @"\Map" + @nombre + @"\creature" + @nombre + @".txt");
+            this.Map[i, j].init_mob(@"Donjons\" + @path + @"\Map" + @nombre + @"\creature" + @".txt");
             this.Map[i, j].isCreate = true;
         }
 

@@ -43,9 +43,7 @@ namespace Templar
             donjons = new List<string>();
             selec = 0;
             foreach (string dr in System.IO.Directory.GetDirectories(@"Donjons"))
-            {
                 donjons.Add(dr.Substring(8));
-            }
             if (donjons.Count != 0)
                 if (donjons[0] != null)
                     donjon = donjons[0];
@@ -54,8 +52,10 @@ namespace Templar
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(500, 200, 50, 50)) && Data.mouseState.LeftButton == ButtonState.Pressed)
                 Change = true;
-            int y = 0;
-
+            int y = 0;          
+            foreach (string dr in System.IO.Directory.GetDirectories(@"Donjons"))
+                if (!donjons.Contains(dr.Substring(8)))
+                    donjons.Add(dr.Substring(8));
             foreach (string s in donjons)
             {
                 if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(100, 100 + y, s.Length * (int)s.LongCount() + 20, 20)) && Data.mouseState.LeftButton == ButtonState.Pressed && Data.prevMouseState.LeftButton == ButtonState.Released)
@@ -65,33 +65,16 @@ namespace Templar
                 }
                 y += 30;
             }
-            //if (keyboard.IsKeyDown(Keys.Right))
-            //{
-            //    Frameligne++;
-
-            //    if (Frameligne > 18)
-            //        Frameligne = 0;
-            //}
-
-            //if (keyboard.IsKeyDown(Keys.Left))
-            //{
-            //    Frameligne--;
-
-            //    if (Frameligne < 0)
-            //        Frameligne = 18;
-            //}
             base.Update(gameTime);
         }
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Draw(texture, rectangle, Color.Black);
+            spriteBatch.DrawString(ressource.ecriture, "liste des donjons disponible", new Vector2(100, 50), Color.Wheat);
             int y = 0;
-
             Color higlight = Color.White;
-
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(500, 200, 50, 50)))
                 higlight = Color.Red;
-
             foreach (string s in donjons)
             {
                 if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(100, 100 + y, s.Length * (int)s.LongCount() + 20, 20)))
@@ -105,8 +88,7 @@ namespace Templar
                 y += 30;
             }
             spriteBatch.DrawString(ressource.ecriture, "SUIVANT", new Vector2(500, 200), higlight);
-            spriteBatch.Draw(ressource.sprite_player, new Rectangle(100, 300, 100, 200), new Rectangle(0, 0, 32, 48), Color.White);
-            //spriteBatch.Draw(ressource.tete_player, new Rectangle(125, 260, 78, 100), new Rectangle(0, 50 * frameligne, 39, 50), Color.White);
+            spriteBatch.Draw(ressource.sprite_player, new Rectangle(100, 300, 100, 153), new Rectangle(0, 0, 32, 48), Color.White);
             base.Draw(gameTime);
         }
     }
