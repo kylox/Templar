@@ -24,7 +24,6 @@ namespace Templar
             get { return menugenerale.SelectedIndex; }
             set { menugenerale.SelectedIndex = value; }
         }
-
         //main
         public GameOverScreen(Game game, gamemain main, SpriteBatch spritebatch, SpriteFont spritefont, Texture2D image)
             : base(game, spritebatch)
@@ -34,17 +33,13 @@ namespace Templar
             menugenerale = new menugenerale(game, spriteBatch, spritefont, menuItems);
             compenents.Add(menugenerale);
             rec = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height);
-
         }
-
         //methode 
-
         //update && draw
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Draw(image, rec, Color.Maroon);
             base.Draw(gameTime);
         }
-
     }
 }

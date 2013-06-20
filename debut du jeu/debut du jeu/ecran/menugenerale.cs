@@ -18,7 +18,7 @@ namespace Templar
     //classe principale de tout les menus 
     public class menugenerale : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        string[] menuItems;
+        public string[] menuItems;
         int selectedIndex;
         Rectangle[] list_button;
 

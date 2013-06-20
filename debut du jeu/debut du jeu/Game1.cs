@@ -25,7 +25,7 @@ namespace Templar
         MouseState mouse, oldmouse;
         menu menu;
         menudujeu menudujeu;
-        option option;
+        option Option;
         menudepause pause;
         gamemain main;
         GameOverScreen gameover;
@@ -93,9 +93,9 @@ namespace Templar
             Components.Add(menudujeu);
             menudujeu.hide();
 
-            option = new option(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.option, language);
-            Components.Add(option);
-            option.hide();
+            Option = new option(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.option, language);
+            Components.Add(Option);
+            Option.hide();
 
             inventaire = new Inventaire(this, spriteBatch, main);
             Components.Add(inventaire);
@@ -234,7 +234,7 @@ namespace Templar
                     {
                         ressource.selection.Play();
                         activeScreen.hide();
-                        activeScreen = option;
+                        activeScreen =Option;
                         activeScreen.Show();
                     }
 
@@ -386,7 +386,7 @@ namespace Templar
             }
             #endregion
             #region screen_option
-            else if (activeScreen == option)
+            else if (activeScreen ==Option)
             {
                 if (keyboard.IsKeyUp(Keys.H) && keyboard.IsKeyUp(Keys.J) && keyboard.IsKeyUp(Keys.K) && keyboard.IsKeyUp(Keys.L))
                     click_down = false;
@@ -400,7 +400,7 @@ namespace Templar
                     MediaPlayer.Volume -= 0.01f;
                 if (checkKey(Keys.Enter))
                 {
-                    if (option.SelectedIndex == 0)
+                    if (Option.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
                         if (ecran == false)
@@ -409,7 +409,7 @@ namespace Templar
                             ecran = true;
                         }
                     }
-                    if (option.SelectedIndex == 1)
+                    if (Option.SelectedIndex == 1)
                     {
                         ressource.selection.Play();
                         if (ecran == true)
@@ -418,25 +418,30 @@ namespace Templar
                             ecran = false;
                         }
                     }
-                    if (option.SelectedIndex == 2)
+                    if (Option.SelectedIndex == 2)
                     {
                         ressource.selection.Play();
                         MediaPlayer.IsMuted = false;
                         SoundEffect.MasterVolume = 0.5f;
                     }
-                    if (option.SelectedIndex == 3)
+                    if (Option.SelectedIndex == 3)
                     {
                         ressource.selection.Play();
                         MediaPlayer.IsMuted = true;
                         SoundEffect.MasterVolume = 0;
                     }
-                    if (option.SelectedIndex == 4)
+                    if (Option.SelectedIndex == 4)
                     {
                         ressource.selection.Play();
                         language = !language ;
-                        // BOUUUUUUUUUUUUUUUUUUUUUUUUH
+
+                        Option = new option(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.option, language);
+                        Components.Add(Option);
+                        Option.hide();
+                        activeScreen = Option;
+                        Option.Show();
                     }
-                    if (option.SelectedIndex == 5)
+                    if (Option.SelectedIndex == 5)
                     {
                         ressource.selection.Play();
                         activeScreen.hide();

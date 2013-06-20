@@ -13,10 +13,8 @@ using Microsoft.Xna.Framework.Media;
 namespace Templar
 {
     //cette ecran est l'eran principale 
-
     class menu : GameScreen //voir menu du jeu 
     {
-
         menugenerale menugeneral;
         Texture2D image;
         Rectangle imageRectangle;
@@ -26,7 +24,6 @@ namespace Templar
             get { return menugeneral.SelectedIndex; }
             set { menugeneral.SelectedIndex = value; }
         }
-
         public menu(Game game, SpriteBatch spriteBatch, SpriteFont spriteFont, Texture2D image)
             : base(game, spriteBatch)
         {
@@ -38,18 +35,13 @@ namespace Templar
             imageRectangle = new Rectangle(0, 0,Game.Window.ClientBounds.Width, Game.Window.ClientBounds.Height);
             MediaPlayer.IsMuted = false;
         }
-
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-
         }
-
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Draw(image, imageRectangle, Color.White);
-
             base.Draw(gameTime);
         }
     }

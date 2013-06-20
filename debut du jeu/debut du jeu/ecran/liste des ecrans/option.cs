@@ -21,7 +21,7 @@ namespace Templar
         BUTTON plus;
         BUTTON moin;
         MouseEvent mouse;
-
+      
         public int SelectedIndex
         {
             get { return menugenrale.SelectedIndex; }
@@ -38,96 +38,72 @@ namespace Templar
             {
                 reader = XmlReader.Create("English.xml");
             }
-
             string op1 = "", op2 = "", op3 = "", op4 = "", op5 = "", op6 = "";
-
             while (reader.Read())
-            {
+                while (reader.NodeType != XmlNodeType.EndElement)
                 {
-                    while (reader.NodeType != XmlNodeType.EndElement)
+                    reader.Read();
+                    if (reader.Name == "pleinecran")
                     {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op1 = reader.Value.ToString();
+                        }
                         reader.Read();
-                        if (reader.Name == "pleinecran")
+                    }
+                    if (reader.Name == "fenetre")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
                         {
-                            while (reader.NodeType != XmlNodeType.EndElement)
-                            {
-                                reader.Read();
-                                if (reader.NodeType == XmlNodeType.Text)
-                                {
-                                    op1 = reader.Value.ToString();
-                                }
-                            }
                             reader.Read();
-                        } 
-                        if (reader.Name == "fenetre")
-                        {
-                            while (reader.NodeType != XmlNodeType.EndElement)
-                            {
-                                reader.Read();
-                                if (reader.NodeType == XmlNodeType.Text)
-                                {
-                                    op2 = reader.Value.ToString();
-                                }
-                            }
-
-                            reader.Read();
-                        } 
-                        if (reader.Name == "activer")
-                        {
-                            while (reader.NodeType != XmlNodeType.EndElement)
-                            {
-                                reader.Read();
-                                if (reader.NodeType == XmlNodeType.Text)
-                                {
-                                    op3 = reader.Value.ToString();
-                                }
-                            }
-
-                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op2 = reader.Value.ToString();
                         }
-                        if (reader.Name == "desactiver")
+                        reader.Read();
+                    }
+                    if (reader.Name == "activer")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
                         {
-                            while (reader.NodeType != XmlNodeType.EndElement)
-                            {
-                                reader.Read();
-                                if (reader.NodeType == XmlNodeType.Text)
-                                {
-                                    op4 = reader.Value.ToString();
-                                }
-                            }
-
                             reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op3 = reader.Value.ToString();
                         }
-                        if (reader.Name == "langue")
+                        reader.Read();
+                    }
+                    if (reader.Name == "desactiver")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
                         {
-                            while (reader.NodeType != XmlNodeType.EndElement)
-                            {
-                                reader.Read();
-                                if (reader.NodeType == XmlNodeType.Text)
-                                {
-                                    op5 = reader.Value.ToString();
-                                }
-                            }
-
                             reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op4 = reader.Value.ToString();
                         }
-                        if (reader.Name == "retour")
+                        reader.Read();
+                    }
+                    if (reader.Name == "langue")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
                         {
-                            while (reader.NodeType != XmlNodeType.EndElement)
-                            {
-                                reader.Read();
-                                if (reader.NodeType == XmlNodeType.Text)
-                                {
-                                    op6 = reader.Value.ToString();
-                                }
-                            }
-
                             reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op5 = reader.Value.ToString();
                         }
-                    } 
-                } 
-            }
-
+                        reader.Read();
+                    }
+                    if (reader.Name == "retour")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op6 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                }
             string[] menuItems = { op1, op2, op3, op4, op5, op6 };
             plus = new BUTTON(ressource.plus, new Rectangle(game.Window.ClientBounds.Height / 2, game.Window.ClientBounds.Width / 2, 10, 10));
             moin = new BUTTON(ressource.moin, new Rectangle(game.Window.ClientBounds.Height / 2, game.Window.ClientBounds.Width / 2 + 15, 10, 10));
