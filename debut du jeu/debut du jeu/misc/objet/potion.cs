@@ -15,7 +15,6 @@ namespace Templar
    public class potion : item
     {
         Rectangle Hitbox_potion;
-        gamemain Main;
         string Name;
         public Rectangle Collide
         {
@@ -27,10 +26,9 @@ namespace Templar
             get { return Name; }
             set { Name = value; }
         }
-        public potion(Texture2D texture, gamemain main, NPC npc, string name)
-            : base(texture, npc.Position, main)
+        public potion(Texture2D texture, NPC npc, string name)
+            : base(texture, npc.Position)
         {
-            Main = main;
             Hitbox_potion = new Rectangle((int)Position.X, (int)Position.Y, 32, 32);
             Name = name;
         }

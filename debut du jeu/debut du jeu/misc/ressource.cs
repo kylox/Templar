@@ -23,7 +23,7 @@ namespace Templar
             ARBRE, MUR, STATUT, SOL, // EDM
             potion_vie, potion_mana,//POTION
             tile, plus, moin, objet_map, mob
-            ,cross;
+            ,cross,item;
         public static SoundEffect selection, lowHP, feu, pique; //ressource des bruitage
         public static Song menu, main_theme;
         public static SpriteFont ecriture;
@@ -72,6 +72,7 @@ namespace Templar
             barre_xp = Content.Load<Texture2D>(@"HUD\barre_xp");
             moin = Content.Load<Texture2D>(@"ecran\option\moin");
             plus = Content.Load<Texture2D>(@"ecran\option\plus");
+            item = Content.Load<Texture2D>("temaplaritems");
 
             //spriteFont
             ecriture = Content.Load<SpriteFont>("SpriteFont");

@@ -53,3 +53,8 @@ Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
 Content\Music\effet\lowHP.xnb
 Content\Music\effet\Mémo.xnb
 Content\pique.xnb
+<<<<<<< HEAD
+=======
+Content\cross.xnb
+Content\temaplaritems.xnb
+>>>>>>> 2ec6fb864bae8959ba08007b241b18ac9182df6d

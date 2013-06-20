@@ -68,7 +68,7 @@ namespace Templar
         public void ecrire_position(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            sw.WriteLine(position.X + " " + position.Y);
+            sw.WriteLine(position.X*2 + " " + position.Y*2);
             sw.WriteLine(actuel.X + " " + actuel.Y);
             sw.Close();
         }
@@ -102,12 +102,9 @@ namespace Templar
                             new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(
                                 new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString("position joueur").X, 0, (int)ressource.ecriture.MeasureString("position joueur").X, (int)ressource.ecriture.MeasureString("position joueur").Y)))
                     cursor.position = true;
-
-
                 //sinon on a selectionner la textbox
                 if (selec == true)
                     message.update();
-
                 //fait l'update de la map 
                 if (nb < 10)
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
@@ -121,7 +118,6 @@ namespace Templar
                             @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
                                 @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
                                     @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @".txt", text);
-
                 //change l'endroit de pop du joueur
                 if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                         Data.prevMouseState.LeftButton == ButtonState.Released &&
@@ -222,7 +218,7 @@ namespace Templar
                 else
                     nombre = Convert.ToString(nb);
                 System.IO.Directory.CreateDirectory(@"Donjons\" + @text.Saisie + @"\Map" + @nombre);
-                Stream sr = new FileStream(@"Donjons\" + @text.Saisie + @"\autres.txt", FileMode.Create);
+                Stream sr = new FileStream(@"Donjons\" + @text.Saisie + @"\autre.txt", FileMode.Create);
                 sr.Close();
                 Donjon = new Donjon(path, true);
                 Donjon.Ajout_map(0, 0, 0, text.Saisie);
@@ -279,7 +275,6 @@ namespace Templar
                                 else
                                     spriteBatch.Draw(ressource.pixel, new Rectangle(Fenetre.Width - 160 + 32 * i, 300 + 32 * j, 16, 8), Color.FromNonPremultiplied(250, 250, 250, 50));
                     }
-
                 int k = 0;
                 for (int i = 0; i < 14; i++)
                 {
@@ -304,11 +299,14 @@ namespace Templar
                             else
                                 spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16 - 8, 32, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X * 96, 0, 64, 48), Color.White);
 
-                cursor.Draw(spriteBatch, fenetre);
+                
                 spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
+               
                 message.Draw(spriteBatch);
                 if (Donjon.Map[actuel.X, actuel.Y].isfirst == true)
                     spriteBatch.Draw(ressource.cross, new Rectangle((int)position.X, (int)position.Y, 16, 16), Color.White);
+                spriteBatch.Draw(ressource.item, new Rectangle(27*16, 48, 32 * 7, 32 * 7),new Rectangle(0, 0, 32 * 7, 32 * 7), Color.White);
+                cursor.Draw(spriteBatch, fenetre);
                 if (selec == true)
                 {
                     spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, 3, message.Fenetre.Height + 3), Color.Red);

@@ -178,6 +178,7 @@ C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Mu
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
+<<<<<<< HEAD
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
@@ -239,3 +240,6 @@ C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+=======
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
+>>>>>>> 2ec6fb864bae8959ba08007b241b18ac9182df6d

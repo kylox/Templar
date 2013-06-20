@@ -464,6 +464,15 @@
       <Output>C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb</Output>
       <Time>2013-06-20T16:47:48.5583673+02:00</Time>
     </Item>
+    <Item>
+      <Source>temaplaritems.png</Source>
+      <Name>temaplaritems</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb</Output>
+      <Time>2013-06-20T14:25:05.6574738+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
