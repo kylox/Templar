@@ -111,6 +111,7 @@
     <Compile Include="jeu\Caracteristique.cs" />
     <Compile Include="jeu\character\joueur\Coffre.cs" />
     <Compile Include="misc\menudeux.cs" />
+    <Compile Include="misc\objet\Items.cs" />
     <Compile Include="Princess.cs" />
     <Compile Include="Reseau\Client.cs" />
     <Compile Include="Reseau\Server.cs" />

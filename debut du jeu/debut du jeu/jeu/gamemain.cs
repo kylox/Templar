@@ -271,10 +271,10 @@ namespace Templar
                         if (list_zombi[i].PV <= 0)
                         {
                             if (pop_item == 0)
-                                liste_objet_map.Add(new potion(ressource.potion_vie, this, list_zombi[i], "VIE"));
+                                liste_objet_map.Add(new potion(ressource.potion_vie, list_zombi[i], "VIE"));
 
                             if (pop_item == 1)
-                                liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
+                                liste_objet_map.Add(new potion(ressource.potion_mana, list_zombi[i], "MANA"));
 
                             list_zombi.RemoveAt(i);
                             if (Is_Server)

@@ -53,3 +53,4 @@ Content\Music\effet\lowHP.xnb
 Content\Music\effet\Mémo.xnb
 Content\pique.xnb
 Content\cross.xnb
+Content\temaplaritems.xnb

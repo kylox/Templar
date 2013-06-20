@@ -316,34 +316,34 @@ namespace Templar
                                 monstre.Add(new NPC(32, 48, 4, 3, 10, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 5:
-                                monstre.Add(new NPC(32, 48, 4, 3, 13, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
-                                break;
-                            case 6:
                                 monstre.Add(new NPC(32, 48, 4, 3, 16, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 7:
+                            case 6:
                                 monstre.Add(new NPC(32, 48, 4, 3, 19, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 8:
+                            case 7:
                                 monstre.Add(new NPC(32, 48, 4, 3, 22, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 9:
+                            case 8:
                                 monstre.Add(new NPC(32, 48, 4, 3, 25, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 10:
+                            case 9:
                                 monstre.Add(new NPC(32, 48, 4, 3, 28, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 11:
+                            case 10:
                                 monstre.Add(new NPC(32, 48, 4, 3, 31, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 12:
+                            case 11:
                                 monstre.Add(new NPC(32, 48, 4, 3, 34, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 13:
+                            case 12:
                                 monstre.Add(new NPC(32, 48, 4, 3, 37, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 14:
+                            case 13:
                                 monstre.Add(new NPC(32, 48, 4, 3, 40, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 14:
+                                monstre.Add(new NPC(32, 48, 4, 3, 43, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                         }
                     }

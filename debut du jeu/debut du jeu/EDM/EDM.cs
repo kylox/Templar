@@ -299,11 +299,14 @@ namespace Templar
                             else
                                 spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16 - 8, 32, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X * 96, 0, 64, 48), Color.White);
 
-                cursor.Draw(spriteBatch, fenetre);
+                
                 spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
+               
                 message.Draw(spriteBatch);
                 if (Donjon.Map[actuel.X, actuel.Y].isfirst == true)
                     spriteBatch.Draw(ressource.cross, new Rectangle((int)position.X, (int)position.Y, 16, 16), Color.White);
+                spriteBatch.Draw(ressource.item, new Rectangle(27*16, 48, 32 * 7, 32 * 7),new Rectangle(0, 0, 32 * 7, 32 * 7), Color.White);
+                cursor.Draw(spriteBatch, fenetre);
                 if (selec == true)
                 {
                     spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, 3, message.Fenetre.Height + 3), Color.Red);
