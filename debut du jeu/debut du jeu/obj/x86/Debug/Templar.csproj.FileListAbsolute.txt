@@ -178,3 +178,5 @@ C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Mu
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
