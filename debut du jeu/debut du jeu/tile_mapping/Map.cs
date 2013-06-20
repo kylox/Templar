@@ -97,9 +97,9 @@ namespace Templar
         public void init_coll(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < colision.GetLength(0); i++)
             {
-                for (int j = 0; j < 18; j++)
+                for (int j = 0; j < colision.GetLength(1); j++)
                 {
                     if (i == 0)
                         colision[i, j] = 1;
