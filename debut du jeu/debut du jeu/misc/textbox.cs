@@ -14,9 +14,6 @@ namespace Templar
         Keys[] prevPressedKeys;
         public Rectangle Fenetre;
         string saisie = "";
-        KeyboardState keyboard;
-        KeyboardState oldkeyboard;
-        int timer;
         Vector2 position_curseur;
         bool is_shown;
         char remove;
@@ -34,7 +31,6 @@ namespace Templar
         {
             Fenetre = fenetre;
             is_shown = false;
-            timer = 0;
             position_curseur = new Vector2(fenetre.X + 7, fenetre.Y + 7);
         }
         public Vector2 taille_charactere(char c)
