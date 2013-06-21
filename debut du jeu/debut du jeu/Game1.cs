@@ -81,7 +81,7 @@ namespace Templar
             Components.Add(pause);
             pause.hide();
 
-            menu = new menu(this, spriteBatch, Content.Load<SpriteFont>("SpriteFont"), ressource.templar);
+            menu = new menu(this, spriteBatch, Content.Load<SpriteFont>("SpriteFont"), ressource.templar, language);
             Components.Add(menu);
             menu.hide();
 
@@ -440,11 +440,13 @@ namespace Templar
                         activeScreen.hide();
                         activeScreen = Option;
                         activeScreen.Show();
-                        
                     }
                     if (Option.SelectedIndex == 5)
                     {
                         ressource.selection.Play();
+
+                        menu = new menu(this, spriteBatch, Content.Load<SpriteFont>("SpriteFont"), ressource.templar, language);
+                        Components.Add(menu);
                         activeScreen.hide();
                         activeScreen = menu;
                         activeScreen.Show();

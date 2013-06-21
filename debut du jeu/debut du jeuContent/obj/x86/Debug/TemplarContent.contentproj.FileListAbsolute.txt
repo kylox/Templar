@@ -1,1 +1,3 @@
 C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\TemplarContent.contentprojResolveAssemblyReference.cache
+C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\TemplarContent.contentprojResolveAssemblyReference.cache
+C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeuContent\obj\x86\Debug\TemplarContent.contentprojResolveAssemblyReference.cache
