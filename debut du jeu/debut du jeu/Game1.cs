@@ -437,9 +437,10 @@ namespace Templar
 
                         Option = new option(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.option, language);
                         Components.Add(Option);
-                        Option.hide();
+                        activeScreen.hide();
                         activeScreen = Option;
-                        Option.Show();
+                        activeScreen.Show();
+                        
                     }
                     if (Option.SelectedIndex == 5)
                     {

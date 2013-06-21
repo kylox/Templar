@@ -36,5 +36,20 @@ namespace Templar
                     }
             }
         }
+        public void Draw(SpriteBatch spritebatch)
+        {
+            if (is_open == true)
+            {
+                spritebatch.Draw(ressource.pixel, new Rectangle(100 , 100, 160, 160), Color.Black);
+                for (int i = 0; i < tab.GetLength(0); i++)
+                    for (int j = 0; j < tab.GetLength(1); j++)
+                    {
+                        spritebatch.Draw(ressource.selection_sort, new Rectangle(100 + i * 32, 100
+                            + j * 32, 32 + i, 32 + j), Color.White);
+                        if (tab[i, j] != null)
+                            tab[i, j].draw(spritebatch);
+                    }
+            }
+        }
     }
 }

@@ -358,32 +358,43 @@ namespace Templar
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
 
-            if (Data.mouseState.LeftButton == ButtonState.Pressed &&
-                Data.prevMouseState.LeftButton == ButtonState.Released &&
+            if (Data.mouseState.RightButton == ButtonState.Pressed &&
+                Data.prevMouseState.RightButton == ButtonState.Released &&
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
                 && text.Is_shown == false && cursor.position == false && cursor.selected == true)
             {
-                objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
-                if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(1, 2) &&
-                    cursor.iD != new Vector2(0, 4) && cursor.iD != new Vector2(0, 7) &&
-                    cursor.iD != new Vector2(0, 5) && cursor.iD != new Vector2(1, 4) &&
-                    cursor.iD != new Vector2(0, 6) && cursor.iD != new Vector2(1, 7) &&
-                    cursor.iD != new Vector2(1, 6) && cursor.iD != new Vector2(1, 5) &&
-                    cursor.iD != new Vector2(1, 0) && cursor.iD != new Vector2(1, 4) &&
-                    cursor.iD != new Vector2(2, 0))
-                {
-                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
-                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
-                }
-                else
-                {
-                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
-                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
-                }
-                ecrire_objet(path);
-                ecrire_coll(path_coll);
-                ecrire_message(path_message);
+                if (Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32] != null)
+                    Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32].is_open = true;
             }
+            else
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                    Data.prevMouseState.LeftButton == ButtonState.Released &&
+                    new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+                    && text.Is_shown == false && cursor.position == false && cursor.selected == true)
+                {
+                    objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                    if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(1, 2) &&
+                        cursor.iD != new Vector2(0, 4) && cursor.iD != new Vector2(0, 7) &&
+                        cursor.iD != new Vector2(0, 5) && cursor.iD != new Vector2(1, 4) &&
+                        cursor.iD != new Vector2(0, 6) && cursor.iD != new Vector2(1, 7) &&
+                        cursor.iD != new Vector2(1, 6) && cursor.iD != new Vector2(1, 5) &&
+                        cursor.iD != new Vector2(1, 0) && cursor.iD != new Vector2(1, 4) &&
+                        cursor.iD != new Vector2(2, 0))
+                    {
+                        // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
+                        colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
+                        if (cursor.iD == new Vector2(0, 0))
+                            Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32] = new Coffre(new Vector2(Data.mouseState.X - Data.mouseState.X % 32, Data.mouseState.Y - Data.mouseState.Y % 32));
+                    }
+                    else
+                    {
+                        // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
+                        colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
+                    }
+                    ecrire_objet(path);
+                    ecrire_coll(path_coll);
+                    ecrire_message(path_message);
+                }
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                Data.prevMouseState.LeftButton == ButtonState.Released &&
                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
@@ -403,6 +414,10 @@ namespace Templar
                 for (int i = 0; i < tiles.GetLength(0); i++)
                     if (objet[i, j] != new Vector2(15, 15))
                         spriteBatch.Draw(ressource.objet_map, new Rectangle(i * x, j * x, x, x), Tile.tile(objet[i, j]), Color.White);
+
+            foreach (Coffre coffre in Coffres)
+                if (coffre != null)
+                coffre.Draw(spriteBatch);
         }
         public bool ValidCoordinate(int x, int y)
         {

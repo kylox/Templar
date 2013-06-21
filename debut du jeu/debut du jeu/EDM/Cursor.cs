@@ -52,6 +52,7 @@ namespace Templar
         }
         public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre)
         {
+
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(tileset) &&
                 Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released)
