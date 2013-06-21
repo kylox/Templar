@@ -21,7 +21,6 @@ namespace Templar
         public Vector2 map;
         //position du joueur dans la premiere map 
         public Vector2 position_J;
-        string name;
         Map[,] _maps;
         public Map[,] Map
         {

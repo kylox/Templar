@@ -23,6 +23,8 @@ namespace Templar
         Vector2[,] tiles;
         public Vector2[,] objet;
         public Coffre[,] Coffres;
+        public Coffre prev_coffre;
+        public Coffre active_coffre;
         Tile[,] tilelist;
         public int[,] colision;
         public Vector2[,] mob;
@@ -60,16 +62,13 @@ namespace Templar
         public Map()
         {
             monstre = new List<NPC>();
+            prev_coffre = new Coffre(new Vector2(0, 0));
             tiles = new Vector2[25, 18];
             objet = new Vector2[25, 18];
             Coffres = new Coffre[25, 18];
             for (int i = 0; i < objet.GetLength(0); i++)
-            {
                 for (int j = 0; j < objet.GetLength(1); j++)
-                {
                     objet[i, j] = new Vector2(15, 15);
-                }
-            }
             tilelist = new Tile[25, 18];
             colision = new int[25, 18];
             mob = new Vector2[25, 18];
@@ -358,6 +357,32 @@ namespace Templar
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
 
+            if (Data.mouseState.RightButton == ButtonState.Pressed &&
+                Data.prevMouseState.RightButton == ButtonState.Released &&
+                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+                && text.Is_shown == false && cursor.position == false && cursor.selected == true)
+            {
+                if (Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32] != null)
+                {
+                    if (active_coffre != null)
+                        active_coffre.is_open = false;
+                    prev_coffre = active_coffre;
+                    cursor.selec_obj = false;
+                    cursor.selected_mob = false;
+                    Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32].is_open = true;
+                    active_coffre = Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32];
+                }
+            }
+            if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                Data.prevMouseState.LeftButton == ButtonState.Released &&
+                !new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(100, 100, 32 * 5, 32 * 5))
+                && !new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(27 * 16, 48, 32 * 7, 32 * 7))
+                && text.Is_shown == false && cursor.position == false && cursor.selected == true && active_coffre != null && active_coffre.is_open == true)
+            {
+                active_coffre.is_open = false;
+            }
+
+
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released &&
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
@@ -374,6 +399,11 @@ namespace Templar
                 {
                     // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
                     colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
+                    if (cursor.iD == new Vector2(0, 0))
+                    {
+                        Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32] = new Coffre(new Vector2(Data.mouseState.X - Data.mouseState.X % 32, Data.mouseState.Y - Data.mouseState.Y % 32));
+                        prev_coffre = Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32];
+                    }
                 }
                 else
                 {
@@ -403,6 +433,15 @@ namespace Templar
                 for (int i = 0; i < tiles.GetLength(0); i++)
                     if (objet[i, j] != new Vector2(15, 15))
                         spriteBatch.Draw(ressource.objet_map, new Rectangle(i * x, j * x, x, x), Tile.tile(objet[i, j]), Color.White);
+
+            for (int i = 0; i < 25; i++)
+            {
+                for (int j = 0; j < 18; j++)
+                {
+                    if (Coffres[i, j] != null)
+                        Coffres[i, j].Draw(spriteBatch, i * 32, j * 32 + 32);
+                }
+            }
         }
         public bool ValidCoordinate(int x, int y)
         {

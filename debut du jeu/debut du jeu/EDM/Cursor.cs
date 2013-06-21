@@ -48,10 +48,9 @@ namespace Templar
             selected = false;
             vec.X = nb / 10;
             vec.Y = nb % 10;
-
             return vec;
         }
-        public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre)
+        public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre, Map map)
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(tileset) &&
                 Data.mouseState.LeftButton == ButtonState.Pressed &&
@@ -76,10 +75,9 @@ namespace Templar
                     ID.X = 3;
                 ID.Y = 0;
             }
-
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(obj) &&
                Data.mouseState.LeftButton == ButtonState.Pressed &&
-               Data.prevMouseState.LeftButton == ButtonState.Released)
+               Data.prevMouseState.LeftButton == ButtonState.Released && map.active_coffre.is_open)
             {
                 display_name = true;
                 selected = false;
@@ -87,11 +85,17 @@ namespace Templar
                 selected_mob = false;
                 ID.X = (Data.mouseState.X - obj.X) / 32;
                 ID.Y = (Data.mouseState.Y - obj.Y) / 32;
+                for (int i = 0; i < 5; i++)
+                    for (int j = 0; j < 5; j++)
+                        if (map.active_coffre.tab[j, i] == null)
+                        {
+                            map.active_coffre.tab[j, i] = new Items(new Vector2(cursor.ID.X, cursor.ID.Y));
+                            i = 5;
+                            j = 5;
+                        }
             }
-
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(obj))
                 display_name = true;
-
         }
         public static void Draw(SpriteBatch spriteBatch, Rectangle fenetre)
         {
@@ -128,20 +132,20 @@ namespace Templar
             }
             if (display_name)
             {
-                if (Data.mouseState.X +(int)ressource.ecriture.MeasureString(item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32,
+                if (Data.mouseState.X + (int)ressource.ecriture.MeasureString(item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32,
                     (Data.mouseState.Y - obj.Y) / 32))).X > fenetre.Width)
                 {
                     spriteBatch.Draw(ressource.pixel, new Rectangle(
-                        Data.mouseState.X - 
+                        Data.mouseState.X -
                         (Data.mouseState.X +
                         (int)ressource.ecriture.MeasureString(
-                            item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32,(Data.mouseState.Y - obj.Y) / 32))).X 
+                            item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32))).X
                         - fenetre.Width),
-                        Data.mouseState.Y, 
+                        Data.mouseState.Y,
                         (int)ressource.ecriture.MeasureString(
-                            item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32))).X, 
+                            item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32))).X,
                         (int)ressource.ecriture.MeasureString(
-                            item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32))).Y), 
+                            item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32))).Y),
                         Color.Wheat);
                     spriteBatch.DrawString(ressource.ecriture, item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32)), new Vector2(Data.mouseState.X -
                         (Data.mouseState.X +
@@ -155,9 +159,9 @@ namespace Templar
                     item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32))).Y), Color.Wheat);
                     spriteBatch.DrawString(ressource.ecriture, item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32)), new Vector2(Data.mouseState.X, Data.mouseState.Y), Color.Black);
                 }
-                
+
             }
-           
+
             for (int i = 0; i < 16 * 25; i += 16)
                 for (int j = 0; j < 16 * 18; j += 16)
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))

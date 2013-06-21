@@ -12,15 +12,24 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
+<<<<<<< HEAD
     class Items : item
+=======
+    public class Items:item
+>>>>>>> 0441c23b6273644806ad41aaeef25b2a98635ac7
     {
         public string utilité;
         public int[] Bonus;
         public bool is_equipable;
+<<<<<<< HEAD
         bool langue;
 
+=======
+        public Vector2 positin_tile;
+>>>>>>> 0441c23b6273644806ad41aaeef25b2a98635ac7
         public string display_name(Vector2 position_tileset)
         {
+           
             if (position_tileset == new Vector2(0, 0))
                 return "revele la position de la princesse au joueur";
             else if (position_tileset == new Vector2(1, 0))
@@ -132,6 +141,7 @@ namespace Templar
             
 
             is_equipable = false;
+            positin_tile = position_tileset;
             if (position_tileset == new Vector2(0, 0))
                 utilité = "revele la position de la princesse au joueur";
             else if (position_tileset == new Vector2(1, 0))

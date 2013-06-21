@@ -69,7 +69,7 @@ namespace Templar
         public void ecrire_position(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            sw.WriteLine(position.X*2 + " " + position.Y*2);
+            sw.WriteLine(position.X * 2 + " " + position.Y * 2);
             sw.WriteLine(actuel.X + " " + actuel.Y);
             sw.Close();
         }
@@ -77,7 +77,6 @@ namespace Templar
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
-            cursor.Update(gameTime, tileset, fenetre);
             text.update();
             //permet de creer le donjon
             if (Donjon == null)
@@ -95,6 +94,7 @@ namespace Templar
                 creation_map();
                 selectionmap();
                 selectiomessage();
+                
                 //met a jour le message de la map
                 Donjon.Map[actuel.X, actuel.Y].Message = message.Saisie;
                 //check le cursor position joueur
@@ -119,6 +119,9 @@ namespace Templar
                             @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
                                 @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
                                     @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @".txt", text);
+
+                cursor.Update(gameTime, tileset, fenetre, Donjon.Map[actuel.X, actuel.Y]);
+
                 //change l'endroit de pop du joueur
                 if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                         Data.prevMouseState.LeftButton == ButtonState.Released &&
@@ -300,13 +303,13 @@ namespace Templar
                             else
                                 spriteBatch.Draw(ressource.mob, new Rectangle(i * 16, j * 16 - 8, 32, 24), new Rectangle((int)Donjon.Map[actuel.X, actuel.Y].mob[i, j].X * 96, 0, 64, 48), Color.White);
 
-                
+
                 spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
-               
+
                 message.Draw(spriteBatch);
                 if (Donjon.Map[actuel.X, actuel.Y].isfirst == true)
                     spriteBatch.Draw(ressource.cross, new Rectangle((int)position.X, (int)position.Y, 16, 16), Color.White);
-                spriteBatch.Draw(ressource.item, new Rectangle(27*16, 48, 32 * 7, 32 * 7),new Rectangle(0, 0, 32 * 7, 32 * 7), Color.White);
+                spriteBatch.Draw(ressource.item, new Rectangle(27 * 16, 48, 32 * 7, 32 * 7), new Rectangle(0, 0, 32 * 7, 32 * 7), Color.White);
                 cursor.Draw(spriteBatch, fenetre);
                 if (selec == true)
                 {
