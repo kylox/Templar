@@ -12,11 +12,13 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-    class Items:item
+    class Items : item
     {
         public string utilité;
         public int[] Bonus;
         public bool is_equipable;
+        bool langue;
+
         public string display_name(Vector2 position_tileset)
         {
             if (position_tileset == new Vector2(0, 0))
@@ -65,7 +67,7 @@ namespace Templar
                         return "augmente l'endurance du joueur de 7";
                     else
                         if (position_tileset == new Vector2(0, 3))
-                            return "ramène a la map d'origine";
+                            return "ramene a la map d'origine";
                         else if (position_tileset == new Vector2(1, 3))
                             return "rend le personnage invulnerable pendant 10 secondes";
                         else if (position_tileset == new Vector2(2, 3))
@@ -110,7 +112,7 @@ namespace Templar
                                     return "augmente l'attaque du joueur de 2";
                                 else
                                     if (position_tileset == new Vector2(0, 6))
-                                        return "titre de propriété du donjon";
+                                        return "titre de propriete du donjon";
                                     else if (position_tileset == new Vector2(1, 6))
                                         return "un rouleau de PQ restore toute la vie du personnage";
                                     else if (position_tileset == new Vector2(2, 6))
@@ -125,8 +127,10 @@ namespace Templar
                                         return "augmente la magie du joueur de 7";
             return "";
         }
-        public Items(Vector2 position_tileset):base(ressource.item,position_tileset)
+        public Items(Vector2 position_tileset, bool language):base(ressource.item,position_tileset)
         {
+            
+
             is_equipable = false;
             if (position_tileset == new Vector2(0, 0))
                 utilité = "revele la position de la princesse au joueur";

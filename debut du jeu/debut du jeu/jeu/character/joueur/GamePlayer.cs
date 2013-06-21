@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,6 +26,7 @@ namespace Templar
         int timer_endurance;
         int Mana;
         string active;
+        bool langue;
 
         public bool in_action;
         public List<item> inventaire;
@@ -80,9 +83,10 @@ namespace Templar
 
         }
 
-        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, Texture2D image, gamemain main, textbox text)
+        public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, Texture2D image, gamemain main, textbox text, bool language)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
+            langue = language;
             CanMove = 0;
             this.main = main;
             this.text = text;
@@ -159,6 +163,41 @@ namespace Templar
         }
         public void action(switch_map map)
         {
+            XmlReader reader;
+
+            reader = XmlReader.Create("Francais.xml");
+            if (!langue)
+            {
+                reader = XmlReader.Create("English.xml");
+            }
+            string op1 = "", op2 = "";
+            while (reader.Read())
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    reader.Read();
+                    if (reader.Name == "bouquins")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op1 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "tonneaux")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op2 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+
+                }
+
             if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
             {
                 switch (frameline)
@@ -168,13 +207,13 @@ namespace Templar
                         if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
                         {
                             text.Is_shown = true;
-                            text.Saisie = "quelques bouquins relatant de la vie, de l'univers et du reste";
+                            text.Saisie = op1;
                             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                         }
                         if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 3))
                         {
                             text.Is_shown = true;
-                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Saisie = op2;
                             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                         }
                         if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(0, 0))
@@ -189,7 +228,7 @@ namespace Templar
                         if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 + 1] == new Vector2(0, 3))
                         {
                             text.Is_shown = true;
-                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Saisie = op2;
                             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                         }
                         break;
@@ -198,7 +237,7 @@ namespace Templar
                         if (map.Active_Map.objet[(int)position.X / 32 - 1, (int)position.Y / 32] == new Vector2(0, 3))
                         {
                             text.Is_shown = true;
-                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Saisie = op2;
                             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                         }
                         break;
@@ -207,7 +246,7 @@ namespace Templar
                         if (map.Active_Map.objet[(int)position.X / 32 - 1, (int)position.Y / 32] == new Vector2(0, 3))
                         {
                             text.Is_shown = true;
-                            text.Saisie = "hummm... des tonneaux, plein de tonneaux !! ";
+                            text.Saisie = op2;
                             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(text.Saisie).X + 10;
                         }
                         break;

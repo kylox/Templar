@@ -18,6 +18,7 @@ namespace Templar
         public static bool position = false;
         static Texture2D Texture = ressource.objet_map;
         static Vector2 ID = new Vector2(0, 0);
+        public static bool langue;
         static public Vector2 iD
         {
             get { return ID; }
@@ -32,7 +33,7 @@ namespace Templar
         public static bool selected_mob;
         public static bool selec_obj;
         static bool display_name = false;
-        static Items item = new Items(new Vector2(0, 0));
+        static Items item = new Items(new Vector2(0, 0),langue);
         public static char vec_to_id(Vector2 vec)
         {
             int symb = (int)vec.X * 10 + (int)vec.Y;

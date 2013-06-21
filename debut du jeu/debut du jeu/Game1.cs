@@ -69,15 +69,15 @@ namespace Templar
             Components.Add(creation);
             creation.hide();
 
-            gameover = new GameOverScreen(this, main, spriteBatch, ressource.ecriture, ressource.gameover);
+            gameover = new GameOverScreen(this, main, spriteBatch, ressource.ecriture, ressource.gameover, language);
             Components.Add(gameover);
             gameover.hide();
 
-            edm = new EDM(this, spriteBatch);
+            edm = new EDM(this, spriteBatch, language);
             Components.Add(edm);
             edm.hide();
 
-            pause = new menudepause(this, spriteBatch, ressource.ecriture, ressource.pixel);
+            pause = new menudepause(this, spriteBatch, ressource.ecriture, ressource.pixel, language);
             Components.Add(pause);
             pause.hide();
 
@@ -89,7 +89,7 @@ namespace Templar
             //Components.Add(main);
             //main.hide();
 
-            menudujeu = new menudujeu(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.th);
+            menudujeu = new menudujeu(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.th, language);
             Components.Add(menudujeu);
             menudujeu.hide();
 
@@ -144,7 +144,7 @@ namespace Templar
                 {
                     if (gameover.SelectedIndex == 0)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen,new Donjon(@"Donjons\" + creation.donjon, false), false, "", creation.donjon);
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), false, "", creation.donjon, language);
                         Components.Add(main);
                         main.hide();
 
@@ -183,7 +183,7 @@ namespace Templar
                 if (Data.keyboardState.IsKeyDown(Keys.Enter))
                 {
 
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie,creation.donjon);
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie, creation.donjon, language);
                     main.IP = menudeux.box.Saisie;
                     main.Is_Client = menudeux.selec;
                     main.Is_Server = !menudeux.selec;
@@ -207,6 +207,8 @@ namespace Templar
                     if (menu.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
+                        menudujeu = new menudujeu(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.th, language);
+                        Components.Add(menudujeu);
                         activeScreen.hide();
                         activeScreen = menudujeu;
                         activeScreen.Show();
@@ -225,6 +227,8 @@ namespace Templar
                     else if (menu.SelectedIndex == 2)
                     {
                         ressource.selection.Play();
+                        edm = new EDM(this, spriteBatch, language);
+                        Components.Add(edm);
                         activeScreen.hide();
                         activeScreen = edm;
                         activeScreen.Show();
@@ -234,7 +238,7 @@ namespace Templar
                     {
                         ressource.selection.Play();
                         activeScreen.hide();
-                        activeScreen =Option;
+                        activeScreen = Option;
                         activeScreen.Show();
                     }
 
@@ -252,7 +256,7 @@ namespace Templar
             {
                 if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "",creation.donjon);
+                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, language);
                     Components.Add(main);
                     main.hide();
                     creation.change = false;
@@ -304,12 +308,16 @@ namespace Templar
             {
                 if (main.player.pv_player <= 0)
                 {
+                    gameover = new GameOverScreen(this, main, spriteBatch, ressource.ecriture, ressource.gameover, language);
+                    Components.Add(gameover);
                     activeScreen.hide();
                     activeScreen = gameover;
                     activeScreen.Show();
                 }
                 if (checkKey(Keys.Escape))
                 {
+                    pause = new menudepause(this, spriteBatch, ressource.ecriture, ressource.pixel, language);
+                    Components.Add(pause);
                     activeScreen.hide();
                     activeScreen = pause;
                     activeScreen.Show();
@@ -380,13 +388,13 @@ namespace Templar
                 if (checkKey(Keys.Escape))
                 {
                     activeScreen.hide();
-                    activeScreen = main;                 
+                    activeScreen = main;
                     activeScreen.Show();
                 }
             }
             #endregion
             #region screen_option
-            else if (activeScreen ==Option)
+            else if (activeScreen == Option)
             {
                 if (keyboard.IsKeyUp(Keys.H) && keyboard.IsKeyUp(Keys.J) && keyboard.IsKeyUp(Keys.K) && keyboard.IsKeyUp(Keys.L))
                     click_down = false;
@@ -433,7 +441,7 @@ namespace Templar
                     if (Option.SelectedIndex == 4)
                     {
                         ressource.selection.Play();
-                        language = !language ;
+                        language = !language;
 
                         Option = new option(this, spriteBatch, Content.Load<SpriteFont>("spriteFont"), ressource.option, language);
                         Components.Add(Option);

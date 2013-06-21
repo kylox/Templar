@@ -36,9 +36,10 @@ namespace Templar
             get { return fenetre; }
             set { fenetre = value; }
         }
-        public EDM(Game game, SpriteBatch spriteBatch)
+        public EDM(Game game, SpriteBatch spriteBatch, bool language)
             : base(game, spriteBatch)
         {
+            cursor.langue = language;
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             MediaPlayer.IsMuted = true;
             text = new textbox(new Rectangle(game.Window.ClientBounds.Width / 3, game.Window.ClientBounds.Height / 3, 200, 100));

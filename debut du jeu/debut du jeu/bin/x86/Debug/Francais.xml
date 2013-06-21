@@ -14,11 +14,15 @@
   <langue>Langue : Francais</langue>
   <retour>Retour au menu principal</retour>
   <debut>Entrez le nom de votre donjon, puis appuyez sur F1 pour commencer !</debut>
+  <retour>Retour au menu principal</retour>
   <nouv>Nouvelle partie</nouv>
   <continuer>Continuer</continuer>
   <suivant>Suivant</suivant>
+  <tonneaux>Hummm... Des tonneaux, plein de tonneaux !!</tonneaux>
+  <bouquins>Quelques bouquins relatant de la Vie, de l'Univers et du Reste</bouquins>
   <inventaire>Inventaire</inventaire>
   <caract>Caracteristiques</caract>
   <sauv>Sauvegarder</sauv>
   <charger>Charger</charger>
+  <recommencer>Recommencer</recommencer>
 </FR>

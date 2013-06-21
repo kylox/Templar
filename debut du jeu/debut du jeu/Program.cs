@@ -33,6 +33,7 @@ namespace Templar
             writer.WriteElementString("retour", "Retour au menu principal");
             //EDM
             writer.WriteElementString("debut", "Entrez le nom de votre donjon, puis appuyez sur F1 pour commencer !");
+            writer.WriteElementString("retour", "Retour au menu principal");
             //1 joueur
             writer.WriteElementString("nouv", "Nouvelle partie");
             writer.WriteElementString("continuer", "Continuer");
@@ -40,17 +41,18 @@ namespace Templar
             //choix du donjon
             writer.WriteElementString("suivant", "Suivant");
             //en jeu
-            /*
-             * RAJOUTER BARILLES 
-             * ET BIBLIO
-             *
-             */
+            writer.WriteElementString("tonneaux", "Hummm... Des tonneaux, plein de tonneaux !!");
+            writer.WriteElementString("bouquins", "Quelques bouquins relatant de la Vie, de l'Univers et du Reste");
             //menu pause
             writer.WriteElementString("inventaire", "Inventaire");
             writer.WriteElementString("caract", "Caracteristiques");
             writer.WriteElementString("sauv", "Sauvegarder");
             writer.WriteElementString("charger", "Charger");
             // retour déjà fait : "retour"
+            //menu game over
+            writer.WriteElementString("recommencer", "Recommencer");
+            // retour déjà fait : "retour"
+            // quitter déjà fait : "fin"
             //2 joueurs
             /*
              * QUAND CE SERA FINI 
@@ -79,7 +81,32 @@ namespace Templar
             writer.WriteElementString("desactiver", "Desactivate sound");
             writer.WriteElementString("langue", "Language : English");
             writer.WriteElementString("retour", "Back to main menu");
-
+            //EDM
+            writer.WriteElementString("debut", "..."); // A TRAD
+            //1 joueur
+            writer.WriteElementString("nouv", "New game");
+            writer.WriteElementString("continuer", "Continue");
+            // retour déjà fait : "retour"
+            //choix du donjon
+            writer.WriteElementString("suivant", "Next");
+            //en jeu
+            writer.WriteElementString("tonneaux", "Hummm... Barrels, barrels everywhere !!");
+            writer.WriteElementString("bouquins", "Some books talking about Life, the Universe, and Everything ");
+            //menu pause
+            writer.WriteElementString("inventaire", "Inventory");
+            writer.WriteElementString("caract", "Characteristics");
+            writer.WriteElementString("sauv", "Save");
+            writer.WriteElementString("charger", "Load");
+            // retour déjà fait : "retour"
+            //menu game over
+            writer.WriteElementString("recommencer", "Try again");
+            // retour déjà fait : "retour"
+            // quitter déjà fait : "fin"
+            //2 joueurs
+            /*
+             * QUAND CE SERA FINI 
+             * 
+             */
 
             writer.WriteEndElement();
             writer.WriteEndDocument();
