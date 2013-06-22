@@ -243,3 +243,6 @@ C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar
 =======
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
 >>>>>>> 2ec6fb864bae8959ba08007b241b18ac9182df6d
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
+C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
