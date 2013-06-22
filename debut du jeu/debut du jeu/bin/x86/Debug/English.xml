@@ -13,4 +13,15 @@
   <desactiver>Desactivate sound</desactiver>
   <langue>Language : English</langue>
   <retour>Back to main menu</retour>
+  <debut>...</debut>
+  <nouv>New game</nouv>
+  <continuer>Continue</continuer>
+  <suivant>Next</suivant>
+  <tonneaux>Hummm... Barrels, barrels everywhere !!</tonneaux>
+  <bouquins>Some books talking about Life, the Universe, and Everything </bouquins>
+  <inventaire>Inventory</inventaire>
+  <caract>Characteristics</caract>
+  <sauv>Save</sauv>
+  <charger>Load</charger>
+  <recommencer>Try again</recommencer>
 </EN>

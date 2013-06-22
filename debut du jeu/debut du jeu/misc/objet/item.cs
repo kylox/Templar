@@ -15,7 +15,9 @@ namespace Templar
     public abstract class item
     {
         public Texture2D Texture;
-        protected Vector2 Position;
+        public Vector2 Position;
+        public bool usable;
+        public string utilité;
         public item(Texture2D texture, Vector2 position)
         {
             Texture = texture;
@@ -23,15 +25,12 @@ namespace Templar
         }
         public virtual void action(GamePlayer player)
         {
-
         }
         public virtual void update()
         {
-
         }
-        public virtual void draw(SpriteBatch spritebatch)
+        public virtual void draw(SpriteBatch spritebatch,int x,int y,int z,int w)
         {
-            spritebatch.Draw(Texture, Position, Color.White);
         }
     }
 }
