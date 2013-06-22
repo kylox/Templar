@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -25,10 +26,54 @@ namespace Templar
             set { menugenerale.SelectedIndex = value; }
         }
         //main
-        public GameOverScreen(Game game, gamemain main, SpriteBatch spritebatch, SpriteFont spritefont, Texture2D image)
+        public GameOverScreen(Game game, gamemain main, SpriteBatch spritebatch, SpriteFont spritefont, Texture2D image, bool language)
             : base(game, spritebatch)
         {
-            string[] menuItems = { "recommencer ?", "retour au menu principal", "quitter" };
+            XmlReader reader;
+
+            reader = XmlReader.Create("Francais.xml");
+            if (!language)
+            {
+                reader = XmlReader.Create("English.xml");
+            }
+            string op1 = "", op2 = "", op3 = "";
+            while (reader.Read())
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    reader.Read();
+                    if (reader.Name == "recommencer")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op1 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "retour")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op2 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "fin")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op3 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                }
+
+            string[] menuItems = { op1, op2, op3 };
             this.image = image;
             menugenerale = new menugenerale(game, spriteBatch, spritefont, menuItems);
             compenents.Add(menugenerale);

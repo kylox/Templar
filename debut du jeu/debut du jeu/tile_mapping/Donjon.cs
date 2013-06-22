@@ -73,7 +73,7 @@ namespace Templar
                 for (int i = 0; i < ligne.Length; i++)
                 {
                     if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
-                        coffre.tab[i, j] = new Items(cursor.id_to_vec(Convert.ToChar(ligne[i])));
+                        coffre.tab[i, j] = new Items(cursor.id_to_vec(Convert.ToChar(ligne[i])),cursor.langue);
                 }
                 sr.ReadLine();
             }

@@ -14,6 +14,7 @@ namespace Templar
 {
     public static class cursor
     {
+        static public bool langue;
         static Rectangle mobs = new Rectangle(0, 18 * 16 + 7, 32 * 15, 48);
         static Rectangle obj = new Rectangle(27 * 16, 48, 32 * 7, 32 * 7);
         public static bool position = false;
@@ -33,7 +34,7 @@ namespace Templar
         public static bool selected_mob;
         public static bool selec_obj;
         static bool display_name = false;
-        static Items item = new Items(new Vector2(0, 0));
+        static Items item = new Items(new Vector2(0, 0),cursor.langue);
         public static char vec_to_id(Vector2 vec)
         {
             int symb = (int)vec.X * 10 + (int)vec.Y;
@@ -119,7 +120,7 @@ namespace Templar
                     for (int j = 0; j < 5; j++)
                         if (map.active_coffre.tab[j, i] == null)
                         {
-                            map.active_coffre.tab[j, i] = new Items(new Vector2(cursor.ID.X, cursor.ID.Y));
+                            map.active_coffre.tab[j, i] = new Items(new Vector2(cursor.ID.X, cursor.ID.Y),cursor.langue);
                             ecrire_coffre(path, map);
                             i = 5;
                             j = 5;
