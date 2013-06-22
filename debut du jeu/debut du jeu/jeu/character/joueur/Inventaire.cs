@@ -26,12 +26,12 @@ namespace Templar
             ispressed = false;
             Main = main;
         }
-        public void swap(item item1, item item2)
+        public void swap(ref item item1, ref item item2)
         {
             item aux;
             aux = item1;
             item1 = item2;
-            item2 = item1;
+            item2 = aux;
         }
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
@@ -44,9 +44,9 @@ namespace Templar
                         objet.X = i;
                         objet.Y = j;
                     }
-                    if (Data.prevMouseState.LeftButton == ButtonState.Released && ispressed && new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50, 64, 64)))
+                    if (Data.mouseState.LeftButton == ButtonState.Released && ispressed && new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50, 64, 64)))
                     {
-                        swap(Main.player.inventaire[(int)objet.X, (int)objet.Y], Main.player.inventaire[i, j]);
+                        swap(ref Main.player.inventaire[(int)objet.X, (int)objet.Y], ref Main.player.inventaire[i, j]);
                         ispressed = false;
                     }
                 }
@@ -66,7 +66,6 @@ namespace Templar
                 spriteBatch.Draw(ressource.selection_sort, new Rectangle(25, i * 64 + 5 + 50, 64, 64), Color.White);
             if (ispressed)
                 Main.player.inventaire[(int)objet.X, (int)objet.Y].draw(spriteBatch, Data.mouseState.X, Data.mouseState.Y, 64, 64);
-
             for (int j = 0; j < 5; j++)
             {
                 for (int i = 0; i < 5; i++)

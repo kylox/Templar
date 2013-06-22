@@ -34,12 +34,11 @@ namespace Templar
         public static bool selected_mob;
         public static bool selec_obj;
         static bool display_name = false;
-        static Items item = new Items(new Vector2(0, 0),cursor.langue);
+        static Items item = new Items(new Vector2(0, 0), cursor.langue);
         public static char vec_to_id(Vector2 vec)
         {
             int symb = (int)vec.X * 10 + (int)vec.Y;
             char C = Convert.ToChar(symb + 33);
-
             return C;
         }
         public static Vector2 id_to_vec(char C)
@@ -65,22 +64,32 @@ namespace Templar
             for (int j = 0; j < 18; j++)
                 for (int i = 0; i < 25; i++)
                     if (map.Coffres[i, j] != null)
+                    {
+                        StreamWriter sw;
                         if (nb < 10)
                         {
-                            Stream S = new FileStream(path + @"\box0" + @nb + @".txt", FileMode.OpenOrCreate);
-                            S.Close();
-                            StreamWriter sw = new StreamWriter(path + @"\box0" + @nb + @".txt");
-                            for (int k = 0; k < 5; k++)
-                            {
-                                for (int l = 0; l < 5; l++)
-                                    if (map.Coffres[i, j].tab[l, k] != null)
-                                        sw.Write(vec_to_id(map.Coffres[i, j].tab[l, k].positin_tile));
-                                    else
-                                        sw.Write(vec_to_id(new Vector2(15,15)));
-                                sw.WriteLine();
-                            }
-                            sw.Close();
+                            Stream Sr = new FileStream(path + @"\box0" + @nb + @".txt", FileMode.Create);
+                            Sr.Close();
+                            sw = new StreamWriter(path + @"\box0" + @nb + @".txt");
                         }
+                        else
+                        {
+                            Stream Sr = new FileStream(path + @"\box" + nb + @".txt", FileMode.Create);
+                            Sr.Close();
+                            sw = new StreamWriter(path + @"\box" + @nb + @".txt");
+                        }
+                        for (int k = 0; k < 5; k++)
+                        {
+                            for (int l = 0; l < 5; l++)
+                                if (map.Coffres[i, j].tab[l, k] != null)
+                                    sw.Write(vec_to_id(map.Coffres[i, j].tab[l, k].positin_tile));
+                                else
+                                    sw.Write(vec_to_id(new Vector2(15, 15)));
+                            sw.WriteLine();
+                        }
+                        nb++;
+                        sw.Close();
+                    }
         }
         public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre, string path, Map map)
         {
@@ -120,7 +129,7 @@ namespace Templar
                     for (int j = 0; j < 5; j++)
                         if (map.active_coffre.tab[j, i] == null)
                         {
-                            map.active_coffre.tab[j, i] = new Items(new Vector2(cursor.ID.X, cursor.ID.Y),cursor.langue);
+                            map.active_coffre.tab[j, i] = new Items(new Vector2(cursor.ID.X, cursor.ID.Y), cursor.langue);
                             ecrire_coffre(path, map);
                             i = 5;
                             j = 5;
@@ -191,9 +200,7 @@ namespace Templar
                     item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32))).Y), Color.Wheat);
                     spriteBatch.DrawString(ressource.ecriture, item.display_name(new Vector2((Data.mouseState.X - obj.X) / 32, (Data.mouseState.Y - obj.Y) / 32)), new Vector2(Data.mouseState.X, Data.mouseState.Y), Color.Black);
                 }
-
             }
-
             for (int i = 0; i < 16 * 25; i += 16)
                 for (int j = 0; j < 16 * 18; j += 16)
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i, j, 16, 16)))

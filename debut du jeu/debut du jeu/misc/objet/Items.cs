@@ -134,20 +134,23 @@ namespace Templar
             : base(ressource.item, position_tileset)
         {
 
-
+            usable = false;
             is_equipable = false;
             positin_tile = position_tileset;
             if (position_tileset == new Vector2(0, 0))
             {
                 utilité = "revele la position de la princesse au joueur";
+                usable = true;
             }
             else if (position_tileset == new Vector2(1, 0))
             {
                 utilité = "revele la position de la princesse au joueur";
+                usable = true;
             }
             else if (position_tileset == new Vector2(2, 0))
             {
                 utilité = "restore 10 pv au joueur";
+                usable = true;
             }
             else if (position_tileset == new Vector2(3, 0))
             {
@@ -177,14 +180,17 @@ namespace Templar
                 if (position_tileset == new Vector2(0, 1))
                 {
                     utilité = "detruit tout les mobs de la carte";
+                    usable = true;
                 }
                 else if (position_tileset == new Vector2(1, 1))
                 {
                     utilité = "detruit un mob de la carte";
+                    usable = true;
                 }
                 else if (position_tileset == new Vector2(2, 1))
                 {
                     utilité = "restore 20 pv au joueur";
+                    usable = true;
                 }
                 else if (position_tileset == new Vector2(3, 1))
                 {
@@ -214,14 +220,17 @@ namespace Templar
                     if (position_tileset == new Vector2(0, 2))
                     {
                         utilité = "revele la position de la princesse au joueur";
+                        usable = true;
                     }
                     else if (position_tileset == new Vector2(1, 2))
                     {
                         utilité = "revele la position de la princesse au joueur";
+                        usable = true;
                     }
                     else if (position_tileset == new Vector2(2, 2))
                     {
                         utilité = "restore 10 pv au joueur";
+                        usable = true;
                     }
                     else if (position_tileset == new Vector2(3, 2))
                     {
@@ -251,14 +260,17 @@ namespace Templar
                         if (position_tileset == new Vector2(0, 3))
                         {
                             utilité = "detruit tout les mobs de la carte";
+                            usable = true;
                         }
                         else if (position_tileset == new Vector2(1, 3))
                         {
                             utilité = "detruit un mob de la carte";
+                            usable = true;
                         }
                         else if (position_tileset == new Vector2(2, 3))
                         {
                             utilité = "restore 20 pv au joueur";
+                            usable = true;
                         }
                         else if (position_tileset == new Vector2(3, 3))
                         {
@@ -294,14 +306,17 @@ namespace Templar
                             if (position_tileset == new Vector2(0, 4))
                             {
                                 utilité = "revele la position de la princesse au joueur";
+                                usable = true;
                             }
                             else if (position_tileset == new Vector2(1, 4))
                             {
                                 utilité = "revele la position de la princesse au joueur";
+                                usable = true;
                             }
                             else if (position_tileset == new Vector2(2, 4))
                             {
                                 utilité = "restore 10 pv au joueur";
+                                usable = true;
                             }
                             else if (position_tileset == new Vector2(3, 4))
                             {
@@ -333,14 +348,17 @@ namespace Templar
                                 if (position_tileset == new Vector2(0, 5))
                                 {
                                     utilité = "detruit tout les mobs de la carte";
+                                    usable = true;
                                 }
                                 else if (position_tileset == new Vector2(1, 5))
                                 {
                                     utilité = "detruit un mob de la carte";
+                                    usable = true;
                                 }
                                 else if (position_tileset == new Vector2(2, 5))
                                 {
                                     utilité = "restore 20 pv au joueur";
+                                    usable = true;
                                 }
                                 else if (position_tileset == new Vector2(3, 5))
                                 {
@@ -366,14 +384,17 @@ namespace Templar
                                     if (position_tileset == new Vector2(0, 6))
                                     {
                                         utilité = "titre de propriété du donjon";
+                                        usable = true;
                                     }
                                     else if (position_tileset == new Vector2(1, 6))
                                     {
                                         utilité = "un rouleau de PQ restore toute la vie du personnage";
+                                        usable = true;
                                     }
                                     else if (position_tileset == new Vector2(2, 6))
                                     {
                                         utilité = "restore 10 pv au joueur";
+                                        usable = true;
                                     }
                                     else if (position_tileset == new Vector2(3, 6))
                                     {
@@ -398,6 +419,159 @@ namespace Templar
         }
         public override void action(GamePlayer player)
         {
+            if (positin_tile == new Vector2(0, 0))
+            {
+                utilité = "revele la position de la princesse au joueur";
+                usable = true;
+            }
+            else if (positin_tile == new Vector2(1, 0))
+            {
+                utilité = "revele la position de la princesse au joueur";
+                usable = true;
+            }
+            else if (positin_tile == new Vector2(2, 0))
+            {
+                utilité = "restore 10 pv au joueur";
+                usable = true;
+            }
+            
+            else
+                if (positin_tile == new Vector2(0, 1))
+                {
+                    utilité = "detruit tout les mobs de la carte";
+                    usable = true;
+                }
+                else if (positin_tile == new Vector2(1, 1))
+                {
+                    utilité = "detruit un mob de la carte";
+                    usable = true;
+                }
+                else if (positin_tile == new Vector2(2, 1))
+                {
+                    utilité = "restore 20 pv au joueur";
+                    usable = true;
+                }
+                else
+                    if (positin_tile == new Vector2(0, 2))
+                    {
+                        utilité = "revele la position de la princesse au joueur";
+                        usable = true;
+                    }
+                    else if (positin_tile == new Vector2(1, 2))
+                    {
+                        utilité = "revele la position de la princesse au joueur";
+                        usable = true;
+                    }
+                    else if (positin_tile == new Vector2(2, 2))
+                    {
+                        utilité = "restore 10 pv au joueur";
+                        usable = true;
+                    }
+                    else
+                        if (positin_tile == new Vector2(0, 3))
+                        {
+                            utilité = "detruit tout les mobs de la carte";
+                            usable = true;
+                        }
+                        else if (positin_tile == new Vector2(1, 3))
+                        {
+                            utilité = "detruit un mob de la carte";
+                            usable = true;
+                        }
+                        else if (positin_tile == new Vector2(2, 3))
+                        {
+                            utilité = "restore 20 pv au joueur";
+                            usable = true;
+                        }
+                        
+                        else
+                            if (positin_tile == new Vector2(0, 4))
+                            {
+                                utilité = "revele la position de la princesse au joueur";
+                                usable = true;
+                            }
+                            else if (positin_tile == new Vector2(1, 4))
+                            {
+                                utilité = "revele la position de la princesse au joueur";
+                                usable = true;
+                            }
+                            else if (positin_tile == new Vector2(2, 4))
+                            {
+                                utilité = "restore 10 pv au joueur";
+                                usable = true;
+                            }                                                 
+                            else
+                                if (positin_tile == new Vector2(0, 5))
+                                {
+                                    utilité = "detruit tout les mobs de la carte";
+                                    usable = true;
+                                }
+                                else if (positin_tile == new Vector2(1, 5))
+                                {
+                                    utilité = "detruit un mob de la carte";
+                                    usable = true;
+                                }
+                                else if (positin_tile == new Vector2(2, 5))
+                                {
+                                    utilité = "restore 20 pv au joueur";
+                                    usable = true;
+                                }
+                                else if (positin_tile == new Vector2(3, 5))
+                                {
+                                    utilité = "augmente l'attaque du joueur de 5";
+                                }
+                                else if (positin_tile  == new Vector2(4, 5))
+                                {
+                                    utilité = "augmente l'attaque du joueur de 5";
+                                }
+                                else if (positin_tile == new Vector2(5, 5))
+                                {
+                                    utilité = "augmente l'attaque du joueur de 10";
+                                }
+                                else if (positin_tile == new Vector2(6, 5))
+                                {
+                                    utilité = "augmente l'attaque du joueur de 2";
+                                }
+                                else if (positin_tile == new Vector2(7, 5))
+                                {
+                                    utilité = "augmente l'attaque du joueur de 7";
+                                }
+                                else
+                                    if (positin_tile == new Vector2(0, 6))
+                                    {
+                                        utilité = "titre de propriété du donjon";
+                                        usable = true;
+                                    }
+                                    else if (positin_tile == new Vector2(1, 6))
+                                    {
+                                        utilité = "un rouleau de PQ restore toute la vie du personnage";
+                                        usable = true;
+                                    }
+                                    else if (positin_tile == new Vector2(2, 6))
+                                    {
+                                        utilité = "restore 10 pv au joueur";
+                                        usable = true;
+                                    }
+                                    else if (positin_tile == new Vector2(3, 6))
+                                    {
+                                        utilité = "augmente la magie du joueur de 5";
+                                    }
+                                    else if (positin_tile == new Vector2(4, 6))
+                                    {
+                                        utilité = "augmente la magie du joueur de 10";
+                                    }
+                                    else if (positin_tile == new Vector2(5, 6))
+                                    {
+                                        utilité = "augmente la magie du joueur de 2";
+                                    }
+                                    else if (positin_tile == new Vector2(6, 6))
+                                    {
+                                        utilité = "augmente la magie du joueur de 7";
+                                    }
+                                    else if (positin_tile == new Vector2(7, 6))
+                                    {
+                                        utilité = "revele la position de la princesse au joueur";
+                                    }
             base.action(player);
         }
         public override void draw(SpriteBatch spritebatch, int x, int y, int z, int w)

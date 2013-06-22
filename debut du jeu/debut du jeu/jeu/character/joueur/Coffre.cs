@@ -37,13 +37,13 @@ namespace Templar
                 {
                     selection.X -= 32;
                     if (selection.X < 0)
-                        selection.X = 4*32;
+                        selection.X = 4 * 32;
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.Up) && Data.prevKeyboardState.IsKeyUp(Keys.Up))
                 {
                     selection.Y -= 32;
                     if (selection.Y < 0)
-                        selection.Y = 4*32;
+                        selection.Y = 4 * 32;
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.Down) && Data.prevKeyboardState.IsKeyUp(Keys.Down))
                 {
@@ -53,7 +53,7 @@ namespace Templar
                 }
                 if (Data.keyboardState.IsKeyDown(Keys.Enter) && Data.prevKeyboardState.IsKeyUp(Keys.Enter))
                 {
-                    if (player.nb_item(player.inventaire) != 25 && this.tab[(int)selection.X, (int)selection.Y] != null)
+                    if (player.nb_item(player.inventaire) != 25 && this.tab[(int)selection.X / 32, (int)selection.Y / 32] != null)
                     {
                         for (int j = 0; j < 5; j++)
                             for (int i = 0; i < 5; i++)
@@ -64,7 +64,7 @@ namespace Templar
                                     j = 5;
                                 }
 
-                        this.tab[(int)selection.X, (int)selection.Y] = null;
+                        this.tab[(int)selection.X / 32, (int)selection.Y / 32] = null;
                     }
                 }
             }
@@ -81,7 +81,7 @@ namespace Templar
                             + j * 32, 32 + i, 32 + j), Color.White);
                         if (tab[i, j] != null)
                             tab[i, j].draw(spritebatch, Fenetre.Width / 3 + i * 32, Fenetre.Height / 3
-                            + j * 32,32,32);
+                            + j * 32, 32, 32);
                     }
             }
         }
