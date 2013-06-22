@@ -83,8 +83,8 @@ namespace Templar
 
             for (int i = 0; i < 5; i++)
             {
-                if (i < Main.player.inventaire.Count)
-                    spriteBatch.Draw(Main.player.inventaire.ElementAt(i).Texture, new Rectangle((2 * Main.Fenetre.Width / 6) + 40 * i + 100, Main.Fenetre.Height - 65, 40, 40), Color.White);
+                if (Main.player.inventaire[i,0] != null)
+                    Main.player.inventaire[i,0].draw(spriteBatch, 2 * Main.Fenetre.Width / 6 + 40 * i + 100, Main.Fenetre.Height - 65,40,40);
             }
 
             //dessine les fenetre des sort 

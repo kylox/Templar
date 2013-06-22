@@ -145,23 +145,33 @@ namespace Templar
         public void ramassage_objet()
         {
             bool est_present = false;
+            bool libre = false;
             int j = 0;
+            int x = 0, y = 0;
             for (int i = 0; i < liste_objet_map.Count; i++)
                 if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
                 {
-                    while (!est_present && j < 25 && j < localPlayer.inventaire.Count())
+                    for (int k = 0; k < 5; k++)
                     {
-                        if (localPlayer.inventaire.ElementAt(j) == liste_objet_map[i])
+                        for (int l = 0; l < 5; l++)
                         {
-                            est_present = true;
-                            localPlayer.nb_objet[j]++;
-                            liste_objet_map.RemoveAt(i);
+                            if (localPlayer.inventaire[l, k] == liste_objet_map[i])
+                            {
+                                est_present = true;
+                                localPlayer.nb_objet[j]++;
+                                liste_objet_map.RemoveAt(i);
+                            }
+                            if (localPlayer.inventaire[l, k] == null && libre == false)
+                            {
+                                libre = true;
+                                x = l;
+                                y = k;
+                            }
                         }
-                        j++;
                     }
-                    if (localPlayer.inventaire.Count < 25)
+                     if (!est_present && libre == true)
                     {
-                        localPlayer.inventaire.Add(liste_objet_map[i]);
+                        localPlayer.inventaire[x, y] = liste_objet_map[i];
                         liste_objet_map.RemoveAt(i);
                     }
                 }
@@ -191,8 +201,11 @@ namespace Templar
                     {
                         text.Is_shown = false;
                         localPlayer.in_action = false;
+                        localPlayer.Coffre_ouvert.is_open = false;
                         localPlayer.Coffre_ouvert = null;
                     }
+                    if(localPlayer.Coffre_ouvert != null)
+                    localPlayer.Coffre_ouvert.Update(localPlayer);
                 }
                 else
                 {
@@ -410,11 +423,9 @@ namespace Templar
             if (text.Is_shown)
                 text.Draw(spriteBatch);
             text.Draw(spriteBatch);
-            if (localPlayer.Coffre_ouvert != null)
-                localPlayer.Coffre_ouvert.Draw(spriteBatch, fenetre);
             #region draw du jeu
             foreach (item item in liste_objet_map)
-                item.draw(spriteBatch);
+                item.draw(spriteBatch,(int)item.Position.X,(int)item.Position.Y,32,32);
 
             foreach (wall wall in Walls)
                 wall.Draw(spriteBatch);

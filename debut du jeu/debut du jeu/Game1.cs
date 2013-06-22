@@ -114,6 +114,7 @@ namespace Templar
         }
         private bool checkKey(Keys theKey)
         {
+            /*
             if (activeScreen == pause)
                 if (theKey != Keys.Escape)
                     return (keyboard.IsKeyUp(theKey) &&
@@ -122,8 +123,8 @@ namespace Templar
                 else
                     return keyboard.IsKeyUp(theKey) &&
                     oldKeyboard.IsKeyDown(theKey);
-
-            if (activeScreen != main && activeScreen != edm)
+            */
+            if (activeScreen != main && activeScreen != edm && activeScreen != inventaire)
                 return (keyboard.IsKeyUp(theKey) &&
                         oldKeyboard.IsKeyDown(theKey)) ||
                         (mouse.LeftButton == ButtonState.Released) && (oldmouse.LeftButton == ButtonState.Pressed);

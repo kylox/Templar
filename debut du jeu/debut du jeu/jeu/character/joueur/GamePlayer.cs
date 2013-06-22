@@ -26,7 +26,7 @@ namespace Templar
         string active;
 
         public bool in_action;
-        public List<item> inventaire;
+        public item[,] inventaire;
         public int[] nb_objet;
         public int obj_selec;
         public bool levelup;
@@ -79,7 +79,15 @@ namespace Templar
             set { position = value; }
 
         }
-
+        public int nb_item(item[,] inventaire)
+        {
+            int nb = 0;
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 5; j++)
+                    if (inventaire[j, i] != null)
+                        nb++;
+            return nb;
+        }
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, Texture2D image, gamemain main, textbox text)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
@@ -103,7 +111,7 @@ namespace Templar
             click_down = false;
             levelup = false;
             nb_amelioration = 0;
-            inventaire = new List<item>();
+            inventaire = new item[5, 5];
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
             in_action = false;
@@ -111,7 +119,8 @@ namespace Templar
         }
         public void utilise_objet(item item)
         {
-            item.action(this);
+            if (item.usable)
+                item.action(this);
         }
         public void deplacement()
         {
@@ -259,10 +268,10 @@ namespace Templar
             attaque_mana(keyboard);
 
             if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
-                if (inventaire.Count != 0 && obj_selec - 1 < inventaire.Count)
+                if (this.nb_item(this.inventaire) != 0 && obj_selec - 1 < this.nb_item(this.inventaire))
                 {
-                    utilise_objet(inventaire.ElementAt(obj_selec - 1));
-                    inventaire.RemoveAt(obj_selec - 1);
+                    utilise_objet(inventaire[obj_selec - 1, 0]);
+                    inventaire[obj_selec - 1, 0] = null;
                 }
             #endregion
             //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 

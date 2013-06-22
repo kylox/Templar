@@ -96,9 +96,9 @@ namespace Templar
         public void init_coll(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            for (int i = 0; i < colision.GetLength(0); i++)
+            for (int j = 0; j < 18; j++)
             {
-                for (int j = 0; j < colision.GetLength(1); j++)
+                for (int i = 0; i < 25; i++)
                 {
                     if (i == 0)
                         colision[i, j] = 1;
@@ -160,13 +160,25 @@ namespace Templar
         public void init_mob(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            for (int i = 0; i < 25; i++)
+
+            for (int j = 0; j < 18; j++)
             {
-                for (int j = 0; j < 18; j++)
+                for (int i = 0; i < 25; i++)
                 {
                     mob[i, j] = new Vector2(15, 15);
                     sw.Write(cursor.vec_to_id(mob[i, j]));
                 }
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
+        public void init_box(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int i = 0; i < 18; i++)
+            {
+                for (int j = 0; j < 25; j++)
+                    sw.Write(0);
                 sw.WriteLine();
             }
             sw.Close();
@@ -181,6 +193,20 @@ namespace Templar
                 {
                     sw.Write(colision[i, j]);
                 }
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
+        public void ecrire_box(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int j = 0; j < 18; j++)
+            {
+                for (int i = 0; i < 25; i++)
+                    if (Coffres[i, j] == null)
+                        sw.Write(0);
+                    else
+                        sw.Write(1);
                 sw.WriteLine();
             }
             sw.Close();
@@ -252,9 +278,6 @@ namespace Templar
                     {
                         if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
                         {
-                            if (ligne[i] == cursor.vec_to_id(Vector2.Zero))
-                                Coffres[i, j] = new Coffre(new Vector2(i, j));
-
                             objet[i, j] = (cursor.id_to_vec(ligne[i]));
                         }
                     }
@@ -352,7 +375,7 @@ namespace Templar
             sr.Close();
 
         }
-        public void Update(GameTime gametime, string path, string path_coll, string path_message, string path_mob, textbox text)
+        public void Update(GameTime gametime, string path, string path_coll, string path_message, string path_mob, string path_box,string path_coffre, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
@@ -362,58 +385,60 @@ namespace Templar
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
                 && text.Is_shown == false && cursor.position == false && cursor.selected == true)
             {
-                if (Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32] != null)
+                if (Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16] != null)
                 {
                     if (active_coffre != null)
                         active_coffre.is_open = false;
                     prev_coffre = active_coffre;
                     cursor.selec_obj = false;
                     cursor.selected_mob = false;
-                    Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32].is_open = true;
-                    active_coffre = Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32];
+                    Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16].is_open = true;
+                    active_coffre = Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16];
                 }
             }
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released &&
                 !new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(100, 100, 32 * 5, 32 * 5))
                 && !new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(27 * 16, 48, 32 * 7, 32 * 7))
-                && text.Is_shown == false && cursor.position == false && cursor.selected == true && active_coffre != null && active_coffre.is_open == true)
+                && text.Is_shown == false && cursor.position == false && active_coffre != null && active_coffre.is_open == true)
             {
                 active_coffre.is_open = false;
             }
 
-
-            if (Data.mouseState.LeftButton == ButtonState.Pressed &&
-                Data.prevMouseState.LeftButton == ButtonState.Released &&
-                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-                && text.Is_shown == false && cursor.position == false && cursor.selected == true)
-            {
-                objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
-                if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(1, 2) &&
-                    cursor.iD != new Vector2(0, 4) && cursor.iD != new Vector2(0, 7) &&
-                    cursor.iD != new Vector2(0, 5) && cursor.iD != new Vector2(1, 4) &&
-                    cursor.iD != new Vector2(0, 6) && cursor.iD != new Vector2(1, 7) &&
-                    cursor.iD != new Vector2(1, 6) && cursor.iD != new Vector2(1, 5) &&
-                    cursor.iD != new Vector2(1, 0) && cursor.iD != new Vector2(1, 4) &&
-                    cursor.iD != new Vector2(2, 0))
+            else
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                    Data.prevMouseState.LeftButton == ButtonState.Released &&
+                    new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+                    && text.Is_shown == false && cursor.position == false && cursor.selected == true)
                 {
-                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
-                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
-                    if (cursor.iD == new Vector2(0, 0))
+                    objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                    if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(1, 2) &&
+                        cursor.iD != new Vector2(0, 4) && cursor.iD != new Vector2(0, 7) &&
+                        cursor.iD != new Vector2(0, 5) && cursor.iD != new Vector2(1, 4) &&
+                        cursor.iD != new Vector2(0, 6) && cursor.iD != new Vector2(1, 7) &&
+                        cursor.iD != new Vector2(1, 6) && cursor.iD != new Vector2(1, 5) &&
+                        cursor.iD != new Vector2(1, 0) && cursor.iD != new Vector2(1, 4) &&
+                        cursor.iD != new Vector2(2, 0))
                     {
-                        Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32] = new Coffre(new Vector2(Data.mouseState.X - Data.mouseState.X % 32, Data.mouseState.Y - Data.mouseState.Y % 32));
-                        prev_coffre = Coffres[Data.mouseState.X / 32, Data.mouseState.Y / 32];
+                        // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
+                        colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
+                        if (cursor.iD == new Vector2(0, 0))
+                        {
+                            Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16] = new Coffre(new Vector2(Data.mouseState.X - Data.mouseState.X % 32, Data.mouseState.Y - Data.mouseState.Y % 32));
+                            prev_coffre = Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16];
+                            cursor.ecrire_coffre(path_coffre, this);
+                        }
                     }
+                    else
+                    {
+                        // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
+                        colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
+                    }
+                    ecrire_objet(path);
+                    ecrire_coll(path_coll);
+                    ecrire_message(path_message);
+                    ecrire_box(path_box);
                 }
-                else
-                {
-                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
-                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
-                }
-                ecrire_objet(path);
-                ecrire_coll(path_coll);
-                ecrire_message(path_message);
-            }
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                Data.prevMouseState.LeftButton == ButtonState.Released &&
                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
@@ -435,13 +460,12 @@ namespace Templar
                         spriteBatch.Draw(ressource.objet_map, new Rectangle(i * x, j * x, x, x), Tile.tile(objet[i, j]), Color.White);
 
             for (int i = 0; i < 25; i++)
-            {
                 for (int j = 0; j < 18; j++)
-                {
                     if (Coffres[i, j] != null)
-                        Coffres[i, j].Draw(spriteBatch, i * 32, j * 32 + 32);
-                }
-            }
+                    {
+                        Coffres[i, j].Draw(spriteBatch, i * x+x, j * x + x);
+                        spriteBatch.Draw(ressource.pixel,new Rectangle(i*x,j*x,x,x),Color.FromNonPremultiplied(250,250,250,100));
+                    }
         }
         public bool ValidCoordinate(int x, int y)
         {

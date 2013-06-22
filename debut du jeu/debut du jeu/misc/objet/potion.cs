@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-   public class potion : item
+    public class potion : item
     {
         Rectangle Hitbox_potion;
         string Name;
@@ -31,6 +31,16 @@ namespace Templar
         {
             Hitbox_potion = new Rectangle((int)Position.X, (int)Position.Y, 32, 32);
             Name = name;
+            usable = true;
+            switch (name)
+            {
+                case "VIE":
+                    utilité = "restore 10 pv au personnage";
+                    break;
+                case "MANA":
+                    utilité = "restore 10 point de mana au personnage";
+                    break;
+            }
         }
         public override void action(GamePlayer player)
         {
@@ -46,9 +56,10 @@ namespace Templar
             }
             base.action(player);
         }
-        public override void draw(SpriteBatch spritebatch)
+        public override void draw(SpriteBatch spritebatch, int x, int y,int z,int w)
         {
-            base.draw(spritebatch);
+            spritebatch.Draw(Texture, new Rectangle(x,y,z,w), Color.White);
+            base.draw(spritebatch, (int)Position.X, (int)Position.Y,z,w);
         }
     }
 }

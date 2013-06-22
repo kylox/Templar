@@ -40,6 +40,44 @@ namespace Templar
             map.Y = Convert.ToInt32(pos[1]);
             sr.Close();
         }
+        public void load_coffre(string path, string dr, Map map)
+        {
+            int nb = 0;
+            StreamReader sr = new StreamReader(path);
+            for (int j = 0; j < 18; j++)
+            {
+                for (int i = 0; i < 25; i++)
+                {
+                    if (sr.Read() == '1')
+                    {
+                        map.Coffres[i, j] = new Coffre(new Vector2(i * 32, j * 32));
+                        if (nb < 10)
+                            load_objet(@dr + @"\Box" + @"0" + @nb + @".txt", map.Coffres[i, j]);
+                        else
+                            load_objet(@dr + @"\Box" + @nb + @".txt", map.Coffres[i, j]);
+                        nb++;
+                    }
+                }
+                sr.ReadLine();
+            }
+
+            sr.Close();
+        }
+        public void load_objet(string path, Coffre coffre)
+        {
+            StreamReader sr = new StreamReader(path);
+            int j = 0;
+            string ligne = "";
+           while((ligne = sr.ReadLine())!=null)
+           {
+                for (int i = 0; i < ligne.Length; i++)
+                {
+                    if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
+                        coffre.tab[i, j] = new Items(cursor.id_to_vec(Convert.ToChar(ligne[i])));
+                }
+                sr.ReadLine();
+            }
+        }
         public Donjon(string path, bool edm)
         {
             int x = 0;
@@ -59,6 +97,7 @@ namespace Templar
                             y++;
                         }
                     }
+
                     foreach (string file in System.IO.Directory.GetFiles(dr))
                     {
                         if (file[file.Length - 9] == 'M')//3
@@ -67,7 +106,7 @@ namespace Templar
                                 _maps[x, y] = new Map();
                             _maps[x, y].Nb = Convert.ToString(file[file.Length - 6]) + Convert.ToString(file[file.Length - 5]);
 
-                            _maps[x, y].load_objet(file);
+                            _maps[x, y].load_objet(file);// bug ?oO
                         }
                         else
                             if (file[file.Length - 10] == 'f')//2
@@ -92,6 +131,13 @@ namespace Templar
                                             _maps[x, y] = new Map();
                                         _maps[x, y].load_collision(file);
                                     }
+                                    else
+                                        if (file[file.Length - 7] == 'b')
+                                        {
+                                            if (_maps[x, y] == null)
+                                                _maps[x, y] = new Map();
+                                            load_coffre(file, @dr + @"\Boxes", _maps[x, y]);
+                                        }
 
                     }
                 }
@@ -105,6 +151,7 @@ namespace Templar
             else
                 nombre = Convert.ToString(nb);
             System.IO.Directory.CreateDirectory(@"Donjons\" + @path + @"\Map" + @nombre);
+            System.IO.Directory.CreateDirectory(@"Donjons\" + @path + @"\Map" + @nombre + @"\Boxes");
             Stream sr1 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
             sr1.Close();
             Stream sr2 = new FileStream(@"Donjons\" + @path + @"\Map" + @nombre + @"\fond" + @nombre + @".txt", FileMode.Create, FileAccess.ReadWrite);
@@ -118,6 +165,7 @@ namespace Templar
             this.Map[i, j].init_objet(@"Donjons\" + @path + @"\Map" + @nombre + @"\Map" + @nombre + @".txt");
             this.Map[i, j].init_coll(@"Donjons\" + @path + @"\Map" + @nombre + @"\collision" + @nombre + @".txt");
             this.Map[i, j].init_mob(@"Donjons\" + @path + @"\Map" + @nombre + @"\creature" + @".txt");
+            this.Map[i, j].init_box(@"Donjons\" + @path + @"\Map" + @nombre + @"\box" + @".txt");
             this.Map[i, j].isCreate = true;
         }
 

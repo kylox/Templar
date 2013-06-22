@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.IO;
 
 namespace Templar
 {
@@ -49,7 +50,38 @@ namespace Templar
             vec.Y = nb % 10;
             return vec;
         }
-        public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre, Map map)
+        public static void init_coffre(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int j = 0; j < 5; j++)
+                for (int i = 0; i < 5; i++)
+                    sw.Write(vec_to_id(new Vector2(15, 15)));
+        }
+        //ecrit les items dans le coffre
+        public static void ecrire_coffre(string path, Map map)
+        {
+            int nb = 0;
+            for (int j = 0; j < 18; j++)
+                for (int i = 0; i < 25; i++)
+                    if (map.Coffres[i, j] != null)
+                        if (nb < 10)
+                        {
+                            Stream S = new FileStream(path + @"\box0" + @nb + @".txt", FileMode.OpenOrCreate);
+                            S.Close();
+                            StreamWriter sw = new StreamWriter(path + @"\box0" + @nb + @".txt");
+                            for (int k = 0; k < 5; k++)
+                            {
+                                for (int l = 0; l < 5; l++)
+                                    if (map.Coffres[i, j].tab[l, k] != null)
+                                        sw.Write(vec_to_id(map.Coffres[i, j].tab[l, k].positin_tile));
+                                    else
+                                        sw.Write(vec_to_id(new Vector2(15,15)));
+                                sw.WriteLine();
+                            }
+                            sw.Close();
+                        }
+        }
+        public static void Update(GameTime gameTime, Rectangle tileset, Rectangle fenetre, string path, Map map)
         {
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(tileset) &&
                 Data.mouseState.LeftButton == ButtonState.Pressed &&
@@ -60,7 +92,6 @@ namespace Templar
                 selec_obj = false;
                 ID.X = Math.Abs(((fenetre.Width - Data.mouseState.X) / 32) - 5);
                 ID.Y = Data.mouseState.Y / 32;
-
             }
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(mobs) &&
                 Data.mouseState.LeftButton == ButtonState.Pressed &&
@@ -76,7 +107,7 @@ namespace Templar
             }
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(obj) &&
                Data.mouseState.LeftButton == ButtonState.Pressed &&
-               Data.prevMouseState.LeftButton == ButtonState.Released && map.active_coffre.is_open)
+               Data.prevMouseState.LeftButton == ButtonState.Released && map.active_coffre != null && map.active_coffre.is_open)
             {
                 display_name = true;
                 selected = false;
@@ -89,6 +120,7 @@ namespace Templar
                         if (map.active_coffre.tab[j, i] == null)
                         {
                             map.active_coffre.tab[j, i] = new Items(new Vector2(cursor.ID.X, cursor.ID.Y));
+                            ecrire_coffre(path, map);
                             i = 5;
                             j = 5;
                         }
