@@ -63,15 +63,21 @@ namespace Templar
                         Main.player.inventaire[i, j].draw(spriteBatch, i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50, 64, 64);
                 }
             for (int i = 0; i < 4; i++)
+            {
                 spriteBatch.Draw(ressource.selection_sort, new Rectangle(25, i * 64 + 5 + 50, 64, 64), Color.White);
+                if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(25, i * 64 + 5 + 50, 64, 64)))
+                {
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(25, i * 64 + 5 + 50, 64, 4), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(25, i * 64 + 5 + 50, 4, 64), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(25, i * 64 + 5 + 50 + 62, 64, 4), Color.Red);
+                    spriteBatch.Draw(ressource.pixel, new Rectangle(25 + 62, i * 64 + 5 + 50, 4, 64), Color.Red);
+                }
+            }
             if (ispressed)
                 Main.player.inventaire[(int)objet.X, (int)objet.Y].draw(spriteBatch, Data.mouseState.X, Data.mouseState.Y, 64, 64);
             for (int j = 0; j < 5; j++)
-            {
                 for (int i = 0; i < 5; i++)
-                {
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50, 64, 64)))
-                    {
                         if (Main.player.inventaire[i, j] != null)
                             if (Data.mouseState.X + (int)ressource.ecriture.MeasureString(Main.player.inventaire[i, j].utilité).X > game.Window.ClientBounds.Width)
                             {
@@ -93,9 +99,7 @@ namespace Templar
                                 Main.player.inventaire[i, j].utilité).Y), Color.Wheat);
                                 spriteBatch.DrawString(ressource.ecriture, Main.player.inventaire[i, j].utilité, new Vector2(Data.mouseState.X, Data.mouseState.Y), Color.Black);
                             }
-                    }
-                }
-            }
+
             for (int j = 0; j < 5; j++)
                 for (int i = 0; i < 5; i++)
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50, 64, 64)))
@@ -109,4 +113,5 @@ namespace Templar
             base.Draw(gameTime);
         }
     }
+
 }

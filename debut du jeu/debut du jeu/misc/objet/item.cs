@@ -23,7 +23,7 @@ namespace Templar
             Texture = texture;
             Position = position;
         }
-        public virtual void action(GamePlayer player)
+        public virtual void action(gamemain main)
         {
         }
         public virtual void update()

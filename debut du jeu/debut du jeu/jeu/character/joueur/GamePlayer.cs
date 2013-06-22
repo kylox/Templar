@@ -129,7 +129,7 @@ namespace Templar
         }
         public void utilise_objet(item item)
         {
-            item.action(this);
+            item.action(main);
         }
         public void deplacement()
         {

@@ -379,7 +379,6 @@ namespace Templar
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
-
             if (Data.mouseState.RightButton == ButtonState.Pressed &&
                 Data.prevMouseState.RightButton == ButtonState.Released &&
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
@@ -404,7 +403,6 @@ namespace Templar
             {
                 active_coffre.is_open = false;
             }
-
             else
                 if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                     Data.prevMouseState.LeftButton == ButtonState.Released &&

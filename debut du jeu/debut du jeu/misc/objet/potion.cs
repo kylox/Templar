@@ -42,19 +42,19 @@ namespace Templar
                     break;
             }
         }
-        public override void action(GamePlayer player)
+        public override void action(gamemain main)
         {
             switch (this._Name)
             {
                 case "VIE":
-                    player.pv_player += 25;
+                    main.player.pv_player += 25;
                     break;
                 case "MANA":
-                    if (player.mana_player < 100)
-                        player.mana_player += 25;
+                    if (main.player.mana_player < 100)
+                        main.player.mana_player += 25;
                     break;
             }
-            base.action(player);
+            base.action(main);
         }
         public override void draw(SpriteBatch spritebatch, int x, int y,int z,int w)
         {
