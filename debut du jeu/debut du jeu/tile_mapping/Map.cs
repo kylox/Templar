@@ -382,10 +382,13 @@ namespace Templar
             if (Data.mouseState.RightButton == ButtonState.Pressed &&
                 Data.prevMouseState.RightButton == ButtonState.Released &&
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-                && text.Is_shown == false && cursor.position == false && cursor.selected == true)
+                && text.Is_shown == false )
             {
                 if (Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16] != null)
                 {
+                    cursor.position = false;
+                    cursor.selected = false;
+                    cursor.selec_obj = false;
                     if (active_coffre != null)
                         active_coffre.is_open = false;
                     prev_coffre = active_coffre;
@@ -423,7 +426,6 @@ namespace Templar
                         if (cursor.iD == new Vector2(0, 0))
                         {
                             Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16] = new Coffre(new Vector2(Data.mouseState.X - Data.mouseState.X % 32, Data.mouseState.Y - Data.mouseState.Y % 32));
-                            prev_coffre = Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16];
                             cursor.ecrire_coffre(path_coffre, this);
                         }
                     }
@@ -432,6 +434,7 @@ namespace Templar
                         // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
                         colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
                     }
+                    cursor.ecrire_coffre(path_coffre, this);
                     ecrire_objet(path);
                     ecrire_coll(path_coll);
                     ecrire_message(path_message);

@@ -25,7 +25,7 @@ namespace Templar
         int Mana;
         int timer_invulnarable;
         int timer_inv2;
-        int timer_dash;
+        public int timer_dash;
         int speed_max;
         int CanMove;
         public int pv_item;
@@ -139,8 +139,6 @@ namespace Templar
             Endurance = 100;
             Mana = 100;
             Pv = 100;
-            pv_max = 100;
-            mana_max = 100;
             timer_endurance = 0;
             sort_selec = 1;
             obj_selec = 1;
@@ -157,7 +155,8 @@ namespace Templar
         }
         public void utilise_objet(item item)
         {
-            item.action(main);
+            if (item != null)
+                item.action(main);
         }
         public void deplacement()
         {
@@ -234,9 +233,7 @@ namespace Templar
                         }
                         reader.Read();
                     }
-
                 }
-
             if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
             {
                 switch (frameline)
@@ -318,13 +315,13 @@ namespace Templar
         }
         public void maj_total()
         {
-            timer_dash_max = 2 + dash_item;
-            pv_max = 100 + pv_item;
-            mana_max = 100 + mana_item;
-            main.player.magie_max = main.player.magie_item + main.player.magie;
-            main.player.attaque_max = main.player.attaque_item + main.player.attaque;
-            main.player.defense_max = main.player.defense_item + main.player.defense;
-            endurance_max = endurance_item + Endurance;
+            timer_dash = 2 + dash_item;
+            Pv = 100 + pv_item + pv_max;
+            Mana = 100 + mana_item + mana_max;
+            main.player.magie = main.player.magie_item + main.player.magie_max + 10;
+            main.player.attaque = main.player.attaque_item + main.player.attaque_max + 10;
+            main.player.defense = main.player.defense_item + main.player.defense_max + 10;
+            Endurance = endurance_item + endurance_max + 100;
         }
         public void Dash(switch_map map)
         {
@@ -358,8 +355,7 @@ namespace Templar
         }
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
-            maj_equipement();
-            maj_total();
+
             animaitonspeed = 5;
             if (invulnerable == true)
                 timer_invulnarable--;
@@ -442,7 +438,7 @@ namespace Templar
                 if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
                 {
                     map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
-                    pv_player -= 15;
+                    Pv -= 15;
                     ressource.pique.Play();
                 }
                 else
@@ -453,7 +449,7 @@ namespace Templar
                                     main.map.Active_Map.objet[i, j] = new Vector2(0, 2);
                 #region endurance
                 timer_endurance++;
-                if (keyboard.IsKeyDown(Keys.LeftShift) && Endurance > 50)
+                if (Data.keyboardState.IsKeyDown(Keys.LeftShift) && Data.prevKeyboardState.IsKeyDown(Keys.LeftShift) && Endurance > 50)
                 {
                     dash = true;
                     Endurance -= 50;
@@ -477,7 +473,7 @@ namespace Templar
                 {
                     nb_amelioration++;
                     XP -= 100;
-                    mana_player = pv_player = 100;
+                    mana_player = pv_player;
                     Niveau++;
                     levelup = false;
                 }

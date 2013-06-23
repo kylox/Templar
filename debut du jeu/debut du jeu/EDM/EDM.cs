@@ -102,7 +102,12 @@ namespace Templar
                         Data.prevMouseState.LeftButton == ButtonState.Released &&
                             new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(
                                 new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString("position joueur").X, 0, (int)ressource.ecriture.MeasureString("position joueur").X, (int)ressource.ecriture.MeasureString("position joueur").Y)))
+                {
                     cursor.position = true;
+                    cursor.selected = false;
+                    cursor.selec_obj = false;
+                    cursor.selected_mob = false;
+                }
                 //sinon on a selectionner la textbox
                 if (selec == true)
                     message.update();
@@ -166,11 +171,20 @@ namespace Templar
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre)
                 && Data.mouseState.LeftButton == ButtonState.Pressed
                 && Data.prevMouseState.LeftButton == ButtonState.Released)
+            {
                 selec = true;
+                cursor.selected = false;
+                cursor.selected_mob = false;
+                cursor.selec_obj = false;
+                cursor.position = false;
+            }
             if ((!new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre))
                 && Data.mouseState.LeftButton == ButtonState.Pressed
                 && Data.prevMouseState.LeftButton == ButtonState.Released)
+            {
                 selec = false;
+
+            }
         }
         //selectionne la map dans l'edm
         public void selectionmap()
