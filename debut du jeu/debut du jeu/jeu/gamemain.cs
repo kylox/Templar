@@ -103,7 +103,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = donjon.position_J;
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text,language);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text, language);
             localPlayer.Niveau = 1;
             map = new switch_map(localPlayer, this, donjon, name_donjon);
             map.x = (int)donjon.map.X;
@@ -132,7 +132,7 @@ namespace Templar
             {
                 Serveur = new Server();
                 same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text,langue);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 8, 8, position_joueur, ressource.sprite_player, this, text, langue);
                 while (Serveur.isrunnin)
                 {
                 }
@@ -141,7 +141,7 @@ namespace Templar
             {
                 Client = new Client(IP);
                 same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text, langue);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 8, 8, position_joueur, ressource.sprite_player, this, text, langue);
             }
         }
         public void ramassage_objet()
@@ -171,7 +171,7 @@ namespace Templar
                             }
                         }
                     }
-                     if (!est_present && libre == true)
+                    if (!est_present && libre == true)
                     {
                         localPlayer.inventaire[x, y] = liste_objet_map[i];
                         liste_objet_map.RemoveAt(i);
@@ -206,8 +206,8 @@ namespace Templar
                         localPlayer.Coffre_ouvert.is_open = false;
                         localPlayer.Coffre_ouvert = null;
                     }
-                    if(localPlayer.Coffre_ouvert != null)
-                    localPlayer.Coffre_ouvert.Update(localPlayer);
+                    if (localPlayer.Coffre_ouvert != null)
+                        localPlayer.Coffre_ouvert.Update(localPlayer);
                 }
                 else
                 {
@@ -256,7 +256,10 @@ namespace Templar
                         zombie.update(mouse, keyboard, Walls, personnage, map);
                     foreach (NPC zombie in list_zombi)
                         if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
-                            localPlayer.pv_player--;
+                        {
+                            zombie.combat = true;
+                            zombie.Attaque(localPlayer);
+                        }
                     for (int i = 0; i < list_zombi.Count; i++)
                     {
                         if (localPlayer.combat == true)
@@ -427,7 +430,7 @@ namespace Templar
             text.Draw(spriteBatch);
             #region draw du jeu
             foreach (item item in liste_objet_map)
-                item.draw(spriteBatch,(int)item.Position.X,(int)item.Position.Y,32,32);
+                item.draw(spriteBatch, (int)item.Position.X, (int)item.Position.Y, 32, 32);
 
             foreach (wall wall in Walls)
                 wall.Draw(spriteBatch);

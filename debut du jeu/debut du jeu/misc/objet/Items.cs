@@ -15,8 +15,6 @@ namespace Templar
 
     public class Items : item
     {
-        public int[] Bonus;
-        public bool is_equipable;
         Random rd = new Random();
         bool langue;
         public Vector2 positin_tile;
@@ -121,13 +119,13 @@ namespace Templar
                                     else if (position_tileset == new Vector2(2, 6))
                                         return "restore 200 pv au joueur";
                                     else if (position_tileset == new Vector2(3, 6))
-                                        return "augmente toute les caracterique du joueur";
+                                        return "augmente la defense du joueur de 5";
                                     else if (position_tileset == new Vector2(4, 6))
-                                        return "augmente la magie du joueur de 10";
+                                        return "augmente la defense du joueur de 10";
                                     else if (position_tileset == new Vector2(5, 6))
-                                        return "augmente la magie du joueur de 2";
+                                        return "augmente la defense du joueur de 2";
                                     else if (position_tileset == new Vector2(6, 6))
-                                        return "augmente la magie du joueur de 7";
+                                        return "augmente la defense du joueur de 7";
             return "";
         }
         public Items(Vector2 position_tileset, bool language)
@@ -155,25 +153,25 @@ namespace Templar
             else if (position_tileset == new Vector2(3, 0))
             {
                 utilité = "augmente la magie du joueur de 5";
-                Bonus = new int[] { 0, 5, 0, 0, 0, 0 };
+                Bonus = new int[] { 0, 5, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else if (position_tileset == new Vector2(4, 0))
             {
                 utilité = "augmente la magie du joueur de 10";
-                Bonus = new int[] { 0, 10, 0, 0, 0, 0 };
+                Bonus = new int[] { 0, 10, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else if (position_tileset == new Vector2(5, 0))
             {
                 utilité = "augmente la magie du joueur de 2";
-                Bonus = new int[] { 0, 2, 0, 0, 0, 0 };
+                Bonus = new int[] { 0, 2, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else if (position_tileset == new Vector2(6, 0))
             {
                 utilité = "augmente la magie du joueur de 7";
-                Bonus = new int[] { 0, 7, 0, 0, 0, 0 };
+                Bonus = new int[] { 0, 7, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else
@@ -195,25 +193,25 @@ namespace Templar
                 else if (position_tileset == new Vector2(3, 1))
                 {
                     utilité = "augmente l'attaque du joueur de 5";
-                    Bonus = new int[] { 5, 0, 0, 0, 0, 0 };
+                    Bonus = new int[] { 5, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else if (position_tileset == new Vector2(4, 1))
                 {
                     utilité = "augmente l'attaque du joueur de 10";
-                    Bonus = new int[] { 10, 0, 0, 0, 0, 0 };
+                    Bonus = new int[] { 10, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else if (position_tileset == new Vector2(5, 1))
                 {
                     utilité = "augmente l'attaque du joueur de 2";
-                    Bonus = new int[] { 2, 0, 0, 0, 0, 0 };
+                    Bonus = new int[] { 2, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else if (position_tileset == new Vector2(6, 1))
                 {
                     utilité = "augmente l'attaque du joueur de 7";
-                    Bonus = new int[] { 7, 0, 0, 0, 0, 0 };
+                    Bonus = new int[] { 7, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else
@@ -235,25 +233,25 @@ namespace Templar
                     else if (position_tileset == new Vector2(3, 2))
                     {
                         utilité = "augmente l'endurance du joueur de 5";
-                        Bonus = new int[] { 0, 0, 5, 0, 0, 0 };
+                        Bonus = new int[] { 0, 0, 5, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else if (position_tileset == new Vector2(4, 2))
                     {
                         utilité = "augmente l'endurance du joueur de 10";
-                        Bonus = new int[] { 0, 0, 10, 0, 0, 0 };
+                        Bonus = new int[] { 0, 0, 10, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else if (position_tileset == new Vector2(5, 2))
                     {
                         utilité = "augmente l'endurance du joueur de 2";
-                        Bonus = new int[] { 0, 0, 2, 0, 0, 0 };
+                        Bonus = new int[] { 0, 0, 2, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else if (position_tileset == new Vector2(6, 2))
                     {
                         utilité = "augmente l'endurance du joueur de 7";
-                        Bonus = new int[] { 0, 0, 7, 0, 0, 0 };
+                        Bonus = new int[] { 0, 0, 7, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else
@@ -274,32 +272,32 @@ namespace Templar
                         }
                         else if (position_tileset == new Vector2(3, 3))
                         {
-                            utilité = "augmente la vitesse du joueur de 1";
-                            Bonus = new int[] { 0, 0, 0, 1, 0, 0 };
+                            utilité = "augmente le nombre de dash du joueur de 1";
+                            Bonus = new int[] { 0, 0, 0, 1, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else if (position_tileset == new Vector2(4, 3))
                         {
-                            utilité = "augmente la vitesse du joueur de 2";
-                            Bonus = new int[] { 0, 0, 0, 2, 0, 0 };
+                            utilité = "augmente le nombre de dash du joueur de 2";
+                            Bonus = new int[] { 0, 0, 0, 2, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else if (position_tileset == new Vector2(5, 3))
                         {
-                            utilité = "augmente la vitesse du joueur de 3";
-                            Bonus = new int[] { 0, 0, 0, 3, 0, 0 };
+                            utilité = "augmente le nombre de dash du joueur de 3";
+                            Bonus = new int[] { 0, 0, 0, 3, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else if (position_tileset == new Vector2(6, 3))
                         {
-                            utilité = "augmente la vitesse du joueur de 4";
-                            Bonus = new int[] { 0, 0, 0, 4, 0, 0 };
+                            utilité = "augmente le nombre de dash du joueur de 4";
+                            Bonus = new int[] { 0, 0, 0, 4, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else if (position_tileset == new Vector2(7, 3))
                         {
-                            utilité = "augmente la vitesse du joueur de 5";
-                            Bonus = new int[] { 0, 0, 0, 5, 0, 0 };
+                            utilité = "augmente le nombre de dash du joueur de 5";
+                            Bonus = new int[] { 0, 0, 0, 5, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else
@@ -321,28 +319,28 @@ namespace Templar
                             else if (position_tileset == new Vector2(3, 4))
                             {
                                 utilité = "augmente les points de vie du joueur de 50";
-                                Bonus = new int[] { 0, 0, 0, 0, 50, 0 };
+                                Bonus = new int[] { 0, 0, 0, 0, 50, 0, 0 };
                                 is_equipable = true;
                             }
                             else if (position_tileset == new Vector2(4, 4))
                             {
                                 utilité = "augmente les points de vie du joueur de 100";
-                                Bonus = new int[] { 0, 0, 0, 0, 50, 0 };
+                                Bonus = new int[] { 0, 0, 0, 0, 50, 0, 0 };
                                 is_equipable = true;
                             }
                             else if (position_tileset == new Vector2(5, 4))
                             {
                                 utilité = "augmente les points de vie du joueur de 25";
-                                Bonus = new int[] { 0, 0, 0, 0, 25, 0 };
+                                Bonus = new int[] { 0, 0, 0, 0, 25, 0, 0 };
                                 is_equipable = true;
                             }
                             else if (position_tileset == new Vector2(6, 4))
                             {
                                 utilité = "augmente les points de vie du joueur de 75";
-                                Bonus = new int[] { 0, 0, 0, 0, 75, 0 };
+                                Bonus = new int[] { 0, 0, 0, 0, 75, 0, 0 };
                                 is_equipable = true;
                             }
-                           
+
                             else
                                 if (position_tileset == new Vector2(0, 5))
                                 {
@@ -351,7 +349,7 @@ namespace Templar
                                 }
                                 else if (position_tileset == new Vector2(1, 5))
                                 {
-                                    utilité = "restore 760 point de mana";
+                                    utilité = "restore 160 point de mana";
                                     usable = true;
                                 }
                                 else if (position_tileset == new Vector2(2, 5))
@@ -362,22 +360,22 @@ namespace Templar
                                 else if (position_tileset == new Vector2(3, 5))
                                 {
                                     utilité = "augmente les points de mana max du joueur de 50";
-                                    Bonus = new int[] { 0, 0, 0, 0, 0, 50 };
+                                    Bonus = new int[] { 0, 0, 0, 0, 0, 50, 0 };
                                 }
                                 else if (position_tileset == new Vector2(4, 5))
                                 {
                                     utilité = "augmente les points de mana max du joueur de 100";
-                                    Bonus = new int[] { 0, 0, 0, 0, 0, 100 };
+                                    Bonus = new int[] { 0, 0, 0, 0, 0, 100, 0 };
                                 }
                                 else if (position_tileset == new Vector2(5, 5))
                                 {
                                     utilité = "augmente les points de mana max du joueur de 25";
-                                    Bonus = new int[] { 0, 0, 0, 0, 0, 25 };
+                                    Bonus = new int[] { 0, 0, 0, 0, 0, 25, 0 };
                                 }
                                 else if (position_tileset == new Vector2(6, 5))
                                 {
                                     utilité = "augmente les points de mana max du joueur de 75";
-                                    Bonus = new int[] { 0, 0, 0, 0, 0, 75 };
+                                    Bonus = new int[] { 0, 0, 0, 0, 0, 75, 0 };
                                 }
                                 else
                                     if (position_tileset == new Vector2(0, 6))
@@ -397,23 +395,23 @@ namespace Templar
                                     }
                                     else if (position_tileset == new Vector2(3, 6))
                                     {
-                                        utilité = "augmente les caracteristique de 5, pv max et mana max a 50";
-                                        Bonus = new int[] { 5, 5, 5, 2, 50, 50 };
+                                        utilité = "augmente la defense du joueur de 5";
+                                        Bonus = new int[] { 0, 0, 0, 0, 0, 0, 5 };
                                     }
                                     else if (position_tileset == new Vector2(4, 6))
                                     {
-                                        utilité = "augmente les caracteristique de 10, pv max et mana max a 100";
-                                        Bonus = new int[] { 10, 10, 10, 4, 100, 100 };
+                                        utilité = "augmente la defense du joueur de 10";
+                                        Bonus = new int[] { 0, 0, 0, 0, 0, 0, 10 };
                                     }
                                     else if (position_tileset == new Vector2(5, 6))
                                     {
-                                        utilité = "augmente les caracteristique de 2, pv max et mana max de 25";
-                                        Bonus = new int[] { 2, 2, 2, 1, 25, 25 };
+                                        utilité = "augmente la defense du joueur de 2";
+                                        Bonus = new int[] { 0, 0, 0, 0, 0, 0, 2 };
                                     }
                                     else if (position_tileset == new Vector2(6, 6))
                                     {
-                                        utilité = "augmente les caracteristique de 7, pv max et mana max de 75";
-                                        Bonus = new int[] { 7, 7, 7, 3, 75, 75 };
+                                        utilité = "augmente la defense du joueur de 7";
+                                        Bonus = new int[] { 0, 0, 0, 0, 0, 0, 7 };
                                     }
         }
         public override void action(gamemain main)
@@ -460,6 +458,7 @@ namespace Templar
                     else if (positin_tile == new Vector2(1, 2))
                     {
                         utilité = "rend le personnage invulnerable pendant 10 secondes";
+                        main.player.invulnerable = true;
                         usable = true;
                     }
                     else if (positin_tile == new Vector2(2, 2))
