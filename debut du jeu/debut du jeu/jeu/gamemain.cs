@@ -109,6 +109,7 @@ namespace Templar
             {
                 position_joueur = new Vector2(32, 32);
                 localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text, language);
+                localPlayer.Niveau = 1;
             }
             if (!is2p)
             {
@@ -469,7 +470,7 @@ namespace Templar
                             {
                                 list_zombi[j].PV -= 100;
                                 liste_sort.RemoveAt(i);
-                                if (Is_Client)
+                                /*if (Is_Client)
                                 {
                                     Client.Send(31, i, 0);
                                 }
@@ -477,7 +478,7 @@ namespace Templar
                                 {
                                     Serveur.Send(31, i, 0);
                                 }
-                                break;
+                                break;*/
                             }
 
                     #endregion SORT
