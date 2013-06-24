@@ -193,10 +193,10 @@ namespace Templar
                 if (Data.keyboardState.IsKeyDown(Keys.Enter))
                 {
 
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie, creation.donjon, language);
+                   /* main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie, creation.donjon, language);
                     main.IP = menudeux.box.Saisie;
                     main.Is_Client = menudeux.selec;
-                    main.Is_Server = !menudeux.selec;
+                    main.Is_Server = !menudeux.selec;*/
                     Is_server = !menudeux.selec;
                     Is_Client = menudeux.selec;
                     if (Is_server)
@@ -209,8 +209,12 @@ namespace Templar
                     if (Is_Client)
                     {
                         client = new Client(box.Saisie);
-                        Donjon donj = client.ReceiveDungeon();
-                        main = new gamemain(this, spriteBatch, activeScreen, donj, true, box.Saisie, creation.donjon,language);
+                        
+                        main = new gamemain(this, spriteBatch, activeScreen, null, true, box.Saisie, creation.donjon,language);
+                        Donjon donj = client.ReceiveDungeon(main);
+                        main.map = new switch_map(main.player, donj, donj.name);
+                        main.map.x = (int)donj.map.X;
+                        main.map.y = (int)donj.map.Y;
                         main.Is_Client = true;
                         main.Is_Server = false;
                         main.Client = client;

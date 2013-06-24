@@ -22,12 +22,16 @@ namespace Templar
         Map Map;
         GamePlayer player;
         bool PlayerMoved, CanMove;
+        public int frameline;
+        public Vector2 position;
         //Thread Deleg;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
             Texture2D image, GamePlayer player, Map map)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
+            this.frameline = nb_frameLine;
+            this.position = position;
             this.player = player;
             //partie pour L'A*
             PlayerMoved = false;

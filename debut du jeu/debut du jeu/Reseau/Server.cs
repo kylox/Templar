@@ -49,12 +49,16 @@ namespace Templar
                 {
                     if (donj.Map[i, j] != null)
                     {
-                        StreamReader sr = new StreamReader(@"Donjons\" + @donj.name + @"\Map" + donj.Map[i, j].Nb + @"\creature");
                         t.Write(1);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].Coffres);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].colision);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].mob);
-                        Serialiseur.Serialize(Sentstream, sr);
+                        Serialiseur.Serialize(Sentstream, donj.Map[i, j].monstre.Count);
+                        foreach (NPC q in donj.Map[i,j].monstre)
+                        {
+                            Serialiseur.Serialize(Sentstream, q.frameline);
+                            Serialiseur.Serialize(Sentstream, q.position);
+                        }
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].objet);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].tiles);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].Tilelist);                        
