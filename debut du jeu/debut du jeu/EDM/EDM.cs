@@ -318,11 +318,12 @@ namespace Templar
             }
             else
             {
+              
                 //dessine la string de positionnement du joueur
                 if (cursor.tuto == false)
                     spriteBatch.DrawString(ressource.ecriture, "Tuto", new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.White);
                 else
-                    spriteBatch.DrawString(ressource.ecriture, "Tuto", new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "Tuto", new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.Red);
 
                 if (cursor.position == false)
                     spriteBatch.DrawString(ressource.ecriture, op1, new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X, 0), Color.White);
@@ -396,6 +397,14 @@ namespace Templar
                     spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Y - 3, message.Fenetre.Width + 6, 3), Color.Red);
                     spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.X - 3, message.Fenetre.Height + message.Fenetre.Y, message.Fenetre.Width + 3, 3), Color.Red);
                     spriteBatch.Draw(ressource.pixel, new Rectangle(message.Fenetre.Width + message.Fenetre.X, message.Fenetre.Y, 3, message.Fenetre.Height + 3), Color.Red);
+                }
+                if (cursor.tuto == true)
+                {
+                    spriteBatch.Draw(ressource.pixel, fenetre, Color.FromNonPremultiplied(0, 0, 0, 175));
+                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici\n pour selectionner\n une tuile", new Vector2(fenetre.Width - ressource.tile.Width+32, 64), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici\n pour ajouter\n une map", new Vector2(fenetre.Width - ressource.tile.Width + 48, 300+32), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici pour selectionn un mob", new Vector2(0, 18 * 16 + 10), Color.White);
+                    //spriteBatch.DrawString(ressource.ecriture, "
                 }
             }
         }
