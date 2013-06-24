@@ -404,7 +404,7 @@ namespace Templar
                     spriteBatch.DrawString(ressource.ecriture, "clic gauche ici\n pour selectionner\n une tuile", new Vector2(fenetre.Width - ressource.tile.Width+32, 64), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, "clic gauche ici\n pour ajouter\n une map", new Vector2(fenetre.Width - ressource.tile.Width + 48, 300+32), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, "clic gauche ici pour selectionn un mob", new Vector2(0, 18 * 16 + 10), Color.White);
-                    //spriteBatch.DrawString(ressource.ecriture, "
+                    spriteBatch.DrawString(ressource.ecriture, "clic guche ici pour activer la saisie du message de map", new Vector2(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3), Color.White);
                 }
             }
         }

@@ -83,7 +83,6 @@ namespace Templar
                 isrunnin = false;
             }
         }
-
         public bool Ping()
         {
             if (Client.Client.Poll(-1, SelectMode.SelectError))
@@ -105,7 +104,6 @@ namespace Templar
             Client_Listener.Abort();
             Client_Handler.Abort();
         }
-
         public void Receiver(object client)
         {
             TcpClient Sender = (TcpClient)client;
@@ -114,8 +112,6 @@ namespace Templar
                 Sentstream = Sender.GetStream();
             }
         }
-       
-
         public void Parser(gamemain Infos)
         {
             BinaryReader BR = new BinaryReader(Sentstream);
@@ -191,7 +187,6 @@ namespace Templar
                 }
             }
         }
-
         public void Send(int type, int a, int b)
         {
             BinaryWriter BW = new BinaryWriter(Client.GetStream());
