@@ -95,7 +95,9 @@ namespace Templar
                         transit.mob = (Vector2[,])Serialiseur.Deserialize(Sentstream);
                         for (int k = 0; k < t.ReadInt32(); k++)
                         {
-                            transit.monstre.Add(new NPC(32, 48, 4, 3, 1, 15, t.ReadInt32(), (Vector2)Serialiseur.Deserialize(Sentstream), ressource.mob, main.player, transit));
+                            int a = t.ReadInt32();
+                            Vector2 re = (Vector2)Serialiseur.Deserialize(Sentstream);
+                            transit.monstre.Add(new NPC(32, 48, 4, 3, 1, 15, a, re, ressource.mob, main.player, transit));
                         }
                         transit.objet = (Vector2[,])Serialiseur.Deserialize(Sentstream);
                         transit.tiles = (Vector2[,])Serialiseur.Deserialize(Sentstream);
