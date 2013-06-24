@@ -93,7 +93,8 @@ namespace Templar
                         transit.Coffres = /*(Templar.Coffre[,])*/Serialiseur.Deserialize(Sentstream) as Templar.Coffre[,];
                         transit.colision = (int[,])Serialiseur.Deserialize(Sentstream);
                         transit.mob = (Vector2[,])Serialiseur.Deserialize(Sentstream);
-                        for (int k = 0; k < t.ReadInt32(); k++)
+                        int caca = t.ReadInt32();
+                        for (int k = 0; k <caca; k++)
                         {
                             int a = t.ReadInt32();
                             Vector2 re = (Vector2)Serialiseur.Deserialize(Sentstream);
