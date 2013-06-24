@@ -278,6 +278,8 @@ namespace Templar
                     if (menudujeu.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
+                        creation = new creat_perso(this, spriteBatch, ressource.pixel,language);
+                        Components.Add(creation);
                         activeScreen.hide();
                         activeScreen = creation;
                         activeScreen.Show();
@@ -346,7 +348,6 @@ namespace Templar
                         activeScreen.hide();
                         inventaire = new Inventaire(this, spriteBatch, main,language);
                         Components.Add(inventaire);
-                        inventaire.hide();
                         activeScreen = inventaire;
                         activeScreen.Show();
                     }
