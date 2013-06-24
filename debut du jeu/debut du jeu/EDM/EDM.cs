@@ -138,7 +138,6 @@ namespace Templar
                 creation_map();
                 selectionmap();
                 selectiomessage();
-
                 //met a jour le message de la map
                 Donjon.Map[actuel.X, actuel.Y].Message = message.Saisie;
                 //check le cursor position joueur
@@ -151,11 +150,23 @@ namespace Templar
                     cursor.selected = false;
                     cursor.selec_obj = false;
                     cursor.selected_mob = false;
+                    cursor.tuto = false;
                 }
-                //sinon on a selectionner la textbox
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                        Data.prevMouseState.LeftButton == ButtonState.Released &&
+                            new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(
+                                new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString(op1).X - (int)ressource.ecriture.MeasureString("Tuto").X - 32, 0, (int)ressource.ecriture.MeasureString("Tuto").X, (int)ressource.ecriture.MeasureString("Tuto").Y)))
+                {
+                    cursor.position = false;
+                    cursor.selected = false;
+                    cursor.selec_obj = false;
+                    cursor.selected_mob = false;
+                    cursor.tuto = true;
+                }
+                    //sinon on a selectionner la textbox
                 if (selec == true)
                     message.update();
-                //fait l'update de la map 
+                //fait l'update de la map
                 if (nb < 10)
                 {
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
@@ -198,10 +209,8 @@ namespace Templar
                         position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
                         Donjon.Map[actuel.X, actuel.Y].isfirst = true;
                         prevfirst = Donjon.Map[actuel.X, actuel.Y];
-
                         ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
                         cursor.position = false;
-
                     }
                 }
             }
@@ -310,6 +319,11 @@ namespace Templar
             else
             {
                 //dessine la string de positionnement du joueur
+                if (cursor.tuto == false)
+                    spriteBatch.DrawString(ressource.ecriture, "Tuto", new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.White);
+                else
+                    spriteBatch.DrawString(ressource.ecriture, "Tuto", new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.White);
+
                 if (cursor.position == false)
                     spriteBatch.DrawString(ressource.ecriture, op1, new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X, 0), Color.White);
                 else
@@ -374,6 +388,7 @@ namespace Templar
                 if (Donjon.Map[actuel.X, actuel.Y].isfirst == true)
                     spriteBatch.Draw(ressource.cross, new Rectangle((int)position.X, (int)position.Y, 16, 16), Color.White);
                 spriteBatch.Draw(ressource.item, new Rectangle(27 * 16, 48, 32 * 7, 32 * 7), new Rectangle(0, 0, 32 * 7, 32 * 7), Color.White);
+
                 cursor.Draw(spriteBatch, fenetre);
                 if (selec == true)
                 {
