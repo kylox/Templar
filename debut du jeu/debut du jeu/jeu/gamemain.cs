@@ -120,7 +120,7 @@ namespace Templar
                 }
             }
             donj = donjon;
-            map = new switch_map(localPlayer/*, this*/, donjon/*, name_donjon*/);
+            map = new switch_map(localPlayer/*, this*/, donjon, name_donjon);
             map.x = (int)donjon.map.X;
             map.y = (int)donjon.map.Y;
             list_zombi = map.Active_Map.monstre;
@@ -207,7 +207,7 @@ namespace Templar
                     Serveur.Ping();
                 if (Is_Client && Client.client != null)
                     Client.ping();*/
-                map.update(localPlayer);
+                map.update(localPlayer,this);
                 HUD.update();
                 int pop_item = x.Next(0, 5);
                 #region JEU

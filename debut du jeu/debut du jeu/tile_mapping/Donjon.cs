@@ -30,7 +30,7 @@ namespace Templar
         }
         public void load_position(string Path)
         {
-            StreamReader sr = new StreamReader(Path);
+             StreamReader sr = new StreamReader(Path);
             string ligne = sr.ReadLine();
             string[] pos = ligne.Split(' ');
             position_J.X = Convert.ToInt32(pos[0]);
