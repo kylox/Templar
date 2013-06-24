@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -30,6 +31,7 @@ namespace Templar
         bool selec;
         int nb;
         Vector2 position;
+        string op1 = "", op2 = "", op3 = ""; // Oui c'est dégueulasse, et je m'en fous.
         #endregion
         public Rectangle Fenetre
         {
@@ -39,6 +41,48 @@ namespace Templar
         public EDM(Game game, SpriteBatch spriteBatch, bool language)
             : base(game, spriteBatch)
         {
+            XmlReader reader;
+
+            reader = XmlReader.Create("Francais.xml");
+            if (!language)
+            {
+                reader = XmlReader.Create("English.xml");
+            }
+            while (reader.Read())
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    reader.Read();
+                    if (reader.Name == "pos")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op1 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "debut")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op2 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "err")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op3 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                }
             cursor.langue = language;
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             MediaPlayer.IsMuted = true;
@@ -101,8 +145,13 @@ namespace Templar
                 if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                         Data.prevMouseState.LeftButton == ButtonState.Released &&
                             new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(
-                                new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString("position joueur").X, 0, (int)ressource.ecriture.MeasureString("position joueur").X, (int)ressource.ecriture.MeasureString("position joueur").Y)))
+                                new Rectangle((int)tileset.X - (int)ressource.ecriture.MeasureString(op1).X, 0, (int)ressource.ecriture.MeasureString(op1).X, (int)ressource.ecriture.MeasureString(op1).Y)))
+                {
                     cursor.position = true;
+                    cursor.selected = false;
+                    cursor.selec_obj = false;
+                    cursor.selected_mob = false;
+                }
                 //sinon on a selectionner la textbox
                 if (selec == true)
                     message.update();
@@ -111,54 +160,50 @@ namespace Templar
                 {
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt",
-                            @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
-                                @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\creature" + @".txt",
-                                     @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\box" + @".txt",
-@"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Boxes",
-                                     text);
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\creature" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\box" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Boxes", text);
                     cursor.Update(gameTime, tileset, fenetre, @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Boxes", Donjon.Map[actuel.X, actuel.Y]);
                 }
                 else
                 {
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt",
-                            @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
-                                @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\box" + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Boxes" + @".txt", text);
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\box" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Boxes", text);
                     cursor.Update(gameTime, tileset, fenetre, @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Boxes", Donjon.Map[actuel.X, actuel.Y]);
                 }
-                if (nb < 10)
-
-
-                    //change l'endroit de pop du joueur
-                    if (Data.mouseState.LeftButton == ButtonState.Pressed &&
-                            Data.prevMouseState.LeftButton == ButtonState.Released &&
-                                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18)) &&
-                                     text.Is_shown == false && cursor.position == true)
+                //change l'endroit de pop du joueur
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                        Data.prevMouseState.LeftButton == ButtonState.Released &&
+                            new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18)) &&
+                                 text.Is_shown == false && cursor.position == true)
+                {
+                    if (prevfirst != null)
                     {
-                        if (prevfirst != null)
-                        {
-                            prevfirst.isfirst = false;
-                            position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
-                            Donjon.Map[actuel.X, actuel.Y].isfirst = true;
-                            prevfirst = Donjon.Map[actuel.X, actuel.Y];
-                            ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
-                            cursor.position = false;
-                        }
-                        else
-                        {
-                            position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
-                            Donjon.Map[actuel.X, actuel.Y].isfirst = true;
-                            prevfirst = Donjon.Map[actuel.X, actuel.Y];
-
-                            ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
-                            cursor.position = false;
-
-                        }
+                        prevfirst.isfirst = false;
+                        position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
+                        Donjon.Map[actuel.X, actuel.Y].isfirst = true;
+                        prevfirst = Donjon.Map[actuel.X, actuel.Y];
+                        ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
+                        cursor.position = false;
                     }
+                    else
+                    {
+                        position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
+                        Donjon.Map[actuel.X, actuel.Y].isfirst = true;
+                        prevfirst = Donjon.Map[actuel.X, actuel.Y];
+
+                        ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
+                        cursor.position = false;
+
+                    }
+                }
             }
         }
         public void selectiomessage()
@@ -166,11 +211,20 @@ namespace Templar
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre)
                 && Data.mouseState.LeftButton == ButtonState.Pressed
                 && Data.prevMouseState.LeftButton == ButtonState.Released)
+            {
                 selec = true;
+                cursor.selected = false;
+                cursor.selected_mob = false;
+                cursor.selec_obj = false;
+                cursor.position = false;
+            }
             if ((!new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(message.Fenetre))
                 && Data.mouseState.LeftButton == ButtonState.Pressed
                 && Data.prevMouseState.LeftButton == ButtonState.Released)
+            {
                 selec = false;
+
+            }
         }
         //selectionne la map dans l'edm
         public void selectionmap()
@@ -242,7 +296,7 @@ namespace Templar
             catch (Exception)
             {
                 //l'affiche sur la deuxieme sortie car sinon ca valide
-                message.Saisie = "nom incorrect ";
+                message.Saisie = op3;
             }
         }
         public override void Draw(GameTime gameTime)
@@ -250,16 +304,16 @@ namespace Templar
             if (text.Is_shown == true)
             {
                 spriteBatch.Draw(ressource.pixel, new Rectangle(0, 0, fenetre.Width, fenetre.Height), Color.FromNonPremultiplied(0, 0, 0, 255));
-                spriteBatch.DrawString(ressource.ecriture, "Veuillez entrez le nom de donjon, une fois fait, appuyez sur F1 pour demarer", new Vector2(fenetre.Width / 9, (int)fenetre.Height / 2), Color.Red);
+                spriteBatch.DrawString(ressource.ecriture, op2, new Vector2(fenetre.Width / 9, (int)fenetre.Height / 2), Color.Red);
                 text.Draw(spriteBatch);
             }
             else
             {
                 //dessine la string de positionnement du joueur
                 if (cursor.position == false)
-                    spriteBatch.DrawString(ressource.ecriture, "position joueur", new Vector2(tileset.X - ressource.ecriture.MeasureString("position joueur").X, 0), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op1, new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X, 0), Color.White);
                 else
-                    spriteBatch.DrawString(ressource.ecriture, "position joueur", new Vector2(tileset.X - ressource.ecriture.MeasureString("position joueur").X, 0), Color.Red);
+                    spriteBatch.DrawString(ressource.ecriture, op1, new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X, 0), Color.Red);
                 //dessine la map + ou on est sur la map !
                 if (Donjon != null && Donjon.Map[actuel.X, actuel.Y] != null)
                 {

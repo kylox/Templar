@@ -13,12 +13,21 @@
   <desactiver>Desactivate sound</desactiver>
   <langue>Language : English</langue>
   <retour>Back to main menu</retour>
-  <debut>...</debut>
+  <debut>Input the name of your donjon, then press F1 to start !</debut>
+  <pos>Player position</pos>
+  <err>name incorrect</err>
   <nouv>New game</nouv>
   <continuer>Continue</continuer>
   <suivant>Next</suivant>
+  <liste>List of donjons available</liste>
   <tonneaux>Hummm... Barrels, barrels everywhere !!</tonneaux>
   <bouquins>Some books talking about Life, the Universe, and Everything </bouquins>
+  <attaque>Increase Attack by 1</attaque>
+  <defense>Increase Defense by 1</defense>
+  <magie>Increase Magic by 1</magie>
+  <endurance>Increase Stamina by 1</endurance>
+  <pdv>Increase Health by 1</pdv>
+  <pdm>Increase Mana by 1</pdm>
   <inventaire>Inventory</inventaire>
   <caract>Characteristics</caract>
   <sauv>Save</sauv>

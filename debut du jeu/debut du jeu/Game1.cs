@@ -65,7 +65,7 @@ namespace Templar
             ressource.loadcontent(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            creation = new creat_perso(this, spriteBatch, ressource.pixel);
+            creation = new creat_perso(this, spriteBatch, ressource.pixel,language);
             Components.Add(creation);
             creation.hide();
 
@@ -97,7 +97,7 @@ namespace Templar
             Components.Add(Option);
             Option.hide();
 
-            inventaire = new Inventaire(this, spriteBatch, main);
+            inventaire = new Inventaire(this, spriteBatch, main, language);
             Components.Add(inventaire);
             inventaire.hide();
 
@@ -255,7 +255,7 @@ namespace Templar
             #region creation
             else if (activeScreen == creation)
             {
-                if (creation.change == true)
+               if (creation.change == true)
                 {
                     main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, language);
                     Components.Add(main);
@@ -344,7 +344,7 @@ namespace Templar
                     if (pause.SelectedIndex == 0)
                     {
                         activeScreen.hide();
-                        inventaire = new Inventaire(this, spriteBatch, main);
+                        inventaire = new Inventaire(this, spriteBatch, main,language);
                         Components.Add(inventaire);
                         inventaire.hide();
                         activeScreen = inventaire;
@@ -354,7 +354,7 @@ namespace Templar
                         if (pause.SelectedIndex == 1)
                         {
                             activeScreen.hide();
-                            carac = new Caracteristique(this, spriteBatch, main.player);
+                            carac = new Caracteristique(this, spriteBatch, main.player,language);
                             Components.Add(carac);
                             activeScreen = carac;
                             activeScreen.Show();

@@ -15,14 +15,14 @@ namespace Templar
     {
 
         //fields
-        int timer_attaque;
+        protected int timer_attaque;
         //int gauche;
         Rectangle Hitbox;
         //Rectangle true_hitbox_motherfucker;
         protected Vector2 position;
         protected Direction Direction;
         Rectangle newHitbox;
-
+        public bool invulnerable;
         //variable d'animation
         protected int timer, timer_speed;
         protected int Speed;
@@ -38,7 +38,7 @@ namespace Templar
         public int defense;
         protected bool collision;
         public bool combat;
-        bool canwalk;
+        protected bool canwalk;
         //autre
         protected int Pv;
 
@@ -100,9 +100,10 @@ namespace Templar
             Speed = speed;
             timer_speed = 0;
             canwalk = false;
+            invulnerable = false;
         }
         // method
-        bool collide(List<wall> walls, List<Personnage> personnages)
+        bool collide(List<wall> walls)
         {
             collision = false;
             foreach (wall Wall in walls)
@@ -113,9 +114,10 @@ namespace Templar
                 }
             return collision;
         }
-        public void Attaque(Personnage attaquant, Personnage attaque)
+        public void Attaque(Personnage attaque)
         {
-            attaque.Pv -= attaquant.attaque * 5;
+            if (invulnerable == false)
+                attaque.Pv -= this.attaque * 50 / attaque.defense;
         }
         bool coll(Map map)
         {
@@ -148,7 +150,7 @@ namespace Templar
             if (Direction == Direction.Up)
             {
                 this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (32 - 10)) - this.Speed, 20, 10);
-                if (collide(walls, personnages) == true)
+                if (collide(walls) == true && this.invulnerable == false)
                     Pv--;
                 if (position.X % 32 == 0 && position.Y % 32 == 0)
                     if ((int)position.Y / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
@@ -167,7 +169,7 @@ namespace Templar
             {
                 this.newHitbox = new Rectangle((int)this.position.X, ((int)this.position.Y + (32 - 10)) + this.Speed, 20, 10);
 
-                if (collide(walls, personnages) == true)
+                if (collide(walls) == true && this.invulnerable == false)
                     Pv--;
                 if (position.X % 32 == 0 && position.Y % 32 == 0)
                     if ((int)position.Y / 32 + 1 < 18 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 + 1] != 1)
@@ -184,7 +186,7 @@ namespace Templar
             else if (Direction == Direction.Right) // same 
             {
                 this.newHitbox = new Rectangle((int)this.position.X + this.Speed, ((int)this.position.Y + (32 - 10)), 20, 10);
-                if (collide(walls, personnages) == true)
+                if (collide(walls) == true && this.invulnerable == false)
                     Pv--;
                 if (position.X % 32 == 0 && position.Y % 32 == 0)
                     if (map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
@@ -201,7 +203,7 @@ namespace Templar
             else if (Direction == Direction.Left) // same 
             {
                 this.newHitbox = new Rectangle((int)this.position.X - this.Speed, ((int)this.position.Y + (32 - 10)), 20, 10);
-                if (collide(walls, personnages) == true)
+                if (collide(walls) == true && this.invulnerable == false)
                     Pv--;
                 if (position.X % 32 == 0 && position.Y % 32 == 0)
                     if (position.X / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32 - 1, (int)position.Y / 32] != 1)
@@ -260,32 +262,6 @@ namespace Templar
         }
         public virtual void Draw(SpriteBatch spritbatch)
         {
-            timer_attaque++;
-            if (combat == true && timer_attaque > 4)
-            {
-                timer_attaque = 0;
-                framecolumn++;
-                spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
-                if (framecolumn - Frame_start == 7)
-                {
-                    combat = false;
-                    switch (FrameLine)
-                    {
-                        case 6:
-                            frameline = 4;
-                            break;
-                        case 5:
-                            frameline = 1;
-                            break;
-                        case 7:
-                            frameline = 3;
-                            break;
-                        case 8:
-                            frameline = 2;
-                            break;
-                    }
-                }
-            }
             if (Frame_start == 10)
                 spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32 * 2, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x * 2, this.Taille_image_y), Color.White);
             else

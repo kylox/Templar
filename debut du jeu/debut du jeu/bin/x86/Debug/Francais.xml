@@ -14,12 +14,20 @@
   <langue>Langue : Francais</langue>
   <retour>Retour au menu principal</retour>
   <debut>Entrez le nom de votre donjon, puis appuyez sur F1 pour commencer !</debut>
-  <retour>Retour au menu principal</retour>
+  <pos>Position joueur</pos>
+  <err>nom incorrect</err>
   <nouv>Nouvelle partie</nouv>
   <continuer>Continuer</continuer>
   <suivant>Suivant</suivant>
+  <liste>Liste des donjons disponibles</liste>
   <tonneaux>Hummm... Des tonneaux, plein de tonneaux !!</tonneaux>
   <bouquins>Quelques bouquins relatant de la Vie, de l'Univers et du Reste</bouquins>
+  <attaque>Augmenter Attaque de 1</attaque>
+  <defense>Augmenter Defense de 1</defense>
+  <magie>Augmenter Magie de 1</magie>
+  <endurance>Augmenter Endurance de 1</endurance>
+  <pdv>Augmenter Points de vie de 1</pdv>
+  <pdm>Augmenter Points de mana de 1</pdm>
   <inventaire>Inventaire</inventaire>
   <caract>Caracteristiques</caract>
   <sauv>Sauvegarder</sauv>

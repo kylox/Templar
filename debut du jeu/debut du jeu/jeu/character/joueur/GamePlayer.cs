@@ -13,33 +13,62 @@ namespace Templar
     [Serializable()]
     public class GamePlayer : Personnage
     {
-        int CanMove;
         SpriteFont spriteFont;
         Vector2 position_pv;
         gamemain main;
         sort active_sort;
         textbox text;
         public Coffre Coffre_ouvert;
-        bool click_down;
         int sort_selec;
         int Endurance;
         int timer_endurance;
         int Mana;
-        string active;
-        bool langue;
-
-        public bool in_action;
-        public item[,] inventaire;
-        public int[] nb_objet;
+        int timer_invulnarable;
+        int timer_inv2;
+        public int timer_dash;
+        int speed_max;
+        int CanMove;
+        public int pv_item;
+        public int mana_item;
+        public int magie_item;
+        public int attaque_item;
+        public int defense_item;
+        public int dash_item;
+        public int endurance_item;
+        public int pv_amelioration;
+        public int mana_amelioration;
+        public int pv_max;
+        public int mana_max;
+        public int timer_dash_max;
+        public int endurance_max;
+        public int attaque_max;
+        public int magie_max;
+        public int defense_max;
         public int obj_selec;
-        public bool levelup;
+        public int[] nb_objet;
         public int magie;
         public int nb_amelioration;
+        string active;
+        public bool levelup;
+        bool dash;
+        bool langue;
+        bool click_down;
+        bool affichage_invul;
+        bool precInvulnarable;
+        public bool in_action;
+        public item[,] inventaire;
+        public item[] equipement;
         public Rectangle HitBox;
+
         public string Active
         {
             get { return active; }
             set { active = value; }
+        }
+        public sort Active_Sort
+        {
+            get { return active_sort; }
+            set { active_sort = value; }
         }
         public int XP
         {
@@ -55,11 +84,6 @@ namespace Templar
         {
             get { return sort_selec; }
             set { sort_selec = value; }
-        }
-        public sort Active_Sort
-        {
-            get { return active_sort; }
-            set { active_sort = value; }
         }
         public int pv_player
         {
@@ -86,20 +110,21 @@ namespace Templar
         {
             int nb = 0;
             for (int j = 0; j < 5; j++)
-            {
                 for (int i = 0; i < 5; i++)
-                {
                     if (inventaire[i, j] != null)
-                        nb++;       
-                }
-
-            }
+                        nb++;
             return nb;
         }
-
         public GamePlayer(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position, Texture2D image, gamemain main, textbox text, bool language)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
+            equipement = new item[4];
+            dash = false;
+            invulnerable = false;
+            precInvulnarable = false;
+            timer_invulnarable = 600;
+            timer_inv2 = 10;
+            timer_dash = 2;
             langue = language;
             CanMove = 0;
             this.main = main;
@@ -121,15 +146,17 @@ namespace Templar
             click_down = false;
             levelup = false;
             nb_amelioration = 0;
-            inventaire = new item[5,5];
+            inventaire = new item[5, 5];
             nb_objet = new int[25];
             HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
             in_action = false;
             text.Is_shown = false;
+            speed_max = Speed;
         }
         public void utilise_objet(item item)
         {
-            item.action(this);
+            if (item != null)
+                item.action(main);
         }
         public void deplacement()
         {
@@ -153,13 +180,10 @@ namespace Templar
         {
             if (position.X + 34 >= main.Fenetre.Width)
                 position.X = main.Fenetre.Width - 34;
-
             if (position.X <= 0)
                 position.X = 0;
-
             if (position.Y + 61 >= main.Fenetre.Height)
                 position.Y = main.Fenetre.Height - 61;
-
             if (position.Y <= 0)
                 position.Y = 0;
         }
@@ -209,9 +233,7 @@ namespace Templar
                         }
                         reader.Read();
                     }
-
                 }
-
             if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
             {
                 switch (frameline)
@@ -267,112 +289,230 @@ namespace Templar
                 }
             }
         }
+        public void maj_equipement()
+        {
+            magie_item = 0;
+            attaque_item = 0;
+            endurance_item = 0;
+            dash_item = 0;
+            pv_item = 0;
+            mana_item = 0;
+            defense_item = 0;
+            foreach (item i in equipement)
+            {
+                if (i != null)
+                {
+                    magie_item += i.Bonus[1];
+                    attaque_item += i.Bonus[0];
+                    endurance_item += i.Bonus[2];
+                    dash_item += i.Bonus[3];
+                    pv_item += i.Bonus[4];
+                    mana_item += i.Bonus[5];
+                    defense_item += i.Bonus[6];
+                }
+            }
+
+        }
+        public void maj_total()
+        {
+            timer_dash = 2 + dash_item;
+            Pv = 100 + pv_item + pv_max;
+            Mana = 100 + mana_item + mana_max;
+            main.player.magie = main.player.magie_item + main.player.magie_max + 10;
+            main.player.attaque = main.player.attaque_item + main.player.attaque_max + 10;
+            main.player.defense = main.player.defense_item + main.player.defense_max + 10;
+            Endurance = endurance_item + endurance_max + 100;
+        }
+        public void Dash(switch_map map)
+        {
+            switch (Direction)
+            {
+                case Templar.Direction.Up:
+                    if ((int)position.Y / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32, (int)position.Y / 32 - 1] != 1)
+                        position.Y -= 32;
+                    else
+                        dash = false;
+                    break;
+                case Templar.Direction.Down:
+                    if (map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
+                        position.Y += 32;
+                    else
+                        dash = false;
+                    break;
+                case Templar.Direction.Left:
+                    if (position.X / 32 - 1 >= 0 && map.Active_Map.colision[(int)position.X / 32 - 1, (int)position.Y / 32] != 1)
+                        position.X -= 32;
+                    else
+                        dash = false;
+                    break;
+                case Templar.Direction.Right:
+                    if (map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
+                        position.X += 32;
+                    else
+                        dash = false;
+                    break;
+            }
+        }
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
-            base.update(mouse, keyboard, walls, personnages, map);
-            collision_bord();
-            CanMove++;
-            deplacement();
-            action(map);
 
-            HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
-
-            #region sort & item
-
-            if (keyboard.IsKeyDown(Keys.D1))
-                sort_selec = 1;
-            if (keyboard.IsKeyDown(Keys.D2))
-                sort_selec = 2;
-            if (keyboard.IsKeyDown(Keys.D3))
-                sort_selec = 3;
-            if (keyboard.IsKeyDown(Keys.D4))
-                sort_selec = 4;
-
-            if (Data.keyboardState.IsKeyDown(Keys.NumPad1))
-                obj_selec = 1;
-            if (Data.keyboardState.IsKeyDown(Keys.NumPad2))
-                obj_selec = 2;
-            if (Data.keyboardState.IsKeyDown(Keys.NumPad3))
-                obj_selec = 3;
-            if (Data.keyboardState.IsKeyDown(Keys.NumPad4))
-                obj_selec = 4;
-            if (Data.keyboardState.IsKeyDown(Keys.NumPad5))
-                obj_selec = 5;
-            switch (sort_selec)
+            animaitonspeed = 5;
+            if (invulnerable == true)
+                timer_invulnarable--;
+            if (invulnerable && timer_invulnarable % 60 == 0)
+                affichage_invul = true;
+            if (timer_invulnarable == 0)
             {
-                case 1:
-                    active_sort = new sort(ressource.boule_de_feu, this);
-                    active = "feu";
-                    break;
-                case 2:
-                    active_sort = new sort(ressource.glace, this);
-                    active = "glace";
-                    break;
+                timer_invulnarable = 600;
+                invulnerable = false;
+                timer_inv2 = 10;
             }
-            attaque_mana(keyboard);
+            if (timer_inv2 == 0 & invulnerable)
+            {
+                affichage_invul = false;
+                timer_inv2 = 10;
+            }
+            if (dash == true)
+            {
+                timer_dash--;
+                canwalk = false;
+                Dash(map);
+            }
+            if (timer_dash == 0)
+            {
+                dash = false;
+                timer_dash = 2;
+                canwalk = true;
+            }
+            if (dash == false)
+            {
+                base.update(mouse, keyboard, walls, personnages, map);
+                collision_bord();
+                CanMove++;
+                deplacement();
+                action(map);
+                HitBox = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
-            if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
-                if (this.nb_item(this.inventaire) != 0 && obj_selec - 1 < this.nb_item(this.inventaire))
+                #region sort & item
+
+                if (keyboard.IsKeyDown(Keys.D1))
+                    sort_selec = 1;
+                if (keyboard.IsKeyDown(Keys.D2))
+                    sort_selec = 2;
+                if (keyboard.IsKeyDown(Keys.D3))
+                    sort_selec = 3;
+                if (keyboard.IsKeyDown(Keys.D4))
+                    sort_selec = 4;
+
+                if (Data.keyboardState.IsKeyDown(Keys.NumPad1))
+                    obj_selec = 1;
+                if (Data.keyboardState.IsKeyDown(Keys.NumPad2))
+                    obj_selec = 2;
+                if (Data.keyboardState.IsKeyDown(Keys.NumPad3))
+                    obj_selec = 3;
+                if (Data.keyboardState.IsKeyDown(Keys.NumPad4))
+                    obj_selec = 4;
+                if (Data.keyboardState.IsKeyDown(Keys.NumPad5))
+                    obj_selec = 5;
+                switch (sort_selec)
                 {
-                    utilise_objet(inventaire[obj_selec - 1,0]);
-                    inventaire[obj_selec - 1, 0] = null;
+                    case 1:
+                        active_sort = new sort(ressource.boule_de_feu, this);
+                        active = "feu";
+                        break;
+                    case 2:
+                        active_sort = new sort(ressource.glace, this);
+                        active = "glace";
+                        break;
                 }
-            #endregion
-            //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
-            if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
-            {
-                map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
-                pv_player -= 15;
-                ressource.pique.Play();
-            }
-            else
-                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] != new Vector2(0, 2) && map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] != new Vector2(1, 2))
-                    for (int i = 0; i < 25; i++)
-                        for (int j = 0; j < 18; j++)
-                            if (main.map.Active_Map.objet[i, j] == new Vector2(1, 2))
-                                main.map.Active_Map.objet[i, j] = new Vector2(0, 2);
-            #region endurance
-            timer_endurance++;
-            if (keyboard.IsKeyDown(Keys.LeftShift) && Endurance > 0)
-            {
-                animate();
-                Endurance--;
-                animaitonspeed = 5;
-            }
-            else
-            {
-                animate();
-                animaitonspeed = 8;
-            }
+                attaque_mana(keyboard);
 
-            if (keyboard.IsKeyUp(Keys.LeftShift) && timer_endurance >= 5 && Endurance < 100)
-            {
-                Endurance++;
-                timer = 0;
-            }
-            if (Endurance <= 0)
-                Endurance = 0;
-            #endregion
-            #region attaque
+                if (Data.keyboardState.IsKeyDown(Keys.LeftControl) && Data.prevKeyboardState.IsKeyUp(Keys.LeftControl))
+                    if (this.nb_item(this.inventaire) != 0 && obj_selec - 1 < this.nb_item(this.inventaire))
+                    {
+                        utilise_objet(inventaire[obj_selec - 1, 0]);
+                        inventaire[obj_selec - 1, 0] = null;
+                    }
+                #endregion
+                //si le tile ou se trouve le joueur est des troude pique alors il devient de piques ! 
+                if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] == new Vector2(0, 2))
+                {
+                    map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] = new Vector2(1, 2);
+                    Pv -= 15;
+                    ressource.pique.Play();
+                }
+                else
+                    if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] != new Vector2(0, 2) && map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32] != new Vector2(1, 2))
+                        for (int i = 0; i < 25; i++)
+                            for (int j = 0; j < 18; j++)
+                                if (main.map.Active_Map.objet[i, j] == new Vector2(1, 2))
+                                    main.map.Active_Map.objet[i, j] = new Vector2(0, 2);
+                #region endurance
+                timer_endurance++;
+                if (Data.keyboardState.IsKeyDown(Keys.LeftShift) && Data.prevKeyboardState.IsKeyDown(Keys.LeftShift) && Endurance > 50)
+                {
+                    dash = true;
+                    Endurance -= 50;
+                }
 
-            if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A) && direction == Templar.Direction.None && !combat)
-                combat = true;
+                if (keyboard.IsKeyUp(Keys.LeftShift) && timer_endurance >= 5 && Endurance < 100)
+                {
+                    Endurance++;
+                    timer = 0;
+                }
+                if (Endurance <= 0)
+                    Endurance = 0;
+                #endregion
+                #region attaque
 
-            #endregion
-            if (levelup == true)
-            {
-                nb_amelioration++;
-                XP -= 100;
-                mana_player = pv_player = 100;
-                Niveau++;
-                levelup = false;
+                if (Data.keyboardState.IsKeyDown(Keys.A) && Data.prevKeyboardState.IsKeyUp(Keys.A) && direction == Templar.Direction.None && !combat)
+                    combat = true;
+
+                #endregion
+                if (levelup == true)
+                {
+                    nb_amelioration++;
+                    XP -= 100;
+                    mana_player = pv_player;
+                    Niveau++;
+                    levelup = false;
+                }
+                if (keyboard.IsKeyUp(Keys.Space))
+                    click_down = false;
             }
-            if (keyboard.IsKeyUp(Keys.Space))
-                click_down = false;
+            precInvulnarable = invulnerable;
         }
         public override void Draw(SpriteBatch spritebatch)
         {
+            timer_attaque++;
+            if (combat == true && timer_attaque > 4)
+            {
+                timer_attaque = 0;
+                framecolumn++;
+                spritebatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
+                if (framecolumn - Frame_start == 7)
+                {
+                    combat = false;
+                    switch (FrameLine)
+                    {
+                        case 6:
+                            frameline = 4;
+                            break;
+                        case 5:
+                            frameline = 1;
+                            break;
+                        case 7:
+                            frameline = 3;
+                            break;
+                        case 8:
+                            frameline = 2;
+                            break;
+                    }
+                }
+            }
             spritebatch.DrawString(ressource.ecriture, position_player.X + " " + position_player.Y, new Vector2(100, 0), Color.Red);
+            if (affichage_invul)
+                spritebatch.DrawString(ressource.ecriture, Convert.ToString(timer_invulnarable / 60), new Vector2(position_player.X + 32, position_player.Y), Color.Red);
             base.Draw(spritebatch);
         }
     }

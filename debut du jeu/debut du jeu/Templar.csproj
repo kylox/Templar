@@ -144,7 +144,7 @@
     <Compile Include="ecran\liste des ecrans\menudujeu.cs" />
     <Compile Include="ecran\menugenerale.cs" />
     <Compile Include="misc\MouseEvent.cs" />
-    <Compile Include="jeu\character\monstre\NPC.cs" />
+    <Compile Include="jeu\character\joueur\monstre\NPC.cs" />
     <Compile Include="ecran\liste des ecrans\option.cs" />
     <Compile Include="jeu\character\personnage.cs" />
     <Compile Include="jeu\character\joueur\sort\sort.cs" />
