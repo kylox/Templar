@@ -19,7 +19,7 @@ namespace Templar
         //int gauche;
         Rectangle Hitbox;
         //Rectangle true_hitbox_motherfucker;
-        protected Vector2 position;
+        public Vector2 position;
         protected Direction Direction;
         Rectangle newHitbox;
         public bool invulnerable;
