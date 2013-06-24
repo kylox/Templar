@@ -17,18 +17,26 @@ namespace Templar
     [Serializable()]
     public class NPC : Personnage
     {
-        Vector2 deplacement;
+        Vector2 deplacement, OldPosition;
         int chrono;
         Map Map;
         GamePlayer player;
+        bool PlayerMoved, CanMove;
+        //Thread Deleg;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
-            Texture2D image, GamePlayer player,Map map)
+            Texture2D image, GamePlayer player, Map map)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
             this.player = player;
+            //partie pour L'A*
+            PlayerMoved = false;
+            OldPosition = player.Position;
+            //CanMove = true;
+            //Fin Partie pour l'A*
             Pv = 100;
             this.Map = map;
+            //Deleg = new Thread(new ThreadStart(cheminement));
             switch (frame_start)
             {
                 case 1:
@@ -93,32 +101,53 @@ namespace Templar
             chrono++;
             if (chrono % 16 == 0)
             {
-                Thread Deleg = new Thread(new ThreadStart(cheminement));
-                Deleg.Start();
+                Thread Deleg = new Thread(cheminement);
+               // CanMove = true;
                 chrono = 0;
+                //Partie new A*
+                if (OldPosition != player.Position)
+                {
+                    PlayerMoved = true;
+                    OldPosition = player.Position;
+                }
+                if (PlayerMoved)
+                {
+                    PlayerMoved = false;
+                    if (Deleg != null)
+                    {
+                        Deleg.Abort();
+                        Deleg = new Thread(cheminement);
+                        Deleg.Start();
+                    }
+                    else
+                        Deleg.Start();
+
+                }
+                //Fin Partie new A*
+                
             }
 
             switch (direction)
             {
-                case Templar.Direction.Down:
-                    if (new Rectangle(Taille_image_x, (int)position.Y + 32, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                case Direction.Down:
+                    if (new Rectangle(/*Taille_image_x*/(int)position.X, (int)position.Y + 32, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
                         combat = true;
                     else
                         combat = false;
                     break;
-                case Templar.Direction.Up:
+                case Direction.Up:
                     if (new Rectangle(Taille_image_x, (int)position.Y - 32, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
                         combat = true;
                     else
                         combat = false;
                     break;
-                case Templar.Direction.Left:
+                case Direction.Left:
                     if (new Rectangle(Taille_image_x - 32, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
                         combat = true;
                     else
                         combat = false;
                     break;
-                case Templar.Direction.Right:
+                case Direction.Right:
                     if (new Rectangle(Taille_image_x + 32, (int)position.Y, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
                         combat = true;
                     else
@@ -132,19 +161,19 @@ namespace Templar
         {
             switch (direction)
             {
-                case Templar.Direction.Left:
+                case Direction.Left:
                     if (position.X - 32 >= 0)
                         position.X += 32;
                     break;
-                case Templar.Direction.Right:
+                case Direction.Right:
                     if (position.X + 32 <= 25 * 32)
                         position.X -= 32;
                     break;
-                case Templar.Direction.Up:
+                case Direction.Up:
                     if (position.Y - 32 >= 0)
                         position.Y -= 32;
                     break;
-                case Templar.Direction.Down:
+                case Direction.Down:
                     if (position.Y + 32 <= 18 * 32)
                         position.Y += 32;
                     break;
@@ -154,13 +183,13 @@ namespace Templar
 
         public void cheminement()
         {
-            int NPCx = (int)(position.X / (800 / 25));
+            int NPCx = (int)(position.X / 32);
 
-            int NPCy = (int)position.Y / (608 / 19);
+            int NPCy = (int)position.Y / 32;
 
-            int playerx = (int)player.Position.X / (800 / 25);
+            int playerx = (int)player.Position.X / 32;
 
-            int playery = (int)player.Position.Y / (608 / 19);
+            int playery = (int)player.Position.Y / 32;
 
 
             Tile start = new Tile(NPCx, NPCy, 1);
@@ -170,34 +199,47 @@ namespace Templar
             List<Tile> sol = new List<Tile>();
 
             sol = Pathfinding.Astar(Map, start, End);
-            Tile end = sol[0];
+            int i = 0;
+            while (i < sol.Count)
+            {
+                
+                Tile end = sol[i];
+                i++;
+               // CanMove = false;
+                deplacement = new Vector2(player.Position.X - position.X, player.Position.Y - position.Y);
+                if (start.X == end.X && start.Y == end.Y)
+                {
+                    direction = Direction.None;
+                    deplacement = new Vector2(0, 0);
+                }
+                if (start.X < end.X && start.Y == end.Y)
+                {
+                    direction = Direction.Right;
+                    start.X++;
+                }
 
-            deplacement = new Vector2(player.Position.X - position.X, player.Position.Y - position.Y);
-            if (start.X < end.X && start.Y == end.Y)
-            {
-                direction = Direction.Right;
-                return;
-            }
+                if (start.Y < end.Y && start.X == end.X)
+                {
+                    direction = Direction.Down;
+                    start.Y++;
 
-            if (start.Y < end.Y && start.X == end.X)
-            {
-                direction = Direction.Down;
-                return;
+                }
+                if (start.Y > end.Y && start.X == end.X)
+                {
+                    direction = Direction.Up;
+                    start.Y--;
+
+                }
+                if (start.X > end.X && start.Y == end.Y)
+                {
+                    direction = Direction.Left;
+                    start.X--;
+
+                }
+                Thread.Sleep(266);
+
             }
-            if (start.Y > end.Y && start.X == end.X)
-            {
-                direction = Direction.Up;
-                return;
-            }
-            if (start.X > end.X && start.Y == end.Y)
-            {
-                direction = Direction.Left;
-                return;
-            }
-            else
-            {
-                direction = Direction.None;
-            }
+            Direction = Direction.None;
         }
 
         public override void Draw(SpriteBatch spritbatch)

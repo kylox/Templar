@@ -258,6 +258,10 @@ namespace Templar
                 }
             }
         }
+        public void ChangeFrameline(int a)
+        {
+            this.FrameLine = a;
+        }
         public virtual void Draw(SpriteBatch spritbatch)
         {
             timer_attaque++;

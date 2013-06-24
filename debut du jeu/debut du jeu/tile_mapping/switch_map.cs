@@ -44,11 +44,11 @@ namespace Templar
             set { listes_map = value; }
         }
 
-        public switch_map(GamePlayer Player, gamemain Main, Donjon donjon, string directori)
+        public switch_map(GamePlayer Player/*, gamemain Main*/, Donjon donjon/*, string directori*/)
         {
             player = Player;
-            main = Main;
-            Directorie = directori;
+            //main = Main;
+           // Directorie = directori;
             listes_map = new Map[5, 5];
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
@@ -56,7 +56,8 @@ namespace Templar
             x = 0;
             y = 0;
             active_map = listes_map[x, y];
-            active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+           /* active_map.mob = donjon.Map[x, y].mob;
+            active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);*/
         }
         public void update(GamePlayer player)
         {

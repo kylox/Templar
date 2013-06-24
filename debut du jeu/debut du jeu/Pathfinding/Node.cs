@@ -30,7 +30,7 @@ namespace Templar
         public Node(Tile tile, Node Parent, Tile destination)
         {
             this.tile = tile;
-            this.Parent = parent;
+            this.Parent = Parent;
             this.heuristic = Math.Abs(tile.X - destination.X) + Math.Abs(tile.Y - destination.Y) + (int)tile.Type;
         }
         public List<Node> GetPossibleNode(Map map, Tile Destination)

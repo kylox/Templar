@@ -21,7 +21,7 @@ namespace Templar
         public Vector2 map;
         //position du joueur dans la premiere map 
         public Vector2 position_J;
-        string name;
+        public string name;
         Map[,] _maps;
         public Map[,] Map
         {
@@ -41,8 +41,15 @@ namespace Templar
             map.Y = Convert.ToInt32(pos[1]);
             sr.Close();
         }
+
+        public Donjon()
+        {
+            _maps = new Map[5, 5];
+        }
+
         public Donjon(string path, bool edm)
         {
+            name = path;
             int x = 0;
             int y = 0;
             _maps = new Map[5, 5];

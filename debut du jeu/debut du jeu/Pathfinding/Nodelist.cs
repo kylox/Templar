@@ -33,7 +33,7 @@ namespace Templar
             int left = 0;
             int right = this.Count - 1;
             int center = 0;
-            while (left >= right)
+            while (left <= right)
             {
                 center = (left + right) / 2;
                 if (node.Heuristic < this[center].Heuristic)

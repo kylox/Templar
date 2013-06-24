@@ -18,14 +18,16 @@ namespace Templar
 
         //field ecran 
         #region variable
+        public Donjon donj;
         public string IP;
-        Server Serveur;
-        Client Client;
+        public Server Serveur;
+        public Client Client;
         Rectangle fenetre;
         public switch_map map;
         HUD HUD;
         BasicEffect effect;
-        GamePlayer localPlayer, Player2;
+        GamePlayer localPlayer;
+        public GamePlayer Player2;
         Color noir;
         Color white;
         List<wall> Walls;
@@ -96,17 +98,29 @@ namespace Templar
             x = new Random();
             keyboard = new KeyboardState();
             liste_sort = new List<sort>();
-
+            //ICI POUR LOADMOB
+            //FIN ICI
             Walls = new List<wall>();
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = donjon.position_J;
             localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text);
             localPlayer.Niveau = 1;
-            map = new switch_map(localPlayer, this, donjon, name_donjon);
+            if (!is2p)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if (donjon.Map[i, j] != null)
+                            donjon.Map[i, j].load_mob(@"Donjons\" + @name_donjon + @"\Map" + donjon.Map[i, j].Nb + @"\creature" + @".txt", this);
+                    }
+                }
+            }
+            donj = donjon;
+            map = new switch_map(localPlayer/*, this*/, donjon/*, name_donjon*/);
             map.x = (int)donjon.map.X;
             map.y = (int)donjon.map.Y;
-
             list_zombi = map.Active_Map.monstre;
             pop_time = 0;
             score = 0;
@@ -142,6 +156,10 @@ namespace Templar
                 Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text);
             }
         }
+        public void AddP2()
+        {
+            Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text);
+        }
         public void ramassage_objet()
         {
             bool est_present = false;
@@ -173,6 +191,10 @@ namespace Templar
             //ICI
             if (text.Is_shown == false)
             {
+                /*if (Is_Server&& Serveur.Client != null)
+                    Serveur.Ping();
+                if (Is_Client && Client.client != null)
+                    Client.ping();*/
                 map.update(localPlayer);
                 HUD.update();
                 int pop_item = x.Next(0, 5);
@@ -199,43 +221,43 @@ namespace Templar
                     if (pop_time == 120)
                     {
                         list_zombi.Add(new NPC(32, 48, 4, 3, 16, 15, 4, position_npc, ressource.mob, localPlayer, map.Active_Map));
-                        if (Is_Server)
-                            Serveur.Send(42, 1, 0);
-                        if (Is_Client)
-                            Client.Send(42, 1, 0);
+                        /* if (Is_Server)
+                             Serveur.Send(42, 1, 0);
+                         if (Is_Client)
+                             Client.Send(42, 1, 0);*/
                         pop_time = 0;
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.P) && Data.prevKeyboardState.IsKeyUp(Keys.P))
                     {
                         princess = new Princess(32, 48, 4, 3, 40, 15, 2, new Vector2(64, 32), ressource.mob, localPlayer);
-                        if (Is_Server)
-                            Serveur.Send(42, 1, 0);
-                        if (Is_Client)
-                            Client.Send(42, 1, 0);
+                        /* if (Is_Server)
+                             Serveur.Send(42, 1, 0);
+                         if (Is_Client)
+                             Client.Send(42, 1, 0);*/
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.U) && Data.prevKeyboardState.IsKeyUp(Keys.U))
                     {
                         list_zombi.Add(new NPC(32, 48, 4, 3, 10, 15, 2, position_npc, ressource.mob, localPlayer, map.Active_Map));
-                        if (Is_Server)
-                            Serveur.Send(42, 1, 0);
-                        if (Is_Client)
-                            Client.Send(42, 1, 0);
+                        /* if (Is_Server)
+                             Serveur.Send(42, 1, 0);
+                         if (Is_Client)
+                             Client.Send(42, 1, 0);*/
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.I) && Data.prevKeyboardState.IsKeyUp(Keys.I))
                     {
                         list_zombi.Add(new NPC(32, 48, 4, 3, 1, 15, 2, position_npc, ressource.mob, localPlayer, map.Active_Map));
-                        if (Is_Server)
-                            Serveur.Send(42, 1, 0);
-                        if (Is_Client)
-                            Client.Send(42, 1, 0);
+                        /* if (Is_Server)
+                             Serveur.Send(42, 1, 0);
+                         if (Is_Client)
+                             Client.Send(42, 1, 0);*/
                     }
                     if (Data.keyboardState.IsKeyDown(Keys.O) && Data.prevKeyboardState.IsKeyUp(Keys.O))
                     {
                         list_zombi.Add(new NPC(32, 48, 4, 3, 4, 15, 4, position_npc, ressource.mob, localPlayer, map.Active_Map));
-                        if (Is_Server)
+                        /*if (Is_Server)
                             Serveur.Send(42, 1, 0);
                         if (Is_Client)
-                            Client.Send(42, 1, 0);
+                            Client.Send(42, 1, 0);*/
                     }
                     foreach (NPC zombie in list_zombi)
                         zombie.update(mouse, keyboard, Walls, personnage, map);
@@ -277,10 +299,10 @@ namespace Templar
                                 liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
 
                             list_zombi.RemoveAt(i);
-                            if (Is_Server)
+                            /*if (Is_Server)
                                 Serveur.Send(41, i, 0);
                             if (Is_Client)
-                                Client.Send(41, i, 0);
+                                Client.Send(41, i, 0);*/
                             score += 5;
 
                             localPlayer.XP += 20 / localPlayer.Niveau;
@@ -289,16 +311,61 @@ namespace Templar
                 #endregion ZOMBIE
                     #region PLAYER
                     localPlayer.update(mouse, keyboard, Walls, personnage, map); //fait l'update du player
+
+
                     if (Is_Server)
                     {
                         Serveur.Send(2, (int)player.Position.X, (int)player.position_player.Y);
+                        switch (player.direction)
+                        {
+                            case Direction.Up:
+                                Serveur.Send(11, 3, 0);
+                                break;
+                            case Direction.Down:
+                                Serveur.Send(11, 1, 0);
+                                break;
+                            case Direction.Left:
+                                Serveur.Send(11, 2, 0);
+                                break;
+                            case Direction.Right:
+                                Serveur.Send(11, 4, 0);
+                                break;
+                            case Direction.None:
+                                Serveur.Send(11, 0, 0);
+                                break;
+                            default:
+                                break;
+                        }
                         Serveur.Parser(this);
+                        player2.animate();
                     }
                     if (Is_Client)
                     {
                         Client.Send(2, (int)player.Position.X, (int)player.position_player.Y);
+                        switch (player.direction)
+                        {
+                            case Direction.Up:
+                                Client.Send(11, 0, 0);
+                                break;
+                            case Direction.Down:
+                                Client.Send(11, 1, 0);
+                                break;
+                            case Direction.Left:
+                                Client.Send(11, 2, 0);
+                                break;
+                            case Direction.Right:
+                                Client.Send(11, 3, 0);
+                                break;
+                            case Direction.None:
+                                Client.Send(11, 4, 0);
+                                break;
+                            default:
+                                break;
+                        }
                         Client.Parser(this);
+                        player2.animate();
                     }
+
                     //cheat code
                     if (keyboard.IsKeyDown(Keys.M))
                         localPlayer.mana_player = 100;
@@ -331,14 +398,14 @@ namespace Templar
                             ressource.feu.Play();
 
                         liste_sort.Add(localPlayer.Active_Sort);
-                        if (Is_Server)
-                        {
-                            Serveur.Send(32, player.Sort_selec, 0);
-                        }
-                        if (Is_Client)
-                        {
-                            Client.Send(32, player.Sort_selec, 0);
-                        }
+                        /* if (Is_Server)
+                         {
+                             Serveur.Send(32, player.Sort_selec, 0);
+                         }
+                         if (Is_Client)
+                         {
+                             Client.Send(32, player.Sort_selec, 0);
+                         }*/
                         pressdown = true;
                     }
 

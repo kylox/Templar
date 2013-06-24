@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
+    [Serializable()]
     public class Coffre
     {
         public bool is_open;
