@@ -53,8 +53,8 @@ namespace Templar
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
                     listes_map[i, j] = donjon.Map[i, j];
-            x = 0;
-            y = 0;
+            x = (int)donjon.map.X;
+            y = (int)donjon.map.Y;
             active_map = listes_map[x, y];
             active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
         }

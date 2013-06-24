@@ -229,9 +229,9 @@ namespace Templar
         public void ecrire_mob(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            for (int j = 0; j < tiles.GetLength(1); j++)
+            for (int j = 0; j < 18; j++)
             {
-                for (int i = 0; i < tiles.GetLength(0); i++)
+                for (int i = 0; i < 25; i++)
                     sw.Write(cursor.vec_to_id(mob[i, j]));
                 sw.WriteLine();
             }
@@ -375,14 +375,14 @@ namespace Templar
             sr.Close();
 
         }
-        public void Update(GameTime gametime, string path, string path_coll, string path_message, string path_mob, string path_box,string path_coffre, textbox text)
+        public void Update(GameTime gametime, string path, string path_coll, string path_message, string path_mob, string path_box, string path_coffre, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
             if (Data.mouseState.RightButton == ButtonState.Pressed &&
                 Data.prevMouseState.RightButton == ButtonState.Released &&
                 new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-                && text.Is_shown == false )
+                && text.Is_shown == false)
             {
                 if (Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16] != null)
                 {
@@ -440,15 +440,15 @@ namespace Templar
                     ecrire_message(path_message);
                     ecrire_box(path_box);
                 }
-            if (Data.mouseState.LeftButton == ButtonState.Pressed &&
-               Data.prevMouseState.LeftButton == ButtonState.Released &&
-               new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-               && text.Is_shown == false && cursor.position == false && cursor.selected_mob == true)
-            {
-                mob[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
-                ecrire_mob(path_mob);
-                ecrire_message(path_message);
-            }
+                else
+                    if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                       Data.prevMouseState.LeftButton == ButtonState.Released &&
+                       new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+                       && text.Is_shown == false && cursor.position == false && cursor.selected_mob == true)
+                    {
+                        mob[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                        ecrire_mob(path_mob);
+                    }
         }
         public void Draw(SpriteBatch spriteBatch, int x)
         {
@@ -464,8 +464,8 @@ namespace Templar
                 for (int j = 0; j < 18; j++)
                     if (Coffres[i, j] != null)
                     {
-                        Coffres[i, j].Draw(spriteBatch, i * x+x, j * x + x);
-                        spriteBatch.Draw(ressource.pixel,new Rectangle(i*x,j*x,x,x),Color.FromNonPremultiplied(250,250,250,100));
+                        Coffres[i, j].Draw(spriteBatch, i * x + x, j * x + x);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle(i * x, j * x, x, x), Color.FromNonPremultiplied(250, 250, 250, 100));
                     }
         }
         public bool ValidCoordinate(int x, int y)

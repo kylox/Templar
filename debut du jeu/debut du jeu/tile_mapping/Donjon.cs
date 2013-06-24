@@ -68,14 +68,14 @@ namespace Templar
             StreamReader sr = new StreamReader(path);
             int j = 0;
             string ligne = "";
-           while((ligne = sr.ReadLine())!=null)
-           {
+            while ((ligne = sr.ReadLine()) != null)
+            {
                 for (int i = 0; i < ligne.Length; i++)
                 {
                     if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
-                        coffre.tab[i, j] = new Items(cursor.id_to_vec(Convert.ToChar(ligne[i])),cursor.langue);
+                        coffre.tab[i, j] = new Items(cursor.id_to_vec(Convert.ToChar(ligne[i])), cursor.langue);
                 }
-                sr.ReadLine();
+                j++;
             }
         }
         public Donjon(string path, bool edm)
@@ -100,45 +100,44 @@ namespace Templar
 
                     foreach (string file in System.IO.Directory.GetFiles(dr))
                     {
-                        if (file[file.Length - 9] == 'M')//3
+                        if (file[file.Length - 7] == 'b')//1
                         {
                             if (_maps[x, y] == null)
                                 _maps[x, y] = new Map();
-                            _maps[x, y].Nb = Convert.ToString(file[file.Length - 6]) + Convert.ToString(file[file.Length - 5]);
-
-                            _maps[x, y].load_objet(file);// bug ?oO
+                            load_coffre(file, @dr + @"\Boxes", _maps[x, y]);
                         }
                         else
-                            if (file[file.Length - 10] == 'f')//2
+                            if (file[file.Length - 9] == 'M')//4
                             {
                                 if (_maps[x, y] == null)
                                     _maps[x, y] = new Map();
-                                _maps[x, y].load(file);
+                                _maps[x, y].Nb = Convert.ToString(file[file.Length - 6]) + Convert.ToString(file[file.Length - 5]);
+
+                                _maps[x, y].load_objet(file);// bug ?oO
                             }
                             else
-                                if (file[file.Length - 13] == 'm')//4
+                                if (file[file.Length - 10] == 'f')//3
                                 {
                                     if (_maps[x, y] == null)
                                         _maps[x, y] = new Map();
-                                    _maps[x, y].load_message(file);
-                                    x = 0;
-                                    y = 0;
+                                    _maps[x, y].load(file);
                                 }
                                 else
-                                    if (file[file.Length - 15] == 'c')//1
+                                    if (file[file.Length - 13] == 'm')//5
                                     {
                                         if (_maps[x, y] == null)
                                             _maps[x, y] = new Map();
-                                        _maps[x, y].load_collision(file);
+                                        _maps[x, y].load_message(file);
+                                        x = 0;
+                                        y = 0;
                                     }
                                     else
-                                        if (file[file.Length - 7] == 'b')
+                                        if (file[file.Length - 15] == 'c')//2
                                         {
                                             if (_maps[x, y] == null)
                                                 _maps[x, y] = new Map();
-                                            load_coffre(file, @dr + @"\Boxes", _maps[x, y]);
+                                            _maps[x, y].load_collision(file);
                                         }
-
                     }
                 }
             }

@@ -116,54 +116,50 @@ namespace Templar
                 {
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Map" + @"0" + @nb + @".txt",
-                            @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
-                                @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\creature" + @".txt",
-                                     @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\box" + @".txt",
-@"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Boxes",
-                                     text);
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\collision" + @"0" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\message" + @"0" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\creature" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\box" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Boxes", text);
                     cursor.Update(gameTime, tileset, fenetre, @"Donjons\" + @text.Saisie + @"\Map" + @"0" + @nb + @"\Boxes", Donjon.Map[actuel.X, actuel.Y]);
                 }
                 else
                 {
                     Donjon.Map[actuel.X, actuel.Y].Update(gameTime,
                         @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Map" + @nb + @".txt",
-                            @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
-                                @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\box" + @".txt",
-                                    @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Boxes" + @".txt", text);
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\collision" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\message" + @nb + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\creature" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\box" + @".txt",
+                        @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Boxes", text);
                     cursor.Update(gameTime, tileset, fenetre, @"Donjons\" + @text.Saisie + @"\Map" + @nb + @"\Boxes", Donjon.Map[actuel.X, actuel.Y]);
                 }
-                if (nb < 10)
-
-
-                    //change l'endroit de pop du joueur
-                    if (Data.mouseState.LeftButton == ButtonState.Pressed &&
-                            Data.prevMouseState.LeftButton == ButtonState.Released &&
-                                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18)) &&
-                                     text.Is_shown == false && cursor.position == true)
+                //change l'endroit de pop du joueur
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                        Data.prevMouseState.LeftButton == ButtonState.Released &&
+                            new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18)) &&
+                                 text.Is_shown == false && cursor.position == true)
+                {
+                    if (prevfirst != null)
                     {
-                        if (prevfirst != null)
-                        {
-                            prevfirst.isfirst = false;
-                            position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
-                            Donjon.Map[actuel.X, actuel.Y].isfirst = true;
-                            prevfirst = Donjon.Map[actuel.X, actuel.Y];
-                            ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
-                            cursor.position = false;
-                        }
-                        else
-                        {
-                            position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
-                            Donjon.Map[actuel.X, actuel.Y].isfirst = true;
-                            prevfirst = Donjon.Map[actuel.X, actuel.Y];
-
-                            ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
-                            cursor.position = false;
-
-                        }
+                        prevfirst.isfirst = false;
+                        position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
+                        Donjon.Map[actuel.X, actuel.Y].isfirst = true;
+                        prevfirst = Donjon.Map[actuel.X, actuel.Y];
+                        ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
+                        cursor.position = false;
                     }
+                    else
+                    {
+                        position = new Vector2(Data.mouseState.X - Data.mouseState.X % 16, Data.mouseState.Y - Data.mouseState.Y % 16);
+                        Donjon.Map[actuel.X, actuel.Y].isfirst = true;
+                        prevfirst = Donjon.Map[actuel.X, actuel.Y];
+
+                        ecrire_position(@"Donjons\" + @text.Saisie + @"\autre" + @".txt");
+                        cursor.position = false;
+
+                    }
+                }
             }
         }
         public void selectiomessage()

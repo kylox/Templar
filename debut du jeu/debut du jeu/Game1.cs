@@ -255,7 +255,7 @@ namespace Templar
             #region creation
             else if (activeScreen == creation)
             {
-                if (creation.change == true)
+               if (creation.change == true)
                 {
                     main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, language);
                     Components.Add(main);
