@@ -33,16 +33,26 @@ namespace Templar
             writer.WriteElementString("retour", "Retour au menu principal");
             //EDM
             writer.WriteElementString("debut", "Entrez le nom de votre donjon, puis appuyez sur F1 pour commencer !");
-            writer.WriteElementString("retour", "Retour au menu principal");
+            writer.WriteElementString("pos", "Position joueur");
+            writer.WriteElementString("err", "nom incorrect");
+            // retour déjà fait : "retour"
             //1 joueur
             writer.WriteElementString("nouv", "Nouvelle partie");
             writer.WriteElementString("continuer", "Continuer");
             // retour déjà fait : "retour"
             //choix du donjon
             writer.WriteElementString("suivant", "Suivant");
+            writer.WriteElementString("liste", "Liste des donjons disponibles");
             //en jeu
             writer.WriteElementString("tonneaux", "Hummm... Des tonneaux, plein de tonneaux !!");
             writer.WriteElementString("bouquins", "Quelques bouquins relatant de la Vie, de l'Univers et du Reste");
+            // menu inventaire
+            writer.WriteElementString("attaque", "Augmenter Attaque de 1");
+            writer.WriteElementString("defense", "Augmenter Defense de 1");
+            writer.WriteElementString("magie", "Augmenter Magie de 1");
+            writer.WriteElementString("endurance", "Augmenter Endurance de 1");
+            writer.WriteElementString("pdv", "Augmenter Points de vie de 1");
+            writer.WriteElementString("pdm", "Augmenter Points de mana de 1");
             //menu pause
             writer.WriteElementString("inventaire", "Inventaire");
             writer.WriteElementString("caract", "Caracteristiques");
@@ -82,16 +92,26 @@ namespace Templar
             writer.WriteElementString("langue", "Language : English");
             writer.WriteElementString("retour", "Back to main menu");
             //EDM
-            writer.WriteElementString("debut", "..."); // A TRAD
+            writer.WriteElementString("debut", "Input the name of your donjon, then press F1 to start !");
+            writer.WriteElementString("pos", "Player position");
+            writer.WriteElementString("err", "name incorrect");
             //1 joueur
             writer.WriteElementString("nouv", "New game");
             writer.WriteElementString("continuer", "Continue");
             // retour déjà fait : "retour"
             //choix du donjon
             writer.WriteElementString("suivant", "Next");
+            writer.WriteElementString("liste", "List of donjons available");
             //en jeu
             writer.WriteElementString("tonneaux", "Hummm... Barrels, barrels everywhere !!");
             writer.WriteElementString("bouquins", "Some books talking about Life, the Universe, and Everything ");
+            // menu inventaire
+            writer.WriteElementString("attaque", "Increase Attack by 1");
+            writer.WriteElementString("defense", "Increase Defense by 1");
+            writer.WriteElementString("magie", "Increase Magic by 1");
+            writer.WriteElementString("endurance", "Increase Stamina by 1");
+            writer.WriteElementString("pdv", "Increase Health by 1");
+            writer.WriteElementString("pdm", "Increase Mana by 1");
             //menu pause
             writer.WriteElementString("inventaire", "Inventory");
             writer.WriteElementString("caract", "Characteristics");

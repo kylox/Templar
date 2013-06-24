@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace Templar
         GamePlayer player;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
-            Texture2D image, GamePlayer player, Map map)
+            Texture2D image, GamePlayer player,Map map)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
             this.player = player;
@@ -90,7 +90,6 @@ namespace Templar
         }
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
-
             chrono++;
             if (chrono % 16 == 0)
             {
@@ -129,7 +128,7 @@ namespace Templar
 
             base.update(mouse, keyboard, walls, personnages, map);
         }
-        public void touché(Direction direction)
+        public void touch�(Direction direction)
         {
             switch (direction)
             {
@@ -150,8 +149,7 @@ namespace Templar
                         position.Y += 32;
                     break;
             }
-            player.Attaque(this);
-            //Pv -= player.attaque / 3;
+            Pv -= player.attaque / 3;
         }
 
         public void cheminement()
@@ -204,6 +202,8 @@ namespace Templar
 
         public override void Draw(SpriteBatch spritbatch)
         {
+            spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, 100 / 4, 2), Color.Red);
+            spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, Pv / 4, 2), Color.Green);
             timer_attaque++;
             if (combat == true && timer_attaque > 4)
             {
@@ -262,9 +262,3 @@ namespace Templar
                     }
                 }
             }
-            spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, 100 / 4, 2), Color.Red);
-            spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, Pv / 4, 2), Color.Green);
-            base.Draw(spritbatch);
-        }
-    }
-}

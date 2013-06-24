@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -23,6 +24,7 @@ namespace Templar
         int selec;
         List<string> donjons;
         public string donjon;
+        string op1 = "", op2 = "";
         public int frameligne
         {
             get { return Frameligne; }
@@ -33,9 +35,41 @@ namespace Templar
             get { return Change; }
             set { Change = value; }
         }
-        public creat_perso(Game game, SpriteBatch spriteBatch, Texture2D image)
+        public creat_perso(Game game, SpriteBatch spriteBatch, Texture2D image, bool language)
             : base(game, spriteBatch)
         {
+            XmlReader reader;
+
+            reader = XmlReader.Create("Francais.xml");
+            if (!language)
+            {
+                reader = XmlReader.Create("English.xml");
+            }
+            while (reader.Read())
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    reader.Read();
+                    if (reader.Name == "suivant")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op1 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "liste")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op2 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                }
             this.texture = image;
             rectangle = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de l'ecran 
             Change = false;
@@ -70,7 +104,7 @@ namespace Templar
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Draw(texture, rectangle, Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "liste des donjons disponible", new Vector2(100, 50), Color.Wheat);
+            spriteBatch.DrawString(ressource.ecriture, op2, new Vector2(100, 50), Color.Wheat);
             int y = 0;
             Color higlight = Color.White;
             if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(500, 200, 50, 50)))
@@ -87,7 +121,7 @@ namespace Templar
 
                 y += 30;
             }
-            spriteBatch.DrawString(ressource.ecriture, "SUIVANT", new Vector2(500, 200), higlight);
+            spriteBatch.DrawString(ressource.ecriture, op1, new Vector2(500, 200), higlight);
             spriteBatch.Draw(ressource.sprite_player, new Rectangle(100, 300, 100, 153), new Rectangle(0, 0, 32, 48), Color.White);
             base.Draw(gameTime);
         }
