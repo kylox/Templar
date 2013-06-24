@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -22,20 +23,95 @@ namespace Templar
         bool ispressed_e;
         Vector2 objet;
         string[] strings;
-        public Inventaire(Game game, SpriteBatch spriteBatch, gamemain main)
+        bool langue;
+        public Inventaire(Game game, SpriteBatch spriteBatch, gamemain main, bool language)
             : base(game, spriteBatch)
         {
+            langue = language;
+            XmlReader reader;
+            reader = XmlReader.Create("Francais.xml");
+            if (!language)
+            {
+                reader = XmlReader.Create("English.xml");
+            }
+            string op1 = "", op2 = "", op3 = "", op4 = "", op5 = "", op6 = "";
+            while (reader.Read())
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    reader.Read();
+                    if (reader.Name == "attaque")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op1 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "defense")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op2 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "magie")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op3 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "endurance")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op4 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "pdv")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op5 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "pdm")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op5 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                }
+
             ispressed_i = false;
             ispressed_e = false;
             Main = main;
             strings = new string[]
             {
-                "Augmenter Attaque de 1",
-                "Augmenter Defense de 1",
-                "Augmenter Magie de 1",
-                "Augmenter Endurance de 25",
-                "Augmenter point de vie de 25",
-                "Augmenter point de mana de 25"
+                op1,
+                op2,
+                op3,
+                op4,
+                op5,
+                op6
             };
         }
         public void swap(ref item item1, ref item item2)
@@ -212,17 +288,30 @@ namespace Templar
                         spriteBatch.Draw(ressource.pixel, new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2, j * 64 + 5 + 50 + 62, 64, 4), Color.Red);
                         spriteBatch.Draw(ressource.pixel, new Rectangle(i * 64 + 5 + game.Window.ClientBounds.Width / 2 + 62, j * 64 + 5 + 50, 4, 64), Color.Red);
                     }
-
-            spriteBatch.DrawString(ressource.ecriture, "Nombre d'amelioration " + Main.player.nb_amelioration, new Vector2(500, 480), Color.White);
-            spriteBatch.DrawString(ressource.ecriture, "Total   =  items  +  amelioration  +  base", new Vector2(50, 480), Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "Attaque :    " + Main.player.attaque + " = " + Main.player.attaque_item + " + " + Main.player.attaque_max + " + " + "10", new Vector2(50, 500), Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "Defense :    " + Main.player.defense + " = " + Main.player.defense_item + " + " + Main.player.defense_max + " + " + "10", new Vector2(50, 520), Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "Magie :    " + Main.player.magie + " = " + Main.player.magie_item + " + " + Main.player.magie_max + " + " + "10", new Vector2(50, 540), Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "Endurance :    " + Main.player.end_player + " = " + Main.player.endurance_item + " + " + Main.player.endurance_max * 25 + " + " + " 100", new Vector2(50, 560), Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "Pv max :    " + Main.player.PV + " = " + Main.player.pv_item + " + " + Main.player.pv_max * 25 + " + " + "100", new Vector2(50, 580), Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "Mana max :    " + Main.player.mana_player + " = " + Main.player.mana_item + " + " + Main.player.mana_amelioration * 25 + " + " + "100", new Vector2(50, 600), Color.Black);
-            spriteBatch.DrawString(ressource.ecriture, "Nb dash :    " + Main.player.timer_dash + " = " + Main.player.dash_item + " + " + "0" + " + " + "2 ", new Vector2(50, 620), Color.Black);
-
+            if (langue)
+            {
+                spriteBatch.DrawString(ressource.ecriture, "Nombre d'amelioration " + Main.player.nb_amelioration, new Vector2(500, 480), Color.White);
+                spriteBatch.DrawString(ressource.ecriture, "Total   =  items  +  amelioration  +  base", new Vector2(50, 480), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Attaque :    " + Main.player.attaque + " = " + Main.player.attaque_item + " + " + Main.player.attaque_max + " + " + "10", new Vector2(50, 500), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Defense :    " + Main.player.defense + " = " + Main.player.defense_item + " + " + Main.player.defense_max + " + " + "10", new Vector2(50, 520), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Magie :    " + Main.player.magie + " = " + Main.player.magie_item + " + " + Main.player.magie_max + " + " + "10", new Vector2(50, 540), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Endurance :    " + Main.player.end_player + " = " + Main.player.endurance_item + " + " + Main.player.endurance_max * 25 + " + " + " 100", new Vector2(50, 560), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Pv max :    " + Main.player.PV + " = " + Main.player.pv_item + " + " + Main.player.pv_max * 25 + " + " + "100", new Vector2(50, 580), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Mana max :    " + Main.player.mana_player + " = " + Main.player.mana_item + " + " + Main.player.mana_amelioration * 25 + " + " + "100", new Vector2(50, 600), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Nb dash :    " + Main.player.timer_dash + " = " + Main.player.dash_item + " + " + "0" + " + " + "2 ", new Vector2(50, 620), Color.Black);
+            }
+            else
+            {
+                spriteBatch.DrawString(ressource.ecriture, "Improvement available " + Main.player.nb_amelioration, new Vector2(500, 480), Color.White);
+                spriteBatch.DrawString(ressource.ecriture, "Total   =  items  +  improvement  +  base", new Vector2(50, 480), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Attack :    " + Main.player.attaque + " = " + Main.player.attaque_item + " + " + Main.player.attaque_max + " + " + "10", new Vector2(50, 500), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Defense :    " + Main.player.defense + " = " + Main.player.defense_item + " + " + Main.player.defense_max + " + " + "10", new Vector2(50, 520), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Magic :    " + Main.player.magie + " = " + Main.player.magie_item + " + " + Main.player.magie_max + " + " + "10", new Vector2(50, 540), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Stanima :    " + Main.player.end_player + " = " + Main.player.endurance_item + " + " + Main.player.endurance_max * 25 + " + " + " 100", new Vector2(50, 560), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Hp max :    " + Main.player.PV + " = " + Main.player.pv_item + " + " + Main.player.pv_max * 25 + " + " + "100", new Vector2(50, 580), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Mana max :    " + Main.player.mana_player + " = " + Main.player.mana_item + " + " + Main.player.mana_amelioration * 25 + " + " + "100", new Vector2(50, 600), Color.Black);
+                spriteBatch.DrawString(ressource.ecriture, "Nb dash :    " + Main.player.timer_dash + " = " + Main.player.dash_item + " + " + "0" + " + " + "2 ", new Vector2(50, 620), Color.Black);
+            }
             if (Main.player.nb_amelioration > 0)
                 for (int i = 0; i < 6; i++)
                     if (new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(450, 500 + 20 * i, (int)ressource.ecriture.MeasureString(strings[i]).X, (int)ressource.ecriture.MeasureString(strings[i]).Y)))
