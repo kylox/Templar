@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-
+    [Serializable()]
     public class Items : item
     {
         Random rd = new Random();

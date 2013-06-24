@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
+    [Serializable()]
     public abstract class item
     {
         public int[] Bonus;
