@@ -91,7 +91,6 @@ namespace Templar
                         }
                         reader.Read();
                     }
-
                 }
 
             string[] menuItems = { op1, op2, op3, op4, op5 };
