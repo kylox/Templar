@@ -120,9 +120,12 @@ namespace Templar
                 }
             }
             donj = donjon;
-            map = new switch_map(localPlayer/*, this*/, donjon, name_donjon);
-            map.x = (int)donjon.map.X;
-            map.y = (int)donjon.map.Y;
+            if (!is2p)
+            {
+                map = new switch_map(localPlayer/*, this*/, donjon, name_donjon);
+                map.x = (int)donjon.map.X;
+                map.y = (int)donjon.map.Y;
+            }
             list_zombi = map.Active_Map.monstre;
             pop_time = 0;
             score = 0;

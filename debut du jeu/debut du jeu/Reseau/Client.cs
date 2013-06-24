@@ -75,7 +75,7 @@ namespace Templar
                 Sentstream = client.GetStream();
             }
         }
-        public Donjon ReceiveDungeon()
+        public Donjon ReceiveDungeon(gamemain main)
         {
             Thread.Sleep(500);
             MemoryStream m = new MemoryStream();
@@ -93,7 +93,10 @@ namespace Templar
                         transit.Coffres = /*(Templar.Coffre[,])*/Serialiseur.Deserialize(Sentstream) as Templar.Coffre[,];
                         transit.colision = (int[,])Serialiseur.Deserialize(Sentstream);
                         transit.mob = (Vector2[,])Serialiseur.Deserialize(Sentstream);
-                        transit.monstre = (List<NPC>)Serialiseur.Deserialize(Sentstream);
+                        for (int k = 0; k < (int)Serialiseur.Deserialize(Sentstream); k++)
+                        {
+                            transit.monstre.Add(new NPC(32, 48, 4, 3, 1, 15, (int)Serialiseur.Deserialize(Sentstream), (Vector2)Serialiseur.Deserialize(Sentstream), ressource.mob, main.player, transit));
+                        }
                         transit.objet = (Vector2[,])Serialiseur.Deserialize(Sentstream);
                         transit.tiles = (Vector2[,])Serialiseur.Deserialize(Sentstream);
                         transit.Tilelist = (Tile[,])Serialiseur.Deserialize(Sentstream);
