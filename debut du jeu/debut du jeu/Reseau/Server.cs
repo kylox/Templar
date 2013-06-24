@@ -53,10 +53,10 @@ namespace Templar
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].Coffres);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].colision);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].mob);
-                        Serialiseur.Serialize(Sentstream, donj.Map[i, j].monstre.Count);
+                        t.Write(donj.Map[i, j].monstre.Count);
                         foreach (NPC q in donj.Map[i,j].monstre)
                         {
-                            Serialiseur.Serialize(Sentstream, q.frameline);
+                            t.Write(q.frameline);
                             Serialiseur.Serialize(Sentstream, q.position);
                         }
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].objet);

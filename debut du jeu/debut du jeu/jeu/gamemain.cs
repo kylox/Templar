@@ -105,9 +105,6 @@ namespace Templar
             Walls = new List<wall>();
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
-            position_joueur = donjon.position_J;
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text, language);
-
             localPlayer.Niveau = 1;
             if (!is2p)
             {
@@ -124,11 +121,15 @@ namespace Templar
           
             if (!is2p)
             {
+                position_joueur = donjon.position_J;
+                localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text, language);
+                localPlayer.Niveau = 1;
                 map = new switch_map(localPlayer/*, this*/, donjon, name_donjon);
                 map.x = (int)donjon.map.X;
                 map.y = (int)donjon.map.Y;
+                list_zombi = map.Active_Map.monstre;
+                HUD = new HUD(localPlayer, this);
             }
-            list_zombi = map.Active_Map.monstre;
             pop_time = 0;
             score = 0;
             count_dead_zombi = 0;
@@ -143,7 +144,20 @@ namespace Templar
             white = Color.White;
             white.A = 120;
             effect = new BasicEffect(game.GraphicsDevice);
+
+        }
+        public void AddHUD()
+        {
             HUD = new HUD(localPlayer, this);
+        }
+        public void AddLocalplayer()
+        {
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text, langue);
+            localPlayer.Niveau = 1;
+        }
+        public void lZombie()
+        {
+            list_zombi = map.Active_Map.monstre;
         }
         public void StartReseauConnexion()
         {
