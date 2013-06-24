@@ -22,8 +22,8 @@ namespace Templar
         Map Map;
         GamePlayer player;
         bool PlayerMoved, CanMove;
-        public int frameline;
-        public Vector2 position;
+       // public int frameline;
+        //public Vector2 position;
         Thread Deleg;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
@@ -222,28 +222,28 @@ namespace Templar
                 {
                     direction = Direction.Right;
                     start.X++;
-                    position.X += 32;
+                    //position.X += 32;
                 }
 
                 if (start.Y < end.Y && start.X == end.X)
                 {
                     direction = Direction.Down;
                     start.Y++;
-                    position.Y += 32;
+                    //position.Y += 32;
 
                 }
                 if (start.Y > end.Y && start.X == end.X)
                 {
                     direction = Direction.Up;
                     start.Y--;
-                    position.Y -= 32;
+                    //position.Y -= 32;
 
                 }
                 if (start.X > end.X && start.Y == end.Y)
                 {
                     direction = Direction.Left;
                     start.X--;
-                    position.X -= 32;
+                   // position.X -= 32;
 
                 }
                 Thread.Sleep(266);
