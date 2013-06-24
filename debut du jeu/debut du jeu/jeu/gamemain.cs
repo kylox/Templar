@@ -105,8 +105,7 @@ namespace Templar
             Walls = new List<wall>();
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
-
-
+            localPlayer.Niveau = 1;
             if (!is2p)
             {
                 for (int i = 0; i < 5; i++)
@@ -119,6 +118,7 @@ namespace Templar
                 }
             }
             donj = donjon;
+          
             if (!is2p)
             {
                 position_joueur = donjon.position_J;
