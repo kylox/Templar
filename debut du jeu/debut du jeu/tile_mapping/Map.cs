@@ -300,7 +300,7 @@ namespace Templar
             {
                 for (int i = 0; i < colision.GetLength(0); i++)
                 {
-                    tilelist[i, j] = new Tile(i, j, Convert.ToInt32(ligne[i]));
+                    tilelist[i, j] = new Tile(i, j, Convert.ToInt32(Convert.ToString(ligne[i])));
                     colision[i, j] = Convert.ToInt32(Convert.ToString(ligne[i]));
                 }
                 j += 1;

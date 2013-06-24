@@ -105,6 +105,11 @@ namespace Templar
             Walls = new List<wall>();
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
+            if (is2p)
+            {
+                position_joueur = new Vector2(32, 32);
+                localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text, language);
+            }
             if (!is2p)
             {
                 position_joueur = donjon.position_J;

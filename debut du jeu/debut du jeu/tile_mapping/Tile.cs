@@ -44,7 +44,7 @@ namespace Templar
             this.y = y;
             switch (type)
             {
-                case 0:
+                case 1:
                     this.type = TileType.wall;
                     break;
                 default:

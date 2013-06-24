@@ -24,7 +24,7 @@ namespace Templar
         bool PlayerMoved, CanMove;
         public int frameline;
         public Vector2 position;
-        //Thread Deleg;
+        Thread Deleg;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
             Texture2D image, GamePlayer player, Map map)
@@ -35,12 +35,13 @@ namespace Templar
             this.player = player;
             //partie pour L'A*
             PlayerMoved = false;
-            //OldPosition = player.Position;
-            //CanMove = true;
+            OldPosition = player.Position;
+            CanMove = true;
+            direction = Direction.None;
             //Fin Partie pour l'A*
             Pv = 100;
             this.Map = map;
-            //Deleg = new Thread(new ThreadStart(cheminement));
+            Deleg = new Thread(new ThreadStart(cheminement));
             switch (frame_start)
             {
                 case 1:
@@ -103,10 +104,10 @@ namespace Templar
         public override void update(MouseState mouse, KeyboardState keyboard, List<wall> walls, List<Personnage> personnages, switch_map map)
         {
             chrono++;
-            if (chrono % 16 == 0)
+            if (chrono > 15)
             {
-                Thread Deleg = new Thread(cheminement);
-               // CanMove = true;
+                //Deleg = new Thread(cheminement);
+                CanMove = true;
                 chrono = 0;
                 //Partie new A*
                 if (OldPosition != player.Position)
@@ -128,13 +129,13 @@ namespace Templar
 
                 }
                 //Fin Partie new A*
-                
+
             }
 
             switch (direction)
             {
                 case Direction.Down:
-                    if (new Rectangle(/*Taille_image_x*/(int)position.X, (int)position.Y + 32, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
+                    if (new Rectangle(Taille_image_x, (int)position.Y + 32, 32, 32).Intersects(new Rectangle((int)player.Position.X, (int)player.Position.Y, 32, 32)))
                         combat = true;
                     else
                         combat = false;
@@ -161,7 +162,7 @@ namespace Templar
 
             base.update(mouse, keyboard, walls, personnages, map);
         }
-        public void touché(Direction direction,GamePlayer Player)
+        public void touché(Direction direction, GamePlayer Player)
         {
             switch (direction)
             {
@@ -206,10 +207,11 @@ namespace Templar
             int i = 0;
             while (i < sol.Count)
             {
-                
+
+
                 Tile end = sol[i];
                 i++;
-               // CanMove = false;
+                //CanMove = false;
                 deplacement = new Vector2(player.Position.X - position.X, player.Position.Y - position.Y);
                 if (start.X == end.X && start.Y == end.Y)
                 {
@@ -220,28 +222,31 @@ namespace Templar
                 {
                     direction = Direction.Right;
                     start.X++;
+                    position.X += 32;
                 }
 
                 if (start.Y < end.Y && start.X == end.X)
                 {
                     direction = Direction.Down;
                     start.Y++;
+                    position.Y += 32;
 
                 }
                 if (start.Y > end.Y && start.X == end.X)
                 {
                     direction = Direction.Up;
                     start.Y--;
+                    position.Y -= 32;
 
                 }
                 if (start.X > end.X && start.Y == end.Y)
                 {
                     direction = Direction.Left;
                     start.X--;
+                    position.X -= 32;
 
                 }
                 Thread.Sleep(266);
-
             }
             Direction = Direction.None;
         }
