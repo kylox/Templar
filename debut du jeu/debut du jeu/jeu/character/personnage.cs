@@ -189,7 +189,7 @@ namespace Templar
                 if (collide(walls) == true && this.invulnerable == false)
                     Pv--;
                 if (position.X % 32 == 0 && position.Y % 32 == 0)
-                    if (map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
+                     if (map.Active_Map.colision[(int)position.X / 32 + 1, (int)position.Y / 32] != 1)
                         canwalk = true;
                     else
                         canwalk = false;
