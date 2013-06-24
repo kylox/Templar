@@ -827,7 +827,7 @@ namespace Templar
                             else if (position_tileset == new Vector2(4, 4))
                             {
                                 utilité = op33;
-                                Bonus = new int[] { 0, 0, 0, 0, 50, 0, 0 };
+                                Bonus = new int[] { 0, 0, 0, 0, 100, 0, 0 };
                                 is_equipable = true;
                             }
                             else if (position_tileset == new Vector2(5, 4))
@@ -862,21 +862,25 @@ namespace Templar
                                 else if (position_tileset == new Vector2(3, 5))
                                 {
                                     utilité = op39;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 50, 0 };
                                 }
                                 else if (position_tileset == new Vector2(4, 5))
                                 {
                                     utilité = op40;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 100, 0 };
                                 }
                                 else if (position_tileset == new Vector2(5, 5))
                                 {
                                     utilité = op41;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 25, 0 };
                                 }
                                 else if (position_tileset == new Vector2(6, 5))
                                 {
                                     utilité = op42;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 75, 0 };
                                 }
                                 else
@@ -899,21 +903,25 @@ namespace Templar
                                     {
                                         utilité = op46;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 5 };
+                                        is_equipable = true;
                                     }
                                     else if (position_tileset == new Vector2(4, 6))
                                     {
                                         utilité = op47;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 10 };
+                                        is_equipable = true;
                                     }
                                     else if (position_tileset == new Vector2(5, 6))
                                     {
                                         utilité = op48;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 2 };
+                                        is_equipable = true;
                                     }
                                     else if (position_tileset == new Vector2(6, 6))
                                     {
                                         utilité = op49;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 7 };
+                                        is_equipable = true;
                                     }
         }
         public override void action(gamemain main)
