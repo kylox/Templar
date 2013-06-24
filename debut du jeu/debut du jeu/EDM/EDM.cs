@@ -31,7 +31,7 @@ namespace Templar
         bool selec;
         int nb;
         Vector2 position;
-        string op1 = "", op2 = "", op3 = ""; // Oui c'est dégueulasse, et je m'en fous.
+        string op1 = "", op2 = "", op3 = "", op4 = "", op5 = "", op6 = "", op7 = "", op8 = ""; // Oui c'est dégueulasse, et je m'en fous.
         #endregion
         public Rectangle Fenetre
         {
@@ -79,6 +79,56 @@ namespace Templar
                             reader.Read();
                             if (reader.NodeType == XmlNodeType.Text)
                                 op3 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "tuto")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op4 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "tuile")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op5 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "map")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op6 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "mob")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op7 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "messa")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op8 = reader.Value.ToString();
                         }
                         reader.Read();
                     }
@@ -321,9 +371,9 @@ namespace Templar
               
                 //dessine la string de positionnement du joueur
                 if (cursor.tuto == false)
-                    spriteBatch.DrawString(ressource.ecriture, "Tuto", new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op4, new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.White);
                 else
-                    spriteBatch.DrawString(ressource.ecriture, "Tuto", new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.Red);
+                    spriteBatch.DrawString(ressource.ecriture, op4, new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X - ressource.ecriture.MeasureString("Tuto").X - 32, 0), Color.Red);
 
                 if (cursor.position == false)
                     spriteBatch.DrawString(ressource.ecriture, op1, new Vector2(tileset.X - ressource.ecriture.MeasureString(op1).X, 0), Color.White);
@@ -401,10 +451,10 @@ namespace Templar
                 if (cursor.tuto == true)
                 {
                     spriteBatch.Draw(ressource.pixel, fenetre, Color.FromNonPremultiplied(0, 0, 0, 175));
-                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici\n pour selectionner\n une tuile", new Vector2(fenetre.Width - ressource.tile.Width+32, 64), Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici\n pour ajouter\n une map", new Vector2(fenetre.Width - ressource.tile.Width + 48, 300+32), Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici pour selectionn un mob", new Vector2(0, 18 * 16 + 10), Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, "clic guche ici pour activer la saisie du message de map", new Vector2(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op5, new Vector2(fenetre.Width - ressource.tile.Width+32, 64), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op6, new Vector2(fenetre.Width - ressource.tile.Width + 48, 300+32), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op7, new Vector2(0, 18 * 16 + 10), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op8, new Vector2(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3), Color.White);
                 }
             }
         }

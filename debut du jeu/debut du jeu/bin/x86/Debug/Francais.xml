@@ -16,6 +16,15 @@
   <debut>Entrez le nom de votre donjon, puis appuyez sur F1 pour commencer !</debut>
   <pos>Position joueur</pos>
   <err>nom incorrect</err>
+  <tuto>Tutoriel</tuto>
+  <tuile>clic gauche ici
+ pour selectionner
+ une tuile</tuile>
+  <map>clic gauche ici
+ pour ajouter
+ une salle</map>
+  <mob>clic gauche ici pour selectionn un monstre</mob>
+  <messa>clic guche ici pour activer la saisie du message du donjon</messa>
   <nouv>Nouvelle partie</nouv>
   <continuer>Continuer</continuer>
   <suivant>Suivant</suivant>
