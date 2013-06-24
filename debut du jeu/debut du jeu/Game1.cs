@@ -43,6 +43,8 @@ namespace Templar
 
         public Game1()
         {
+            Is_server = false;
+            Is_Client = false;
             graphics = new GraphicsDeviceManager(this)
                 {
                     PreferredBackBufferWidth = 900,
@@ -219,7 +221,7 @@ namespace Templar
                         main.Is_Server = false;
                         main.Client = client;
                         main.lZombie();
-                        main.AddLocalplayer();
+                        //main.AddLocalplayer();
                         main.AddHUD();
                         main.AddP2();
                         Components.Add(main);
