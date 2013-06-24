@@ -23,7 +23,7 @@ namespace Templar
         GamePlayer player;
 
         public NPC(int taille_image_x, int taille_image_y, int nb_frameLine, int nb__framecolumn, int frame_start, int animation_speed, int speed, Vector2 position,
-            Texture2D image, GamePlayer player,Map map)
+            Texture2D image, GamePlayer player, Map map)
             : base(taille_image_x, taille_image_y, nb_frameLine, nb__framecolumn, frame_start, animation_speed, speed, position, image)
         {
             this.player = player;
@@ -204,61 +204,63 @@ namespace Templar
         {
             spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, 100 / 4, 2), Color.Red);
             spritbatch.Draw(ressource.pixel, new Rectangle((int)position.X, (int)position.Y - 5, Pv / 4, 2), Color.Green);
-            timer_attaque++;
-            if (combat == true && timer_attaque > 4)
-            {
-                timer_attaque = 0;
-
-                if (Frame_start != 10)
-                {
-                    framecolumn++;
-                    spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
-                    if (!player.Hitbox_image.Intersects(this.Hitbox_image))
-                    {
-                        combat = false;
-                        switch (FrameLine)
-                        {
-                            case 6:
-                                frameline = 4;
-                                break;
-                            case 5:
-                                frameline = 1;
-                                break;
-                            case 7:
-                                frameline = 3;
-                                break;
-                            case 8:
-                                frameline = 2;
-                                break;
-                        }
-                    }
-                }
-                else
-                {
-                    framecolumn += 2;
-                    spritbatch.Draw(Image, 
-                        new Rectangle((int)position.X, (int)position.Y, 32 * 2, 48),
-                        new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1,
-                            this.Taille_image_x * 2, this.Taille_image_y), 
-                        Color.White);
-                    if (!player.Hitbox_image.Intersects(this.Hitbox_image))
-                    {
-                        combat = false;
-                        switch (FrameLine)
-                        {
-                            case 6:
-                                frameline = 4;
-                                break;
-                            case 5:
-                                frameline = 1;
-                                break;
-                            case 7:
-                                frameline = 3;
-                                break;
-                            case 8:
-                                frameline = 2;
-                                break;
-                        }
-                    }
-                }
-            }
+            base.Draw(spritbatch);
+            /* timer_attaque++;
+             if (combat == true && timer_attaque > 4)
+             {
+                 timer_attaque = 0;
+                 if (Frame_start != 10)
+                 {
+                     framecolumn++;
+                     spritbatch.Draw(Image, new Rectangle((int)position.X, (int)position.Y, 32, 48), new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1, this.Taille_image_x, this.Taille_image_y), Color.White);
+                     if (!player.Hitbox_image.Intersects(this.Hitbox_image))
+                     {
+                         combat = false;
+                         switch (FrameLine)
+                         {
+                             case 6:
+                                 frameline = 4;
+                                 break;
+                             case 5:
+                                 frameline = 1;
+                                 break;
+                             case 7:
+                                 frameline = 3;
+                                 break;
+                             case 8:
+                                 frameline = 2;
+                                 break;
+                         }
+                     }
+                 }
+                 else
+                 {
+                     framecolumn += 2;
+                     spritbatch.Draw(Image,
+                         new Rectangle((int)position.X, (int)position.Y, 32 * 2, 48),
+                         new Rectangle((this.Framecolumn - 1) * this.Taille_image_x - 1, (this.FrameLine - 1) * this.Taille_image_y - 1,
+                             this.Taille_image_x * 2, this.Taille_image_y),
+                         Color.White);
+                     if (!player.Hitbox_image.Intersects(this.Hitbox_image))
+                     {
+                         combat = false;
+                         switch (FrameLine)
+                         {
+                             case 6:
+                                 frameline = 4;
+                                 break;
+                             case 5:
+                                 frameline = 1;
+                                 break;
+                             case 7:
+                                 frameline = 3;
+                                 break;
+                             case 8:
+                                 frameline = 2;
+                                 break;
+                         }
+                     }
+                 }*/
+        }
+    }
+}
