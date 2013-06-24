@@ -16,6 +16,7 @@ namespace Templar
     {
         Rectangle Hitbox_potion;
         string Name;
+        Texture2D Texture;
         public Rectangle Collide
         {
             get { return Hitbox_potion; }
@@ -27,8 +28,9 @@ namespace Templar
             set { Name = value; }
         }
         public potion(Texture2D texture, NPC npc, string name)
-            : base(texture, npc.Position)
+            : base(/*texture,*/ npc.Position)
         {
+            Texture = texture;
             Hitbox_potion = new Rectangle((int)Position.X, (int)Position.Y, 32, 32);
             Name = name;
             usable = true;

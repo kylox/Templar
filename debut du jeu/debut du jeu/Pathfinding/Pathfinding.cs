@@ -14,47 +14,47 @@ namespace Templar
             Nodelist<Node> closelist = new Nodelist<Node>();
             List<Node> possibleNode;
             int possibleNodeCount;
-            List<Tile> sol = new List<Tile>();
             Node StartNode = new Node(Start, null, End);
-
+            List<Tile> sol = new List<Tile>();
             openlist.Add(StartNode);
-            possibleNode = StartNode.GetPossibleNode(map, End);
-            possibleNodeCount = possibleNode[0].Heuristic;
-            int result = 0;
-            for (int i = 1; i < possibleNode.Count; i++)
-            {
-                if (possibleNode[i].Heuristic<possibleNodeCount)
-                {
-                    result = i;
-                    possibleNodeCount = possibleNode[i].Heuristic;
-                }
-            }
-            sol.Add(possibleNode[result].Tile);
-            return sol;
-            /*
+
+            
           while (openlist.Count>0)
             {
                 Node current = openlist[0];
+                openlist.RemoveAt(0);
                 closelist.Add(current);
+                
+                if (current.Tile.X==End.X && current.Tile.Y == End.Y)
+                {
+                    while (current.Parent != null)
+                    {
+                        sol.Insert(0, current.Tile);
+                        current = current.Parent;
+                        
+                    }
+                    return sol;
+                }
                 possibleNode = current.GetPossibleNode(map, End);
                 possibleNodeCount = possibleNode.Count;
                 for (int i = 0; i < possibleNodeCount; i++)
                 {
-                    openlist.DichotomicInsertion(possibleNode[i]);
+                    if (!closelist.Contains(possibleNode[i]))
+                    {
+                        if (openlist.Contains(possibleNode[i]))
+                        {
+                            if (possibleNode[i].Heuristic < openlist[possibleNode[i]].Heuristic)
+                                openlist[possibleNode[i]].Parent = current;
+                        }
+                        else
+                            openlist.DichotomicInsertion(possibleNode[i]);
+                    }
                 }
-                List<Tile> sol = new List<Tile>();
-                if (openlist.Count != 0)
-                {
-                    sol.Add(openlist[0].Tile);
-                }
-                else
-                {
-                    sol.Add(current.Tile);
-                }
-                
-                return sol;
+
             }
-          */
+           sol.Add(Start);
+           return sol;
+          
         }
     }
 }

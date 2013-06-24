@@ -21,6 +21,7 @@ namespace Templar
         public Vector2 map;
         //position du joueur dans la premiere map 
         public Vector2 position_J;
+        public string name;
         Map[,] _maps;
         public Map[,] Map
         {
@@ -29,7 +30,7 @@ namespace Templar
         }
         public void load_position(string Path)
         {
-            StreamReader sr = new StreamReader(Path);
+             StreamReader sr = new StreamReader(Path);
             string ligne = sr.ReadLine();
             string[] pos = ligne.Split(' ');
             position_J.X = Convert.ToInt32(pos[0]);
@@ -78,8 +79,14 @@ namespace Templar
                 j++;
             }
         }
+
+        public Donjon()
+        {
+            _maps = new Map[5, 5];
+        }
         public Donjon(string path, bool edm)
         {
+            name = path;
             int x = 0;
             int y = 0;
             _maps = new Map[5, 5];
@@ -97,7 +104,6 @@ namespace Templar
                             y++;
                         }
                     }
-
                     foreach (string file in System.IO.Directory.GetFiles(dr))
                     {
                         if (file[file.Length - 7] == 'b')//1

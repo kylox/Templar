@@ -14,6 +14,7 @@ namespace Templar
 {
     public static class cursor
     {
+        public static bool tuto;
         static public bool langue;
         static Rectangle mobs = new Rectangle(0, 18 * 16 + 7, 32 * 15, 48);
         static Rectangle obj = new Rectangle(27 * 16, 48, 32 * 7, 32 * 7);
@@ -100,6 +101,8 @@ namespace Templar
                 selected = true;
                 selected_mob = false;
                 selec_obj = false;
+                position = false;
+                tuto = false;
                 ID.X = Math.Abs(((fenetre.Width - Data.mouseState.X) / 32) - 5);
                 ID.Y = Data.mouseState.Y / 32;
             }
@@ -110,6 +113,8 @@ namespace Templar
                 selected = false;
                 selec_obj = false;
                 selected_mob = true;
+                position = false;
+                tuto = false;
                 ID.X = (Data.mouseState.X) / 32;
                 if (ID.X == 4)
                     ID.X = 3;
@@ -123,6 +128,7 @@ namespace Templar
                 selected = false;
                 selec_obj = true;
                 selected_mob = false;
+                tuto = false;
                 ID.X = (Data.mouseState.X - obj.X) / 32;
                 ID.Y = (Data.mouseState.Y - obj.Y) / 32;
                 for (int i = 0; i < 5; i++)

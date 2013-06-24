@@ -20,7 +20,7 @@ namespace Templar
         KeyboardState keyboardState;
         KeyboardState lastKeyboardState;
         public List<NPC> monstre;
-        Vector2[,] tiles;
+        public Vector2[,] tiles;
         public Vector2[,] objet;
         public Coffre[,] Coffres;
         public Coffre prev_coffre;
@@ -53,6 +53,7 @@ namespace Templar
         public Tile[,] Tilelist
         {
             get { return tilelist; }
+            set { tilelist = value; }
         }
         public Vector2[,] Tiles
         {
@@ -311,6 +312,68 @@ namespace Templar
             StreamReader sr = new StreamReader(path);
             message = sr.ReadToEnd();
             sr.Close();
+        }
+        public void load_mob(StreamReader sr,gamemain main)
+        {
+             int j = 0;
+            string ligne;
+            while ((ligne = sr.ReadLine()) != null)
+            {
+                for (int i = 0; i < tiles.GetLength(0); i++)
+                {
+                    if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
+                    {
+                        switch ((int)cursor.id_to_vec(ligne[i]).X)
+                        {
+                            case 0:
+                                monstre.Add(new NPC(32, 48, 4, 3, 1, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 1:
+                                monstre.Add(new NPC(32, 48, 4, 3, 4, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 2:
+                                monstre.Add(new NPC(32, 48, 4, 3, 7, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 3:
+                                monstre.Add(new NPC(32, 48, 4, 3, 10, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 5:
+                                monstre.Add(new NPC(32, 48, 4, 3, 13, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 6:
+                                monstre.Add(new NPC(32, 48, 4, 3, 16, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 7:
+                                monstre.Add(new NPC(32, 48, 4, 3, 19, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 8:
+                                monstre.Add(new NPC(32, 48, 4, 3, 22, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 9:
+                                monstre.Add(new NPC(32, 48, 4, 3, 25, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 10:
+                                monstre.Add(new NPC(32, 48, 4, 3, 28, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 11:
+                                monstre.Add(new NPC(32, 48, 4, 3, 31, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 12:
+                                monstre.Add(new NPC(32, 48, 4, 3, 34, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 13:
+                                monstre.Add(new NPC(32, 48, 4, 3, 37, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 14:
+                                monstre.Add(new NPC(32, 48, 4, 3, 40, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                        }
+                    }
+                }
+                j += 1;
+            }
+            sr.Close();
+
         }
         public void load_mob(string path, gamemain main)
         {

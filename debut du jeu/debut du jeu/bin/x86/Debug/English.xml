@@ -32,5 +32,54 @@
   <caract>Characteristics</caract>
   <sauv>Save</sauv>
   <charger>Load</charger>
+  <i0>show the position of the princess to the player</i0>
+  <i1>show the position of the princess to the player</i1>
+  <i2>restore 10 pv to the player</i2>
+  <i3>increase magic of the player by 5</i3>
+  <i4>increase magic of the player by 10</i4>
+  <i5>increase magic of the player by 2</i5>
+  <i6>increase magic of the player by 7</i6>
+  <i7>kill every monster on the map</i7>
+  <i8>kill one monster on the map</i8>
+  <i9>restore 20 hp to the player</i9>
+  <i10>increase attack of the player by 5</i10>
+  <i11>increase attack of the player by 10</i11>
+  <i12>increase attack of the player by 2</i12>
+  <i13>increase attack of the player by 7</i13>
+  <i14>get back to the first map</i14>
+  <i15>the player become invulnerable for 10 secondes</i15>
+  <i16>restore 40 hp to the player</i16>
+  <i17>increase stamina of the player by 5</i17>
+  <i18>increase stamina of the player by 10</i18>
+  <i19>increase stamina of the player by 2</i19>
+  <i20>increase stamina of the player by 7</i20>
+  <i21>restore 5 mana</i21>
+  <i22>restore 10 mana</i22>
+  <i23>restore 60 hp</i23>
+  <i24>increase speed of the player by 1</i24>
+  <i25>increase speed of the player by 2</i25>
+  <i26>increase speed of the player by 3</i26>
+  <i27>increase speed of the player by 4</i27>
+  <i28>restore 20 mana</i28>
+  <i29>restore 40  mana</i29>
+  <i30>restore 100 hp</i30>
+  <i31>increase hp max of the player by 50</i31>
+  <i32>increase hp max of the player by 100</i32>
+  <i33>increase hp max of the player by 25</i33>
+  <i34>increase hp max of the player by 75</i34>
+  <i35>restore 80 mana</i35>
+  <i36>restore 160 mana</i36>
+  <i37>restore 150 hp</i37>
+  <i38>increase mana max by 50</i38>
+  <i39>increase mana max by 100</i39>
+  <i40>increase mana max by 25</i40>
+  <i41>increase mana max by 75</i41>
+  <i42>deed of property of the donjon</i42>
+  <i43>a roll of toilet paper restore all hp</i43>
+  <i44>restore 200 hp</i44>
+  <i45>increase defense of the player by 5</i45>
+  <i46>increase defense of the player by 10</i46>
+  <i47>increase defense of the player by 2</i47>
+  <i48>increase defense of the player by 7</i48>
   <recommencer>Try again</recommencer>
 </EN>

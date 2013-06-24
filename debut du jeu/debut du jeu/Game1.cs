@@ -36,9 +36,10 @@ namespace Templar
         Chargement load;
         menudeux menudeux;
         textbox box;
-        bool ecran;
+        Client client;
+        bool ecran, Is_server, Is_Client;
         bool click_down;
-        bool language = true; // true = french, par défaut;
+        bool language = true; // true = french, par dÃ©faut;
 
         public Game1()
         {
@@ -161,11 +162,19 @@ namespace Templar
                         activeScreen.hide();
                         activeScreen = menu;
                         activeScreen.Show();
+                        if (main.Is_Server)
+                            main.Serveur.StopConnexion();
+                        if (main.Is_Client)
+                            main.Client.StopConnexion();
                     }
 
                     if (gameover.SelectedIndex == 2)
                     {
                         ressource.selection.Play();
+                        if (main.Is_Server)
+                            main.Serveur.StopConnexion();
+                        if (main.Is_Client)
+                            main.Client.StopConnexion();
                         this.Exit();
                     }
                 }
@@ -184,18 +193,50 @@ namespace Templar
                 if (Data.keyboardState.IsKeyDown(Keys.Enter))
                 {
 
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie, creation.donjon, language);
+                   /* main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie, creation.donjon, language);
                     main.IP = menudeux.box.Saisie;
                     main.Is_Client = menudeux.selec;
-                    main.Is_Server = !menudeux.selec;
-                    main.StartReseauConnexion();
+                    main.Is_Server = !menudeux.selec;*/
+                    Is_server = !menudeux.selec;
+                    Is_Client = menudeux.selec;
+                    if (Is_server)
+                    {
+                        ressource.selection.Play();
+                        activeScreen.hide();
+                        activeScreen = creation;
+                        activeScreen.Show();
+                    }
+                    if (Is_Client)
+                    {
+                        client = new Client(box.Saisie);
+                        
+                        main = new gamemain(this, spriteBatch, activeScreen, null, true, box.Saisie, creation.donjon,language);
+                        Donjon donj = client.ReceiveDungeon(main);
+                        main.map = new switch_map(main.player, donj, donj.name);
+                        main.map.x = (int)donj.map.X;
+                        main.map.y = (int)donj.map.Y;
+                        main.Is_Client = true;
+                        main.Is_Server = false;
+                        main.Client = client;
+                        main.lZombie();
+                        main.AddLocalplayer();
+                        main.AddHUD();
+                        main.AddP2();
+                        Components.Add(main);
+                        main.hide();
+                        ressource.selection.Play();
+                        activeScreen.hide();
+                        activeScreen = main;
+                        activeScreen.Show();
+                    }
+                   /* main.StartReseauConnexion();
                     Components.Add(main);
                     main.hide();
 
                     ressource.selection.Play();
                     activeScreen.hide();
                     activeScreen = main;
-                    activeScreen.Show();
+                    activeScreen.Show();*/
 
                 }
             }
@@ -257,14 +298,32 @@ namespace Templar
             {
                if (creation.change == true)
                 {
-                    main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, language);
-                    Components.Add(main);
-                    main.hide();
-                    creation.change = false;
-                    ressource.selection.Play();
-                    activeScreen.hide();
-                    activeScreen = main;
-                    activeScreen.Show();
+                    if (Is_server)
+                    {
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon,language);
+                        main.Is_Server = true;
+                        main.Is_Client = false;
+                        main.StartReseauConnexion();
+                        main.Serveur.SendDungeon(main.donj);
+                        Components.Add(main);
+                        main.hide();
+                        creation.change = false;
+                        ressource.selection.Play();
+                        activeScreen.hide();
+                        activeScreen = main;
+                        activeScreen.Show();
+                    }
+                    else
+                    {
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, language);
+                        Components.Add(main);
+                        main.hide();
+                        creation.change = false;
+                        ressource.selection.Play();
+                        activeScreen.hide();
+                        activeScreen = main;
+                        activeScreen.Show();
+                    }
                 }
             }
             #endregion
@@ -278,6 +337,8 @@ namespace Templar
                     if (menudujeu.SelectedIndex == 0)
                     {
                         ressource.selection.Play();
+                        creation = new creat_perso(this, spriteBatch, ressource.pixel,language);
+                        Components.Add(creation);
                         activeScreen.hide();
                         activeScreen = creation;
                         activeScreen.Show();
@@ -346,7 +407,6 @@ namespace Templar
                         activeScreen.hide();
                         inventaire = new Inventaire(this, spriteBatch, main,language);
                         Components.Add(inventaire);
-                        inventaire.hide();
                         activeScreen = inventaire;
                         activeScreen.Show();
                     }
@@ -380,7 +440,12 @@ namespace Templar
                                 else
                                     if (pause.SelectedIndex == 4)
                                     {
+                                        
                                         ressource.selection.Play();
+                                        if (main.Is_Server)
+                                            main.Serveur.StopConnexion();
+                                        if (main.Is_Client)
+                                            main.Client.StopConnexion();
                                         activeScreen.hide();
                                         activeScreen = menu;
                                         activeScreen.Show();

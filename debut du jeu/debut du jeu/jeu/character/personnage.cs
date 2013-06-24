@@ -117,7 +117,7 @@ namespace Templar
         public void Attaque(Personnage attaque)
         {
             if (invulnerable == false)
-                attaque.Pv -= this.attaque * 50 / attaque.defense;
+                attaque.Pv -= this.attaque  / attaque.defense;
         }
         bool coll(Map map)
         {
@@ -259,6 +259,10 @@ namespace Templar
                     this.timer = 0;
                 }
             }
+        }
+        public void ChangeFrameline(int a)
+        {
+            this.FrameLine = a;
         }
         public virtual void Draw(SpriteBatch spritbatch)
         {

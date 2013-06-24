@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,331 +13,832 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-
+    [Serializable()]
     public class Items : item
     {
         Random rd = new Random();
         bool langue;
         public Vector2 positin_tile;
+        string op1 = "", op2 = "", op3 = "", op4 = "", op5 = "", op6 = "", op7 = "", op8 = "", op9 = "", op10 = "", op11 = "", op12 = "", op13 = "", op14 = "", op15 = "", op16 = "",
+            op17 = "", op18 = "", op19 = "", op20 = "", op21 = "", op22 = "", op23 = "", op24 = "", op25 = "", op26 = "", op27 = "", op28 = "", op29 = "", op30 = "", op31 = "",
+            op32 = "", op33 = "", op34 = "", op35 = "", op36 = "", op37 = "", op38 = "", op39 = "", op40 = "", op41 = "", op42 = "", op43 = "", op44 = "", op45 = "", op46 = "",
+            op47 = "", op48 = "", op49 = "";
 
         public string display_name(Vector2 position_tileset)
         {
 
             if (position_tileset == new Vector2(0, 0))
-                return "revele la position de la princesse au joueur";
+                return op1;
             else if (position_tileset == new Vector2(1, 0))
-                return "revele la position de la princesse au joueur";
+                return op2;
             else if (position_tileset == new Vector2(2, 0))
-                return "restore 10 pv au joueur";
+                return op3;
             else if (position_tileset == new Vector2(3, 0))
-                return "augmente la magie du joueur de 5";
+                return op4;
             else if (position_tileset == new Vector2(4, 0))
-                return "augmente la magie du joueur de 10";
+                return op5;
             else if (position_tileset == new Vector2(5, 0))
-                return "augmente la magie du joueur de 2";
+                return op6;
             else if (position_tileset == new Vector2(6, 0))
-                return "augmente la magie du joueur de 7";
+                return op7;
             else
                 if (position_tileset == new Vector2(0, 1))
-                    return "detruit tout les mobs de la carte";
+                    return op8;
                 else if (position_tileset == new Vector2(1, 1))
-                    return "detruit un mob de la carte";
+                    return op9;
                 else if (position_tileset == new Vector2(2, 1))
-                    return "restore 20 pv au joueur";
+                    return op10;
                 else if (position_tileset == new Vector2(3, 1))
-                    return "augmente l'attaque du joueur de 5";
+                    return op11;
                 else if (position_tileset == new Vector2(4, 1))
-                    return "augmente l'attaque du joueur de 10";
+                    return op12;
                 else if (position_tileset == new Vector2(5, 1))
-                    return "augmente l'attaque du joueur de 2";
+                    return op13;
                 else if (position_tileset == new Vector2(6, 1))
-                    return "augmente l'attaque du joueur de 7";
+                    return op14;
                 else
                     if (position_tileset == new Vector2(0, 2))
-                        return "ramene a la map d'origine";
+                        return op15;
                     else if (position_tileset == new Vector2(1, 2))
-                        return "rend le personnage invulnerable pendant 10 secondes";
+                        return op16;
                     else if (position_tileset == new Vector2(2, 2))
-                        return "restore 40 pv au joueur";
+                        return op17;
                     else if (position_tileset == new Vector2(3, 2))
-                        return "augmente l'endurance du joueur de 5";
+                        return op18;
                     else if (position_tileset == new Vector2(4, 2))
-                        return "augmente l'endurance du joueur de 10";
+                        return op19;
                     else if (position_tileset == new Vector2(5, 2))
-                        return "augmente l'endurance du joueur de 2";
+                        return op20;
                     else if (position_tileset == new Vector2(6, 2))
-                        return "augmente l'endurance du joueur de 7";
+                        return op21;
                     else
                         if (position_tileset == new Vector2(0, 3))
-                            return "restore 5 point de mana";
+                            return op22;
                         else if (position_tileset == new Vector2(1, 3))
-                            return "restore 10 point de mana";
+                            return op23;
                         else if (position_tileset == new Vector2(2, 3))
-                            return "restore 60 pv au joueur";
+                            return op24;
                         else if (position_tileset == new Vector2(3, 3))
-                            return "augmente la vitesse du joueur de 1";
+                            return op25;
                         else if (position_tileset == new Vector2(4, 3))
-                            return "augmente la vitesse du joueur de 2";
+                            return op26;
                         else if (position_tileset == new Vector2(5, 3))
-                            return "augmente la vitesse du joueur de 3";
+                            return op27;
                         else if (position_tileset == new Vector2(6, 3))
-                            return "augmente la vitesse du joueur de 4";
+                            return op28;
                         else
                             if (position_tileset == new Vector2(0, 4))
-                                return "restore 20 point de mana au joueur";
+                                return op29;
                             else if (position_tileset == new Vector2(1, 4))
-                                return "restore 40 point de mana au joueur";
+                                return op30;
                             else if (position_tileset == new Vector2(2, 4))
-                                return "restore 100 pv au joueur";
+                                return op31;
                             else if (position_tileset == new Vector2(3, 4))
-                                return "augmente les points de vie max du joueur de 50";
+                                return op32;
                             else if (position_tileset == new Vector2(4, 4))
-                                return "augmente la points de vie max du joueur de 100";
+                                return op33;
                             else if (position_tileset == new Vector2(5, 4))
-                                return "augmente les points de vie max du joueur de 25";
+                                return op34;
                             else if (position_tileset == new Vector2(6, 4))
-                                return "augmente les points de vie max du joueur de 75";
+                                return op35;
                             else
                                 if (position_tileset == new Vector2(0, 5))
-                                    return "restore 80 points de mana au joueur";
+                                    return op36;
                                 else if (position_tileset == new Vector2(1, 5))
-                                    return "restore 160 points de mana au joueur";
+                                    return op37;
                                 else if (position_tileset == new Vector2(2, 5))
-                                    return "restore 150 pv au joueur";
+                                    return op38;
                                 else if (position_tileset == new Vector2(3, 5))
-                                    return "augmente les point de mana max du joueur de 50";
+                                    return op39;
                                 else if (position_tileset == new Vector2(4, 5))
-                                    return "augmente les points de mana max du joueur de 100";
+                                    return op40;
                                 else if (position_tileset == new Vector2(5, 5))
-                                    return "augmente les points de mana max du joueur de 25";
+                                    return op41;
                                 else if (position_tileset == new Vector2(6, 5))
-                                    return "augmente les points de mana max du joueur de 75";
+                                    return op42;
                                 else
                                     if (position_tileset == new Vector2(0, 6))
-                                        return "titre de propriete du donjon";
+                                        return op43;
                                     else if (position_tileset == new Vector2(1, 6))
-                                        return "un rouleau de PQ restore toute la vie du personnage";
+                                        return op44;
                                     else if (position_tileset == new Vector2(2, 6))
-                                        return "restore 200 pv au joueur";
+                                        return op45;
                                     else if (position_tileset == new Vector2(3, 6))
-                                        return "augmente la defense du joueur de 5";
+                                        return op46;
                                     else if (position_tileset == new Vector2(4, 6))
-                                        return "augmente la defense du joueur de 10";
+                                        return op47;
                                     else if (position_tileset == new Vector2(5, 6))
-                                        return "augmente la defense du joueur de 2";
+                                        return op48;
                                     else if (position_tileset == new Vector2(6, 6))
-                                        return "augmente la defense du joueur de 7";
+                                        return op49;
             return "";
         }
         public Items(Vector2 position_tileset, bool language)
-            : base(ressource.item, position_tileset)
+            : base(/*ressource.item,*/ position_tileset)
         {
+            XmlReader reader;
+            reader = XmlReader.Create("Francais.xml");
+            if (!language)
+            {
+                reader = XmlReader.Create("English.xml");
+            }
+            while (reader.Read())
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    reader.Read();
+                    if (reader.Name == "i0")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op1 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i1")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op2 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i2")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op3 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i3")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op4 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i4")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op5 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i5")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op6 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i6")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op7 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i7")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op8 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i8")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op9 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i9")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op10 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i10")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op11 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i11")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op12 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i12")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op13 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i13")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op14 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i14")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op15 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i15")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op16 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i16")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op17 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i17")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op18 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i18")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op19 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i19")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op20 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i20")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op21 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i21")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op22 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i22")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op23 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i23")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op24 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i24")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op25 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i25")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op26 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i26")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op27 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i27")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op28 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i28")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op29 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i29")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op30 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i30")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op31 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i31")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op32 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i32")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op33 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i33")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op34 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i34")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op35 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i35")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op36 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i36")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op37 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i37")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op38 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i38")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op39 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i39")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op40 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i40")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op41 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+
+                    if (reader.Name == "i41")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op42 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i42")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op43 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i43")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op44 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i44")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op45 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i45")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op46 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i46")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op47 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i47")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op48 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "i48")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op49 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                }
+
 
             usable = false;
             is_equipable = false;
             positin_tile = position_tileset;
             if (position_tileset == new Vector2(0, 0))
             {
-                utilité = "revele la position de la princesse au joueur";
+                utilité = op1;
                 usable = true;
             }
             else if (position_tileset == new Vector2(1, 0))
             {
-                utilité = "revele la position de la princesse au joueur";
+                utilité = op2;
                 usable = true;
             }
             else if (position_tileset == new Vector2(2, 0))
             {
-                utilité = "restore 10 pv au joueur";
+                utilité = op3;
                 usable = true;
             }
             else if (position_tileset == new Vector2(3, 0))
             {
-                utilité = "augmente la magie du joueur de 5";
+                utilité = op4;
                 Bonus = new int[] { 0, 5, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else if (position_tileset == new Vector2(4, 0))
             {
-                utilité = "augmente la magie du joueur de 10";
+                utilité = op5;
                 Bonus = new int[] { 0, 10, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else if (position_tileset == new Vector2(5, 0))
             {
-                utilité = "augmente la magie du joueur de 2";
+                utilité = op6;
                 Bonus = new int[] { 0, 2, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else if (position_tileset == new Vector2(6, 0))
             {
-                utilité = "augmente la magie du joueur de 7";
+                utilité = op7;
                 Bonus = new int[] { 0, 7, 0, 0, 0, 0, 0 };
                 is_equipable = true;
             }
             else
                 if (position_tileset == new Vector2(0, 1))
                 {
-                    utilité = "detruit tout les mobs de la carte";
+                    utilité = op8;
                     usable = true;
                 }
                 else if (position_tileset == new Vector2(1, 1))
                 {
-                    utilité = "detruit un mob de la carte";
+                    utilité = op9;
                     usable = true;
                 }
                 else if (position_tileset == new Vector2(2, 1))
                 {
-                    utilité = "restore 20 pv au joueur";
+                    utilité = op10;
                     usable = true;
                 }
                 else if (position_tileset == new Vector2(3, 1))
                 {
-                    utilité = "augmente l'attaque du joueur de 5";
+                    utilité = op11;
                     Bonus = new int[] { 5, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else if (position_tileset == new Vector2(4, 1))
                 {
-                    utilité = "augmente l'attaque du joueur de 10";
+                    utilité = op12;
                     Bonus = new int[] { 10, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else if (position_tileset == new Vector2(5, 1))
                 {
-                    utilité = "augmente l'attaque du joueur de 2";
+                    utilité = op13;
                     Bonus = new int[] { 2, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else if (position_tileset == new Vector2(6, 1))
                 {
-                    utilité = "augmente l'attaque du joueur de 7";
+                    utilité = op14;
                     Bonus = new int[] { 7, 0, 0, 0, 0, 0, 0 };
                     is_equipable = true;
                 }
                 else
                     if (position_tileset == new Vector2(0, 2))
                     {
-                        utilité = "ramene a la map d'origine";
+                        utilité = op15;
                         usable = true;
                     }
                     else if (position_tileset == new Vector2(1, 2))
                     {
-                        utilité = "rend le personnage invulnerable pendant 10 secondes";
+                        utilité = op16;
                         usable = true;
                     }
                     else if (position_tileset == new Vector2(2, 2))
                     {
-                        utilité = "restore 30 pv au joueur";
+                        utilité = op17;
                         usable = true;
                     }
                     else if (position_tileset == new Vector2(3, 2))
                     {
-                        utilité = "augmente l'endurance du joueur de 5";
+                        utilité = op18;
                         Bonus = new int[] { 0, 0, 5, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else if (position_tileset == new Vector2(4, 2))
                     {
-                        utilité = "augmente l'endurance du joueur de 10";
+                        utilité = op19;
                         Bonus = new int[] { 0, 0, 10, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else if (position_tileset == new Vector2(5, 2))
                     {
-                        utilité = "augmente l'endurance du joueur de 2";
+                        utilité = op20;
                         Bonus = new int[] { 0, 0, 2, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else if (position_tileset == new Vector2(6, 2))
                     {
-                        utilité = "augmente l'endurance du joueur de 7";
+                        utilité = op21;
                         Bonus = new int[] { 0, 0, 7, 0, 0, 0, 0 };
                         is_equipable = true;
                     }
                     else
                         if (position_tileset == new Vector2(0, 3))
                         {
-                            utilité = "restore 5 point de mana";
+                            utilité = op22;
                             usable = true;
                         }
                         else if (position_tileset == new Vector2(1, 3))
                         {
-                            utilité = "restore 10 point de mana";
+                            utilité = op23;
                             usable = true;
                         }
                         else if (position_tileset == new Vector2(2, 3))
                         {
-                            utilité = "restore 40 pv au joueur";
+                            utilité = op24;
                             usable = true;
                         }
                         else if (position_tileset == new Vector2(3, 3))
                         {
-                            utilité = "augmente le nombre de dash du joueur de 1";
+                            utilité = op25;
                             Bonus = new int[] { 0, 0, 0, 1, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else if (position_tileset == new Vector2(4, 3))
                         {
-                            utilité = "augmente le nombre de dash du joueur de 2";
+                            utilité = op26;
                             Bonus = new int[] { 0, 0, 0, 2, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else if (position_tileset == new Vector2(5, 3))
                         {
-                            utilité = "augmente le nombre de dash du joueur de 3";
+                            utilité = op27;
                             Bonus = new int[] { 0, 0, 0, 3, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else if (position_tileset == new Vector2(6, 3))
                         {
-                            utilité = "augmente le nombre de dash du joueur de 4";
+                            utilité = op28;
                             Bonus = new int[] { 0, 0, 0, 4, 0, 0, 0 };
-                            is_equipable = true;
-                        }
-                        else if (position_tileset == new Vector2(7, 3))
-                        {
-                            utilité = "augmente le nombre de dash du joueur de 5";
-                            Bonus = new int[] { 0, 0, 0, 5, 0, 0, 0 };
                             is_equipable = true;
                         }
                         else
                             if (position_tileset == new Vector2(0, 4))
                             {
-                                utilité = "restore 20 point de mana";
+                                utilité = op29;
                                 usable = true;
                             }
                             else if (position_tileset == new Vector2(1, 4))
                             {
-                                utilité = "restore 40 point de mana";
+                                utilité = op30;
                                 usable = true;
                             }
                             else if (position_tileset == new Vector2(2, 4))
                             {
-                                utilité = "restore 160 pv au joueur";
+                                utilité = op31;
                                 usable = true;
                             }
                             else if (position_tileset == new Vector2(3, 4))
                             {
-                                utilité = "augmente les points de vie du joueur de 50";
+                                utilité = op32;
                                 Bonus = new int[] { 0, 0, 0, 0, 50, 0, 0 };
                                 is_equipable = true;
                             }
                             else if (position_tileset == new Vector2(4, 4))
                             {
-                                utilité = "augmente les points de vie du joueur de 100";
-                                Bonus = new int[] { 0, 0, 0, 0, 50, 0, 0 };
+                                utilité = op33;
+                                Bonus = new int[] { 0, 0, 0, 0, 100, 0, 0 };
                                 is_equipable = true;
                             }
                             else if (position_tileset == new Vector2(5, 4))
                             {
-                                utilité = "augmente les points de vie du joueur de 25";
+                                utilité = op34;
                                 Bonus = new int[] { 0, 0, 0, 0, 25, 0, 0 };
                                 is_equipable = true;
                             }
                             else if (position_tileset == new Vector2(6, 4))
                             {
-                                utilité = "augmente les points de vie du joueur de 75";
+                                utilité = op35;
                                 Bonus = new int[] { 0, 0, 0, 0, 75, 0, 0 };
                                 is_equipable = true;
                             }
@@ -344,86 +846,94 @@ namespace Templar
                             else
                                 if (position_tileset == new Vector2(0, 5))
                                 {
-                                    utilité = "restore 80 point de mana";
+                                    utilité = op36;
                                     usable = true;
                                 }
                                 else if (position_tileset == new Vector2(1, 5))
                                 {
-                                    utilité = "restore 160 point de mana";
+                                    utilité = op37;
                                     usable = true;
                                 }
                                 else if (position_tileset == new Vector2(2, 5))
                                 {
-                                    utilité = "restore 20 pv au joueur";
+                                    utilité = op38;
                                     usable = true;
                                 }
                                 else if (position_tileset == new Vector2(3, 5))
                                 {
-                                    utilité = "augmente les points de mana max du joueur de 50";
+                                    utilité = op39;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 50, 0 };
                                 }
                                 else if (position_tileset == new Vector2(4, 5))
                                 {
-                                    utilité = "augmente les points de mana max du joueur de 100";
+                                    utilité = op40;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 100, 0 };
                                 }
                                 else if (position_tileset == new Vector2(5, 5))
                                 {
-                                    utilité = "augmente les points de mana max du joueur de 25";
+                                    utilité = op41;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 25, 0 };
                                 }
                                 else if (position_tileset == new Vector2(6, 5))
                                 {
-                                    utilité = "augmente les points de mana max du joueur de 75";
+                                    utilité = op42;
+                                    is_equipable = true;
                                     Bonus = new int[] { 0, 0, 0, 0, 0, 75, 0 };
                                 }
                                 else
                                     if (position_tileset == new Vector2(0, 6))
                                     {
-                                        utilité = "titre de propriété du donjon";
+                                        utilité = op43;
                                         usable = true;
                                     }
                                     else if (position_tileset == new Vector2(1, 6))
                                     {
-                                        utilité = "un rouleau de PQ restore toute la vie du personnage";
+                                        utilité = op44;
                                         usable = true;
                                     }
                                     else if (position_tileset == new Vector2(2, 6))
                                     {
-                                        utilité = "restore 200 pv au joueur";
+                                        utilité = op45;
                                         usable = true;
                                     }
                                     else if (position_tileset == new Vector2(3, 6))
                                     {
-                                        utilité = "augmente la defense du joueur de 5";
+                                        utilité = op46;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 5 };
+                                        is_equipable = true;
                                     }
                                     else if (position_tileset == new Vector2(4, 6))
                                     {
-                                        utilité = "augmente la defense du joueur de 10";
+                                        utilité = op47;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 10 };
+                                        is_equipable = true;
                                     }
                                     else if (position_tileset == new Vector2(5, 6))
                                     {
-                                        utilité = "augmente la defense du joueur de 2";
+                                        utilité = op48;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 2 };
+                                        is_equipable = true;
                                     }
                                     else if (position_tileset == new Vector2(6, 6))
                                     {
-                                        utilité = "augmente la defense du joueur de 7";
+                                        utilité = op49;
                                         Bonus = new int[] { 0, 0, 0, 0, 0, 0, 7 };
+                                        is_equipable = true;
                                     }
         }
         public override void action(gamemain main)
         {
             if (positin_tile == new Vector2(0, 0))
             {
-                utilité = "revele la position de la princesse au joueur";
+                utilité = op1;
                 usable = true;
             }
             else if (positin_tile == new Vector2(1, 0))
             {
-                utilité = "revele la position de la princesse au joueur";
+                utilité = op2;
                 usable = true;
             }
             else if (positin_tile == new Vector2(2, 0))
@@ -434,102 +944,102 @@ namespace Templar
                 if (positin_tile == new Vector2(0, 1))
                 {
                     main.List_Zombie.Clear();
-                    utilité = "detruit tout les mobs de la carte";
+                    utilité = op8;
                     usable = true;
                 }
                 else if (positin_tile == new Vector2(1, 1))
                 {
                     main.List_Zombie.RemoveAt(rd.Next(main.List_Zombie.Count));
-                    utilité = "detruit un mob de la carte";
+                    utilité = op9;
                     usable = true;
                 }
                 else if (positin_tile == new Vector2(2, 1))
                 {
-                    utilité = "restore 20 pv au joueur";
+                    utilité = op10;
                     main.player.pv_player += 20;
                     usable = true;
                 }
                 else
                     if (positin_tile == new Vector2(0, 2))
                     {
-                        utilité = "ramene a la map d'origine";
+                        utilité = op15;
                         usable = true;
                     }
                     else if (positin_tile == new Vector2(1, 2))
                     {
-                        utilité = "rend le personnage invulnerable pendant 10 secondes";
+                        utilité = op16;
                         main.player.invulnerable = true;
                         usable = true;
                     }
                     else if (positin_tile == new Vector2(2, 2))
                     {
-                        utilité = "restore 40 pv au joueur";
+                        utilité = op17;
                         main.player.pv_player += 0;
                         usable = true;
                     }
                     else
                         if (positin_tile == new Vector2(0, 3))
                         {
-                            utilité = "restore 5 points de mana";
+                            utilité = op22;
                             usable = true;
                         }
                         else if (positin_tile == new Vector2(1, 3))
                         {
-                            utilité = "restore 10 points de mana";
+                            utilité = op23;
                             usable = true;
                         }
                         else if (positin_tile == new Vector2(2, 3))
                         {
-                            utilité = "restore 60 pv au joueur";
+                            utilité = op24;
                             usable = true;
                         }
 
                         else
                             if (positin_tile == new Vector2(0, 4))
                             {
-                                utilité = "restore 20 points de mana";
+                                utilité = op29;
                                 usable = true;
                             }
                             else if (positin_tile == new Vector2(1, 4))
                             {
-                                utilité = "restore 40 points de mana";
+                                utilité = op30;
                                 usable = true;
                             }
                             else if (positin_tile == new Vector2(2, 4))
                             {
-                                utilité = "restore 100 pv au joueur";
+                                utilité = op31;
                                 usable = true;
                             }
                             else
                                 if (positin_tile == new Vector2(0, 5))
                                 {
-                                    utilité = "restore 80 points de mana";
+                                    utilité = op36;
                                     usable = true;
                                 }
                                 else if (positin_tile == new Vector2(1, 5))
                                 {
-                                    utilité = "restore 160 points de mana";
+                                    utilité = op37;
                                     usable = true;
                                 }
                                 else if (positin_tile == new Vector2(2, 5))
                                 {
-                                    utilité = "restore 150 pv au joueur";
+                                    utilité = op38;
                                     usable = true;
                                 }
                                 else
                                     if (positin_tile == new Vector2(0, 6))
                                     {
-                                        utilité = "titre de propriété du donjon";
+                                        utilité = op43;
                                         usable = true;
                                     }
                                     else if (positin_tile == new Vector2(1, 6))
                                     {
-                                        utilité = "un rouleau de PQ restore toute la vie du personnage";
+                                        utilité = op44;
                                         usable = true;
                                     }
                                     else if (positin_tile == new Vector2(2, 6))
                                     {
-                                        utilité = "restore 200 pv au joueur";
+                                        utilité = op45;
                                         usable = true;
                                     }
 

@@ -5,7 +5,7 @@ namespace Templar
 {
 #if WINDOWS || XBOX
 
-     
+
     static class Program
     {
         static void Main(string[] args)
@@ -53,6 +53,60 @@ namespace Templar
             writer.WriteElementString("endurance", "Augmenter Endurance de 1");
             writer.WriteElementString("pdv", "Augmenter Points de vie de 1");
             writer.WriteElementString("pdm", "Augmenter Points de mana de 1");
+            // items
+            string[] listeuh = new string[] { "revele la position de la princesse au joueur",
+                "revele la position de la princesse au joueur",
+                "restaure 10 pv au joueur",
+                "augmente la magie du joueur de 5",
+                "augmente la magie du joueur de 10",
+            "augmente la magie du joueur de 2",
+            "augmente la magie du joueur de 7",
+            "detruit tous les montres de la carte",
+            "detruit un monstre de la carte",
+            "restaure 20 pv au joueur",
+            "augmente l'attaque du joueur de 5",
+            "augmente l'attaque du joueur de 10",
+            "augmente l'attaque du joueur de 2",
+            "augmente l'attaque du joueur de 7",
+            "ramene a la map d'origine",
+            "rend le personnage invulnerable pendant 10 secondes",
+            "restaure 40 pv au joueur",
+            "augmente l'endurance du joueur de 5",
+            "augmente l'endurance du joueur de 10",
+            "augmente l'endurance du joueur de 2",
+            "augmente l'endurance du joueur de 7",
+            "restaure 5 points de mana",
+            "restaure 10 points de mana",
+            "restaure 60 pv au joueur",
+            "augmente la vitesse du joueur de 1",
+            "augmente la vitesse du joueur de 2",
+            "augmente la vitesse du joueur de 3",
+            "augmente la vitesse du joueur de 4",
+            "restaure 20 points de mana au joueur",
+            "restaure 40 points de mana au joueur",
+            "restaure 100 pv au joueur",
+            "augmente les points de vie max du joueur de 50",
+            "augmente la points de vie max du joueur de 100",
+            "augmente les points de vie max du joueur de 25",
+            "augmente les points de vie max du joueur de 75",
+            "restaure 80 points de mana au joueur",
+            "restaure 160 points de mana au joueur",
+            "restaure 150 pv au joueur",
+            "augmente les points de mana max du joueur de 50",
+            "augmente les points de mana max du joueur de 100",
+            "augmente les points de mana max du joueur de 25",
+            "augmente les points de mana max du joueur de 75",
+            "titre de propriete du donjon",
+            "un rouleau de PQ restaure toute la vie du personnage",
+            "restaure 200 pv au joueur",
+            "augmente la defense du joueur de 5",
+            "augmente la defense du joueur de 10",
+            "augmente la defense du joueur de 2",
+            "augmente la defense du joueur de 7"};
+            for (int i = 0; i < listeuh.Length; i++)
+            {
+                writer.WriteElementString("i" + i.ToString(), listeuh[i]);
+            }
             //menu pause
             writer.WriteElementString("inventaire", "Inventaire");
             writer.WriteElementString("caract", "Caracteristiques");
@@ -118,6 +172,60 @@ namespace Templar
             writer.WriteElementString("sauv", "Save");
             writer.WriteElementString("charger", "Load");
             // retour déjà fait : "retour"
+            // items
+            string[] listeuuh = new string[] { "show the position of the princess to the player",
+                "show the position of the princess to the player",
+                "restore 10 pv to the player",
+                "increase magic of the player by 5",
+                "increase magic of the player by 10",
+            "increase magic of the player by 2",
+            "increase magic of the player by 7",
+            "kill every monster on the map",
+            "kill one monster on the map",
+            "restore 20 hp to the player",
+            "increase attack of the player by 5",
+            "increase attack of the player by 10",
+            "increase attack of the player by 2",
+            "increase attack of the player by 7",
+            "get back to the first map",
+            "the player become invulnerable for 10 secondes",
+            "restore 40 hp to the player",
+            "increase stamina of the player by 5",
+            "increase stamina of the player by 10",
+            "increase stamina of the player by 2",
+            "increase stamina of the player by 7",
+            "restore 5 mana",
+            "restore 10 mana",
+            "restore 60 hp",
+            "increase speed of the player by 1",
+            "increase speed of the player by 2",
+            "increase speed of the player by 3",
+            "increase speed of the player by 4",
+            "restore 20 mana",
+            "restore 40  mana",
+            "restore 100 hp",
+            "increase hp max of the player by 50",
+            "increase hp max of the player by 100",
+            "increase hp max of the player by 25",
+            "increase hp max of the player by 75",
+            "restore 80 mana",
+            "restore 160 mana",
+            "restore 150 hp",
+            "increase mana max by 50",
+            "increase mana max by 100",
+            "increase mana max by 25",
+            "increase mana max by 75",
+            "deed of property of the donjon",
+            "a roll of toilet paper restore all hp",
+            "restore 200 hp",
+            "increase defense of the player by 5",
+            "increase defense of the player by 10",
+            "increase defense of the player by 2",
+            "increase defense of the player by 7"};
+            for (int i = 0; i < listeuuh.Length; i++)
+            {
+                writer.WriteElementString("i" + i.ToString(), listeuuh[i]);
+            }
             //menu game over
             writer.WriteElementString("recommencer", "Try again");
             // retour déjà fait : "retour"

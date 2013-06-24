@@ -44,11 +44,11 @@ namespace Templar
             set { listes_map = value; }
         }
 
-        public switch_map(GamePlayer Player, gamemain Main, Donjon donjon, string directori)
+        public switch_map(GamePlayer Player/*, gamemain Main*/, Donjon donjon, string directori)
         {
             player = Player;
-            main = Main;
-            Directorie = directori;
+            //main = Main;
+           Directorie = directori;
             listes_map = new Map[5, 5];
             for (int i = 0; i < 5; i++)
                 for (int j = 0; j < 5; j++)
@@ -56,9 +56,10 @@ namespace Templar
             x = (int)donjon.map.X;
             y = (int)donjon.map.Y;
             active_map = listes_map[x, y];
-            active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+           // active_map.mob = donjon.Map[x, y].mob;
+           // active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
         }
-        public void update(GamePlayer player)
+        public void update(GamePlayer player, gamemain main)
         {
             active_map = listes_map[x, y];
             if (player != null)
@@ -99,10 +100,13 @@ namespace Templar
                         {
                             x++;
                             player.Position = new Vector2(0 + 32, player.Position.Y);
-                            main.List_Objet_Map.Clear();
-                            main.List_Zombie.Clear();
-                            main.List_Sort.Clear();
-                            main.List_wall.Clear();
+                            if (main.List_Objet_Map != null && main.List_Zombie != null && main.List_Sort != null & main.List_wall != null)
+                            {
+                                main.List_Objet_Map.Clear();
+                                main.List_Zombie.Clear();
+                                main.List_Sort.Clear();
+                                main.List_wall.Clear();
+                            }
                             active_map = listes_map[x, y];
                             active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
                             main.List_Zombie = active_map.monstre;
@@ -119,8 +123,8 @@ namespace Templar
                                 main.List_Sort.Clear();
                                 main.List_wall.Clear();
                                 active_map = listes_map[x, y];
-                                active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
-                                main.List_Zombie = active_map.monstre;
+                                //active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                                //main.List_Zombie = active_map.monstre;
                             }
 
             }
