@@ -79,6 +79,11 @@ namespace Templar
                 j++;
             }
         }
+
+        public Donjon()
+        {
+            _maps = new Map[5, 5];
+        }
         public Donjon(string path, bool edm)
         {
             name = path;

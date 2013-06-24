@@ -184,3 +184,6 @@ C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
 C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\Louis\Templar\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Louis\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Louis\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe

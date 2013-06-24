@@ -196,7 +196,7 @@ namespace Templar
                     main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + creation.donjon, false), true, box.Saisie, creation.donjon, language);
                     main.IP = menudeux.box.Saisie;
                     main.Is_Client = menudeux.selec;
-                    main.Is_Server = !menudeux.selec;*/
+                    main.Is_Server = !menudeux.selec;
                     Is_server = !menudeux.selec;
                     Is_Client = menudeux.selec;
                     if (Is_server)
@@ -210,7 +210,7 @@ namespace Templar
                     {
                         client = new Client(box.Saisie);
                         Donjon donj = client.ReceiveDungeon();
-                        main = new gamemain(this, spriteBatch, activeScreen, donj, true, box.Saisie, creation.donjon);
+                        main = new gamemain(this, spriteBatch, activeScreen, donj, true, box.Saisie, creation.donjon,language);
                         main.Is_Client = true;
                         main.Is_Server = false;
                         main.Client = client;
@@ -293,7 +293,7 @@ namespace Templar
                 {
                     if (Is_server)
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon);
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon,language);
                         main.Is_Server = true;
                         main.Is_Client = false;
                         main.StartReseauConnexion();
@@ -308,7 +308,7 @@ namespace Templar
                     }
                     else
                     {
-                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, langage);
+                        main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, language);
                         Components.Add(main);
                         main.hide();
                         creation.change = false;

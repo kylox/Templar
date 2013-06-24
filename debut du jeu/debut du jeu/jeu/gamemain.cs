@@ -160,7 +160,7 @@ namespace Templar
         }
         public void AddP2()
         {
-            Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text);
+            Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text, langue);
         }
         public void ramassage_objet()
         {
