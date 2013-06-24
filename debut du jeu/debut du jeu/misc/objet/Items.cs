@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-
+    [Serializable()]
     public class Items : item
     {
         Random rd = new Random();
@@ -134,7 +134,7 @@ namespace Templar
             return "";
         }
         public Items(Vector2 position_tileset, bool language)
-            : base(ressource.item, position_tileset)
+            : base(/*ressource.item,*/ position_tileset)
         {
             XmlReader reader;
             reader = XmlReader.Create("Francais.xml");

@@ -12,17 +12,18 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
+    [Serializable()]
     public abstract class item
     {
         public int[] Bonus;
-        public Texture2D Texture;
+        //public Texture2D Texture;
         public Vector2 Position;
         public bool usable;
         public string utilité;
         public bool is_equipable;
-        public item(Texture2D texture, Vector2 position)
+        public item(/*Texture2D texture,*/ Vector2 position)
         {
-            Texture = texture;
+            //Texture = texture;
             Position = position;
             usable = false;
             is_equipable = false;
