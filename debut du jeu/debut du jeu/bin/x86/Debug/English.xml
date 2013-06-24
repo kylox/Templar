@@ -16,6 +16,15 @@
   <debut>Input the name of your donjon, then press F1 to start !</debut>
   <pos>Player position</pos>
   <err>name incorrect</err>
+  <tuto>Tutorial</tuto>
+  <tuile>left clic here
+ to select
+ a tile</tuile>
+  <map>left clic here
+ to add
+ a map</map>
+  <mob>left clic here to select a monster</mob>
+  <messa>left clic here to activate the seizure of a message for the map</messa>
   <nouv>New game</nouv>
   <continuer>Continue</continuer>
   <suivant>Next</suivant>

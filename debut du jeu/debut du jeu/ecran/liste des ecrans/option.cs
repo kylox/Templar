@@ -21,6 +21,7 @@ namespace Templar
         BUTTON plus;
         BUTTON moin;
         MouseEvent mouse;
+        bool langue;
       
         public int SelectedIndex
         {
@@ -31,6 +32,7 @@ namespace Templar
         public option(Game game, SpriteBatch spriteBatch, SpriteFont spriteFont, Texture2D _texture, bool language)
             : base(game, spriteBatch)
         {
+            langue = language;
             XmlReader reader;
 
             reader = XmlReader.Create("Francais.xml");
@@ -135,9 +137,17 @@ namespace Templar
             spriteBatch.Draw(texture, rectangle, Color.White);
             plus.draw(spriteBatch);
             moin.draw(spriteBatch);
-            spriteBatch.DrawString(ressource.ecriture, "niveau musique " + (int)(MediaPlayer.Volume * 100), new Vector2(500, 500), Color.Yellow);
-            spriteBatch.DrawString(ressource.ecriture, "niveau sonore des effet du jeu " + (int)(SoundEffect.MasterVolume * 100), new Vector2(500, 515), Color.Yellow);
-            base.Draw(gameTime);
+            if (langue)
+            {
+                spriteBatch.DrawString(ressource.ecriture, "niveau musique " + (int)(MediaPlayer.Volume * 100), new Vector2(500, 500), Color.Yellow);
+                spriteBatch.DrawString(ressource.ecriture, "niveau sonore des effet du jeu " + (int)(SoundEffect.MasterVolume * 100), new Vector2(500, 515), Color.Yellow);
+            }
+            else
+            {
+                spriteBatch.DrawString(ressource.ecriture, "Music " + (int)(MediaPlayer.Volume * 100), new Vector2(500, 500), Color.Yellow);
+                spriteBatch.DrawString(ressource.ecriture, "Sound " + (int)(SoundEffect.MasterVolume * 100), new Vector2(500, 515), Color.Yellow);
+            }
+                base.Draw(gameTime);
         }
     }
 }

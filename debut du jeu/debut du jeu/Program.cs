@@ -35,6 +35,11 @@ namespace Templar
             writer.WriteElementString("debut", "Entrez le nom de votre donjon, puis appuyez sur F1 pour commencer !");
             writer.WriteElementString("pos", "Position joueur");
             writer.WriteElementString("err", "nom incorrect");
+            writer.WriteElementString("tuto", "Tutoriel");
+            writer.WriteElementString("tuile", "clic gauche ici\n pour selectionner\n une tuile");
+            writer.WriteElementString("map", "clic gauche ici\n pour ajouter\n une salle");
+            writer.WriteElementString("mob", "clic gauche ici pour selectionn un monstre");
+            writer.WriteElementString("messa", "clic guche ici pour activer la saisie du message du donjon");
             // retour déjà fait : "retour"
             //1 joueur
             writer.WriteElementString("nouv", "Nouvelle partie");
@@ -149,6 +154,11 @@ namespace Templar
             writer.WriteElementString("debut", "Input the name of your donjon, then press F1 to start !");
             writer.WriteElementString("pos", "Player position");
             writer.WriteElementString("err", "name incorrect");
+            writer.WriteElementString("tuto", "Tutorial");
+            writer.WriteElementString("tuile", "left clic here\n to select\n a tile");
+            writer.WriteElementString("map", "left clic here\n to add\n a map");
+            writer.WriteElementString("mob", "left clic here to select a monster");
+            writer.WriteElementString("messa", "left clic here to activate the seizure of a message for the map");
             //1 joueur
             writer.WriteElementString("nouv", "New game");
             writer.WriteElementString("continuer", "Continue");
