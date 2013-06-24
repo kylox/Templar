@@ -14,28 +14,28 @@ namespace Templar
 {
     public abstract class item
     {
+        public int[] Bonus;
         public Texture2D Texture;
-        protected Vector2 Position;
-
-        public item(Texture2D texture, Vector2 position, GameScreen screen)
+        public Vector2 Position;
+        public bool usable;
+        public string utilité;
+        public bool is_equipable;
+        public item(Texture2D texture, Vector2 position)
         {
             Texture = texture;
             Position = position;
+            usable = false;
+            is_equipable = false;
+            Bonus = new int[]{0,0,0,0,0,0,0};
         }
-
-        public virtual void action(GamePlayer player)
+        public virtual void action(gamemain main)
         {
-
         }
-
         public virtual void update()
         {
-
         }
-
-        public virtual void draw(SpriteBatch spritebatch)
+        public virtual void draw(SpriteBatch spritebatch, int x, int y, int z, int w)
         {
-            spritebatch.Draw(Texture, Position, Color.White);
         }
     }
 }

@@ -45,6 +45,7 @@ namespace Templar
         int pop_time, score, count_dead_zombi, timer_level_up;
         Princess princess;
         string nom_donjon;
+        bool langue;
         #endregion
         #region get set
         public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
@@ -87,9 +88,10 @@ namespace Templar
         #region field du jeu
 
         #endregion
-        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p, string ip, string name_donjon)
+        public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p, string ip, string name_donjon, bool language)
             : base(game, spriteBatch)
         {
+            langue = language;
             nom_donjon = name_donjon;
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
             text = new textbox(new Rectangle(0, 18 * 32 + 7, 200, 100));
@@ -104,7 +106,7 @@ namespace Templar
             personnage = new List<Personnage>();
             liste_objet_map = new List<potion>();
             position_joueur = donjon.position_J;
-            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text);
+            localPlayer = new GamePlayer(32, 48, 4, 8, 2, 15, 2, position_joueur, ressource.sprite_player, this, text, language);
             localPlayer.Niveau = 1;
             if (!is2p)
             {
@@ -144,7 +146,7 @@ namespace Templar
             {
                 Serveur = new Server();
                 same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 8, 8, position_joueur, ressource.sprite_player, this, text, langue);
                 while (Serveur.isrunnin)
                 {
                 }
@@ -153,7 +155,7 @@ namespace Templar
             {
                 Client = new Client(IP);
                 same_map = true;
-                Player2 = new GamePlayer(32, 48, 4, 8, 2, 10, 8, position_joueur, ressource.sprite_player, this, text);
+                Player2 = new GamePlayer(32, 48, 4, 8, 2, 8, 8, position_joueur, ressource.sprite_player, this, text, langue);
             }
         }
         public void AddP2()
@@ -163,23 +165,33 @@ namespace Templar
         public void ramassage_objet()
         {
             bool est_present = false;
+            bool libre = false;
             int j = 0;
+            int x = 0, y = 0;
             for (int i = 0; i < liste_objet_map.Count; i++)
                 if (localPlayer.Hitbox_image.Intersects(liste_objet_map[i].Collide))
                 {
-                    while (!est_present && j < 25 && j < localPlayer.inventaire.Count())
+                    for (int k = 0; k < 5; k++)
                     {
-                        if (localPlayer.inventaire.ElementAt(j) == liste_objet_map[i])
+                        for (int l = 0; l < 5; l++)
                         {
-                            est_present = true;
-                            localPlayer.nb_objet[j]++;
-                            liste_objet_map.RemoveAt(i);
+                            if (localPlayer.inventaire[l, k] == liste_objet_map[i])
+                            {
+                                est_present = true;
+                                localPlayer.nb_objet[j]++;
+                                liste_objet_map.RemoveAt(i);
+                            }
+                            if (localPlayer.inventaire[l, k] == null && libre == false)
+                            {
+                                libre = true;
+                                x = l;
+                                y = k;
+                            }
                         }
-                        j++;
                     }
-                    if (localPlayer.inventaire.Count < 25)
+                    if (!est_present && libre == true)
                     {
-                        localPlayer.inventaire.Add(liste_objet_map[i]);
+                        localPlayer.inventaire[x, y] = liste_objet_map[i];
                         liste_objet_map.RemoveAt(i);
                     }
                 }
@@ -213,8 +225,11 @@ namespace Templar
                     {
                         text.Is_shown = false;
                         localPlayer.in_action = false;
+                        localPlayer.Coffre_ouvert.is_open = false;
                         localPlayer.Coffre_ouvert = null;
                     }
+                    if (localPlayer.Coffre_ouvert != null)
+                        localPlayer.Coffre_ouvert.Update(localPlayer);
                 }
                 else
                 {
@@ -263,7 +278,10 @@ namespace Templar
                         zombie.update(mouse, keyboard, Walls, personnage, map);
                     foreach (NPC zombie in list_zombi)
                         if (localPlayer.Hitbox_image.Intersects(zombie.Hitbox_image))
-                            localPlayer.pv_player--;
+                        {
+                            zombie.combat = true;
+                            zombie.Attaque(localPlayer);
+                        }
                     for (int i = 0; i < list_zombi.Count; i++)
                     {
                         if (localPlayer.combat == true)
@@ -272,31 +290,31 @@ namespace Templar
                                 case 5:
                                     if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y + 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Down);
+                                        list_zombi[i].touché(Direction.Down,localPlayer);
                                     break;
                                 case 6:
                                     if (new Rectangle((int)localPlayer.position_player.X + 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Left);
+                                        list_zombi[i].touché(Direction.Left,localPlayer);
                                     break;
                                 case 7:
                                     if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y - 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Up);
+                                        list_zombi[i].touché(Direction.Up,localPlayer);
                                     break;
                                 case 8:
                                     if (new Rectangle((int)localPlayer.position_player.X - 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Right);
+                                        list_zombi[i].touché(Direction.Right,localPlayer);
                                     break;
                             }
                         if (list_zombi[i].PV <= 0)
                         {
                             if (pop_item == 0)
-                                liste_objet_map.Add(new potion(ressource.potion_vie, this, list_zombi[i], "VIE"));
+                                liste_objet_map.Add(new potion(ressource.potion_vie, list_zombi[i], "VIE"));
 
                             if (pop_item == 1)
-                                liste_objet_map.Add(new potion(ressource.potion_mana, this, list_zombi[i], "MANA"));
+                                liste_objet_map.Add(new potion(ressource.potion_mana, list_zombi[i], "MANA"));
 
                             list_zombi.RemoveAt(i);
                             /*if (Is_Server)
@@ -477,11 +495,9 @@ namespace Templar
             if (text.Is_shown)
                 text.Draw(spriteBatch);
             text.Draw(spriteBatch);
-            if (localPlayer.Coffre_ouvert != null)
-                localPlayer.Coffre_ouvert.Draw(spriteBatch, fenetre);
             #region draw du jeu
             foreach (item item in liste_objet_map)
-                item.draw(spriteBatch);
+                item.draw(spriteBatch, (int)item.Position.X, (int)item.Position.Y, 32, 32);
 
             foreach (wall wall in Walls)
                 wall.Draw(spriteBatch);

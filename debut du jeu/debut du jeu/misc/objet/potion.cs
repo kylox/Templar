@@ -12,10 +12,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-   public class potion : item
+    public class potion : item
     {
         Rectangle Hitbox_potion;
-        gamemain Main;
         string Name;
         public Rectangle Collide
         {
@@ -27,30 +26,40 @@ namespace Templar
             get { return Name; }
             set { Name = value; }
         }
-        public potion(Texture2D texture, gamemain main, NPC npc, string name)
-            : base(texture, npc.Position, main)
+        public potion(Texture2D texture, NPC npc, string name)
+            : base(texture, npc.Position)
         {
-            Main = main;
             Hitbox_potion = new Rectangle((int)Position.X, (int)Position.Y, 32, 32);
             Name = name;
+            usable = true;
+            switch (name)
+            {
+                case "VIE":
+                    utilité = "restore 10 pv au personnage";
+                    break;
+                case "MANA":
+                    utilité = "restore 10 point de mana au personnage";
+                    break;
+            }
         }
-        public override void action(GamePlayer player)
+        public override void action(gamemain main)
         {
             switch (this._Name)
             {
                 case "VIE":
-                    player.pv_player += 25;
+                    main.player.pv_player += 25;
                     break;
                 case "MANA":
-                    if (player.mana_player < 100)
-                        player.mana_player += 25;
+                    if (main.player.mana_player < 100)
+                        main.player.mana_player += 25;
                     break;
             }
-            base.action(player);
+            base.action(main);
         }
-        public override void draw(SpriteBatch spritebatch)
+        public override void draw(SpriteBatch spritebatch, int x, int y,int z,int w)
         {
-            base.draw(spritebatch);
+            spritebatch.Draw(Texture, new Rectangle(x,y,z,w), Color.White);
+            base.draw(spritebatch, (int)Position.X, (int)Position.Y,z,w);
         }
     }
 }

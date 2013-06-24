@@ -23,6 +23,8 @@ namespace Templar
         public Vector2[,] tiles;
         public Vector2[,] objet;
         public Coffre[,] Coffres;
+        public Coffre prev_coffre;
+        public Coffre active_coffre;
         Tile[,] tilelist;
         public int[,] colision;
         public Vector2[,] mob;
@@ -61,16 +63,13 @@ namespace Templar
         public Map()
         {
             monstre = new List<NPC>();
+            prev_coffre = new Coffre(new Vector2(0, 0));
             tiles = new Vector2[25, 18];
             objet = new Vector2[25, 18];
             Coffres = new Coffre[25, 18];
             for (int i = 0; i < objet.GetLength(0); i++)
-            {
                 for (int j = 0; j < objet.GetLength(1); j++)
-                {
                     objet[i, j] = new Vector2(15, 15);
-                }
-            }
             tilelist = new Tile[25, 18];
             colision = new int[25, 18];
             mob = new Vector2[25, 18];
@@ -98,9 +97,9 @@ namespace Templar
         public void init_coll(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            for (int i = 0; i < 25; i++)
+            for (int j = 0; j < 18; j++)
             {
-                for (int j = 0; j < 18; j++)
+                for (int i = 0; i < 25; i++)
                 {
                     if (i == 0)
                         colision[i, j] = 1;
@@ -162,13 +161,25 @@ namespace Templar
         public void init_mob(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            for (int i = 0; i < 25; i++)
+
+            for (int j = 0; j < 18; j++)
             {
-                for (int j = 0; j < 18; j++)
+                for (int i = 0; i < 25; i++)
                 {
                     mob[i, j] = new Vector2(15, 15);
                     sw.Write(cursor.vec_to_id(mob[i, j]));
                 }
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
+        public void init_box(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int i = 0; i < 18; i++)
+            {
+                for (int j = 0; j < 25; j++)
+                    sw.Write(0);
                 sw.WriteLine();
             }
             sw.Close();
@@ -183,6 +194,20 @@ namespace Templar
                 {
                     sw.Write(colision[i, j]);
                 }
+                sw.WriteLine();
+            }
+            sw.Close();
+        }
+        public void ecrire_box(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+            for (int j = 0; j < 18; j++)
+            {
+                for (int i = 0; i < 25; i++)
+                    if (Coffres[i, j] == null)
+                        sw.Write(0);
+                    else
+                        sw.Write(1);
                 sw.WriteLine();
             }
             sw.Close();
@@ -205,9 +230,9 @@ namespace Templar
         public void ecrire_mob(string path)
         {
             StreamWriter sw = new StreamWriter(path);
-            for (int j = 0; j < tiles.GetLength(1); j++)
+            for (int j = 0; j < 18; j++)
             {
-                for (int i = 0; i < tiles.GetLength(0); i++)
+                for (int i = 0; i < 25; i++)
                     sw.Write(cursor.vec_to_id(mob[i, j]));
                 sw.WriteLine();
             }
@@ -254,9 +279,6 @@ namespace Templar
                     {
                         if (ligne[i] != cursor.vec_to_id(new Vector2(15, 15)))
                         {
-                            if (ligne[i] == cursor.vec_to_id(Vector2.Zero))
-                                Coffres[i, j] = new Coffre(new Vector2(i, j));
-
                             objet[i, j] = (cursor.id_to_vec(ligne[i]));
                         }
                     }
@@ -379,34 +401,34 @@ namespace Templar
                                 monstre.Add(new NPC(32, 48, 4, 3, 10, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                             case 5:
-                                monstre.Add(new NPC(32, 48, 4, 3, 13, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
-                                break;
-                            case 6:
                                 monstre.Add(new NPC(32, 48, 4, 3, 16, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 7:
+                            case 6:
                                 monstre.Add(new NPC(32, 48, 4, 3, 19, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 8:
+                            case 7:
                                 monstre.Add(new NPC(32, 48, 4, 3, 22, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 9:
+                            case 8:
                                 monstre.Add(new NPC(32, 48, 4, 3, 25, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 10:
+                            case 9:
                                 monstre.Add(new NPC(32, 48, 4, 3, 28, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 11:
+                            case 10:
                                 monstre.Add(new NPC(32, 48, 4, 3, 31, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 12:
+                            case 11:
                                 monstre.Add(new NPC(32, 48, 4, 3, 34, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 13:
+                            case 12:
                                 monstre.Add(new NPC(32, 48, 4, 3, 37, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
-                            case 14:
+                            case 13:
                                 monstre.Add(new NPC(32, 48, 4, 3, 40, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
+                                break;
+                            case 14:
+                                monstre.Add(new NPC(32, 48, 4, 3, 43, 15, 2, new Vector2(i * 32, j * 32), ressource.mob, main.player, this));
                                 break;
                         }
                     }
@@ -416,46 +438,80 @@ namespace Templar
             sr.Close();
 
         }
-        public void Update(GameTime gametime, string path, string path_coll, string path_message, string path_mob, textbox text)
+        public void Update(GameTime gametime, string path, string path_coll, string path_message, string path_mob, string path_box, string path_coffre, textbox text)
         {
             lastKeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
-
+            if (Data.mouseState.RightButton == ButtonState.Pressed &&
+                Data.prevMouseState.RightButton == ButtonState.Released &&
+                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+                && text.Is_shown == false)
+            {
+                if (Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16] != null)
+                {
+                    cursor.position = false;
+                    cursor.selected = false;
+                    cursor.selec_obj = false;
+                    if (active_coffre != null)
+                        active_coffre.is_open = false;
+                    prev_coffre = active_coffre;
+                    cursor.selec_obj = false;
+                    cursor.selected_mob = false;
+                    Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16].is_open = true;
+                    active_coffre = Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16];
+                }
+            }
             if (Data.mouseState.LeftButton == ButtonState.Pressed &&
                 Data.prevMouseState.LeftButton == ButtonState.Released &&
-                new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-                && text.Is_shown == false && cursor.position == false && cursor.selected == true)
+                !new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(100, 100, 32 * 5, 32 * 5))
+                && !new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(27 * 16, 48, 32 * 7, 32 * 7))
+                && text.Is_shown == false && cursor.position == false && active_coffre != null && active_coffre.is_open == true)
             {
-                objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
-                if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(1, 2) &&
-                    cursor.iD != new Vector2(0, 4) && cursor.iD != new Vector2(0, 7) &&
-                    cursor.iD != new Vector2(0, 5) && cursor.iD != new Vector2(1, 4) &&
-                    cursor.iD != new Vector2(0, 6) && cursor.iD != new Vector2(1, 7) &&
-                    cursor.iD != new Vector2(1, 6) && cursor.iD != new Vector2(1, 5) &&
-                    cursor.iD != new Vector2(1, 0) && cursor.iD != new Vector2(1, 4) &&
-                    cursor.iD != new Vector2(2, 0))
+                active_coffre.is_open = false;
+            }
+            else
+                if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                    Data.prevMouseState.LeftButton == ButtonState.Released &&
+                    new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+                    && text.Is_shown == false && cursor.position == false && cursor.selected == true)
                 {
-                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
-                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
+                    objet[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                    if (cursor.iD != new Vector2(0, 2) && cursor.iD != new Vector2(1, 2) &&
+                        cursor.iD != new Vector2(0, 4) && cursor.iD != new Vector2(0, 7) &&
+                        cursor.iD != new Vector2(0, 5) && cursor.iD != new Vector2(1, 4) &&
+                        cursor.iD != new Vector2(0, 6) && cursor.iD != new Vector2(1, 7) &&
+                        cursor.iD != new Vector2(1, 6) && cursor.iD != new Vector2(1, 5) &&
+                        cursor.iD != new Vector2(1, 0) && cursor.iD != new Vector2(1, 4) &&
+                        cursor.iD != new Vector2(2, 0))
+                    {
+                        // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 1);
+                        colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 1;
+                        if (cursor.iD == new Vector2(0, 0))
+                        {
+                            Coffres[Data.mouseState.X / 16, Data.mouseState.Y / 16] = new Coffre(new Vector2(Data.mouseState.X - Data.mouseState.X % 32, Data.mouseState.Y - Data.mouseState.Y % 32));
+                            cursor.ecrire_coffre(path_coffre, this);
+                        }
+                    }
+                    else
+                    {
+                        // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
+                        colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
+                    }
+                    cursor.ecrire_coffre(path_coffre, this);
+                    ecrire_objet(path);
+                    ecrire_coll(path_coll);
+                    ecrire_message(path_message);
+                    ecrire_box(path_box);
                 }
                 else
-                {
-                    // tilelist[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = new Tile((int)cursor.iD.X, (int)cursor.iD.Y, 0);
-                    colision[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = 0;
-                }
-                ecrire_objet(path);
-                ecrire_coll(path_coll);
-                ecrire_message(path_message);
-            }
-            if (Data.mouseState.LeftButton == ButtonState.Pressed &&
-               Data.prevMouseState.LeftButton == ButtonState.Released &&
-               new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
-               && text.Is_shown == false && cursor.position == false && cursor.selected_mob == true)
-            {
-                mob[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
-                ecrire_mob(path_mob);
-                ecrire_message(path_message);
-            }
+                    if (Data.mouseState.LeftButton == ButtonState.Pressed &&
+                       Data.prevMouseState.LeftButton == ButtonState.Released &&
+                       new Rectangle(Data.mouseState.X, Data.mouseState.Y, 1, 1).Intersects(new Rectangle(0, 0, 16 * 25, 16 * 18))
+                       && text.Is_shown == false && cursor.position == false && cursor.selected_mob == true)
+                    {
+                        mob[(int)(Data.mouseState.X) / 16, (int)(Data.mouseState.Y) / 16] = cursor.iD;
+                        ecrire_mob(path_mob);
+                    }
         }
         public void Draw(SpriteBatch spriteBatch, int x)
         {
@@ -466,6 +522,14 @@ namespace Templar
                 for (int i = 0; i < tiles.GetLength(0); i++)
                     if (objet[i, j] != new Vector2(15, 15))
                         spriteBatch.Draw(ressource.objet_map, new Rectangle(i * x, j * x, x, x), Tile.tile(objet[i, j]), Color.White);
+
+            for (int i = 0; i < 25; i++)
+                for (int j = 0; j < 18; j++)
+                    if (Coffres[i, j] != null)
+                    {
+                        Coffres[i, j].Draw(spriteBatch, i * x + x, j * x + x);
+                        spriteBatch.Draw(ressource.pixel, new Rectangle(i * x, j * x, x, x), Color.FromNonPremultiplied(250, 250, 250, 100));
+                    }
         }
         public bool ValidCoordinate(int x, int y)
         {
