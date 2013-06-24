@@ -35,7 +35,7 @@ namespace Templar
             this.player = player;
             //partie pour L'A*
             PlayerMoved = false;
-            OldPosition = player.Position;
+            //OldPosition = player.Position;
             //CanMove = true;
             //Fin Partie pour l'A*
             Pv = 100;

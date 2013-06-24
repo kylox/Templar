@@ -218,6 +218,9 @@ namespace Templar
                         main.Is_Client = true;
                         main.Is_Server = false;
                         main.Client = client;
+                        main.lZombie();
+                        main.AddLocalplayer();
+                        main.AddHUD();
                         main.AddP2();
                         Components.Add(main);
                         main.hide();
