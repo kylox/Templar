@@ -260,6 +260,7 @@ namespace Templar
                     main = new gamemain(this, spriteBatch, activeScreen, new Donjon(@"Donjons\" + @creation.donjon, false), false, "", creation.donjon, language);
                     Components.Add(main);
                     main.hide();
+                    
                     creation.change = false;
                     ressource.selection.Play();
                     activeScreen.hide();

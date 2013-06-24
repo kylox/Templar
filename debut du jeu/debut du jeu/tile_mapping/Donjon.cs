@@ -97,7 +97,6 @@ namespace Templar
                             y++;
                         }
                     }
-
                     foreach (string file in System.IO.Directory.GetFiles(dr))
                     {
                         if (file[file.Length - 7] == 'b')//1

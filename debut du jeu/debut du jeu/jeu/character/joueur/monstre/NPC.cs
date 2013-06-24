@@ -128,7 +128,7 @@ namespace Templar
 
             base.update(mouse, keyboard, walls, personnages, map);
         }
-        public void touché(Direction direction)
+        public void touché(Direction direction,GamePlayer Player)
         {
             switch (direction)
             {
@@ -149,7 +149,7 @@ namespace Templar
                         position.Y += 32;
                     break;
             }
-            Pv -= player.attaque / 3;
+            Pv -= Player.attaque / 3;
         }
 
         public void cheminement()

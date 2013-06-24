@@ -268,22 +268,22 @@ namespace Templar
                                 case 5:
                                     if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y + 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Down);
+                                        list_zombi[i].touché(Direction.Down,localPlayer);
                                     break;
                                 case 6:
                                     if (new Rectangle((int)localPlayer.position_player.X + 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Left);
+                                        list_zombi[i].touché(Direction.Left,localPlayer);
                                     break;
                                 case 7:
                                     if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y - 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Up);
+                                        list_zombi[i].touché(Direction.Up,localPlayer);
                                     break;
                                 case 8:
                                     if (new Rectangle((int)localPlayer.position_player.X - 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Right);
+                                        list_zombi[i].touché(Direction.Right,localPlayer);
                                     break;
                             }
                         if (list_zombi[i].PV <= 0)
