@@ -56,7 +56,7 @@ namespace Templar
                         t.Write(donj.Map[i, j].monstre.Count);
                         foreach (NPC q in donj.Map[i, j].monstre)
                         {
-                            t.Write(q.frameline);
+                            t.Write(q.Frame_start);
                             Serialiseur.Serialize(Sentstream, q.position);
                         }
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].objet);
@@ -180,6 +180,9 @@ namespace Templar
                         Infos.List_Zombie.Add(new NPC(24, 32, 4, 2, 1, 15, 8, Infos.position_npc, ressource.zombie, Infos.player, Infos.map.Active_Map));
                         BR.ReadInt32();
                         BR.ReadInt32();
+                        break;
+                    case 99:
+                        Infos.same_map = (Infos.map.x == BR.ReadInt32() && Infos.map.y == BR.ReadInt32());
                         break;
                 }
 

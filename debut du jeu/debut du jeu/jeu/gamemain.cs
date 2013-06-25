@@ -152,7 +152,7 @@ namespace Templar
             white = Color.White;
             white.A = 120;
             effect = new BasicEffect(game.GraphicsDevice);
-
+            same_map = true;
         }
         public void AddHUD()
         {
@@ -225,6 +225,7 @@ namespace Templar
         }
         public override void Update(GameTime gameTime)
         {
+            
             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).X + 7;
             text.Fenetre.Height = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).Y + 7;
             //ICI
@@ -360,6 +361,7 @@ namespace Templar
 
                     if (Is_Server)
                     {
+                        Serveur.Send(99, map.x, map.y);
                         Serveur.Send(2, (int)player.Position.X, (int)player.position_player.Y);
                         switch (player.direction)
                         {
@@ -386,6 +388,7 @@ namespace Templar
                     }
                     if (Is_Client)
                     {
+                        Client.Send(99, map.x, map.y);
                         Client.Send(2, (int)player.Position.X, (int)player.position_player.Y);
                         switch (player.direction)
                         {
@@ -536,7 +539,7 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
-            if (Is_Client || Is_Server)
+            if ((Is_Client || Is_Server) && same_map)
                 Player2.Draw(spriteBatch);
 
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);

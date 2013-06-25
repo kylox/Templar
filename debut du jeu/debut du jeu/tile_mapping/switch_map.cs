@@ -75,7 +75,7 @@ namespace Templar
                     main.List_Sort.Clear();
                     main.List_wall.Clear();
                     active_map = listes_map[x, y];
-                    active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                    //active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
                     main.List_Zombie = active_map.monstre;
                 }
                 else
@@ -90,7 +90,7 @@ namespace Templar
                         main.List_Sort.Clear();
                         main.List_wall.Clear();
                         active_map = listes_map[x, y];
-                        active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                        //active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
                         main.List_Zombie = active_map.monstre;
                     }
                     else
@@ -108,7 +108,7 @@ namespace Templar
                                 main.List_wall.Clear();
                             }
                             active_map = listes_map[x, y];
-                            active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
+                            //active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
                             main.List_Zombie = active_map.monstre;
                         }
                         else
@@ -124,7 +124,7 @@ namespace Templar
                                 main.List_wall.Clear();
                                 active_map = listes_map[x, y];
                                 //active_map.load_mob(@"Donjons\" + @Directorie + @"\Map" + active_map.Nb + @"\creature" + @".txt", main);
-                                //main.List_Zombie = active_map.monstre;
+                                main.List_Zombie = active_map.monstre;
                             }
 
             }
