@@ -1,375 +1,67 @@
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece3.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece2.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece1.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece_objet_mod.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.csprojResolveAssemblyReference.cache
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
-C:\Users\msi-\Desktop\Templar(2)\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece3.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece2.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece1.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece_objet_mod.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.csprojResolveAssemblyReference.cache
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
-C:\Users\Sagot_A\Desktop\jeu\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece3.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece2.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece1.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece_objet_mod.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.csprojResolveAssemblyReference.cache
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
-C:\Users\Sagot_A\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece3.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece2.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece1.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece_objet_mod.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.csprojResolveAssemblyReference.cache
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
-C:\Users\msi-\Desktop\templar(3)\Templar\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece3.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece2.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece1.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece_objet_mod.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece3.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece2.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece1.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece_objet_mod.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
-C:\Users\William F\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
-C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\multiplayer.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritedbzfinal.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\pixel.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\sprite_cochon.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\2012-07-24 08.10.02.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\spritefinale1habit.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\th.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\templar-style-cross-logo.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\option.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Personnage\Zomtemplate.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\ARBRE.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\SOL.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\STATUT.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_test.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\Boule_de_feu_2.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\game_o10.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Misc\particule.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\boite_selection.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\attaque\glaces.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\jeux\map_1.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\Tile\EDITOR.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Mana.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Sprite\item\Potion_de_Vie.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\HUD\barre_xp.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\plus.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\ecran\option\moin.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Knight.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_mod.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece3.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\swordsman_m_2.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\M_Black.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece2.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece1.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\piece_objet_mod.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\fdp2.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\perso.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\maintenantoui.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\mobs.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\cross.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\temaplaritems.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\multiplayer.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\selection.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\lowHP.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\effet\Mémo.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\charge of the rohirrim soundtrack.wma
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\Butterfly_Tea_-_New_Rise_of_Legend_-_Instru.wma
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\01 - niNzo` - Epic feel.wma
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\Music\musiques\PSICODREAMICS_-_Into_the_Darkness.wma
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe.manifest
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.application
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.pdb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.csprojResolveAssemblyReference.cache
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe.manifest
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.application
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb

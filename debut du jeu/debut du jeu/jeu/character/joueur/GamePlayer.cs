@@ -513,7 +513,7 @@ namespace Templar
                     }
                 }
             }
-            spritebatch.DrawString(ressource.ecriture, position_player.X + " " + position_player.Y, new Vector2(100, 0), Color.Red);
+            //spritebatch.DrawString(ressource.ecriture, position_player.X + " " + position_player.Y, new Vector2(100, 0), Color.Red);
             if (affichage_invul)
                 spritebatch.DrawString(ressource.ecriture, Convert.ToString(timer_invulnarable / 60), new Vector2(position_player.X + 32, position_player.Y), Color.Red);
             base.Draw(spritebatch);

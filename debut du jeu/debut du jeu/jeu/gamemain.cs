@@ -571,12 +571,14 @@ namespace Templar
             if (princess != null)
                 princess.Draw(spriteBatch);
             HUD.draw(spriteBatch);
+            /*
             spriteBatch.DrawString(ressource.ecriture, "coordonnees map" + map.x + "  " + map.y, new Vector2(0, 100), Color.Yellow);
             //dessine le rouge des collisions pour voir que ca marche A SUPPRIMER
             for (int i = 0; i < 25; i++)
                 for (int j = 0; j < 18; j++)
                     if (map.Active_Map.colision[i, j] == 1)
                         spriteBatch.Draw(ressource.pixel, new Rectangle(i * 32, j * 32, 32, 32), Color.FromNonPremultiplied(204, 0, 0, 50));
+             * */
             base.Draw(gameTime);
         }
     }

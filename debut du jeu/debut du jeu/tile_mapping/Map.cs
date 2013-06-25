@@ -522,14 +522,15 @@ namespace Templar
                 for (int i = 0; i < tiles.GetLength(0); i++)
                     if (objet[i, j] != new Vector2(15, 15))
                         spriteBatch.Draw(ressource.objet_map, new Rectangle(i * x, j * x, x, x), Tile.tile(objet[i, j]), Color.White);
-
+            
             for (int i = 0; i < 25; i++)
                 for (int j = 0; j < 18; j++)
                     if (Coffres[i, j] != null)
                     {
                         Coffres[i, j].Draw(spriteBatch, i * x + x, j * x + x);
-                        spriteBatch.Draw(ressource.pixel, new Rectangle(i * x, j * x, x, x), Color.FromNonPremultiplied(250, 250, 250, 100));
+                        //spriteBatch.Draw(ressource.pixel, new Rectangle(i * x, j * x, x, x), Color.FromNonPremultiplied(250, 250, 250, 100));
                     }
+             
         }
         public bool ValidCoordinate(int x, int y)
         {

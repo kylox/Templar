@@ -389,6 +389,15 @@
       <Time>2013-06-25T01:37:33.5523901+01:00</Time>
     </Item>
     <Item>
+      <Source>multiplayer.png</Source>
+      <Name>multiplayer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\multiplayer.xnb</Output>
+      <Time>2013-06-25T05:03:23.9551787+01:00</Time>
+    </Item>
+    <Item>
       <Source>SpriteFont.spritefont</Source>
       <Name>SpriteFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -473,16 +482,7 @@
       <Output>C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb</Output>
       <Time>2013-06-25T01:37:33.5368352+01:00</Time>
     </Item>
-    <Item>
-      <Source>multiplayer.png</Source>
-      <Name>multiplayer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\multiplayer.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
-    </Item>
-    <BuildSuccessful>false</BuildSuccessful>
+    <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>Reach</TargetProfile>
