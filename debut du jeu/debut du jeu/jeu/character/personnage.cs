@@ -99,7 +99,7 @@ namespace Templar
             timer_attaque = 0;
             Speed = speed;
             timer_speed = 0;
-            canwalk = false;
+            canwalk = true;
             invulnerable = false;
         }
         // method

@@ -25,6 +25,12 @@
  une salle</map>
   <mob>clic gauche ici pour selectionn un monstre</mob>
   <messa>clic guche ici pour activer la saisie du message du donjon</messa>
+  <poser>clic gauche ici pour poser la tuile ou le monstre</poser>
+  <ouvrir>clic droit sur un coffre pour l'ouvrir</ouvrir>
+  <ajouter>clic gauche sur un item 
+quand un coffre 
+est ouvert 
+pour l'ajouter</ajouter>
   <nouv>Nouvelle partie</nouv>
   <continuer>Continuer</continuer>
   <suivant>Suivant</suivant>

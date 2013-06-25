@@ -40,6 +40,9 @@ namespace Templar
             writer.WriteElementString("map", "clic gauche ici\n pour ajouter\n une salle");
             writer.WriteElementString("mob", "clic gauche ici pour selectionn un monstre");
             writer.WriteElementString("messa", "clic guche ici pour activer la saisie du message du donjon");
+            writer.WriteElementString("poser", "clic gauche ici pour poser la tuile ou le monstre");
+            writer.WriteElementString("ouvrir", "clic droit sur un coffre pour l'ouvrir");
+            writer.WriteElementString("ajouter", "clic gauche sur un item \nquand un coffre \nest ouvert \npour l'ajouter");
             // retour déjà fait : "retour"
             //1 joueur
             writer.WriteElementString("nouv", "Nouvelle partie");
@@ -159,6 +162,9 @@ namespace Templar
             writer.WriteElementString("map", "left clic here\n to add\n a map");
             writer.WriteElementString("mob", "left clic here to select a monster");
             writer.WriteElementString("messa", "left clic here to activate the seizure of a message for the map");
+            writer.WriteElementString("poser", "left clic here to put the tile or the monster");
+            writer.WriteElementString("ouvrir", "right clic on a chest to open it");
+            writer.WriteElementString("ajouter", "left clic on an item \nwhen a chhest \nis open \nto add it");
             //1 joueur
             writer.WriteElementString("nouv", "New game");
             writer.WriteElementString("continuer", "Continue");

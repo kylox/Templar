@@ -31,7 +31,7 @@ namespace Templar
         bool selec;
         int nb;
         Vector2 position;
-        string op1 = "", op2 = "", op3 = "", op4 = "", op5 = "", op6 = "", op7 = "", op8 = ""; // Oui c'est dégueulasse, et je m'en fous.
+        string op1 = "", op2 = "", op3 = "", op4 = "", op5 = "", op6 = "", op7 = "", op8 = "", op9 = "", op10 = "", op11 = ""; // Oui c'est dégueulasse, et je m'en fous.
         #endregion
         public Rectangle Fenetre
         {
@@ -129,6 +129,36 @@ namespace Templar
                             reader.Read();
                             if (reader.NodeType == XmlNodeType.Text)
                                 op8 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "poser")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op9 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "ouvrir")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op10 = reader.Value.ToString();
+                        }
+                        reader.Read();
+                    }
+                    if (reader.Name == "ajouter")
+                    {
+                        while (reader.NodeType != XmlNodeType.EndElement)
+                        {
+                            reader.Read();
+                            if (reader.NodeType == XmlNodeType.Text)
+                                op11 = reader.Value.ToString();
                         }
                         reader.Read();
                     }
@@ -455,9 +485,9 @@ namespace Templar
                     spriteBatch.DrawString(ressource.ecriture, op6, new Vector2(fenetre.Width - ressource.tile.Width + 48, 300+32), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, op7, new Vector2(0, 18 * 16 + 10), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, op8, new Vector2(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3+96), Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici pour poser la tuile\\mob", new Vector2(0, 32), Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, "clic droit sur un coffre pour l'ouvrir",new Vector2(0, 128),Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, "clic gauche sur item \nquand un coffre \nest ouvert \npour l'ajouter", new Vector2(27 * 16 + 16, 48 + 16), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op9, new Vector2(0, 32), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op10,new Vector2(0, 128),Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op11, new Vector2(27 * 16 + 16, 48 + 16), Color.White);
                 }
             }
         }
