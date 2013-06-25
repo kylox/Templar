@@ -454,7 +454,10 @@ namespace Templar
                     spriteBatch.DrawString(ressource.ecriture, op5, new Vector2(fenetre.Width - ressource.tile.Width+32, 64), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, op6, new Vector2(fenetre.Width - ressource.tile.Width + 48, 300+32), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, op7, new Vector2(0, 18 * 16 + 10), Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, op8, new Vector2(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, op8, new Vector2(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3+96), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici pour poser la tuile\\mob", new Vector2(0, 32), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic droit sur un coffre pour l'ouvrir",new Vector2(0, 128),Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic gauche sur item \nquand un coffre \nest ouvert \npour l'ajouter", new Vector2(27 * 16 + 16, 48 + 16), Color.White);
                 }
             }
         }
