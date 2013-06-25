@@ -370,3 +370,7 @@ C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.cs
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe
 C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.pdb
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.exe.manifest
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Templar.application
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.exe.manifest
+C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\obj\x86\Debug\Templar.application
