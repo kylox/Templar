@@ -110,6 +110,7 @@
     <Compile Include="BUTTON.cs" />
     <Compile Include="jeu\Caracteristique.cs" />
     <Compile Include="jeu\character\joueur\Coffre.cs" />
+    <Compile Include="jeu\victory.cs" />
     <Compile Include="misc\menudeux.cs" />
     <Compile Include="misc\objet\Items.cs" />
     <Compile Include="Princess.cs" />

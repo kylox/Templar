@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Templar
 {
-    class Princess : Personnage
+    public class Princess : Personnage
     {
         int count_deplacement;
         int bob;

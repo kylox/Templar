@@ -142,6 +142,8 @@ namespace Templar
                                 break;
                             case 0:
                                 Infos.player2.direction = Direction.None;
+                                Infos.player2.ChangeFrameline(Infos.player.Frame_start);
+                                Infos.player2.timer = 0;
                                 break;
                         }
                         BR.ReadInt32();

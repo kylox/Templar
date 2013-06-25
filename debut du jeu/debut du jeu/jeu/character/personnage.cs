@@ -24,7 +24,7 @@ namespace Templar
         Rectangle newHitbox;
         public bool invulnerable;
         //variable d'animation
-        protected int timer, timer_speed;
+        public int timer, timer_speed;
         protected int Speed;
         protected int FrameLine;
         protected int Framecolumn;
@@ -33,7 +33,7 @@ namespace Templar
         protected int animaitonspeed;
         protected int Taille_image_x;
         protected int Taille_image_y;
-        protected int Frame_start;
+        public int Frame_start;
         public int attaque;
         public int defense;
         protected bool collision;

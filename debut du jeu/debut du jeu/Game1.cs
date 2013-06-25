@@ -37,6 +37,7 @@ namespace Templar
         menudeux menudeux;
         textbox box;
         Client client;
+        victory victoire;
         bool ecran, Is_server, Is_Client;
         bool click_down;
         bool language = true; // true = french, par défaut;
@@ -63,7 +64,7 @@ namespace Templar
         }
         protected override void LoadContent()
         {
-            box = new textbox(new Rectangle(200, 200, 200, 200));
+            box = new textbox(new Rectangle(305, 200, 200, 50));
 
             ressource.loadcontent(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -367,9 +368,26 @@ namespace Templar
             }
 
             #endregion
+            else if (activeScreen == victoire)
+            {
+                if(checkKey(Keys.Escape))
+                {
+                    activeScreen.hide();
+                    activeScreen = menu;
+                    activeScreen.Show();
+                }
+            }
             #region screen_action
             else if (activeScreen == main)
             {
+                if (main.victoire == true)
+                {
+                    victoire = new victory(this, spriteBatch);
+                    Components.Add(victoire);
+                    activeScreen.hide();
+                    activeScreen = victoire;
+                    activeScreen.Show();
+                }
                 if (main.player.pv_player <= 0)
                 {
                     gameover = new GameOverScreen(this, main, spriteBatch, ressource.ecriture, ressource.gameover, language);
@@ -407,7 +425,7 @@ namespace Templar
                     if (pause.SelectedIndex == 0)
                     {
                         activeScreen.hide();
-                        inventaire = new Inventaire(this, spriteBatch, main,language);
+                        inventaire = new Inventaire(this, spriteBatch, main, language);
                         Components.Add(inventaire);
                         activeScreen = inventaire;
                         activeScreen.Show();
@@ -416,7 +434,7 @@ namespace Templar
                         if (pause.SelectedIndex == 1)
                         {
                             activeScreen.hide();
-                            carac = new Caracteristique(this, spriteBatch, main.player,language);
+                            carac = new Caracteristique(this, spriteBatch, main.player, language);
                             Components.Add(carac);
                             activeScreen = carac;
                             activeScreen.Show();
@@ -442,7 +460,7 @@ namespace Templar
                                 else
                                     if (pause.SelectedIndex == 4)
                                     {
-                                        
+
                                         ressource.selection.Play();
                                         if (main.Is_Server)
                                             main.Serveur.StopConnexion();

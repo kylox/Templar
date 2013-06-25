@@ -43,9 +43,10 @@ namespace Templar
         public bool same_map, Is_Server, Is_Client;
         bool ClickDown, pressdown;
         int pop_time, score, count_dead_zombi, timer_level_up;
-        Princess princess;
+        public Princess princess;
         string nom_donjon;
         bool langue;
+        public bool victoire;
         #endregion
         #region get set
         public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
@@ -91,6 +92,7 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p, string ip, string name_donjon, bool language)
             : base(game, spriteBatch)
         {
+            victoire = false;
             langue = language;
             nom_donjon = name_donjon;
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
@@ -477,8 +479,8 @@ namespace Templar
                                 if (Is_Server)
                                 {
                                     Serveur.Send(31, i, 0);
-                                }
-                                break;*/
+                                }*/
+                                break;
                             }
 
                     #endregion SORT
