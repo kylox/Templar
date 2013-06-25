@@ -25,6 +25,12 @@
  a map</map>
   <mob>left clic here to select a monster</mob>
   <messa>left clic here to activate the seizure of a message for the map</messa>
+  <poser>left clic here to put the tile or the monster</poser>
+  <ouvrir>right clic on a chest to open it</ouvrir>
+  <ajouter>left clic on an item 
+when a chhest 
+is open 
+to add it</ajouter>
   <nouv>New game</nouv>
   <continuer>Continue</continuer>
   <suivant>Next</suivant>

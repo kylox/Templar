@@ -18,6 +18,7 @@ namespace Templar
 
         //field ecran 
         #region variable
+        int mapx, mapy;
         public Donjon donj;
         public string IP;
         public Server Serveur;
@@ -128,13 +129,15 @@ namespace Templar
                 }
             }
             donj = donjon;
-          
+
             if (!is2p)
             {
 
                 map = new switch_map(localPlayer/*, this*/, donjon, name_donjon);
                 map.x = (int)donjon.map.X;
                 map.y = (int)donjon.map.Y;
+                mapx = map.x;
+                mapy = map.y;
                 list_zombi = map.Active_Map.monstre;
                 HUD = new HUD(localPlayer, this);
             }
@@ -225,7 +228,7 @@ namespace Templar
         }
         public override void Update(GameTime gameTime)
         {
-            
+
             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).X + 7;
             text.Fenetre.Height = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).Y + 7;
             //ICI
@@ -235,7 +238,7 @@ namespace Templar
                     Serveur.Ping();
                 if (Is_Client && Client.client != null)
                     Client.ping();*/
-                map.update(localPlayer,this);
+                map.update(localPlayer, this);
                 HUD.update();
                 int pop_item = x.Next(0, 5);
                 #region JEU
@@ -318,22 +321,22 @@ namespace Templar
                                 case 5:
                                     if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y + 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Down,localPlayer);
+                                        list_zombi[i].touché(Direction.Down, localPlayer);
                                     break;
                                 case 6:
                                     if (new Rectangle((int)localPlayer.position_player.X + 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Left,localPlayer);
+                                        list_zombi[i].touché(Direction.Left, localPlayer);
                                     break;
                                 case 7:
                                     if (new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y - 32, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Up,localPlayer);
+                                        list_zombi[i].touché(Direction.Up, localPlayer);
                                     break;
                                 case 8:
                                     if (new Rectangle((int)localPlayer.position_player.X - 32, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image) ||
                                         new Rectangle((int)localPlayer.position_player.X, (int)localPlayer.position_player.Y, 32, 32).Intersects(list_zombi[i].Hitbox_image))
-                                        list_zombi[i].touché(Direction.Right,localPlayer);
+                                        list_zombi[i].touché(Direction.Right, localPlayer);
                                     break;
                             }
                         if (list_zombi[i].PV <= 0)
@@ -361,7 +364,8 @@ namespace Templar
 
                     if (Is_Server)
                     {
-                        Serveur.Send(99, map.x, map.y);
+                        if (mapx != map.x || mapy != map.y)
+                            Serveur.Send(99, map.x, map.y);
                         Serveur.Send(2, (int)player.Position.X, (int)player.position_player.Y);
                         switch (player.direction)
                         {
@@ -388,7 +392,12 @@ namespace Templar
                     }
                     if (Is_Client)
                     {
-                        Client.Send(99, map.x, map.y);
+                        if (mapx != map.x || mapy != map.y)
+                        {
+                            Serveur.Send(99, map.x, map.y);
+                            mapx = map.x;
+                            mapy = map.y;
+                        }
                         Client.Send(2, (int)player.Position.X, (int)player.position_player.Y);
                         switch (player.direction)
                         {
