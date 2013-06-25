@@ -32,7 +32,7 @@ namespace Templar
                 server.Start();
                 Client_Listener = new Thread(new ThreadStart(StartConnexion));
                 Client_Listener.Start();
-                
+
             }
             catch (SocketException e)
             {
@@ -54,14 +54,14 @@ namespace Templar
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].colision);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].mob);
                         t.Write(donj.Map[i, j].monstre.Count);
-                        foreach (NPC q in donj.Map[i,j].monstre)
+                        foreach (NPC q in donj.Map[i, j].monstre)
                         {
-                            t.Write(q.frameline);
+                            t.Write(q.Frame_start);
                             Serialiseur.Serialize(Sentstream, q.position);
                         }
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].objet);
                         Serialiseur.Serialize(Sentstream, donj.Map[i, j].tiles);
-                        Serialiseur.Serialize(Sentstream, donj.Map[i, j].Tilelist);                        
+                        Serialiseur.Serialize(Sentstream, donj.Map[i, j].Tilelist);
                     }
                     else
                     {
@@ -72,9 +72,9 @@ namespace Templar
             Serialiseur.Serialize(Sentstream, donj.map);
             Serialiseur.Serialize(Sentstream, donj.position_J);
         }
-        public void  StartConnexion()
+        public void StartConnexion()
         {
-          // isrunnin = true;
+            // isrunnin = true;
             while (isrunnin)
             {
                 Client = server.AcceptTcpClient();
@@ -142,6 +142,8 @@ namespace Templar
                                 break;
                             case 0:
                                 Infos.player2.direction = Direction.None;
+                                Infos.player2.ChangeFrameline(Infos.player.Frame_start);
+                                Infos.player2.timer = 0;
                                 break;
                         }
                         BR.ReadInt32();
@@ -151,9 +153,9 @@ namespace Templar
                         break;
                     case 2:
                         Infos.player2.chgt_position(BR.ReadInt32(), BR.ReadInt32());
-                        
+
                         break;
-                    case 31:    
+                    case 31:
                         Infos.List_Sort.RemoveAt(BR.ReadInt32());
                         BR.ReadInt32();
                         break;
@@ -175,9 +177,12 @@ namespace Templar
                         BR.ReadInt32();
                         break;
                     case 42:
-                        Infos.List_Zombie.Add(new NPC(24, 32, 4, 2, 1, 15,8, Infos.position_npc, ressource.zombie, Infos.player, Infos.map.Active_Map));
+                        Infos.List_Zombie.Add(new NPC(24, 32, 4, 2, 1, 15, 8, Infos.position_npc, ressource.zombie, Infos.player, Infos.map.Active_Map));
                         BR.ReadInt32();
                         BR.ReadInt32();
+                        break;
+                    case 99:
+                        Infos.same_map = (Infos.map.x == BR.ReadInt32() && Infos.map.y == BR.ReadInt32());
                         break;
                 }
 
@@ -196,9 +201,9 @@ namespace Templar
         }
         public void Send(int type, object value)
         {
-           
+
             Serialiseur.Serialize(Client.GetStream(), value);
-            
+
         }
     }
 }

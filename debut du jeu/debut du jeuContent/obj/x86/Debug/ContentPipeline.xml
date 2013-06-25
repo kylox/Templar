@@ -473,6 +473,15 @@
       <Output>C:\Users\msi-\Desktop\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\pique.xnb</Output>
       <Time>2013-06-25T01:37:33.5368352+01:00</Time>
     </Item>
+    <Item>
+      <Source>multiplayer.png</Source>
+      <Name>multiplayer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Louis\Templar\debut du jeu\debut du jeu\bin\x86\Debug\Content\multiplayer.xnb</Output>
+      <Time>2013-06-25T03:01:53.5560121+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -23,7 +23,7 @@ namespace Templar
             ARBRE, MUR, STATUT, SOL, // EDM
             potion_vie, potion_mana,//POTION
             tile, plus, moin, objet_map, mob
-            ,cross,item;
+            ,cross,item,menu_2;
         public static SoundEffect selection, lowHP, feu, pique; //ressource des bruitage
         public static Song menu, main_theme;
         public static SpriteFont ecriture;
@@ -48,6 +48,7 @@ namespace Templar
             th = Content.Load<Texture2D>(@"ecran\th");
             option = Content.Load<Texture2D>(@"ecran\option\option");
             gameover = Content.Load<Texture2D>(@"ecran\jeux\game_o10");
+            menu_2 = Content.Load<Texture2D>(@"multiplayer");
 
             //song
             menu = Content.Load<Song>(@"Music\musiques\01 - niNzo` - Epic feel");

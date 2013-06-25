@@ -39,16 +39,14 @@ namespace Templar
         }
         public override void Draw(GameTime gameTime)
         {
+            spriteBatch.Draw(ressource.menu_2, new Rectangle(0, 0,game.Window.ClientBounds.Width,game.Window.ClientBounds.Height), Color.White);
             if (selec)
                 box.Draw(spriteBatch);
-
-            spriteBatch.Draw(ressource.pixel, new Rectangle(200, 300, 100, 50), Color.Green);
-            spriteBatch.Draw(ressource.pixel, new Rectangle(400, 300, 100, 50), Color.Yellow);
-            spriteBatch.DrawString(ressource.ecriture, "CLIENT", new Vector2(200, 300), Color.Azure);
-            spriteBatch.DrawString(ressource.ecriture, "SERVEUR", new Vector2(400, 300), Color.Azure);
+            spriteBatch.Draw(ressource.pixel, new Rectangle(200, 300, 100, 50), Color.DarkGreen);
+            spriteBatch.Draw(ressource.pixel, new Rectangle(520, 300, 100, 50), Color.DarkRed);
+            spriteBatch.DrawString(ressource.ecriture, "CLIENT", new Vector2(220, 300), Color.White);
+            spriteBatch.DrawString(ressource.ecriture, "SERVEUR", new Vector2(530, 300), Color.White);
             base.Draw(gameTime);
         }
-
-
     }
 }

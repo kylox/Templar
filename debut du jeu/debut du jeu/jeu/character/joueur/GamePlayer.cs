@@ -236,10 +236,13 @@ namespace Templar
                 }
             if (Data.keyboardState.IsKeyDown(Keys.E) && Data.prevKeyboardState.IsKeyUp(Keys.E))
             {
+                if (main.princess != null && position == main.princess.position)
+                    main.victoire = true;
                 switch (frameline)
                 {
                     // en haut
                     case 3:
+                        
                         if (map.Active_Map.objet[(int)position.X / 32, (int)position.Y / 32 - 1] == new Vector2(2, 2))
                         {
                             text.Is_shown = true;

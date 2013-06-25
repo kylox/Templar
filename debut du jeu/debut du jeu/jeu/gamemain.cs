@@ -43,9 +43,10 @@ namespace Templar
         public bool same_map, Is_Server, Is_Client;
         bool ClickDown, pressdown;
         int pop_time, score, count_dead_zombi, timer_level_up;
-        Princess princess;
+        public Princess princess;
         string nom_donjon;
         bool langue;
+        public bool victoire;
         #endregion
         #region get set
         public GamePlayer player2 { get { return Player2; } set { Player2 = value; } }
@@ -91,6 +92,7 @@ namespace Templar
         public gamemain(Game game, SpriteBatch spriteBatch, GameScreen activescreen, Donjon donjon, bool is2p, string ip, string name_donjon, bool language)
             : base(game, spriteBatch)
         {
+            victoire = false;
             langue = language;
             nom_donjon = name_donjon;
             fenetre = new Rectangle(0, 0, game.Window.ClientBounds.Width, game.Window.ClientBounds.Height); //taille de la fenetre
@@ -150,7 +152,7 @@ namespace Templar
             white = Color.White;
             white.A = 120;
             effect = new BasicEffect(game.GraphicsDevice);
-
+            same_map = true;
         }
         public void AddHUD()
         {
@@ -223,6 +225,7 @@ namespace Templar
         }
         public override void Update(GameTime gameTime)
         {
+            
             text.Fenetre.Width = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).X + 7;
             text.Fenetre.Height = (int)ressource.ecriture.MeasureString(map.Active_Map.Message).Y + 7;
             //ICI
@@ -358,6 +361,7 @@ namespace Templar
 
                     if (Is_Server)
                     {
+                        Serveur.Send(99, map.x, map.y);
                         Serveur.Send(2, (int)player.Position.X, (int)player.position_player.Y);
                         switch (player.direction)
                         {
@@ -384,6 +388,7 @@ namespace Templar
                     }
                     if (Is_Client)
                     {
+                        Client.Send(99, map.x, map.y);
                         Client.Send(2, (int)player.Position.X, (int)player.position_player.Y);
                         switch (player.direction)
                         {
@@ -477,8 +482,8 @@ namespace Templar
                                 if (Is_Server)
                                 {
                                     Serveur.Send(31, i, 0);
-                                }
-                                break;*/
+                                }*/
+                                break;
                             }
 
                     #endregion SORT
@@ -534,7 +539,7 @@ namespace Templar
                 boule.draw(spriteBatch);
 
             localPlayer.Draw(spriteBatch);
-            if (Is_Client || Is_Server)
+            if ((Is_Client || Is_Server) && same_map)
                 Player2.Draw(spriteBatch);
 
             spriteBatch.DrawString(ressource.ecriture, Convert.ToString(score), new Vector2(500, 0), Color.Yellow);

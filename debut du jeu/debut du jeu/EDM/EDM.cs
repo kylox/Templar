@@ -434,10 +434,12 @@ namespace Templar
 
 
                 spriteBatch.Draw(ressource.pixel, tileset, Color.FromNonPremultiplied(0, 0, 0, 50));
+
                 message.Draw(spriteBatch);
                 if (Donjon.Map[actuel.X, actuel.Y].isfirst == true)
                     spriteBatch.Draw(ressource.cross, new Rectangle((int)position.X, (int)position.Y, 16, 16), Color.White);
                 spriteBatch.Draw(ressource.item, new Rectangle(27 * 16, 48, 32 * 7, 32 * 7), new Rectangle(0, 0, 32 * 7, 32 * 7), Color.White);
+
                 cursor.Draw(spriteBatch, fenetre);
                 if (selec == true)
                 {
@@ -453,9 +455,9 @@ namespace Templar
                     spriteBatch.DrawString(ressource.ecriture, op6, new Vector2(fenetre.Width - ressource.tile.Width + 48, 300+32), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, op7, new Vector2(0, 18 * 16 + 10), Color.White);
                     spriteBatch.DrawString(ressource.ecriture, op8, new Vector2(game.Window.ClientBounds.Width / 8, 2 * game.Window.ClientBounds.Height / 3+96), Color.White);
-                    spriteBatch.DrawString(ressource.ecriture,"clic gauche ici pour poser la tuile\\mob",new Vector2(0,32),Color.White);
-                    spriteBatch.DrawString(ressource.ecriture,"clic droit pour ouvrir sur un coffre\n pour l'ouvrir",new Vector2(0,128),Color.White);
-                    spriteBatch.DrawString(ressource.ecriture, "clic gauche sur item \nquand un coffre est ouvert\n pour l'ajouter", new Vector2(27 * 16 + 16, 48 + 16), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic gauche ici pour poser la tuile\\mob", new Vector2(0, 32), Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic droit sur un coffre pour l'ouvrir",new Vector2(0, 128),Color.White);
+                    spriteBatch.DrawString(ressource.ecriture, "clic gauche sur item \nquand un coffre \nest ouvert \npour l'ajouter", new Vector2(27 * 16 + 16, 48 + 16), Color.White);
                 }
             }
         }
